@@ -4,7 +4,8 @@ import Layout from "../components/layout"
 import { Link } from "gatsby"
 import { kebabCase } from "lodash"
 import "./post.css"
-
+import Hero from "../components/Hero"
+import get from "lodash/get"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
@@ -58,11 +59,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <Link to="/posts">Back to Posts</Link>
+      <Hero
+        heading={post.title}
+        text={post.title}
+        slug={post.slug}
+        image={post.featuredImg.fluid}
+      />
       <article>
-        <header>
-          <h1> {post.title} </h1>
+        <hr />
+        <div>
           <p> {post.date} </p>
+          <Link to="/posts">Back to Posts</Link>
           <div>
             Tags:{" "}
             {post.tags.map((tag, i) => [
@@ -72,9 +79,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </Link>,
             ])}
           </div>
-        </header>
+        </div>
         <hr />
-        <div className="w-full max-w-2xl m-auto mt-2 text-white article">
+        <div
+          className="w-full max-w-2xl m-auto mt-2 text-white article"
+          id={post.slug}
+        >
           {documentToReactComponents(
             post.childContentfulBlogArticleRichTextNode.json,
             options
@@ -115,6 +125,15 @@ export const pageQuery = graphql`
       tags
       childContentfulBlogArticleRichTextNode {
         json
+      }
+      featuredImg {
+        fixed(width: 940, height: 300) {
+          ...GatsbyContentfulFixed
+        }
+        fluid(maxWidth: 700) {
+          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+          ...GatsbyContentfulFluid
+        }
       }
     }
   }

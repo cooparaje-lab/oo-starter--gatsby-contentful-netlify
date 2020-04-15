@@ -19,9 +19,7 @@ const Tags = ({ pageContext, data }) => {
 
             return (
               <li key={slug}>
-                <Link to={slug}>
-                  {title} ({date})
-                </Link>
+                <Link to={slug}>{title}</Link>
               </li>
             )
           })}

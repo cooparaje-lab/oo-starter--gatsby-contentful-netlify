@@ -15,7 +15,9 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/posts/">Posts</Link>
-    <Link to="/tags/">Tags</Link>
+    <Link to="/tags/" style={{ paddingLeft: "15px" }}>
+      Tags
+    </Link>
   </Layout>
 )
 

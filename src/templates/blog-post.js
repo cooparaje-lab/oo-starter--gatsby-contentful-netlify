@@ -5,6 +5,8 @@ import { Link } from "gatsby"
 import { kebabCase } from "lodash"
 import "./post.css"
 import Hero from "../components/hero"
+import SEO from "../components/seo"
+
 import get from "lodash/get"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -59,6 +61,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
+      <SEO title="Post" />
+
       <Hero
         heading={post.title}
         text={post.title}
@@ -71,7 +75,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <p> {post.date} </p>
           <Link to="/posts">Back to Posts</Link>
           <div>
-            Tags:{" "}
+            Tags:
             {post.tags.map((tag, i) => [
               <Link to={`/tags/${kebabCase(tag)}/`} key={i}>
                 {tag}
@@ -95,18 +99,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <nav style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           {prev && (
-            <Link to={prev.slug} rel="prev">
-              {" "}
-              ← Last Post{" "}
+            <Link to={`/posts/${kebabCase(prev.slug)}/`} rel="prev">
+              ← Last Post
             </Link>
           )}
         </div>
 
         <div style={{ justifySelf: "flex-end" }}>
           {next && (
-            <Link to={next.slug} rel="next">
-              {" "}
-              Next Post →{" "}
+            <Link to={`/posts/${kebabCase(next.slug)}/`} rel="next">
+              Next Post →
             </Link>
           )}
         </div>

@@ -2,6 +2,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
+import { kebabCase } from "lodash"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -11,6 +13,8 @@ const Tags = ({ pageContext, data }) => {
   } tagged with "${tag}"`
   return (
     <Layout>
+      <SEO title="Tags" />
+
       <div>
         <h1>{tagHeader}</h1>
         <ul>
@@ -19,7 +23,7 @@ const Tags = ({ pageContext, data }) => {
 
             return (
               <li key={slug}>
-                <Link to={slug}>{title}</Link>
+                <Link to={`/posts/${kebabCase(slug)}/`}>{title}</Link>
               </li>
             )
           })}

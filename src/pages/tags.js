@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import SEO from "../components/seo"
 
 import { kebabCase } from "lodash"
 
@@ -9,6 +10,8 @@ const TagsPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title="Tags" />
+
       <div>
         <h1>Tags</h1>
         <ul>

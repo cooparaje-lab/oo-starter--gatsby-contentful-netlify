@@ -20,7 +20,7 @@ const Tags = ({ pageContext, data }) => {
         <h1>{tagHeader}</h1>
         <div>
           {edges.map(({ node }) => {
-            const { title, date, slug } = node
+            const { title, slug } = node
 
             return (
               <div

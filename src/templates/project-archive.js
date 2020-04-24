@@ -19,15 +19,14 @@ const ProjectArchive = ({ data, pageContext, location }) => {
           const title = node.title || node.slug
           return (
             <Item key={node.slug}>
-              <Title>
-                <Link to={`/proyectos/${kebabCase(node.slug)}/`}>
-                  {" "}
-                  {title}{" "}
-                </Link>
-              </Title>
-              <a href={node.webUrl} target="_blank" rel="noopener noreferrer">
-                Link
-              </a>
+              <ItemContent>
+                <Title>
+                  <Link to={`/proyectos/${kebabCase(node.slug)}/`}>
+                    {" "}
+                    {title}{" "}
+                  </Link>
+                </Title>
+              </ItemContent>
             </Item>
           )
         })}
@@ -38,16 +37,21 @@ const ProjectArchive = ({ data, pageContext, location }) => {
 }
 
 const BlogContainer = styled.div`
-  ${tw`max-w-6xl pt-12 m-auto`}
+  ${tw`flex flex-wrap justify-center max-w-6xl m-auto overflow-hidden`}
 `
 
 const Item = styled.div`
-  ${tw`my-6`}
+  ${tw`w-1/3 px-3 my-3 overflow-hidden text-center `}
+`
+const ItemContent = styled.div`
+  ${tw`flex flex-col items-center justify-center px-6 mx-0 bg-blue-200 shadow-lg hover:shadow-md hover:bg-blue-100`}
+  transition: all .4s;
+  min-height: 150px;
 `
 
 const Title = styled.h3`
-  ${tw`text-xl hover:text-blue-400`}
-  transition: all .5s;
+  ${tw`text-xl `}
+  transition: all .4s;
 `
 
 export default ProjectArchive
@@ -55,7 +59,7 @@ export default ProjectArchive
 export const pageQuery = graphql`
   query($skip: Int!, $limit: Int!) {
     allContentfulProyectos(
-      sort: { fields: [title], order: DESC }
+      sort: { fields: [title], order: ASC }
       limit: $limit
       skip: $skip
     ) {

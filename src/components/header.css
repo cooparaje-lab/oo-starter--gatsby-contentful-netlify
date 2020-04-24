@@ -9,7 +9,7 @@
   z-index: 999;
   position: fixed !important;
   transition: all 800ms ease-in-out;
-  @apply bg-gray-200 shadow-sm;
+  @apply bg-white shadow-sm;
 }
 .headroom--unfixed {
   position: relative;

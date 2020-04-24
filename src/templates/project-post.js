@@ -16,35 +16,38 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
       <SEO title="Post" />
 
       <Article css={tw`max-w-6xl`}>
-        <Title> {post.title} </Title>
-        <a
-          href={post.webUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          css={tw`pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate`}
-        >
-          Link
-        </a>
-        <Link to="/proyectos">Back to Projects</Link>
+        <Link className="block pt-8 my-3 text-center" to="/proyectos">
+          Ver todos los proyectos
+        </Link>
+        <Title css={tw`flex items-center justify-between md:flex-col`}>
+          {post.title}
+          <a
+            href={post.webUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            css={tw`inline-block pb-2 my-3 mb-6 text-xl font-semibold leading-snug truncate`}
+          >
+            Link al sitio
+          </a>
+        </Title>
+        <nav style={{ display: "flex", justifyContent: "space-between" }}>
+          <div>
+            {prev && (
+              <Link to={`/proyectos/${kebabCase(prev.slug)}/`} rel="prev">
+                ← {prev.title}
+              </Link>
+            )}
+          </div>
+
+          <div style={{ justifySelf: "flex-end" }}>
+            {next && (
+              <Link to={`/proyectos/${kebabCase(next.slug)}/`} rel="next">
+                {next.title} →
+              </Link>
+            )}
+          </div>
+        </nav>
       </Article>
-
-      <nav style={{ display: "flex", justifyContent: "space-between" }}>
-        <div>
-          {prev && (
-            <Link to={`/proyectos/${kebabCase(prev.slug)}/`} rel="prev">
-              ← {prev.title}
-            </Link>
-          )}
-        </div>
-
-        <div style={{ justifySelf: "flex-end" }}>
-          {next && (
-            <Link to={`/proyectos/${kebabCase(next.slug)}/`} rel="next">
-              {next.title} →
-            </Link>
-          )}
-        </div>
-      </nav>
     </Layout>
   )
 }

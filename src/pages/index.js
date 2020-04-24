@@ -1,31 +1,42 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
+import { Title } from "../components/import"
+import EmptyStreet from "../assets/empty_street.svg"
+import Fade from "react-reveal/Fade"
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Home>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
+      <Title>
+        <Fade top cascade duration={1200}>
+          <h1>Hola doctores</h1>
+        </Fade>
+      </Title>
+      <p>Sean bienvenides a un nuevo sitio web.</p>
+      <p>Ahora a crear algo grandioso</p>
       <ImgContainer>
-        <Image />
+        <EmptyStreet />
       </ImgContainer>
     </Home>
   </Layout>
 )
 
 const Home = styled.div`
-  ${tw`h-screen text-center`}
+  ${tw`flex flex-col items-center justify-end pt-6 text-center bg-blue-100`}
+  height: 60vh;
 `
 
 const ImgContainer = styled.div`
-  ${tw`relative max-w-sm m-auto`}
+  ${tw`relative w-full max-w-sm pt-12 m-0`}
+  height: auto;
+  svg {
+    ${tw`w-full`}
+    height: auto
+  }
 `
 
 export default IndexPage

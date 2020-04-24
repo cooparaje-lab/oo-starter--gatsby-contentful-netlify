@@ -6,7 +6,6 @@ import { kebabCase } from "lodash"
 import "./post.css"
 import Hero from "../components/hero"
 import SEO from "../components/seo"
-import get from "lodash/get"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import {

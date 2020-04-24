@@ -79,7 +79,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
         <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
           <Meta>
-            <Link to="/blog">Back to Posts</Link>
+            <Link to="/blog">Ver blog</Link>
             <Tags>
               {post.tags.map((tag, i) => [
                 <Link to={`/etiquetas/${kebabCase(tag)}/`} key={i}>

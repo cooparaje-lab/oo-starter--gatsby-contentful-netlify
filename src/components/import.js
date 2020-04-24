@@ -19,7 +19,7 @@ export const HeroContainer = styled.div`
 `
 
 export const Meta = styled.div`
-  ${tw`flex items-center justify-between px-0 py-3`}
+  ${tw`flex items-baseline justify-between px-0 py-3`}
   a {
     ${tw`text-blue-500`}
     &:hover {

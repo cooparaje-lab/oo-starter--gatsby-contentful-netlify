@@ -44,7 +44,7 @@ const Logo = styled.div`
 
 const Nav = styled.nav`
   a {
-    ${tw`ml-4 font-mono text-xl`}
+    ${tw`ml-6 font-mono text-xl`}
     &.active {
       ${tw`text-blue-500`}
     }

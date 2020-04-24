@@ -1,1 +1,5 @@
-import "./src/styles/globals.css"
+require("./src/styles/globals.css")
+
+exports.shouldUpdateScroll = () => {
+  return false
+}

@@ -16,11 +16,11 @@ const Layout = ({ children }) => {
     <>
       <App>
         <main>{children}</main>
-        <footer>
+        <Footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        </Footer>
       </App>
     </>
   )
@@ -32,6 +32,10 @@ Layout.propTypes = {
 
 const App = styled.div`
   ${tw`block min-h-screen mt-16`}
+`
+
+const Footer = styled.footer`
+  ${tw`py-6 text-center`}
 `
 
 export default Layout

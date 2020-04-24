@@ -14,6 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve(`./src/templates/blog-post.js`)
+    const projectPost = path.resolve(`./src/templates/project-post.js`)
     const tagTemplate = path.resolve(`src/templates/tags-template.js`)
 
     resolve(
@@ -29,6 +30,15 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
+            allContentfulProyectos {
+              edges {
+                node {
+                  id
+                  title
+                  slug
+                }
+              }
+            }
           }
         `
       ).then(result => {
@@ -40,12 +50,20 @@ exports.createPages = ({ graphql, actions }) => {
         paginate({
           createPage,
           items: result.data.allContentfulBlog.edges,
-          itemsPerPage: 3,
+          itemsPerPage: 12,
           pathPrefix: "/posts",
           component: path.resolve("src/templates/blog-archive.js"),
         })
+        paginate({
+          createPage,
+          items: result.data.allContentfulProyectos.edges,
+          itemsPerPage: 12,
+          pathPrefix: "/projects",
+          component: path.resolve("src/templates/project-archive.js"),
+        })
 
         const posts = result.data.allContentfulBlog.edges
+        const projects = result.data.allContentfulProyectos.edges
 
         posts.forEach((post, index) => {
           createPage({
@@ -58,6 +76,20 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
         })
+
+        projects.forEach((project, index) => {
+          createPage({
+            path: `/projects/${project.node.slug}/`,
+            component: projectPost,
+            context: {
+              slug: project.node.slug,
+              prev: index === 0 ? null : projects[index - 1].node,
+              next:
+                index === projects.length - 1 ? null : projects[index + 1].node,
+            },
+          })
+        })
+
         // create Tags pages
         // pulled directly from https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
         let tags = []

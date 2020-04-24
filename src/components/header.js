@@ -20,6 +20,9 @@ const Header = ({ siteTitle }) => (
         <Link activeClassName="active" to="/tags/">
           Tags
         </Link>
+        <Link activeClassName="active" to="/projects/">
+          Projects
+        </Link>
       </Nav>
     </InnerWrapper>
   </Headroom>
@@ -38,12 +41,12 @@ const InnerWrapper = styled.div`
 `
 
 const Logo = styled.div`
-  ${tw`text-xl font-bold tracking-wider uppercase`}
+  ${tw`font-mono text-xl font-bold tracking-wider uppercase`}
 `
 
 const Nav = styled.nav`
   a {
-    ${tw`ml-4 text-xl`}
+    ${tw`ml-4 font-mono text-xl`}
     &.active {
       ${tw`text-blue-500`}
     }

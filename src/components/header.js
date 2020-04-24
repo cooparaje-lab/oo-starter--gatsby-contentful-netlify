@@ -1,39 +1,28 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Headroom from "react-headroom"
+
 import "./header.css"
+import tw from "tailwind.macro"
+import styled from "@emotion/styled"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+  <Headroom disableInlineStyles>
+    <InnerWrapper>
+      <Logo>
+        <Link to="/">{siteTitle}</Link>
+      </Logo>
+      <Nav>
+        <Link activeClassName="active" to="/posts/">
+          Posts
         </Link>
-      </h1>
-      <nav>
-        <Link to="/posts/">Posts</Link>
-        <Link to="/tags/">Tags</Link>
-      </nav>
-    </div>
-  </header>
+        <Link activeClassName="active" to="/tags/">
+          Tags
+        </Link>
+      </Nav>
+    </InnerWrapper>
+  </Headroom>
 )
 
 Header.propTypes = {
@@ -43,5 +32,22 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
+
+const InnerWrapper = styled.div`
+  ${tw`flex items-center justify-between max-w-6xl py-3 m-auto `}
+`
+
+const Logo = styled.div`
+  ${tw`text-xl font-bold tracking-wider uppercase`}
+`
+
+const Nav = styled.nav`
+  a {
+    ${tw`ml-4 text-xl`}
+    &.active {
+      ${tw`text-blue-500`}
+    }
+  }
+`
 
 export default Header

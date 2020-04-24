@@ -1,11 +1,35 @@
-header nav {
-  display: block;
-  margin-top: 15px;
+.headroom-wrapper {
+  position: absolute;
 }
 
-header nav a {
-  color: #fff;
-  margin-top: 15px;
-  display: ineline-block;
-  margin-right: 15px;
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  position: fixed !important;
+  transition: all 800ms ease-in-out;
+  @apply bg-gray-200 shadow-sm;
+}
+.headroom--unfixed {
+  position: relative;
+  transform: translateY(0);
+}
+.headroom--scrolled {
+}
+.headroom--unpinned {
+  position: fixed;
+
+  transform: translateY(0);
+}
+
+@screen md {
+  .headroom--unpinned {
+    transform: translateY(-100%);
+    background: transparent !important;
+  }
+}
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
 }

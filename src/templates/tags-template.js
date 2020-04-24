@@ -4,7 +4,8 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { kebabCase } from "lodash"
-
+import tw from "tailwind.macro"
+import styled from "@emotion/styled"
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allContentfulBlog
@@ -15,24 +16,35 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <SEO title="Tags" />
 
-      <div>
+      <TagsContainer>
         <h1>{tagHeader}</h1>
-        <ul>
+        <div>
           {edges.map(({ node }) => {
             const { title, date, slug } = node
 
             return (
-              <li key={slug}>
+              <div
+                key={slug}
+                css={tw`pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate border-b border-gray-900`}
+              >
                 <Link to={`/posts/${kebabCase(slug)}/`}>{title}</Link>
-              </li>
+              </div>
             )
           })}
-        </ul>
+        </div>
         <Link to="/tags">All tags</Link>
-      </div>
+      </TagsContainer>
     </Layout>
   )
 }
+
+const TagsContainer = styled.div`
+  ${tw`max-w-6xl min-h-screen pt-12 m-auto`}
+
+  h1 {
+    ${tw`text-4xl`}
+  }
+`
 
 export default Tags
 

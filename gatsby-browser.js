@@ -1,3 +1,1 @@
-exports.shouldUpdateScroll = () => {
-  return true
-}
+import "./src/styles/globals.css"

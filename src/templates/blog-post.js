@@ -6,10 +6,11 @@ import { kebabCase } from "lodash"
 import "./post.css"
 import Hero from "../components/hero"
 import SEO from "../components/seo"
-
 import get from "lodash/get"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import tw from "tailwind.macro"
+import styled from "@emotion/styled"
 
 const Bold = ({ children }) => <span className="font-bold">{children}</span>
 const Text = ({ children }) => <p className="my-3 text-lg">{children}</p>
@@ -30,8 +31,8 @@ const options = {
         <div className="post-image">
           <img
             className="w-full"
-            alt={node.data.target.fields.title["en-US"]}
-            src={node.data.target.fields.file["en-US"].url}
+            alt={node.data.target.fields.title["es-AR"]}
+            src={node.data.target.fields.file["es-AR"].url}
           />
         </div>
       )
@@ -40,7 +41,7 @@ const options = {
       return (
         <a
           href={node.data.uri}
-          className="font-bold border-b border-red-500 hover:bg-red-700 hover:text-white"
+          className="font-bold border-b border-blue-500 hover:bg-blue-700 hover:text-white"
           target={`${
             node.data.uri.startsWith(website_url) ? "_self" : "_blank"
           }`}
@@ -63,14 +64,15 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <SEO title="Post" />
 
-      <Hero
-        heading={post.title}
-        text={post.title}
-        slug={post.slug}
-        image={post.featuredImg.fluid}
-      />
-      <article>
-        <hr />
+      <Article>
+        <HeroContainer>
+          <Hero
+            heading={post.title}
+            slug={post.slug}
+            image={post.featuredImg.fluid}
+          />
+        </HeroContainer>
+
         <div>
           <p> {post.date} </p>
           <Link to="/posts">Back to Posts</Link>
@@ -85,22 +87,19 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </div>
         </div>
         <hr />
-        <div
-          className="w-full max-w-2xl m-auto mt-2 text-white article"
-          id={post.slug}
-        >
+        <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
           {documentToReactComponents(
             post.childContentfulBlogArticleRichTextNode.json,
             options
           )}
         </div>
-      </article>
+      </Article>
 
       <nav style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           {prev && (
             <Link to={`/posts/${kebabCase(prev.slug)}/`} rel="prev">
-              ← Last Post
+              ← {prev.title}
             </Link>
           )}
         </div>
@@ -108,7 +107,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <div style={{ justifySelf: "flex-end" }}>
           {next && (
             <Link to={`/posts/${kebabCase(next.slug)}/`} rel="next">
-              Next Post →
+              {next.title} →
             </Link>
           )}
         </div>
@@ -118,6 +117,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 }
 
 export default BlogPostTemplate
+
+const Article = styled.article`
+  ${tw`max-w-6xl m-auto`}
+`
+
+const HeroContainer = styled.div`
+  ${tw`bg-green-500`}
+`
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {

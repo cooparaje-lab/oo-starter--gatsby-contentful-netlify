@@ -1,9 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
-
 import { kebabCase } from "lodash"
-
+import tw from "tailwind.macro"
+import styled from "@emotion/styled"
 import Layout from "../components/layout"
 const TagsPage = ({ data }) => {
   const allTags = data.allContentfulBlog.group
@@ -12,21 +12,34 @@ const TagsPage = ({ data }) => {
     <Layout>
       <SEO title="Tags" />
 
-      <div>
+      <Container>
         <h1>Tags</h1>
         <ul>
           {allTags.map(tag => (
-            <li key={tag.fieldValue}>
-              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+            <li
+              key={tag.fieldValue}
+              css={tw`pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate border-b border-gray-900`}
+            >
+              <Link
+                to={`/tags/${kebabCase(tag.fieldValue)}/`}
+                css={tw`hover:text-blue-500`}
+              >
                 {tag.fieldValue} ({tag.totalCount})
               </Link>
             </li>
           ))}
         </ul>
-      </div>
+      </Container>
     </Layout>
   )
 }
+
+const Container = styled.div`
+  ${tw`max-w-6xl min-h-screen pt-12 m-auto`}
+  h1 {
+    ${tw`mb-6 text-6xl`}
+  }
+`
 
 export default TagsPage
 

@@ -15,7 +15,7 @@ const IndexPage = () => (
       <Title className="mb-2">
         <Fade top cascade duration={1200}>
           <FiCodesandbox className="inline-block mb-1 text-blue-200" />
-          <h1>Hola doctores </h1>
+          <h1>Hola Doc!</h1>
         </Fade>
       </Title>
       <p>Sean bienvenides a un nuevo espacio.</p>

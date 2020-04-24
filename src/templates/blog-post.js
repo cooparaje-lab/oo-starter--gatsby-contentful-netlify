@@ -9,8 +9,13 @@ import SEO from "../components/seo"
 import get from "lodash/get"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import tw from "tailwind.macro"
-import styled from "@emotion/styled"
+import {
+  Article,
+  HeroContainer,
+  Meta,
+  ArticleText,
+  Tags,
+} from "../components/import"
 
 const Bold = ({ children }) => <span className="font-bold">{children}</span>
 const Text = ({ children }) => <ArticleText>{children}</ArticleText>
@@ -75,10 +80,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
         <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
           <Meta>
-            <Link to="/posts">Back to Posts</Link>
+            <Link to="/blog">Back to Posts</Link>
             <Tags>
               {post.tags.map((tag, i) => [
-                <Link to={`/tags/${kebabCase(tag)}/`} key={i}>
+                <Link to={`/etiquetas/${kebabCase(tag)}/`} key={i}>
                   {tag}
                   {i < post.tags.length - 1 ? ", " : ""}
                 </Link>,
@@ -92,7 +97,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <nav style={{ display: "flex", justifyContent: "space-between" }}>
             <div>
               {prev && (
-                <Link to={`/posts/${kebabCase(prev.slug)}/`} rel="prev">
+                <Link to={`/blog/${kebabCase(prev.slug)}/`} rel="prev">
                   ← {prev.title}
                 </Link>
               )}
@@ -100,7 +105,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
             <div style={{ justifySelf: "flex-end" }}>
               {next && (
-                <Link to={`/posts/${kebabCase(next.slug)}/`} rel="next">
+                <Link to={`/blog/${kebabCase(next.slug)}/`} rel="next">
                   {next.title} →
                 </Link>
               )}
@@ -114,39 +119,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
 export default BlogPostTemplate
 
-const Article = styled.article`
-  ${tw`max-w-full m-auto`}
-
-  .article {
-    ${tw`px-2`}
-  }
-`
-
-const HeroContainer = styled.div`
-  ${tw`bg-blue-900`}
-`
-
-const Meta = styled.div`
-  ${tw`flex items-center justify-between px-0 py-3`}
-  a {
-    ${tw`text-blue-500`}
-    &:hover {
-      ${tw`text-blue-300`}
-    }
-  }
-`
-const ArticleText = styled.p`
-  ${tw`my-3 text-lg`}
-`
-
-const Tags = styled.div`
-  ${tw`mt-0`}
-
-  a {
-    ${tw`text-blue-600`}
-  }
-`
-
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
     contentfulBlog(slug: { eq: $slug }) {
@@ -158,11 +130,11 @@ export const pageQuery = graphql`
       }
       featuredImg {
         fixed(width: 1900, height: 550) {
-          ...GatsbyContentfulFixed
+          ...GatsbyContentfulFixed_withWebp_noBase64
         }
         fluid(maxWidth: 1500) {
           # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }

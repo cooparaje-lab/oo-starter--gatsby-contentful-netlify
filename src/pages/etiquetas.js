@@ -10,10 +10,10 @@ const TagsPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Tags" />
+      <SEO title="Etiquetas" />
 
       <Container>
-        <h1>Tags</h1>
+        <h1>Etiquetas</h1>
         <ul>
           {allTags.map(tag => (
             <li
@@ -21,7 +21,7 @@ const TagsPage = ({ data }) => {
               css={tw`pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate`}
             >
               <Link
-                to={`/tags/${kebabCase(tag.fieldValue)}/`}
+                to={`/etiquetas/${kebabCase(tag.fieldValue)}/`}
                 css={tw`hover:text-blue-500`}
               >
                 {tag.fieldValue} ({tag.totalCount})

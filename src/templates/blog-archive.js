@@ -20,7 +20,7 @@ const BlogArchive = ({ data, pageContext, location }) => {
           return (
             <article key={node.slug}>
               <Title>
-                <Link to={`/posts/${kebabCase(node.slug)}/`}> {title} </Link>
+                <Link to={`/blog/${kebabCase(node.slug)}/`}> {title} </Link>
               </Title>
             </article>
           )

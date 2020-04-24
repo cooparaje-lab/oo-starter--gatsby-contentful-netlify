@@ -20,7 +20,10 @@ const ProjectArchive = ({ data, pageContext, location }) => {
           return (
             <Item key={node.slug}>
               <Title>
-                <Link to={`/projects/${kebabCase(node.slug)}/`}> {title} </Link>
+                <Link to={`/proyectos/${kebabCase(node.slug)}/`}>
+                  {" "}
+                  {title}{" "}
+                </Link>
               </Title>
               <a href={node.webUrl} target="_blank" rel="noopener noreferrer">
                 Link

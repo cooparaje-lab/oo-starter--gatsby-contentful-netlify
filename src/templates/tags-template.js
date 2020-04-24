@@ -27,12 +27,12 @@ const Tags = ({ pageContext, data }) => {
                 key={slug}
                 css={tw`pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate`}
               >
-                <Link to={`/posts/${kebabCase(slug)}/`}>{title}</Link>
+                <Link to={`/blog/${kebabCase(slug)}/`}>{title}</Link>
               </div>
             )
           })}
         </div>
-        <Link to="/tags">All tags</Link>
+        <Link to="/etiquetas">Mostrar todo</Link>
       </TagsContainer>
     </Layout>
   )

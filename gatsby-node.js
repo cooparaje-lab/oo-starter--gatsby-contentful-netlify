@@ -51,14 +51,14 @@ exports.createPages = ({ graphql, actions }) => {
           createPage,
           items: result.data.allContentfulBlog.edges,
           itemsPerPage: 12,
-          pathPrefix: "/posts",
+          pathPrefix: "/blog",
           component: path.resolve("src/templates/blog-archive.js"),
         })
         paginate({
           createPage,
           items: result.data.allContentfulProyectos.edges,
           itemsPerPage: 12,
-          pathPrefix: "/projects",
+          pathPrefix: "/proyectos",
           component: path.resolve("src/templates/project-archive.js"),
         })
 
@@ -67,7 +67,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         posts.forEach((post, index) => {
           createPage({
-            path: `/posts/${post.node.slug}/`,
+            path: `/blog/${post.node.slug}/`,
             component: blogPost,
             context: {
               slug: post.node.slug,
@@ -79,7 +79,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         projects.forEach((project, index) => {
           createPage({
-            path: `/projects/${project.node.slug}/`,
+            path: `/proyectos/${project.node.slug}/`,
             component: projectPost,
             context: {
               slug: project.node.slug,
@@ -104,7 +104,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Make tag pages
         tags.forEach(tag => {
           createPage({
-            path: `/tags/${_.kebabCase(tag)}/`,
+            path: `/etiquetas/${_.kebabCase(tag)}/`,
             component: tagTemplate,
             context: {
               tag,

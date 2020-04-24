@@ -31,7 +31,7 @@ const Heros = styled.div`
 const TextContainer = styled.header`
   ${tw`absolute inset-0 z-50 flex flex-col items-center justify-center`}
   h1 {
-    ${tw`m-0 text-4xl text-white`}
+    ${tw`m-0 text-4xl text-center text-white`}
   }
 `
 const ImgContainer = styled.div`
@@ -40,6 +40,10 @@ const ImgContainer = styled.div`
 
   .gatsby-image-wrapper {
     opacity: 0.2;
+
+    &:hover {
+      opacity: 1;
+    }
   }
   img {
     height: 500px;

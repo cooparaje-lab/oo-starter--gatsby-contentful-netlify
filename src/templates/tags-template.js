@@ -25,7 +25,7 @@ const Tags = ({ pageContext, data }) => {
             return (
               <div
                 key={slug}
-                css={tw`pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate border-b border-gray-900`}
+                css={tw`pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate`}
               >
                 <Link to={`/posts/${kebabCase(slug)}/`}>{title}</Link>
               </div>
@@ -42,7 +42,7 @@ const TagsContainer = styled.div`
   ${tw`max-w-6xl min-h-screen pt-12 m-auto`}
 
   h1 {
-    ${tw`text-4xl`}
+    ${tw`font-mono text-4xl`}
   }
 `
 

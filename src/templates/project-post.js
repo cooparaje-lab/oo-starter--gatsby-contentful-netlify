@@ -65,10 +65,11 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
       <SEO title="Post" />
 
       <Article>
-        <div>
-          <p> {post.title} </p>
-          <Link to="/projects">Back to Projects</Link>
-        </div>
+        <Title> {post.title} </Title>
+        <a href={post.webUrl} target="_blank" rel="noopener noreferrer">
+          Link
+        </a>
+        <Link to="/projects">Back to Projects</Link>
       </Article>
 
       <nav style={{ display: "flex", justifyContent: "space-between" }}>
@@ -98,8 +99,9 @@ const Article = styled.article`
   ${tw`max-w-6xl min-h-screen m-auto`}
 `
 
-const HeroContainer = styled.div`
-  ${tw`bg-green-500`}
+const Title = styled.h3`
+  ${tw`text-4xl hover:text-blue-400`}
+  transition: all .5s;
 `
 
 export const pageQuery = graphql`
@@ -108,6 +110,7 @@ export const pageQuery = graphql`
       id
       slug
       title
+      webUrl
     }
   }
 `

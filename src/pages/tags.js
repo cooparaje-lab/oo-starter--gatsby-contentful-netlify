@@ -18,7 +18,7 @@ const TagsPage = ({ data }) => {
           {allTags.map(tag => (
             <li
               key={tag.fieldValue}
-              css={tw`pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate border-b border-gray-900`}
+              css={tw`pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate`}
             >
               <Link
                 to={`/tags/${kebabCase(tag.fieldValue)}/`}

@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <App>
-        <main>{children}</main>
+        <Main>{children}</Main>
         <Footer>
           © {new Date().getFullYear()}, Built with
           {` `}
@@ -31,7 +31,13 @@ Layout.propTypes = {
 }
 
 const App = styled.div`
-  ${tw`block min-h-screen mt-16`}
+  ${tw`block min-h-screen pt-5 mt-8`}
+`
+
+const Main = styled.main`
+  a {
+    ${tw`pb-1 text-blue-500`}
+  }
 `
 
 const Footer = styled.footer`

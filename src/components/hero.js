@@ -10,14 +10,14 @@ const Hero = props => (
   <Heros>
     <TextContainer>
       <Fade bottom duration={800} delay={1200}>
-        <h1>{props.heading}</h1>
+        <AnchorLink href={`#${kebabCase(props.slug)}`} aria-label={props.text}>
+          <h1>{props.heading}</h1>
+        </AnchorLink>
       </Fade>
     </TextContainer>
     <ImgContainer>
-      <Fade bottom duration={1200}>
-        <AnchorLink href={`#${kebabCase(props.slug)}`} aria-label={props.text}>
-          <Img title={props.heading} alt={props.heading} fluid={props.image} />
-        </AnchorLink>
+      <Fade duration={1200}>
+        <Img title={props.heading} alt={props.heading} fixed={props.image} />
       </Fade>
     </ImgContainer>
   </Heros>
@@ -26,7 +26,7 @@ const Hero = props => (
 export default Hero
 
 const Heros = styled.div`
-  ${tw`relative pb-12 `}
+  ${tw`relative `}
 `
 const TextContainer = styled.header`
   ${tw`absolute inset-0 z-50 flex flex-col items-center justify-center`}
@@ -35,10 +35,14 @@ const TextContainer = styled.header`
   }
 `
 const ImgContainer = styled.div`
-  ${tw`h-64 overflow-hidden bg-blue-900`}
+  ${tw`overflow-hidden bg-blue-900`}
+  min-height: 500px;
+
+  .gatsby-image-wrapper {
+    opacity: 0.2;
+  }
   img {
-    height: 265px;
-    opacity: 0.8;
+    height: 500px;
     object-fit: cover;
     object-position: center;
   }

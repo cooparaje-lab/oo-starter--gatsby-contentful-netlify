@@ -17,9 +17,7 @@ const Header = ({ siteTitle }) => (
         <Link activeClassName="active" to="/posts/">
           Posts
         </Link>
-        <Link activeClassName="active" to="/tags/">
-          Tags
-        </Link>
+
         <Link activeClassName="active" to="/projects/">
           Projects
         </Link>

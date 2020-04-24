@@ -25,13 +25,13 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
         >
           Link
         </a>
-        <Link to="/projects">Back to Projects</Link>
+        <Link to="/proyectos">Back to Projects</Link>
       </Article>
 
       <nav style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           {prev && (
-            <Link to={`/projects/${kebabCase(prev.slug)}/`} rel="prev">
+            <Link to={`/proyectos/${kebabCase(prev.slug)}/`} rel="prev">
               ← {prev.title}
             </Link>
           )}
@@ -39,7 +39,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
 
         <div style={{ justifySelf: "flex-end" }}>
           {next && (
-            <Link to={`/projects/${kebabCase(next.slug)}/`} rel="next">
+            <Link to={`/proyectos/${kebabCase(next.slug)}/`} rel="next">
               {next.title} →
             </Link>
           )}

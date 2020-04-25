@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import { kebabCase } from "lodash"
 import Fade from "react-reveal/Fade"
 import tw from "tailwind.macro"
-import EmptyStreet from "../assets/empty_street.svg"
+import SVGGoodTeam from "../assets/good_team.svg"
 
 import styled from "@emotion/styled"
 const ProjectArchive = ({ data, pageContext, location }) => {
@@ -18,7 +18,7 @@ const ProjectArchive = ({ data, pageContext, location }) => {
       <SEO title="Projects" />
       <HeroProjects>
         <ImgContainer>
-          <EmptyStreet />
+          <SVGGoodTeam className="pb-12" />
         </ImgContainer>
       </HeroProjects>
       <BlogContainer>
@@ -62,7 +62,7 @@ const ItemContent = styled.div`
 `
 
 const ImgContainer = styled.div`
-  ${tw`relative w-full max-w-md pt-12 pb-0 m-auto`}
+  ${tw`relative w-full max-w-xl pt-12 pb-0 m-auto`}
   height: auto;
   svg {
     ${tw`w-full`}

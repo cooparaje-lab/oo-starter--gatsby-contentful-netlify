@@ -20,7 +20,11 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: `Cooparaje`,
+    titleTemplate: "%s en Cooparaje",
     description: `Espacio de colaboración libre`,
+    url: "https://www.cooparaje.com.ar",
+    image: "/images/ogimage.jpg",
+    twitterUsername: `@cooparaje`,
     author: `@cooparaje`,
   },
   plugins: [

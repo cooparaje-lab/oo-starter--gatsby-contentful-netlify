@@ -23,7 +23,7 @@ module.exports = {
     titleTemplate: "%s en Cooparaje",
     description: `Espacio de colaboración libre`,
     url: "https://www.cooparaje.com.ar",
-    image: "/images/ogimage.jpg",
+    image: "/ogimage.jpg",
     twitterUsername: `@cooparaje`,
     author: `@cooparaje`,
   },

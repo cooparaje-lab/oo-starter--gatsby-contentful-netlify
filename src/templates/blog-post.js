@@ -6,15 +6,12 @@ import { kebabCase } from "lodash"
 import "./post.css"
 import Hero from "../components/hero"
 import SEO from "../components/seo"
+import Fade from "react-reveal/Fade"
+import tw from "tailwind.macro"
+import styled from "@emotion/styled"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import {
-  Article,
-  HeroContainer,
-  Meta,
-  ArticleText,
-  Tags,
-} from "../components/import"
+import { Article, HeroContainer, Meta, ArticleText } from "../components/import"
 
 const Bold = ({ children }) => <span className="font-bold">{children}</span>
 const Text = ({ children }) => <ArticleText>{children}</ArticleText>
@@ -23,7 +20,9 @@ const options = {
   renderMark: {
     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
     [MARKS.CODE]: embedded => (
-      <div dangerouslySetInnerHTML={{ __html: embedded }} />
+      <Fade>
+        <div dangerouslySetInnerHTML={{ __html: embedded }} />
+      </Fade>
     ),
   },
   renderNode: {
@@ -32,13 +31,15 @@ const options = {
         return <span className="hidden">Embedded asset is broken</span>
       }
       return (
-        <div className="post-image">
-          <img
-            className="w-full"
-            alt={node.data.target.fields.title["es-AR"]}
-            src={node.data.target.fields.file["es-AR"].url}
-          />
-        </div>
+        <Fade>
+          <div className="post-image">
+            <img
+              className="w-full"
+              alt={node.data.target.fields.title["es-AR"]}
+              src={node.data.target.fields.file["es-AR"].url}
+            />
+          </div>
+        </Fade>
       )
     },
     [INLINES.HYPERLINK]: node => {
@@ -79,12 +80,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
         <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
           <Meta>
-            <Link to="/blog">Ver blog</Link>
             <Tags>
               {post.tags.map((tag, i) => [
                 <Link to={`/etiquetas/${kebabCase(tag)}/`} key={i}>
                   {tag}
-                  {i < post.tags.length - 1 ? ", " : ""}
+                  {i < post.tags.length - 1 ? "" : ""}
                 </Link>,
               ])}
             </Tags>
@@ -117,6 +117,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 }
 
 export default BlogPostTemplate
+
+const Tags = styled.div`
+  ${tw`relative flex justify-center w-full px-0 py-4`}
+
+  a {
+    ${tw`inline-block px-3 py-1 mr-2 text-sm font-semibold text-white bg-blue-500 rounded-full`}
+  }
+`
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {

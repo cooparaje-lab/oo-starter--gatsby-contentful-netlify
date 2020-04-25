@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Pager from "../components/pager"
 import SEO from "../components/seo"
 import { kebabCase } from "lodash"
+import Fade from "react-reveal/Fade"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 const ProjectArchive = ({ data, pageContext, location }) => {
@@ -19,14 +20,16 @@ const ProjectArchive = ({ data, pageContext, location }) => {
           const title = node.title || node.slug
           return (
             <Item key={node.slug}>
-              <ItemContent>
-                <Title>
-                  <Link to={`/proyectos/${kebabCase(node.slug)}/`}>
-                    {" "}
-                    {title}{" "}
-                  </Link>
-                </Title>
-              </ItemContent>
+              <Fade cascade>
+                <ItemContent>
+                  <Title>
+                    <Link to={`/proyectos/${kebabCase(node.slug)}/`}>
+                      {" "}
+                      {title}{" "}
+                    </Link>
+                  </Title>
+                </ItemContent>
+              </Fade>
             </Item>
           )
         })}
@@ -41,12 +44,15 @@ const BlogContainer = styled.div`
 `
 
 const Item = styled.div`
-  ${tw`w-1/3 px-3 my-3 overflow-hidden text-center `}
+  ${tw`w-full px-3 my-3 overflow-hidden text-center md:w-1/3 `}
 `
 const ItemContent = styled.div`
-  ${tw`flex flex-col items-center justify-center px-6 mx-0 bg-blue-200 shadow-lg hover:shadow-md hover:bg-blue-100`}
+  ${tw`flex flex-col items-center justify-center px-6 mx-0 bg-blue-100 shadow-lg hover:shadow-md hover:bg-green-200`}
   transition: all .4s;
   min-height: 150px;
+  a {
+    ${tw`text-gray-800 `}
+  }
 `
 
 const Title = styled.h3`

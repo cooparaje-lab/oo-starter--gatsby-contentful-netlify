@@ -9,7 +9,7 @@ import Fade from "react-reveal/Fade"
 const Hero = props => (
   <Heros>
     <TextContainer>
-      <Fade bottom duration={800} delay={1200}>
+      <Fade bottom duration={800} delay={600}>
         <AnchorLink href={`#${kebabCase(props.slug)}`} aria-label={props.text}>
           <h1>{props.heading}</h1>
         </AnchorLink>
@@ -36,7 +36,7 @@ const TextContainer = styled.header`
 `
 const ImgContainer = styled.div`
   ${tw`overflow-hidden bg-blue-900`}
-  min-height: 500px;
+  min-height: 200px;
 
   .gatsby-image-wrapper {
     opacity: 0.2;
@@ -46,7 +46,7 @@ const ImgContainer = styled.div`
     }
   }
   img {
-    height: 500px;
+    height: 200px;
     object-fit: cover;
     object-position: center;
   }

@@ -42,6 +42,8 @@ const App = styled.div`
 `
 
 const Main = styled.main`
+  ${tw`px-0`}
+
   a {
     ${tw`pb-1 text-blue-500`}
   }

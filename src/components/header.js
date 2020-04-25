@@ -35,7 +35,7 @@ Header.defaultProps = {
 }
 
 const InnerWrapper = styled.div`
-  ${tw`flex items-center justify-between max-w-6xl py-5 m-auto `}
+  ${tw`flex items-center justify-between max-w-6xl px-3 py-5 m-auto `}
 `
 
 const Logo = styled.div`

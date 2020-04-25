@@ -9,9 +9,9 @@ import styled from "@emotion/styled"
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allContentfulBlog
-  const tagHeader = `${totalCount} post${
+  const tagHeader = `${totalCount} entrada${
     totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  } con la etiqueta "${tag}"`
   return (
     <Layout>
       <SEO title="Tags" />

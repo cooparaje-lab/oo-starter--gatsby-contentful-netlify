@@ -20,7 +20,7 @@ const BlogArchive = ({ data, pageContext, location }) => {
         {posts.map(({ node }) => {
           return (
             <Item key={node.slug}>
-              <Fade bottom duration={1500}>
+              <Fade duration={1500}>
                 <Card card={node} />
               </Fade>
             </Item>

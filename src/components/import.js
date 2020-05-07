@@ -10,12 +10,12 @@ export const Article = styled.article`
 `
 
 export const Title = styled.h3`
-  ${tw`text-4xl hover:text-blue-400`}
+  ${tw`text-4xl hover:text-indigo-400`}
   transition: all .5s;
 `
 
 export const HeroContainer = styled.div`
-  ${tw`bg-blue-900`}
+  ${tw`bg-indigo-900`}
 `
 
 export const Meta = styled.div`
@@ -30,6 +30,6 @@ export const Tags = styled.div`
   ${tw`mt-0`}
 
   a {
-    ${tw`text-blue-600`}
+    ${tw`text-indigo-600`}
   }
 `

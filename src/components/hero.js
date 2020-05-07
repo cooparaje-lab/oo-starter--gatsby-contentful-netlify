@@ -35,7 +35,7 @@ const TextContainer = styled.header`
   }
 `
 const ImgContainer = styled.div`
-  ${tw`overflow-hidden bg-blue-900`}
+  ${tw`overflow-hidden bg-indigo-900`}
   min-height: 200px;
 
   .gatsby-image-wrapper {

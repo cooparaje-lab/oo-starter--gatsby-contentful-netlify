@@ -16,6 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
     const blogPost = path.resolve(`./src/templates/blog-post.js`)
     const projectPost = path.resolve(`./src/templates/project-post.js`)
     const tagTemplate = path.resolve(`src/templates/tags-template.js`)
+    const recursosTemplate = path.resolve(`./src/templates/RecursosSingle.js`)
 
     resolve(
       graphql(
@@ -27,6 +28,15 @@ exports.createPages = ({ graphql, actions }) => {
                   title
                   slug
                   tags
+                }
+              }
+            }
+            allContentfulRecursos {
+              edges {
+                node {
+                  id
+                  title
+                  slug
                 }
               }
             }
@@ -61,9 +71,17 @@ exports.createPages = ({ graphql, actions }) => {
           pathPrefix: "/proyectos",
           component: path.resolve("src/templates/project-archive.js"),
         })
+        paginate({
+          createPage,
+          items: result.data.allContentfulRecursos.edges,
+          itemsPerPage: 12,
+          pathPrefix: "/recursos",
+          component: path.resolve("src/templates/RecursosArchive.js"),
+        })
 
         const posts = result.data.allContentfulBlog.edges
         const projects = result.data.allContentfulProyectos.edges
+        const recursos = result.data.allContentfulRecursos.edges
 
         posts.forEach((post, index) => {
           createPage({
@@ -86,6 +104,19 @@ exports.createPages = ({ graphql, actions }) => {
               prev: index === 0 ? null : projects[index - 1].node,
               next:
                 index === projects.length - 1 ? null : projects[index + 1].node,
+            },
+          })
+        })
+
+        recursos.forEach((recurso, index) => {
+          createPage({
+            path: `/recursos/${recurso.node.slug}/`,
+            component: recursosTemplate,
+            context: {
+              slug: recurso.node.slug,
+              prev: index === 0 ? null : recursos[index - 1].node,
+              next:
+                index === recursos.length - 1 ? null : recursos[index + 1].node,
             },
           })
         })

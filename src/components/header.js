@@ -17,7 +17,9 @@ const Header = ({ siteTitle }) => (
         <Link activeClassName="active" to="/blog/">
           Blog
         </Link>
-
+        <Link activeClassName="active" to="/recursos/">
+          Recursos
+        </Link>
         <Link activeClassName="active" to="/proyectos/">
           Proyectos
         </Link>
@@ -44,9 +46,9 @@ const Logo = styled.div`
 
 const Nav = styled.nav`
   a {
-    ${tw`ml-6 font-mono text-xl`}
+    ${tw`hidden ml-6 font-mono text-xl md:inline-block`}
     &.active {
-      ${tw`text-blue-500`}
+      ${tw`text-indigo-500`}
     }
   }
 `

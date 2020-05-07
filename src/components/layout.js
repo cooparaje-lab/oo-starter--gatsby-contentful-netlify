@@ -23,10 +23,14 @@ const Layout = ({ children }) => {
           por
           <a
             href="https://www.santuan.com.ar/"
-            className="ml-1 border-b border-gray-600 hover:text-red-600 hover:border-red-600"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-1 border-b border-gray-600 hover:text-red-600 hover:border-red-600"
           >
             santuan
           </a>
+          en un Paraje Libre
+          <b className="block mt-6">La Vida vale más que la mega-minería</b>
         </Footer>
       </App>
     </>
@@ -38,14 +42,14 @@ Layout.propTypes = {
 }
 
 const App = styled.div`
-  ${tw`block min-h-screen mt-16`}
+  ${tw`block min-h-screen pt-16`}
 `
 
 const Main = styled.main`
   ${tw`px-0`}
 
   a {
-    ${tw`pb-1 text-blue-500`}
+    ${tw`pb-1 text-indigo-500`}
   }
 `
 

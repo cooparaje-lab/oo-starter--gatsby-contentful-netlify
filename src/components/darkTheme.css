@@ -20,7 +20,7 @@ body.dark .headroom a {
   /*
   right: 66px;
   top: 23px;*/
-  @apply ml-12 mr-12;
+  @apply mr-12;
 }
 
 @screen md {

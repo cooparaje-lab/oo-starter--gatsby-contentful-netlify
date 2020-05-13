@@ -53,8 +53,18 @@ const ItemContent = styled.div`
   ${tw`flex flex-col items-center justify-center px-6 mx-0 bg-indigo-100 shadow-lg hover:shadow-md hover:bg-indigo-200`}
   transition: all .4s;
   min-height: 150px;
+
+  body.dark & {
+    ${tw`bg-gray-900 `}
+  }
   a {
     ${tw`text-gray-800 `}
+    &:hover {
+      ${tw`text-gray-900 `}
+    }
+  }
+  body.dark & a {
+    ${tw`text-gray-100`}
   }
 `
 

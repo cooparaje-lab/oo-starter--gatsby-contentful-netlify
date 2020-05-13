@@ -19,7 +19,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
       <Hero>
         <BGSlider />
       </Hero>
-      <Article css={tw`relative z-10 `}>
+      <Article css={tw`relative z-10 max-w-xl p-6 mt-3 md:mt-12`}>
         <Link className="block pt-8 my-3 text-center" to="/proyectos">
           Ver todos los proyectos
         </Link>

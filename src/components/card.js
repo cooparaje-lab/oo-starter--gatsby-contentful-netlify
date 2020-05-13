@@ -9,20 +9,18 @@ export default ({ card }) => (
   <CardItem>
     <Link
       to={`/blog/${card.slug}`}
-      className="block mb-2 text-xl font-bold text-left"
+      className="block h-56 overflow-hidden text-xl font-bold text-left"
     >
       <Img className="w-full" alt={card.title} fixed={card.featuredImg.fixed} />
     </Link>
-    <div className="px-6 py-4">
+    <Content>
       <Link
         to={`/blog/${card.slug}`}
-        className="block mb-2 text-xl font-bold text-left"
+        className="block mb-2 text-xl font-bold text-left title"
       >
         {card.title}
       </Link>
-      <p className="text-base text-left text-gray-700">
-        {card.excerpt.excerpt}
-      </p>
+      <Description>{card.excerpt.excerpt}</Description>
       <Tags>
         {card.tags.map((tag, i) => [
           <Link to={`/etiquetas/${kebabCase(tag)}/`} key={i}>
@@ -31,7 +29,7 @@ export default ({ card }) => (
           </Link>,
         ])}
       </Tags>
-    </div>
+    </Content>
   </CardItem>
 )
 
@@ -42,8 +40,30 @@ const CardItem = styled.div`
 
   &:hover {
     ${tw`shadow-xl`}
-
     top: 2px;
+  }
+`
+
+const Content = styled.div`
+  ${tw`px-6 py-4 bg-indigo-100`}
+
+  body.dark & {
+    ${tw`bg-gray-900`}
+  }
+
+  .title {
+    ${tw`text-indigo-800`}
+    body.dark & {
+      ${tw`text-indigo-500`}
+    }
+  }
+`
+
+const Description = styled.p`
+  ${tw`text-base text-left text-gray-700`}
+
+  body.dark & {
+    ${tw`text-indigo-200`}
   }
 `
 
@@ -52,5 +72,9 @@ const Tags = styled.div`
 
   a {
     ${tw`inline-block px-3 py-1 mt-2 mr-2 text-xs font-semibold text-gray-700 bg-gray-200 rounded-full`}
+
+    body.dark & {
+      ${tw`text-gray-100 bg-indigo-900 `}
+    }
   }
 `

@@ -5,10 +5,8 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Pager from "../components/pager"
 import SEO from "../components/seo"
-import { kebabCase } from "lodash"
 import Fade from "react-reveal/Fade"
 import tw from "tailwind.macro"
-
 import styled from "@emotion/styled"
 const RecursosArchive = ({ data, pageContext, location }) => {
   const Recurso = data.allContentfulRecursos.edges
@@ -21,7 +19,6 @@ const RecursosArchive = ({ data, pageContext, location }) => {
       </HeroRecurso>
       <BlogContainer>
         {Recurso.map(({ node }) => {
-          const title = node.title || node.slug
           return (
             <Item key={node.slug}>
               <Fade cascade>
@@ -36,18 +33,18 @@ const RecursosArchive = ({ data, pageContext, location }) => {
                       fixed={node.featuredImg.fixed}
                     />
                   </Link>
-                  <div className="px-6 py-0">
+                  <Content className="">
+                    <Tags>{node.category}</Tags>
                     <Link
                       to={`/recursos/${node.slug}`}
                       className="block mb-0 text-xl font-bold text-left"
                     >
                       {node.title}
                     </Link>
-                    <p className="text-base text-left text-gray-700">
+                    <Description className="">
                       {node.excerpt.excerpt}
-                    </p>
-                    <Tags>{node.category}</Tags>
-                  </div>
+                    </Description>
+                  </Content>
                 </CardItem>
               </Fade>
             </Item>
@@ -68,43 +65,38 @@ const CardItem = styled.div`
   transition: all .2s;
   top: 0;
 
+  body.dark & {
+    ${tw`bg-gray-900`}
+  }
+
   &:hover {
     ${tw`shadow-xl`}
-
     top: 2px;
   }
 `
 
-const Tags = styled.div`
-  ${tw`flex flex-wrap px-0 py-4`}
+const Content = styled.div`
+  ${tw`relative h-32 px-6 pb-6 mb-3`}
+`
 
-  a {
-    ${tw`inline-block px-3 py-1 mt-2 mr-2 text-xs font-semibold text-gray-700 bg-gray-200 rounded-full`}
+const Description = styled.p`
+  ${tw`text-base text-left text-gray-700`}
+  body.dark & {
+    ${tw`text-gray-300`}
+  }
+`
+
+const Tags = styled.div`
+  ${tw`absolute right-0 inline-block px-3 py-1 mr-2 text-xs font-bold text-gray-700 uppercase bg-gray-200 rounded-full`}
+  top: -2rem;
+
+  body.dark & {
+    ${tw`text-gray-800`}
   }
 `
 
 const Item = styled.div`
   ${tw`relative w-full px-3 my-3 overflow-hidden text-center md:w-1/3 `}
-`
-const ItemContent = styled.div`
-  ${tw`flex flex-col items-center justify-center px-3 mx-0 bg-indigo-100 shadow-lg hover:shadow-md hover:bg-indigo-200`}
-  transition: all .4s;
-  min-height: 150px;
-  p {
-    ${tw`px-6 text-left `}
-  }
-  a {
-    ${tw`text-gray-800 `}
-  }
-`
-
-const ImgContainer = styled.div`
-  ${tw`relative w-full max-w-md pt-12 pb-0 m-auto`}
-  height: auto;
-  svg {
-    ${tw`w-full`}
-    height: auto
-  }
 `
 
 const HeroRecurso = styled.div`
@@ -116,11 +108,10 @@ const HeroRecurso = styled.div`
   h1 {
     ${tw`font-mono text-4xl font-bold text-white`}
   }
-`
 
-const Title = styled.h3`
-  ${tw`text-xl `}
-  transition: all .4s;
+  body.dark & {
+    ${tw`bg-gray-900`}
+  }
 `
 
 export default RecursosArchive

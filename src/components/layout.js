@@ -11,6 +11,7 @@ import "./layout.css"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { TiHeartFullOutline } from "react-icons/ti"
+import "./darkTheme.css"
 
 const Layout = ({ children }) => {
   return (
@@ -30,7 +31,7 @@ const Layout = ({ children }) => {
             santuan
           </a>
           en un Paraje Libre
-          <b className="block mt-6">La Vida vale más que la mega-minería</b>
+          <b className="megamineria">La Vida vale más que la mega-minería</b>
         </Footer>
       </App>
     </>
@@ -54,7 +55,17 @@ const Main = styled.main`
 `
 
 const Footer = styled.footer`
-  ${tw`py-6 text-center`}
+  ${tw`py-6 font-mono text-center`}
+  body.dark & {
+    ${tw`text-indigo-100`}
+  }
+
+  .megamineria {
+    ${tw`block mt-3 text-teal-900 opacity-75`}
+    body.dark & {
+      ${tw`text-teal-500 opacity-100 `}
+    }
+  }
 `
 
 export default Layout

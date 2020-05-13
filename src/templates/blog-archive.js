@@ -50,6 +50,10 @@ const HeroProjects = styled.div`
   h1 {
     ${tw`font-mono text-4xl font-bold text-white`}
   }
+
+  body.dark & {
+    ${tw`bg-gray-900`}
+  }
 `
 
 export default BlogArchive

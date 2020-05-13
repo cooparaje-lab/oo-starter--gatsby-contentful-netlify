@@ -11,7 +11,7 @@ import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { Article, HeroContainer, Meta, ArticleText } from "../components/import"
+import { Article, HeroContainer, ArticleText } from "../components/import"
 import { BsTag } from "react-icons/bs"
 const Bold = ({ children }) => <span className="font-bold">{children}</span>
 const Text = ({ children }) => <ArticleText>{children}</ArticleText>

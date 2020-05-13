@@ -6,12 +6,20 @@ export const Article = styled.article`
 
   .article {
     ${tw`px-2`}
+
+    body.dark & {
+      ${tw`text-gray-100`}
+    }
   }
 `
 
 export const Title = styled.h3`
   ${tw`text-4xl hover:text-indigo-400`}
   transition: all .5s;
+
+  body.dark & {
+    ${tw`text-indigo-100`}
+  }
 `
 
 export const HeroContainer = styled.div`

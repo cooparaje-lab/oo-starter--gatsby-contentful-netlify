@@ -38,6 +38,10 @@ const ImgContainer = styled.div`
   ${tw`overflow-hidden bg-indigo-900`}
   min-height: 200px;
 
+  body.dark & {
+    ${tw`bg-gray-900`}
+  }
+
   .gatsby-image-wrapper {
     opacity: 0.2;
 

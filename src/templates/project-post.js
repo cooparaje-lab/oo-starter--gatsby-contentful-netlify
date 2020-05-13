@@ -5,7 +5,9 @@ import { Link } from "gatsby"
 import { kebabCase } from "lodash"
 import "./post.css"
 import SEO from "../components/seo"
+import BGSlider from "../components/ProjectSlider"
 import { Article, Title } from "../components/import"
+import styled from "@emotion/styled"
 import tw from "tailwind.macro"
 
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
@@ -14,8 +16,10 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Post" />
-
-      <Article css={tw`max-w-6xl`}>
+      <Hero>
+        <BGSlider />
+      </Hero>
+      <Article css={tw`relative z-10 `}>
         <Link className="block pt-8 my-3 text-center" to="/proyectos">
           Ver todos los proyectos
         </Link>
@@ -53,6 +57,10 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
 }
 
 export default ProjectPostTemplate
+
+const Hero = styled.div`
+  ${tw`opacity-25 `}
+`
 
 export const pageQuery = graphql`
   query ProjectBySlug($slug: String!) {

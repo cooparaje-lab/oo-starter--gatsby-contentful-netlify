@@ -2,13 +2,17 @@ import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 
 export const Article = styled.article`
-  ${tw`max-w-full m-auto`}
+  ${tw`max-w-xl px-12 py-6 m-auto mt-12 bg-gray-100 shadow-lg `}
+
+  body.dark & {
+    ${tw`bg-gray-900 `}
+  }
 
   .article {
     ${tw`px-2`}
 
     body.dark & {
-      ${tw`text-gray-100`}
+      ${tw`text-gray-100 `}
     }
   }
 `

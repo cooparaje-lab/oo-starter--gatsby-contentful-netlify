@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
     const projectPost = path.resolve(`./src/templates/project-post.js`)
     const tagTemplate = path.resolve(`src/templates/tags-template.js`)
     const recursosTemplate = path.resolve(`./src/templates/RecursosSingle.js`)
+    const espacioTemplate = path.resolve(`./src/templates/EspacioSingle.js`)
 
     resolve(
       graphql(
@@ -41,6 +42,15 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
             allContentfulProyectos {
+              edges {
+                node {
+                  id
+                  title
+                  slug
+                }
+              }
+            }
+            allContentfulEspacios {
               edges {
                 node {
                   id
@@ -82,6 +92,7 @@ exports.createPages = ({ graphql, actions }) => {
         const posts = result.data.allContentfulBlog.edges
         const projects = result.data.allContentfulProyectos.edges
         const recursos = result.data.allContentfulRecursos.edges
+        const espacios = result.data.allContentfulEspacios.edges
 
         posts.forEach((post, index) => {
           createPage({
@@ -117,6 +128,19 @@ exports.createPages = ({ graphql, actions }) => {
               prev: index === 0 ? null : recursos[index - 1].node,
               next:
                 index === recursos.length - 1 ? null : recursos[index + 1].node,
+            },
+          })
+        })
+
+        espacios.forEach((espacio, index) => {
+          createPage({
+            path: `/espacios/${espacio.node.slug}/`,
+            component: espacioTemplate,
+            context: {
+              slug: espacio.node.slug,
+              prev: index === 0 ? null : espacios[index - 1].node,
+              next:
+                index === espacios.length - 1 ? null : espacios[index + 1].node,
             },
           })
         })

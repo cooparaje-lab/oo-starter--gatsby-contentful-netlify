@@ -18,12 +18,10 @@ const Header = ({ siteTitle }) => (
         </Link>
       </Logo>
       <Nav>
-        <Link activeClassName="active" to="/recursos/">
+        <Link activeClassName="active" to="/espacios/">
           Recursos
         </Link>
-        <Link activeClassName="active" to="/proyectos/">
-          Proyectos
-        </Link>
+
         <Link activeClassName="active" to="/blog/">
           Blog
         </Link>

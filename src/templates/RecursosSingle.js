@@ -84,9 +84,11 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
         <TextContainer>
           <Fade bottom duration={800} delay={600}>
             <h1>{post.title}</h1>
+            <h1>{post.espacio.title}</h1>
           </Fade>
         </TextContainer>
 
+        <h2>{post.espacio.title}</h2>
         <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
           {documentToReactComponents(
             post.childContentfulRecursosArticleRichTextNode.json,
@@ -110,6 +112,41 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             </div>
           </PageNav>
         </div>
+        <TextContainer>
+          {post.espacio ? (
+            <div className="p-3 mt-24 ">
+              <p className="text-lg text-center">
+                {post.espacio.map((item, i) => (
+                  <Link
+                    to={`/espacios/${kebabCase(item.slug)}/`}
+                    className="inline-block px-4 pt-1 mx-1 font-mono text-white bg-indigo-900"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </p>
+            </div>
+          ) : (
+            <div className="hidden"></div>
+          )}
+
+          {post.blog ? (
+            <div className="hidden">
+              <h1 className="text-lg text-center">
+                Entrada de blog relacionada
+              </h1>
+              {post.blog.map((item, i) => (
+                <Item className="text-center">
+                  <Link to={`/blog/${kebabCase(item.slug)}/`} rel="prev">
+                    {item.title}
+                  </Link>
+                </Item>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-gray-500">Proximamente</div>
+          )}
+        </TextContainer>
       </Article>
     </Layout>
   )
@@ -130,6 +167,21 @@ const ImgContainer = styled.div`
 
   img {
     ${tw`mb-0`}
+  }
+`
+
+const Item = styled.div`
+  ${tw`w-full h-24 px-5 m-2 my-3 font-mono text-lg font-thin leading-snug text-center border border-gray-100 shadow-md`}
+  ${tw`flex items-center justify-start cursor-pointer`}
+  transition: all 1.1s;
+  transform: translateY(0);
+  &:hover {
+    ${tw`shadow-lg `}
+    transform: translateY(-5px);
+  }
+
+  body.dark & {
+    ${tw`text-indigo-200 border-gray-700`}
   }
 `
 
@@ -163,6 +215,14 @@ export const pageQuery = graphql`
       tags
       childContentfulRecursosArticleRichTextNode {
         json
+      }
+      espacio {
+        title
+        slug
+      }
+      blog {
+        title
+        slug
       }
       featuredImg {
         fixed(width: 1900, height: 550) {

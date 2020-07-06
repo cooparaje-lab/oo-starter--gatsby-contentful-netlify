@@ -7,11 +7,11 @@ const routes = [
     slug: "/",
     ariaLabel: "Santuan - Volver al inicio",
   },
-  {
-    title: "Proyectos",
-    slug: "/proyectos/",
-    ariaLabel: "Ver los proyectos",
-  },
+  //{
+  //title: "Proyectos",
+  //slug: "/proyectos/",
+  //ariaLabel: "Ver los proyectos",
+  //},
   {
     title: "Blog",
     slug: "/blog/",

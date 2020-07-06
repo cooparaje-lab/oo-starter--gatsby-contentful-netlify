@@ -16,7 +16,7 @@ const ProjectArchive = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <SEO title="Projects" />
       <HeroProjects>
-        <h1>Proyectos</h1>
+        <h1>Hecho en Cooparaje</h1>
       </HeroProjects>
       <BlogContainer>
         {projects.map(({ node }) => {

@@ -2,7 +2,7 @@ import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 
 export const Article = styled.article`
-  ${tw`max-w-full m-auto bg-gray-100 shadow-lg `}
+  ${tw`max-w-full m-auto bg-white shadow-lg `}
 
   body.dark & {
     ${tw`bg-gray-900 `}
@@ -27,7 +27,7 @@ export const Title = styled.h3`
 `
 
 export const HeroContainer = styled.div`
-  ${tw`bg-indigo-900`}
+  ${tw`relative bg-indigo-900`}
 `
 
 export const Meta = styled.div`

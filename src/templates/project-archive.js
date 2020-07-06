@@ -14,7 +14,7 @@ const ProjectArchive = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Projects" />
+      <SEO title="Proyectos" />
       <HeroProjects>
         <h1>Hecho en Cooparaje</h1>
       </HeroProjects>

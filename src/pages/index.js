@@ -10,7 +10,7 @@ import Fade from "react-reveal/Fade"
 import { FiCodesandbox } from "react-icons/fi"
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Inicio" />
     <Home>
       <Title className="mb-2">
         <Fade top cascade duration={1200}>

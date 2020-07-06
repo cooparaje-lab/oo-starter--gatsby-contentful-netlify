@@ -85,7 +85,7 @@ const Categories = styled.div`
 `
 
 const Item = styled.div`
-  ${tw`w-1/3 m-2 my-3 font-mono text-lg font-thin leading-snug text-center sm:w-1/3 md:w-1/6`}
+  ${tw`w-1/2 m-2 my-3 font-mono text-lg font-thin leading-snug text-center sm:w-1/3 md:w-1/6`}
   ${tw`bg-white border border-gray-100 shadow-md `}
   ${tw`flex items-center justify-center cursor-pointer`}
   transform: translateY(0);

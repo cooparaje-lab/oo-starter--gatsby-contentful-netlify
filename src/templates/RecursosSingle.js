@@ -67,7 +67,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title="Post" />
+      <SEO title="Recurso" />
 
       <Article>
         <Heros>
@@ -84,7 +84,18 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
         <TextContainer>
           <Fade bottom duration={800} delay={600}>
             <h1>{post.title}</h1>
-            <h1>{post.espacio.title}</h1>
+          </Fade>
+          <Fade bottom duration={600} delay={800}>
+            <h2>
+              <a
+                className="text-base"
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visitar website
+              </a>
+            </h2>
           </Fade>
         </TextContainer>
 
@@ -94,23 +105,6 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             post.childContentfulRecursosArticleRichTextNode.json,
             options
           )}
-          <PageNav>
-            <div>
-              {prev && (
-                <Link to={`/recursos/${kebabCase(prev.slug)}/`} rel="prev">
-                  ← {prev.title}
-                </Link>
-              )}
-            </div>
-
-            <div style={{ justifySelf: "flex-end" }}>
-              {next && (
-                <Link to={`/recursos/${kebabCase(next.slug)}/`} rel="next">
-                  {next.title} →
-                </Link>
-              )}
-            </div>
-          </PageNav>
         </div>
         <TextContainer>
           {post.espacio ? (
@@ -144,9 +138,26 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
               ))}
             </div>
           ) : (
-            <div className="text-center text-gray-500">Proximamente</div>
+            <div className="hidden text-center text-gray-500">Proximamente</div>
           )}
         </TextContainer>
+        <PageNav>
+          <div>
+            {prev && (
+              <Link to={`/recursos/${kebabCase(prev.slug)}/`} rel="prev">
+                ← {prev.title}
+              </Link>
+            )}
+          </div>
+
+          <div style={{ justifySelf: "flex-end" }}>
+            {next && (
+              <Link to={`/recursos/${kebabCase(next.slug)}/`} rel="next">
+                {next.title} →
+              </Link>
+            )}
+          </div>
+        </PageNav>
       </Article>
     </Layout>
   )
@@ -156,6 +167,13 @@ const TextContainer = styled.header`
   ${tw`relative max-w-2xl px-1 m-auto`}
   h1 {
     ${tw`m-0 mt-12 font-mono text-4xl font-bold text-left`}
+
+    body.dark & {
+      ${tw`text-gray-100`}
+    }
+  }
+  h2 {
+    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-left`}
 
     body.dark & {
       ${tw`text-gray-100`}
@@ -186,7 +204,7 @@ const Item = styled.div`
 `
 
 const PageNav = styled.nav`
-  ${tw`flex justify-between`}
+  ${tw`flex justify-between max-w-6xl p-6 py-12 m-auto`}
   a {
     ${tw`font-mono font-bold`}
   }

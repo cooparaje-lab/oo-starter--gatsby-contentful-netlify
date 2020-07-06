@@ -14,7 +14,7 @@ const Tags = ({ pageContext, data }) => {
   } con la etiqueta "${tag}"`
   return (
     <Layout>
-      <SEO title="Tags" />
+      <SEO title="Etiquetas" />
 
       <TagsContainer>
         <h1>{tagHeader}</h1>

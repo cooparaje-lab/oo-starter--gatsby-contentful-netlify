@@ -13,7 +13,7 @@ const BlogArchive = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Posts" />
+      <SEO title="Blog" />
       <HeroProjects>
         <h1>Blog</h1>
       </HeroProjects>

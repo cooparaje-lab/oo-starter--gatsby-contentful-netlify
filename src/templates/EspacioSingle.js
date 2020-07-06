@@ -94,8 +94,18 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
             {espacio.recursos.map((item, i) => (
               <Fade duration={800} delay={600}>
                 <Item>
-                  <Link to={`/recursos/${kebabCase(item.slug)}/`} rel="prev">
-                    {item.title}
+                  <Link
+                    to={`/recursos/${kebabCase(item.slug)}/`}
+                    className="p-3 text-left"
+                  >
+                    <b className="block mb-2 font-bold">{item.title}</b>
+                    {item.excerpt.excerpt ? (
+                      <p>{item.excerpt.excerpt}</p>
+                    ) : (
+                      <div className="text-center text-gray-500 ">
+                        Proximamente
+                      </div>
+                    )}
                   </Link>
                 </Item>
               </Fade>
@@ -151,7 +161,7 @@ const RecursosList = styled.div`
 `
 
 const Item = styled.div`
-  ${tw`w-full h-24 px-5 m-2 my-3 font-mono text-lg font-thin leading-snug text-center border border-gray-100 shadow-md`}
+  ${tw`w-full px-5 py-3 m-2 my-3 font-mono text-lg font-thin leading-snug text-center border border-gray-100 shadow-md`}
   ${tw`flex items-center justify-start cursor-pointer`}
   transition: all 1.1s;
   transform: translateY(0);
@@ -186,6 +196,9 @@ export const pageQuery = graphql`
       recursos {
         title
         slug
+        excerpt {
+          excerpt
+        }
       }
       proyectos {
         title

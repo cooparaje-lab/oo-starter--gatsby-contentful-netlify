@@ -67,7 +67,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title="Post" />
+      <SEO title="Blog" />
 
       <Article>
         <HeroContainer>

@@ -13,7 +13,7 @@ const RecursosArchive = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Projects" />
+      <SEO title="Recursos" />
       <HeroRecurso>
         <h1>Recursos</h1>
       </HeroRecurso>

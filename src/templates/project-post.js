@@ -15,7 +15,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title="Post" />
+      <SEO title="Proyecto" />
       <Hero>
         <BGSlider />
       </Hero>

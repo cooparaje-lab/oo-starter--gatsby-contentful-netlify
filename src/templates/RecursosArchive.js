@@ -37,6 +37,8 @@ const RecursosArchive = ({ data, pageContext, location }) => {
                   </Link>
                   <Content className="">
                     <Tags>{node.category}</Tags>
+                    <Tags>2-{node.createdAt}</Tags>
+
                     <Link
                       to={`/recursos/${node.slug}`}
                       className="block mb-0 font-mono text-lg font-bold text-left"
@@ -52,12 +54,11 @@ const RecursosArchive = ({ data, pageContext, location }) => {
                       {node.espacio.map((espacio, i) => [
                         <Link
                           to={`/espacios/${kebabCase(espacio.slug)}/`}
-                          className="inline-block px-3 py-1 my-2 mr-2 bg-indigo-600"
+                          className="inline-block px-4 py-1 my-2 mr-2 bg-gray-300 rounded-full hover:bg-red-500"
                           key={i}
                         >
-                          <span>{espacio.icono}</span>
-                          <b className="font-mono text-sm text-white">
-                            {" "}
+                          <span className="mr-2 text-sm">{espacio.icono}</span>
+                          <b className="font-mono text-sm text-gray-900">
                             {espacio.title}
                           </b>
                         </Link>,
@@ -137,7 +138,7 @@ export default RecursosArchive
 export const pageQuery = graphql`
   query($skip: Int!, $limit: Int!) {
     allContentfulRecursos(
-      sort: { fields: [title], order: ASC }
+      sort: { fields: createdAt, order: DESC }
       limit: $limit
       skip: $skip
     ) {
@@ -147,6 +148,7 @@ export const pageQuery = graphql`
           title
           slug
           tags
+          createdAt
           category
           excerpt {
             excerpt

@@ -9,7 +9,7 @@ const Pager = ({ pageContext }) => {
       <div>
         {previousPagePath && (
           <Link to={previousPagePath}>
-            <button>← Newer Posts</button>
+            <button>← Anterior</button>
           </Link>
         )}
       </div>
@@ -17,7 +17,7 @@ const Pager = ({ pageContext }) => {
       <div style={{ justifySelf: "flex-end" }}>
         {nextPagePath && (
           <Link to={nextPagePath}>
-            <button>Older Posts →</button>
+            <button>Siguiente →</button>
           </Link>
         )}
       </div>

@@ -55,9 +55,15 @@ const Nav = styled.nav`
   flex: 1;
 
   a {
-    ${tw`hidden ml-8 font-mono text-xl md:inline-block`}
+    ${tw`hidden ml-8 font-mono text-lg font-bold md:inline-block`}
+    &:hover {
+      ${tw`text-gray-500`} !important;
+    }
     &.active {
       ${tw`text-indigo-500`}
+    }
+    body.dark &.active {
+      ${tw`text-indigo-600`} !important
     }
   }
 `

@@ -71,15 +71,22 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 
       <Article>
         <Heros>
-          <ImgContainer>
-            <Fade duration={1200}>
-              <Img
-                title={post.title}
-                alt={post.title}
-                fluid={post.featuredImg.fluid}
-              />
+          <TextContainer>
+            <Fade bottom duration={800} delay={600}>
+              <h1>{post.title}</h1>
             </Fade>
-          </ImgContainer>
+            <Fade bottom duration={600} delay={800}>
+              <a
+                className="inline-block px-3 py-2 pb-4 mt-3 font-mono text-base font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="text-white">Visitar website</span>
+                <GoLinkExternal className="inline-block ml-2 text-white" />
+              </a>
+            </Fade>
+          </TextContainer>
           <div className="custom-shape-divider-bottom-1594014676">
             <svg
               data-name="Layer 1"
@@ -94,53 +101,46 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             </svg>
           </div>
         </Heros>
-        <TextContainer>
-          <Fade bottom duration={800} delay={600}>
-            <h1>{post.title}</h1>
-          </Fade>
-          <Fade bottom duration={600} delay={800}>
-            <a
-              className="inline-block px-3 py-2 pb-3 mt-3 font-mono text-base font-bold transition-all duration-200 bg-indigo-500 hover:bg-indigo-600"
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="text-white">Visitar website</span>
-              <GoLinkExternal className="inline-block ml-2 text-white" />
-            </a>
-          </Fade>
-        </TextContainer>
+        <div className="max-w-2xl m-auto">
+          {post.espacio ? (
+            <div>
+              <div className="text-lg text-center">
+                {post.espacio.map((item, i) => (
+                  <Link
+                    to={`/espacios/${kebabCase(item.slug)}/`}
+                    className="inline-block px-4 py-1 my-2 mr-2 bg-gray-300 rounded-full hover:bg-red-500"
+                    key={i}
+                  >
+                    <span className="mr-2 text-sm">{item.icono}</span>
+                    <b className="font-mono text-sm text-gray-900">
+                      {item.title}
+                    </b>
+                  </Link>
+                ))}
+              </div>
+              <hr className="mt-5 opacity-25" />
+            </div>
+          ) : (
+            <div className="hidden"></div>
+          )}
+        </div>
 
-        <h2>{post.espacio.title}</h2>
         <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
           {documentToReactComponents(
             post.childContentfulRecursosArticleRichTextNode.json,
             options
           )}
         </div>
+        <ImgContainer>
+          <Fade duration={1200}>
+            <Img
+              title={post.title}
+              alt={post.title}
+              fluid={post.featuredImg.fluid}
+            />
+          </Fade>
+        </ImgContainer>
         <TextContainer>
-          {post.espacio ? (
-            <div className="p-3 mt-24 ">
-              <p className="text-lg text-center">
-                {post.espacio.map((item, i) => (
-                  <Link
-                    to={`/espacios/${kebabCase(item.slug)}/`}
-                    className="inline-block px-3 py-1 my-2 mr-2 bg-indigo-600"
-                    key={i}
-                  >
-                    <span>{item.icono}</span>
-                    <b className="font-mono text-sm text-white">
-                      {" "}
-                      {item.title}
-                    </b>
-                  </Link>
-                ))}
-              </p>
-            </div>
-          ) : (
-            <div className="hidden"></div>
-          )}
-
           {post.blog ? (
             <div className="hidden">
               <h1 className="text-lg text-center">
@@ -181,16 +181,16 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 }
 
 const TextContainer = styled.header`
-  ${tw`relative max-w-2xl px-6 m-auto`}
+  ${tw`relative max-w-2xl px-0 m-auto text-center`}
   h1 {
-    ${tw`m-0 mt-12 font-mono text-4xl font-bold text-left`}
+    ${tw`pt-12 m-0 mt-8 font-mono text-4xl font-bold text-center text-white`}
 
     body.dark & {
       ${tw`text-gray-100`}
     }
   }
   h2 {
-    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-left`}
+    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-center`}
 
     body.dark & {
       ${tw`text-gray-100`}
@@ -198,7 +198,7 @@ const TextContainer = styled.header`
   }
 `
 const ImgContainer = styled.div`
-  ${tw`w-full m-auto overflow-hidden`}
+  ${tw`w-full max-w-2xl m-auto mt-2 mb-2 overflow-hidden`}
 
   img {
     ${tw`mb-0`}
@@ -237,8 +237,7 @@ const PageNav = styled.nav`
 
 const Heros = styled.div`
   ${tw`relative pt-0 overflow-hidden bg-indigo-900`}
-  max-height: 70vh;
-
+  min-height: 50vh;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   body.dark & {
     ${tw`bg-gray-900`}

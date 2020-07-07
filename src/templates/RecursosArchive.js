@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
+//import { Link } from "gatsby"
+//import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Pager from "../components/pager"
+import CardRecursos from "../components/CardRecursos"
+
 import SEO from "../components/seo"
 import Fade from "react-reveal/Fade"
 import tw from "tailwind.macro"
-import { kebabCase } from "lodash"
+//import { kebabCase } from "lodash"
 
 import styled from "@emotion/styled"
 const RecursosArchive = ({ data, pageContext, location }) => {
@@ -24,48 +26,7 @@ const RecursosArchive = ({ data, pageContext, location }) => {
           return (
             <Item key={node.slug}>
               <Fade cascade>
-                <CardItem>
-                  <Link
-                    to={`/recursos/${node.slug}`}
-                    className="absolute right-0 p-3 opacity-25 sm:opacity-100 sm:block sm:relative"
-                  >
-                    <Img
-                      className="w-full "
-                      alt={node.title}
-                      fixed={node.featuredImg.fixed}
-                    />
-                  </Link>
-                  <Content className="">
-                    <Tags>{node.category}</Tags>
-                    <Tags>2-{node.createdAt}</Tags>
-
-                    <Link
-                      to={`/recursos/${node.slug}`}
-                      className="block mb-0 font-mono text-lg font-bold text-left"
-                    >
-                      {node.title}
-                    </Link>
-                    <Description className="">
-                      {node.excerpt.excerpt}
-
-                      <b className="block py-2 font-bold">{node.category}</b>
-                    </Description>
-                    <div className="flex w-full">
-                      {node.espacio.map((espacio, i) => [
-                        <Link
-                          to={`/espacios/${kebabCase(espacio.slug)}/`}
-                          className="inline-block px-4 py-1 my-2 mr-2 bg-gray-300 rounded-full hover:bg-red-500"
-                          key={i}
-                        >
-                          <span className="mr-2 text-sm">{espacio.icono}</span>
-                          <b className="font-mono text-sm text-gray-900">
-                            {espacio.title}
-                          </b>
-                        </Link>,
-                      ])}
-                    </div>
-                  </Content>
-                </CardItem>
+                <CardRecursos card={node} />
               </Fade>
             </Item>
           )
@@ -78,40 +39,6 @@ const RecursosArchive = ({ data, pageContext, location }) => {
 
 const BlogContainer = styled.div`
   ${tw`flex flex-wrap justify-center max-w-4xl m-auto overflow-hidden`}
-`
-
-const CardItem = styled.div`
-  ${tw`relative flex w-full overflow-hidden bg-gray-100 rounded`}
-  transition: all .2s;
-  top: 0;
-
-  body.dark & {
-    ${tw`bg-gray-900`}
-  }
-
-  &:hover {
-    top: 2px;
-  }
-`
-
-const Content = styled.div`
-  ${tw`relative w-full p-3`}
-`
-
-const Description = styled.p`
-  ${tw`font-mono text-sm text-left text-gray-900`}
-  body.dark & {
-    ${tw`text-gray-100`}
-  }
-`
-
-const Tags = styled.div`
-  ${tw`absolute right-0 inline-block px-3 py-1 mr-2 text-xs font-bold text-gray-700 uppercase bg-gray-200 rounded-full`}
-  top: -2rem;
-
-  body.dark & {
-    ${tw`text-gray-800`}
-  }
 `
 
 const Item = styled.div`
@@ -148,6 +75,7 @@ export const pageQuery = graphql`
           title
           slug
           tags
+          url
           createdAt
           category
           excerpt {
@@ -159,7 +87,7 @@ export const pageQuery = graphql`
             icono
           }
           featuredImg {
-            fixed(width: 150, height: 150) {
+            fixed(width: 180, height: 180) {
               ...GatsbyContentfulFixed_withWebp_noBase64
             }
             fluid(maxWidth: 1500) {

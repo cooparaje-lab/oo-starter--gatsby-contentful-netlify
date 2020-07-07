@@ -5,62 +5,14 @@ import { Link } from "gatsby"
 import { kebabCase } from "lodash"
 import "./post.css"
 import SEO from "../components/seo"
+import CardRecursos from "../components/CardRecursos"
 import tw from "tailwind.macro"
 //import Img from "gatsby-image"
 import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+//import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 //import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { Article, ArticleText } from "../components/import"
-
-const Bold = ({ children }) => <span className="font-bold">{children}</span>
-const Text = ({ children }) => <ArticleText>{children}</ArticleText>
-const website_url = "https://www.cooparaje.com.ar"
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-    [MARKS.CODE]: embedded => (
-      <Fade>
-        <div dangerouslySetInnerHTML={{ __html: embedded }} />
-      </Fade>
-    ),
-  },
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: node => {
-      if (!node.data || !node.data.target.fields) {
-        return <span className="hidden">Embedded asset is broken</span>
-      }
-      return (
-        <Fade>
-          <div className="post-image">
-            <img
-              className="w-full"
-              alt={node.data.target.fields.title["es-AR"]}
-              src={node.data.target.fields.file["es-AR"].url}
-            />
-          </div>
-        </Fade>
-      )
-    },
-    [INLINES.HYPERLINK]: node => {
-      return (
-        <a
-          href={node.data.uri}
-          className="font-bold border-b border-indigo-500 hover:bg-indigo-700 hover:text-white"
-          target={`${
-            node.data.uri.startsWith(website_url) ? "_self" : "_blank"
-          }`}
-          rel={`${
-            node.data.uri.startsWith(website_url) ? "" : "noopener noreferrer"
-          }`}
-        >
-          {node.content[0].value}
-        </a>
-      )
-    },
-    [BLOCKS.PARAGRAPH]: (_, children) => <Text>{children}</Text>,
-  },
-}
+import { Article } from "../components/import"
 
 const EspacioPostTemplate = ({ data, pageContext, location }) => {
   const espacio = data.contentfulEspacios
@@ -92,27 +44,13 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
         {espacio.recursos ? (
           <RecursosList>
             {espacio.recursos.map((item, i) => (
-              <Fade duration={800} delay={600}>
-                <Item>
-                  <Link
-                    to={`/recursos/${kebabCase(item.slug)}/`}
-                    className="p-3 text-left"
-                  >
-                    <b className="block mb-2 font-bold">{item.title}</b>
-                    {item.excerpt.excerpt ? (
-                      <p>{item.excerpt.excerpt}</p>
-                    ) : (
-                      <div className="text-center text-gray-500 ">
-                        Proximamente
-                      </div>
-                    )}
-                  </Link>
-                </Item>
+              <Fade duration={800} delay={600} key={item.slug}>
+                <CardRecursos card={item} />
               </Fade>
             ))}
           </RecursosList>
         ) : (
-          <div className="hidden text-center text-gray-500">Proximamente</div>
+          <div className="text-center text-gray-500 ">Proximamente</div>
         )}
 
         <div className="w-full max-w-2xl m-auto article" id={espacio.slug}>
@@ -154,24 +92,9 @@ const TextContainer = styled.header`
 `
 
 const RecursosList = styled.div`
-  ${tw`flex flex-col justify-center max-w-2xl pt-12 m-auto`}
+  ${tw`flex flex-col justify-center max-w-3xl pt-12 m-auto`}
   body.dark & {
     ${tw`text-indigo-200`}
-  }
-`
-
-const Item = styled.div`
-  ${tw`w-full px-5 py-3 m-2 my-3 font-mono text-lg font-thin leading-snug text-center border border-gray-100 shadow-md`}
-  ${tw`flex items-center justify-start cursor-pointer`}
-  transition: all 1.1s;
-  transform: translateY(0);
-  &:hover {
-    ${tw`shadow-lg `}
-    transform: translateY(-5px);
-  }
-
-  body.dark & {
-    ${tw`text-indigo-200 border-gray-700`}
   }
 `
 
@@ -196,8 +119,24 @@ export const pageQuery = graphql`
       recursos {
         title
         slug
+        url
+        category
+        espacio {
+          title
+          slug
+          icono
+        }
         excerpt {
           excerpt
+        }
+        featuredImg {
+          fixed(width: 180, height: 180) {
+            ...GatsbyContentfulFixed_withWebp_noBase64
+          }
+          fluid(maxWidth: 1500) {
+            # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+            ...GatsbyContentfulFluid_withWebp_noBase64
+          }
         }
       }
       proyectos {

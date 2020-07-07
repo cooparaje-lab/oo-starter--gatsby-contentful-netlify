@@ -32,15 +32,29 @@ const EspaciosPage = ({ data }) => {
         <Categories>
           {allEspacios.map(item => (
             <Item key={item.node.id}>
-              <Link
-                to={`/espacios/${kebabCase(item.node.slug)}/`}
-                css={tw`block pt-1 text-indigo-300 hover:text-indigo-500`}
-              >
-                <span className="block my-2 mt-3 text-2xl">
-                  {item.node.icono}
-                </span>
-                <b className="block py-2 mb-3 font-bold">{item.node.title}</b>
-              </Link>
+              {item.node.recursos ? (
+                <Link
+                  to={`/espacios/${kebabCase(item.node.slug)}/`}
+                  css={tw`block pt-1 text-indigo-300 hover:text-indigo-500`}
+                >
+                  <span className="block my-2 mt-3 text-2xl">
+                    {item.node.icono}
+                  </span>
+                  <b className="block py-2 mb-3 font-bold">{item.node.title}</b>
+                </Link>
+              ) : (
+                <Link
+                  to={`/espacios/${kebabCase(item.node.slug)}/`}
+                  css={tw`block pt-1 text-indigo-300 hover:text-indigo-500 `}
+                >
+                  <span className="block my-2 mt-3 text-2xl opacity-25">
+                    {item.node.icono}
+                  </span>
+                  <b className="block py-2 mb-3 font-bold text-gray-500">
+                    {item.node.title}
+                  </b>
+                </Link>
+              )}
             </Item>
           ))}
         </Categories>
@@ -88,28 +102,37 @@ const Item = styled.div`
   ${tw`w-1/2 m-2 my-3 font-mono text-lg font-thin leading-snug text-center sm:w-1/3 md:w-1/6`}
   ${tw`bg-white border border-gray-100 shadow-md `}
   ${tw`flex items-center justify-center cursor-pointer`}
+  
+
+  transition: all .2s;
   transform: translateY(0);
-  &:hover {
-    ${tw`shadow-lg `}
-    transform: translateY(-5px);
-  }
+  transform: scale(1);
 
   body.dark & {
-    ${tw`text-indigo-200 bg-gray-800 border-gray-800`}
+    ${tw`bg-gray-900`}
   }
+
+  &:hover {
+    ${tw`shadow-xl`}
+    transform: scale(1.01) translateY(-2px);
+  }
+
 `
 
 export default EspaciosPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulEspacios(sort: { fields: title, order: ASC }) {
+    allContentfulEspacios(sort: { fields: recursos, order: ASC }) {
       edges {
         node {
           title
           slug
           icono
           id
+          recursos {
+            title
+          }
         }
       }
     }

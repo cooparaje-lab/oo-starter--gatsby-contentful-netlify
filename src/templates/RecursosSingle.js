@@ -46,7 +46,7 @@ const options = {
       return (
         <a
           href={node.data.uri}
-          className="font-bold border-b border-indigo-500 hover:bg-indigo-700 hover:text-white"
+          className="inline-block pb-0 font-bold border-b border-indigo-500 hover:bg-indigo-700 hover:text-white"
           target={`${
             node.data.uri.startsWith(website_url) ? "_self" : "_blank"
           }`}

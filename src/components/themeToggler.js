@@ -8,7 +8,7 @@ class ThemeTogglerComponent extends React.Component {
         {({ theme, toggleTheme }) => (
           <label
             className="switch top-right"
-            for="theme-toggle"
+            htmlFor="theme-toggle"
             aria-hidden="true"
           >
             <input
@@ -18,7 +18,7 @@ class ThemeTogglerComponent extends React.Component {
               onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
               checked={theme === "dark"}
             />{" "}
-            <span class="slider"></span>
+            <span className="slider"></span>
           </label>
         )}
       </ThemeToggler>

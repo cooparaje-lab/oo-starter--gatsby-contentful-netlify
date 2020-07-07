@@ -17,11 +17,6 @@ const routes = [
     slug: "/espacios/",
     ariaLabel: "Ver todos los espacios",
   },
-  {
-    title: "Artículos",
-    slug: "/blog/",
-    ariaLabel: "Ver las entradas del blog",
-  },
 ]
 
 const Navigation = ({ closeMenu }) => (

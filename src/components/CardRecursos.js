@@ -116,7 +116,7 @@ const Top = styled.div`
 `
 
 const Actions = styled.div`
-  ${tw`flex items-baseline justify-between w-full mt-0`}
+  ${tw`flex items-baseline justify-between w-full mt-1`}
 
   body.dark & {
     ${tw`text-indigo-200`}

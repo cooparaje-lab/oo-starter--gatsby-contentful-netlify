@@ -13,7 +13,7 @@ const EspaciosPage = ({ data }) => {
       <SEO title="Espacios" />
 
       <HeroRecurso>
-        <h1>x recursos x espacios x herramientas x tutoriales x</h1>
+        <h1>Espacios</h1>
         <div className="custom-shape-divider-bottom-1594014676">
           <svg
             data-name="Layer 1"

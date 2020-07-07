@@ -13,7 +13,7 @@ const routes = [
   //ariaLabel: "Ver los proyectos",
   //},
   {
-    title: "Blog",
+    title: "Artículos",
     slug: "/blog/",
     ariaLabel: "Ver las entradas del blog",
   },

@@ -9,7 +9,7 @@ export const Article = styled.article`
   }
 
   .article {
-    ${tw`px-2`}
+    ${tw`px-6`}
 
     body.dark & {
       ${tw`text-gray-100 `}

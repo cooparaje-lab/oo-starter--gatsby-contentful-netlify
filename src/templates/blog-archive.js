@@ -15,7 +15,7 @@ const BlogArchive = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <SEO title="Blog" />
       <HeroProjects>
-        <h1>Blog</h1>
+        <h1>Artículos</h1>
       </HeroProjects>
       <BlogContainer>
         {posts.map(({ node }) => {

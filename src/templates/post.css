@@ -34,6 +34,16 @@ footer {
   @apply text-white fill-current;
 }
 
+.custom-shape-divider-bottom-1594014676 {
+  @apply hidden;
+}
+
+@screen md {
+  .custom-shape-divider-bottom-1594014676 {
+    @apply block;
+  }
+}
+
 .dark .custom-shape-divider-bottom-1594014441 .shape-fill {
   @apply text-gray-800 fill-current;
 }

@@ -18,12 +18,15 @@ const Header = ({ siteTitle }) => (
         </Link>
       </Logo>
       <Nav>
-        <Link activeClassName="active" to="/espacios/">
+        <Link activeClassName="active" to="/recursos/">
           Recursos
+        </Link>
+        <Link activeClassName="active" to="/espacios/">
+          Espacios
         </Link>
 
         <Link activeClassName="active" to="/blog/">
-          Blog
+          Artículos
         </Link>
       </Nav>
       <ThemeToggler />
@@ -40,7 +43,7 @@ Header.defaultProps = {
 }
 
 const InnerWrapper = styled.div`
-  ${tw`flex items-center justify-between max-w-6xl px-3 py-5 m-auto `}
+  ${tw`flex items-center justify-between w-full px-3 py-5 m-auto `}
 `
 
 const Logo = styled.div`

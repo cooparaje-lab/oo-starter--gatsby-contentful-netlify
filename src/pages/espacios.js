@@ -35,7 +35,7 @@ const EspaciosPage = ({ data }) => {
               {item.node.recursos ? (
                 <Link
                   to={`/espacios/${kebabCase(item.node.slug)}/`}
-                  css={tw`block pt-1 text-indigo-300 hover:text-indigo-500`}
+                  css={tw`block pt-1 text-indigo-100 hover:text-indigo-500`}
                 >
                   <span className="block my-2 mt-3 text-2xl">
                     {item.node.icono}
@@ -109,7 +109,7 @@ const Item = styled.div`
   transform: scale(1);
 
   body.dark & {
-    ${tw`bg-gray-900`}
+    ${tw`bg-gray-800 border-gray-900`}
   }
 
   &:hover {

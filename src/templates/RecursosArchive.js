@@ -76,7 +76,7 @@ export const pageQuery = graphql`
           slug
           tags
           url
-          createdAt
+          createdAt(locale: "es", formatString: "Do MMMM, YYYY")
           category
           excerpt {
             excerpt

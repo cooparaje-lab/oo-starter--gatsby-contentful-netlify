@@ -120,6 +120,7 @@ export const pageQuery = graphql`
         title
         slug
         url
+        createdAt(locale: "es", formatString: "Do MMMM, YYYY")
         category
         espacio {
           title

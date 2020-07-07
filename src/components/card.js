@@ -9,17 +9,20 @@ export default ({ card }) => (
   <CardItem>
     <Link
       to={`/blog/${card.slug}`}
-      className="block h-56 overflow-hidden text-xl font-bold text-left"
+      className="block h-56 overflow-hidden text-xl font-bold text-center"
     >
       <Img className="w-full" alt={card.title} fixed={card.featuredImg.fixed} />
     </Link>
     <Content>
       <Link
         to={`/blog/${card.slug}`}
-        className="block mb-2 text-xl font-bold text-left title"
+        className="block mb-2 text-xl font-bold text-center title"
       >
         {card.title}
       </Link>
+      <small className="block font-mono font-bold my-2 text-sm text-gray-600 opacity-75">
+        Publicado el {card.createdAt}
+      </small>
       <Description>{card.excerpt.excerpt}</Description>
       <Tags>
         {card.tags.map((tag, i) => [
@@ -34,25 +37,25 @@ export default ({ card }) => (
 )
 
 const CardItem = styled.div`
-  ${tw`relative max-w-md overflow-hidden rounded shadow-lg`}
+  ${tw`relative max-w-md overflow-hidden rounded `}
   transition: all .2s;
   top: 0;
 
   &:hover {
-    ${tw`shadow-xl`}
+    ${tw``}
     top: 2px;
   }
 `
 
 const Content = styled.div`
-  ${tw`px-6 py-4 bg-indigo-100`}
+  ${tw`px-8 py-4 bg-gray-100`}
 
   body.dark & {
     ${tw`bg-gray-900`}
   }
 
   .title {
-    ${tw`text-indigo-800`}
+    ${tw`font-mono text-indigo-800`}
     body.dark & {
       ${tw`text-indigo-500`}
     }
@@ -60,7 +63,7 @@ const Content = styled.div`
 `
 
 const Description = styled.p`
-  ${tw`text-base text-left text-gray-700`}
+  ${tw`hidden pb-3 text-base text-center text-gray-700`}
 
   body.dark & {
     ${tw`text-indigo-200`}
@@ -68,7 +71,7 @@ const Description = styled.p`
 `
 
 const Tags = styled.div`
-  ${tw`flex flex-wrap px-0 py-4`}
+  ${tw`flex flex-wrap hidden px-0 py-4`}
 
   a {
     ${tw`inline-block px-3 py-1 mt-2 mr-2 text-xs font-semibold text-gray-700 bg-gray-200 rounded-full`}

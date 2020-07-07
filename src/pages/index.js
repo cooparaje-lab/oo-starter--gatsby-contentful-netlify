@@ -4,19 +4,18 @@ import SEO from "../components/seo"
 import { Link } from "gatsby"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
-import { Title } from "../components/import"
 
 import Fade from "react-reveal/Fade"
 const IndexPage = () => (
   <Layout>
     <SEO title="Inicio" />
     <Home>
-      <div className="mb-2">
+      <MainTitle>
         <Fade top cascade duration={1200}>
-          <h1 className="font-mono text-4xl">Recursos Gratuitos</h1>
+          <h1>Recursos Gratuitos</h1>
         </Fade>
-      </div>
-      <p className="text-xl">Es hora de crear algo grandioso</p>
+      </MainTitle>
+      <p className="text-xl">Hora de crear algo grandioso.</p>
       <Link
         className=""
         css={tw`relative z-10 px-5 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500`}
@@ -60,6 +59,18 @@ const Home = styled.div`
 
     p {
       ${tw`text-gray-300 `}
+    }
+  }
+`
+
+const MainTitle = styled.div`
+  ${tw`mb-2`}
+
+  h1 {
+    ${tw`font-mono text-4xl`}
+
+    body.dark & {
+      ${tw`text-gray-100`}
     }
   }
 `

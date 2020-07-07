@@ -23,7 +23,7 @@ export default ({ card }) => (
       <Top>
         <Link
           to={`/recursos/${card.slug}`}
-          className="block mb-0 font-mono text-xl font-bold text-left"
+          className="block mb-0 font-mono text-xl font-bold text-left capitalize"
         >
           {card.title}
         </Link>
@@ -33,11 +33,14 @@ export default ({ card }) => (
           rel="noopener noreferrer"
           className="relative z-10 inline-block px-3 py-2 pb-4 mt-3 font-mono text-xs font-bold bg-indigo-500 hover:bg-indigo-600"
         >
-          <span className="text-white">Visitar website</span>
+          <span className="text-white">Acceder</span>
           <GoLinkExternal className="inline-block ml-2 text-white" />
         </a>
       </Top>
-      <Description className="">{card.excerpt.excerpt}</Description>
+      <Description className="">
+        {card.excerpt.excerpt}
+        <small>Publicado el {card.createdAt}</small>
+      </Description>
       <Actions>
         <div className="flex w-full">
           {card.espacio.map((espacio, i) => [
@@ -78,7 +81,7 @@ const CardItem = styled.div`
 `
 
 const Content = styled.div`
-  ${tw`flex flex-col justify-center w-full px-6 py-4`}
+  ${tw`flex flex-col justify-start w-full px-6 py-4`}
 
   .title {
     ${tw`text-indigo-800`}
@@ -94,10 +97,18 @@ const Description = styled.p`
   body.dark & {
     ${tw`text-indigo-200`}
   }
+
+  small {
+    ${tw`block mt-2 font-bold text-gray-900 opacity-75 `}
+
+    body.dark & {
+      ${tw`text-gray-100`}
+    }
+  }
 `
 
 const Top = styled.div`
-  ${tw`flex items-baseline justify-between w-full mb-3`}
+  ${tw`flex items-baseline justify-between w-full mb-1`}
 
   body.dark & {
     ${tw`text-indigo-200`}
@@ -105,7 +116,7 @@ const Top = styled.div`
 `
 
 const Actions = styled.div`
-  ${tw`flex items-baseline justify-between w-full mt-3`}
+  ${tw`flex items-baseline justify-between w-full mt-0`}
 
   body.dark & {
     ${tw`text-indigo-200`}

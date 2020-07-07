@@ -34,12 +34,12 @@ const BlogArchive = ({ data, pageContext, location }) => {
 }
 
 const BlogContainer = styled.div`
-  ${tw`flex flex-wrap justify-start max-w-6xl px-2 pt-6 m-auto`}
+  ${tw`flex flex-wrap justify-center max-w-6xl px-2 pt-6 m-auto`}
   min-height: 100vh;
 `
 
 const Item = styled.div`
-  ${tw`px-3 my-3 overflow-hidden text-center lg:w-1/3 `}
+  ${tw`px-3 my-3 overflow-hidden text-center sm:w-1/2 lg:w-1/3 `}
 `
 
 const HeroProjects = styled.div`
@@ -69,14 +69,14 @@ export const pageQuery = graphql`
         node {
           id
           title
-          createdAt
+          createdAt(locale: "es", formatString: "Do MMMM, YYYY")
           slug
           excerpt {
             excerpt
           }
           tags
           featuredImg {
-            fixed(width: 500, height: 250) {
+            fixed(width: 360, height: 250) {
               ...GatsbyContentfulFixed_withWebp_noBase64
             }
             fluid(maxWidth: 1500) {

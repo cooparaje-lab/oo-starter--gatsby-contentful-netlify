@@ -14,7 +14,7 @@ export default ({ card }) => (
       className="absolute right-0 hidden p-3 opacity-25 sm:opacity-100 sm:block sm:relative"
     >
       <Img
-        className="w-full "
+        className="w-full cardImage"
         alt={card.title}
         fixed={card.featuredImg.fixed}
       />
@@ -46,13 +46,13 @@ export default ({ card }) => (
           {card.espacio.map((espacio, i) => [
             <Link
               to={`/espacios/${kebabCase(espacio.slug)}/`}
-              className="inline-block px-4 py-1 my-2 mr-2 bg-gray-300 rounded-full hover:bg-indigo-500 "
+              className="btnCategory hover:bg-indigo-500 "
               key={i}
             >
               <span className="mr-2 text-sm hover:text-white">
                 {espacio.icono}
               </span>
-              <b className="font-mono text-sm text-gray-900">{espacio.title}</b>
+              <b className="font-mono text-sm">{espacio.title}</b>
             </Link>,
           ])}
         </div>
@@ -72,6 +72,16 @@ const CardItem = styled.div`
 
   body.dark & {
     ${tw`bg-gray-900`}
+  }
+
+  .cardImage {
+    body.dark & {
+      opacity: 0.7;
+      transition: all 0.2s;
+    }
+    &:hover {
+      opacity: 1 !important;
+    }
   }
 
   &:hover {
@@ -116,9 +126,16 @@ const Top = styled.div`
 `
 
 const Actions = styled.div`
-  ${tw`flex items-baseline justify-between w-full mt-1`}
+  ${tw`flex flex-col items-baseline justify-between w-full mt-1 sm:flex-row`}
 
   body.dark & {
     ${tw`text-indigo-200`}
+  }
+  .btnCategory {
+    ${tw`inline-block px-4 py-1 my-2 mr-2 text-indigo-900 bg-indigo-300 rounded-full `}
+
+    body.dark & {
+      ${tw`text-indigo-300 bg-indigo-900`}
+    }
   }
 `

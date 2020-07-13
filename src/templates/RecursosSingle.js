@@ -9,9 +9,11 @@ import tw from "tailwind.macro"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
+import { Player, BigPlayButton } from "video-react"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Article, ArticleText } from "../components/import"
+import ReactTooltip from "react-tooltip"
 import { GoLinkExternal } from "react-icons/go"
 const Bold = ({ children }) => <span className="font-bold">{children}</span>
 const Text = ({ children }) => <ArticleText>{children}</ArticleText>
@@ -29,18 +31,29 @@ const options = {
     [BLOCKS.EMBEDDED_ASSET]: node => {
       if (!node.data || !node.data.target.fields) {
         return <span className="hidden">Embedded asset is broken</span>
+      } else {
+        if (node.data.target.fields.file["es-AR"].contentType === "video/mp4") {
+          return (
+            <Fade>
+              <Player src={node.data.target.fields.file["es-AR"].url}>
+                <BigPlayButton position="center" />
+              </Player>
+            </Fade>
+          )
+        } else {
+          return (
+            <Fade>
+              <div className="post-image">
+                <img
+                  className="w-full"
+                  alt={node.data.target.fields.title["es-AR"]}
+                  src={node.data.target.fields.file["es-AR"].url}
+                />
+              </div>
+            </Fade>
+          )
+        }
       }
-      return (
-        <Fade>
-          <div className="post-image">
-            <img
-              className="w-full"
-              alt={node.data.target.fields.title["es-AR"]}
-              src={node.data.target.fields.file["es-AR"].url}
-            />
-          </div>
-        </Fade>
-      )
     },
     [INLINES.HYPERLINK]: node => {
       return (
@@ -74,15 +87,22 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
           <div className="max-w-2xl m-auto mt-12">
             {post.espacio ? (
               <Fade bottom duration={1200} delay={200}>
-                <div className="text-lg text-center">
+                <div className="flex justify-center text-lg text-center">
+                  <ReactTooltip
+                    place="bottom"
+                    type="dark"
+                    effect="solid"
+                    className="bg-red-500 shadow"
+                  />
                   {post.espacio.map((item, i) => (
                     <Link
                       to={`/espacios/${kebabCase(item.slug)}/`}
-                      className="inline-block px-4 py-1 my-2 mr-2 rounded-full hover:bg-indigo-500"
+                      className="flex flex-col px-4 py-1 mx-2 my-2 rounded-full hover:bg-indigo-500"
                       key={i}
+                      data-tip={item.title}
                     >
-                      <span className="mr-2 text-sm">{item.icono}</span>
-                      <b className="font-mono text-sm text-gray-100">
+                      <span className="text-2xl">{item.icono}</span>
+                      <b className="hidden font-mono text-sm text-gray-100">
                         {item.title}
                       </b>
                     </Link>

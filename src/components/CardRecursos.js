@@ -47,12 +47,13 @@ export default ({ card }) => (
             <Link
               to={`/espacios/${kebabCase(espacio.slug)}/`}
               className="btnCategory hover:bg-indigo-500 "
+              activeClassName="active"
               key={i}
             >
               <span className="mr-2 text-sm hover:text-white">
                 {espacio.icono}
               </span>
-              <b className="font-mono text-sm">{espacio.title}</b>
+              <span className="font-mono text-sm">{espacio.title}</span>
             </Link>,
           ])}
         </div>
@@ -131,6 +132,15 @@ const Actions = styled.div`
   body.dark & {
     ${tw`text-indigo-200`}
   }
+
+  b {
+    ${tw`text-indigo-500 opacity-75`}
+
+    body.dark & {
+      ${tw`text-indigo-500`}
+    }
+  }
+
   .btnCategory {
     ${tw`inline-block px-4 py-1 my-2 mr-2 text-indigo-900 bg-indigo-300 rounded-full `}
 

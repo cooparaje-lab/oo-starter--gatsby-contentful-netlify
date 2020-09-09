@@ -9,6 +9,7 @@ import SEO from "../components/seo"
 import Fade from "react-reveal/Fade"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
+
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Article, HeroContainer, ArticleText } from "../components/import"

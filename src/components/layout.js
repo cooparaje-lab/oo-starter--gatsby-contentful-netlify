@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
             rel="noopener noreferrer"
             className="mx-1 border-b border-gray-600 hover:text-red-600 hover:border-red-600"
           >
-            santuan
+            stn9000
           </a>
           en un Paraje Libre
           <b className="megamineria">La Vida vale más que la mega-minería</b>

@@ -19,7 +19,7 @@ const RecursosArchive = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <SEO title="Recursos" />
       <HeroRecurso>
-        <h1>Recursos</h1>
+        <h1>Recursossss</h1>
       </HeroRecurso>
       <BlogContainer>
         {Recurso.map(({ node }) => {

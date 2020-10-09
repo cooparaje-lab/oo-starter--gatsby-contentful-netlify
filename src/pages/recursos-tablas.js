@@ -5,68 +5,64 @@ import { kebabCase } from "lodash"
 import tw from "tailwind.macro"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
-const EspaciosPage = ({ data }) => {
-  const allEspacios = data.allContentfulEspacios.edges
+import Fade from "react-reveal/Fade"
+
+const RecursosTablasPage = ({ data }) => {
+  const RecursoAirtable = data.allAirtable.edges
   //const buildTime = data.site
 
   return (
     <Layout>
       <SEO title="Espacios" />
 
-      <HeroRecurso>
-        <h1>Espacios</h1>
-
-        <div className="custom-shape-divider-bottom-1594014676">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              className="shape-fill"
-            ></path>
-          </svg>
-        </div>
-      </HeroRecurso>
+      <iframe
+        class="airtable-embed"
+        src="https://airtable.com/embed/shrhjkZGMhXN5n8jG?backgroundColor=purple&viewControls=on"
+        frameborder="0"
+        onmousewheel=""
+        width="100%"
+        className="mt-3 bg-transparent "
+        height="533"
+      ></iframe>
       <Container>
         <h3 className="font-mono font-bold text-center text-gray-500 uppercase opacity-50">
           Última actualización {data.site.buildTime}
         </h3>
-        <Categories>
-          {allEspacios.map(item => (
-            <Item key={item.node.id}>
-              {item.node.recursos ? (
-                <Link
-                  to={`/espacios/${kebabCase(item.node.slug)}/`}
-                  css={tw`block pt-1 text-indigo-100 hover:text-indigo-500`}
-                >
-                  <span className="block my-2 mt-3 text-2xl">
-                    {item.node.icono}
-                  </span>
-                  <b className="block py-2 mb-3 font-bold">{item.node.title}</b>
-                </Link>
-              ) : (
-                <Link
-                  to={`/espacios/${kebabCase(item.node.slug)}/`}
-                  css={tw`block pt-1 text-indigo-300 hover:text-indigo-500 `}
-                >
-                  <span className="block my-2 mt-3 text-2xl opacity-25">
-                    {item.node.icono}
-                  </span>
-                  <b className="block py-2 mb-3 font-bold text-gray-500">
-                    {item.node.title}
-                  </b>
-                </Link>
-              )}
-            </Item>
-          ))}
-        </Categories>
+        <AirTables>
+          {RecursoAirtable.map(({ node }) => {
+            return (
+              <div key={node.id} className="item">
+                <Fade cascade>
+                  <a
+                    href={node.data.Link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full m-0 text-center text-gray-500"
+                  >
+                    {node.data.Name}
+                  </a>
+                  <p>{node.data.Notes}</p>
+                </Fade>
+              </div>
+            )
+          })}
+        </AirTables>
       </Container>
     </Layout>
   )
 }
+
+const AirTables = styled.div`
+  ${tw`flex flex-wrap justify-center max-w-6xl pt-12 m-auto`}
+  body.dark & {
+    ${tw`text-indigo-200`}
+  }
+
+  .item {
+    ${tw`w-full max-w-md p-5 mx-3 border border-gray-500`}
+    flex: 1
+  }
+`
 
 const Container = styled.div`
   ${tw`w-full min-h-screen m-auto bg-gray-100`}
@@ -132,19 +128,18 @@ const Item = styled.div`
 
 `
 
-export default EspaciosPage
+export default RecursosTablasPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulEspacios(sort: { fields: recursos, order: ASC }) {
+    allAirtable {
       edges {
         node {
-          title
-          slug
-          icono
           id
-          recursos {
-            title
+          data {
+            Name
+            Link
+            Notes
           }
         }
       }

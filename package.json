@@ -25,6 +25,7 @@
     "gatsby-plugin-sharp": "^2.6.34",
     "gatsby-plugin-sitemap": "^2.3.2",
     "gatsby-plugin-transitions": "^2.1.5",
+    "gatsby-source-airtable": "^2.1.1",
     "gatsby-source-contentful": "^2.2.7",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.3",

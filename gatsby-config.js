@@ -29,6 +29,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-remark`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-dark-mode`,
     {
@@ -56,6 +57,7 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE,
             tableName: process.env.AIRTABLE_TABLE_NAME,
+            mapping: { Notes: "text/markdown", Attachments: `fileNode` },
           },
         ],
       },

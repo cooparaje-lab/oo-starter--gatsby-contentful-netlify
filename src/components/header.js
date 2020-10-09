@@ -40,6 +40,10 @@ Header.defaultProps = {
 
 const InnerWrapper = styled.div`
   ${tw`flex items-center justify-between w-full px-3 py-5 m-auto `}
+
+  body.resources-tables & {
+    ${tw`py-1`}
+  }
 `
 
 const Logo = styled.div`
@@ -49,6 +53,10 @@ const Logo = styled.div`
 const Nav = styled.nav`
   ${tw`flex justify-start pl-3 ml-12 border-l border-gray-500`}
   flex: 1;
+
+  body.resources-tables & {
+    ${tw`ml-4`}
+  }
 
   a {
     ${tw`hidden ml-8 font-mono text-lg font-bold md:inline-block`}
@@ -60,6 +68,10 @@ const Nav = styled.nav`
     }
     body.dark &.active {
       ${tw`text-indigo-600`} !important
+    }
+
+    body.resources-tables & {
+      ${tw`ml-3 text-base`}
     }
   }
 `

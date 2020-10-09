@@ -44,6 +44,10 @@ Layout.propTypes = {
 
 const App = styled.div`
   ${tw`block min-h-screen pt-16`}
+
+  body.resources-tables & {
+    ${tw`pt-12`}
+  }
 `
 
 const Main = styled.main`

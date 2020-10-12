@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
 import { TiHeartFullOutline } from "react-icons/ti"
 import "./darkTheme.css"

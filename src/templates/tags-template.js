@@ -4,8 +4,9 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { kebabCase } from "lodash"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
+
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allContentfulBlog
@@ -25,7 +26,7 @@ const Tags = ({ pageContext, data }) => {
             return (
               <div
                 key={slug}
-                css={tw`pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate`}
+                tw="pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate"
               >
                 <Link to={`/blog/${kebabCase(slug)}/`}>{title}</Link>
               </div>

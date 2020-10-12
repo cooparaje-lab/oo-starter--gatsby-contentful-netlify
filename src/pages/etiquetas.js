@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
 import { kebabCase } from "lodash"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
 const TagsPage = ({ data }) => {
@@ -18,11 +18,11 @@ const TagsPage = ({ data }) => {
           {allTags.map(tag => (
             <li
               key={tag.fieldValue}
-              css={tw`pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate`}
+              tw="pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate"
             >
               <Link
                 to={`/etiquetas/${kebabCase(tag.fieldValue)}/`}
-                css={tw`hover:text-indigo-500`}
+                tw="hover:text-indigo-500"
               >
                 {tag.fieldValue} ({tag.totalCount})
               </Link>

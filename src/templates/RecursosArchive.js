@@ -8,10 +8,10 @@ import CardRecursos from "../components/CardRecursos"
 
 import SEO from "../components/seo"
 import Fade from "react-reveal/Fade"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
+import styled from "@emotion/styled"
 //import { kebabCase } from "lodash"
 
-import styled from "@emotion/styled"
 const RecursosArchive = ({ data, pageContext, location }) => {
   const Recurso = data.allContentfulRecursos.edges
 
@@ -19,7 +19,7 @@ const RecursosArchive = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <SEO title="Recursos" />
       <HeroRecurso>
-        <h1>Recursossss</h1>
+        <h1>Recursos</h1>
       </HeroRecurso>
       <BlogContainer>
         {Recurso.map(({ node }) => {

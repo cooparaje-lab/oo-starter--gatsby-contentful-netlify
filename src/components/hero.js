@@ -2,7 +2,7 @@ import React from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import { kebabCase } from "lodash"
 import Img from "gatsby-image"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
 

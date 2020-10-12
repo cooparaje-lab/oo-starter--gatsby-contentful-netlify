@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
 import { kebabCase } from "lodash"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
 const EspaciosPage = ({ data }) => {
@@ -40,7 +40,7 @@ const EspaciosPage = ({ data }) => {
               {item.node.recursos ? (
                 <Link
                   to={`/espacios/${kebabCase(item.node.slug)}/`}
-                  css={tw`block pt-1 text-indigo-100 hover:text-indigo-500`}
+                  tw="block pt-1 text-indigo-100 hover:text-indigo-500"
                 >
                   <span className="block my-2 mt-3 text-2xl">
                     {item.node.icono}
@@ -50,7 +50,7 @@ const EspaciosPage = ({ data }) => {
               ) : (
                 <Link
                   to={`/espacios/${kebabCase(item.node.slug)}/`}
-                  css={tw`block pt-1 text-indigo-300 hover:text-indigo-500 `}
+                  tw="block pt-1 text-indigo-300 hover:text-indigo-500 "
                 >
                   <span className="block my-2 mt-3 text-2xl opacity-25">
                     {item.node.icono}

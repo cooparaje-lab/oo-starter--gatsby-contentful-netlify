@@ -6,13 +6,13 @@ import { kebabCase } from "lodash"
 import "./post.css"
 import SEO from "../components/seo"
 import CardRecursos from "../components/CardRecursos"
-import tw from "tailwind.macro"
-//import Img from "gatsby-image"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
-import Fade from "react-reveal/Fade"
+import { Article } from "../components/import"
+//import Img from "gatsby-image"
 //import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 //import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { Article } from "../components/import"
+import Fade from "react-reveal/Fade"
 
 const EspacioPostTemplate = ({ data, pageContext, location }) => {
   const espacio = data.contentfulEspacios

@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
 
 import Fade from "react-reveal/Fade"
@@ -18,12 +18,12 @@ const IndexPage = () => (
       <p className="text-xl">Hora de crear algo grandioso.</p>
       <Link
         className=""
-        css={tw`relative z-10 px-5 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500`}
+        tw="relative z-10 px-5 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
         to="/blog/documento-legal-super-importante/"
       >
         Licencia de uso
       </Link>
-      <div className="custom-shape-divider-bottom-1594014441">
+      <div className="custom-shape-divider-bottom">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

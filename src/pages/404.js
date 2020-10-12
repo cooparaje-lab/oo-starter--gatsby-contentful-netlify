@@ -2,8 +2,8 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SVGTaken from "../assets/taken.svg"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
-import tw from "tailwind.macro"
 
 const NotFoundPage = () => (
   <Layout>

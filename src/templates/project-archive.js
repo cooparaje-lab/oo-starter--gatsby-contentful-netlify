@@ -6,9 +6,9 @@ import Pager from "../components/pager"
 import SEO from "../components/seo"
 import { kebabCase } from "lodash"
 import Fade from "react-reveal/Fade"
-import tw from "tailwind.macro"
-
+import tw from "twin.macro"
 import styled from "@emotion/styled"
+
 const ProjectArchive = ({ data, pageContext, location }) => {
   const projects = data.allContentfulProyectos.edges
 

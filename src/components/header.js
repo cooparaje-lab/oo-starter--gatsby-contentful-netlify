@@ -3,17 +3,18 @@ import PropTypes from "prop-types"
 import React from "react"
 import Headroom from "react-headroom"
 import ThemeToggler from "../components/themeToggler"
+import Logos from "../assets/logo-coparaje.svg"
 
 import "./header.css"
-import tw from "tailwind.macro"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
 import { GiOverInfinity } from "react-icons/gi"
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles>
     <InnerWrapper>
       <Logo>
-        <GiOverInfinity className="inline-block mr-3 text-4xl text-indigo-500" />
-        <Link className="inline-block mt-1" to="/">
+        <Logos className="w-10" />
+        <Link className="inline-block mt-1 ml-3" to="/">
           {siteTitle}
         </Link>
       </Logo>
@@ -47,7 +48,7 @@ const InnerWrapper = styled.div`
 `
 
 const Logo = styled.div`
-  ${tw`font-mono text-xl font-bold tracking-wider uppercase`}
+  ${tw`flex items-center font-mono text-xl font-bold tracking-wider uppercase`}
 `
 
 const Nav = styled.nav`

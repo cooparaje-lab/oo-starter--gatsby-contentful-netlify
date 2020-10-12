@@ -13,7 +13,7 @@ footer {
   margin-top: 3rem;
 }
 
-.custom-shape-divider-bottom-1594014441 {
+.custom-shape-divider-bottom {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -23,14 +23,14 @@ footer {
   transform: rotate(180deg);
 }
 
-.custom-shape-divider-bottom-1594014441 svg {
+.custom-shape-divider-bottom svg {
   position: relative;
   display: block;
   width: calc(140% + 1.3px);
   height: 208px;
 }
 
-.custom-shape-divider-bottom-1594014441 .shape-fill {
+.custom-shape-divider-bottom .shape-fill {
   @apply text-white fill-current;
 }
 
@@ -44,7 +44,7 @@ footer {
   }
 }
 
-.dark .custom-shape-divider-bottom-1594014441 .shape-fill {
+.dark .custom-shape-divider-bottom .shape-fill {
   @apply text-gray-800 fill-current;
 }
 

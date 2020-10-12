@@ -7,8 +7,8 @@ import "./post.css"
 import SEO from "../components/seo"
 import BGSlider from "../components/ProjectSlider"
 import { Article, Title } from "../components/import"
+import tw from "twin.macro"
 import styled from "@emotion/styled"
-import tw from "tailwind.macro"
 
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const post = data.contentfulProyectos
@@ -19,17 +19,17 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
       <Hero>
         <BGSlider />
       </Hero>
-      <Article css={tw`relative z-10 max-w-xl p-6 mt-3 md:mt-12`}>
+      <Article tw="relative z-10 max-w-xl p-6 mt-3 md:mt-12">
         <Link className="block pt-8 my-3 text-center" to="/proyectos">
           Ver todos los proyectos
         </Link>
-        <Title css={tw`flex items-center justify-between md:flex-col`}>
+        <Title tw="flex items-center justify-between md:flex-col">
           {post.title}
           <a
             href={post.webUrl}
             target="_blank"
             rel="noopener noreferrer"
-            css={tw`inline-block pb-2 my-3 mb-6 text-xl font-semibold leading-snug truncate`}
+            tw="inline-block pb-2 my-3 mb-6 text-xl font-semibold leading-snug truncate"
           >
             Link al sitio
           </a>

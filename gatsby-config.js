@@ -46,7 +46,7 @@ module.exports = {
       options: {
         apiKey: "f81275ca26fe58c7ec2e7c3c3922c73c0027de68",
         masterPicture: "src/images/gatsby-icon.png",
-        appName: "LNQRadio",
+        appName: "Cooparaje",
         startUrl: "/",
         themeColor: "#ffffff",
         display: "standalone",

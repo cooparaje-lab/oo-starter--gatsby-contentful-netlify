@@ -42,6 +42,58 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-realfavicongenerator`,
+      options: {
+        apiKey: "f81275ca26fe58c7ec2e7c3c3922c73c0027de68",
+        masterPicture: "src/images/gatsby-icon.png",
+        appName: "LNQRadio",
+        startUrl: "/",
+        themeColor: "#ffffff",
+        display: "standalone",
+        defaultBackgroundColor: "#ffffff",
+        defaultMargin: "10%",
+        compression: 3,
+        scalingAlgorithm: "Lanczos",
+        ios: {
+          enabled: true,
+          onlyDefaultIcons: false,
+          legacyIcons: true,
+          precomposedIcons: true,
+        },
+        windows: {
+          enabled: true,
+          silhouette: true,
+        },
+        android: {
+          enabled: true,
+          legacyIcons: true,
+          lowResIcons: true,
+        },
+        safariPinnedTab: {
+          enabled: true,
+          threshold: 60,
+          silhouette: true,
+        },
+        openGraph: {
+          enabled: true,
+          ratio: "square",
+        },
+        transformGeneratedManifest: (manifest) => {
+          manifest.scope = "/"
+          if (manifest.icons) {
+            manifest.icons = manifest.icons.map((icon) => {
+              return {
+                ...icon,
+                purpose: "maskable",
+              }
+            })
+          }
+
+          return manifest
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

@@ -4,11 +4,10 @@ import React from "react"
 import Headroom from "react-headroom"
 import ThemeToggler from "../components/themeToggler"
 import Logos from "../assets/logo-coparaje.svg"
-
 import "./header.css"
 import tw from "twin.macro"
 import styled from "@emotion/styled"
-import { GiOverInfinity } from "react-icons/gi"
+
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles>
     <InnerWrapper>

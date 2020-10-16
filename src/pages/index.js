@@ -21,11 +21,11 @@ const HomeComponent = () => {
       <Layout>
         <SEO title="Inicio" />
         <Home>
-          <div className="flex flex-col w-full py-6 md:py-8 ">
+          <div className="flex flex-col w-full py-6 md:pb-8 ">
             <section className="container relative z-50 flex flex-col flex-1 h-full mx-auto">
               <div className="flex flex-col flex-1 h-full px-6">
                 <div className="flex items-center flex-1">
-                  <div className="grid items-center flex-1 grid-flow-row gap-8 py-8 md:grid-cols-4">
+                  <div className="grid items-center flex-1 grid-flow-row gap-8 pb-8 md:grid-cols-4">
                     <div className="col-span-2">
                       <h1 className="font-serif text-4xl font-extrabold leading-tight md:text-6xl">
                         Recursos Gratuitos

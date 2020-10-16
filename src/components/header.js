@@ -47,11 +47,11 @@ const InnerWrapper = styled.div`
 `
 
 const Logo = styled.div`
-  ${tw`flex items-center font-mono text-xl font-bold tracking-wider uppercase`}
+  ${tw`absolute flex items-center font-mono text-xl font-bold tracking-wider uppercase`}
 `
 
 const Nav = styled.nav`
-  ${tw`flex justify-start pl-3 ml-12 border-l border-gray-500`}
+  ${tw`flex justify-center pl-3 mx-3 `}
   flex: 1;
 
   body.resources-tables & {
@@ -59,7 +59,7 @@ const Nav = styled.nav`
   }
 
   a {
-    ${tw`hidden ml-8 font-mono text-lg font-bold md:inline-block`}
+    ${tw`hidden mx-4 font-mono text-lg font-bold md:inline-block`}
     &:hover {
       ${tw`text-gray-500`} !important;
     }

@@ -15,7 +15,7 @@ class ThemeTogglerComponent extends React.Component {
               type="checkbox"
               aria-labelledby="theme-toggle"
               id="theme-toggle"
-              onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+              onChange={(e) => toggleTheme(e.target.checked ? "dark" : "light")}
               checked={theme === "dark"}
             />{" "}
             <span className="slider"></span>

@@ -9,9 +9,7 @@ import Fade from "react-reveal/Fade"
 import Img from "gatsby-image"
 import { Helmet } from "react-helmet"
 
-const RecursosTablasPage = ({ data }) => {
-  const buildTime = data.site
-
+const RecursosGalleryPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Espacios" />
@@ -20,7 +18,7 @@ const RecursosTablasPage = ({ data }) => {
       </Helmet>
       <iframe
         class="airtable-embed"
-        src="https://airtable.com/embed/shracdfhPNgfhblRW?backgroundColor=yellow&viewControls=on"
+        src="https://airtable.com/embed/shrhNw28qyVys52RK?backgroundColor=yellow&viewControls=on"
         frameborder="0"
         onmousewheel=""
         title="Cooparaje - Airtable"
@@ -28,20 +26,19 @@ const RecursosTablasPage = ({ data }) => {
         className="h-screen mt-0 bg-transparent"
         height="100%"
       ></iframe>
-      <Container>
-        <h3 className="hidden pt-24 font-mono font-bold text-center text-gray-500 uppercase opacity-50 ">
-          Última actualización {data.site.buildTime}
-        </h3>
-      </Container>
     </Layout>
   )
 }
 
-export const pageQuery = graphql`
-  query {
-    site {
-      buildTime(locale: "es", formatString: "dddd Do - MMMM YYYY")
-    }
+const AirTables = styled.div`
+  ${tw`flex flex-wrap justify-center max-w-6xl pt-12 m-auto`}
+  body.dark & {
+    ${tw`text-indigo-200`}
+  }
+
+  .item {
+    ${tw`w-full max-w-md p-5 mx-3 border border-gray-500`}
+    flex: 1
   }
 `
 
@@ -62,4 +59,4 @@ const Container = styled.div`
   }
 `
 
-export default RecursosTablasPage
+export default RecursosGalleryPage

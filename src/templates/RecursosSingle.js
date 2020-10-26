@@ -79,7 +79,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title={`${post.title}`} />
+      <SEO title={`${post.title}`} description={`${post.excerpt.excerpt}`} />
 
       <Article>
         <Heros>
@@ -274,6 +274,9 @@ export const pageQuery = graphql`
       tags
       childContentfulRecursosArticleRichTextNode {
         json
+      }
+      excerpt {
+        excerpt
       }
       espacio {
         title

@@ -1,25 +1,24 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import { Link } from "gatsby"
-import { kebabCase } from "lodash"
-import "./post.css"
-import SEO from "../components/seo"
-import CardRecursos from "../components/CardRecursos"
-import tw from "twin.macro"
 import styled from "@emotion/styled"
-import { Article } from "../components/import"
+import { graphql, Link } from "gatsby"
+import { kebabCase } from "lodash"
+import React from "react"
 //import Img from "gatsby-image"
 //import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 //import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Fade from "react-reveal/Fade"
+import tw from "twin.macro"
+import CardRecursos from "../components/CardRecursos"
+import { Article } from "../components/import"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import "./post.css"
 
 const EspacioPostTemplate = ({ data, pageContext, location }) => {
   const espacio = data.contentfulEspacios
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title="Espacio" />
+      <SEO title={`${espacio.title}`} />
 
       <Article>
         <TextContainer>

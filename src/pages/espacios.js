@@ -35,7 +35,7 @@ const EspaciosPage = ({ data }) => {
           Última actualización {data.site.buildTime}
         </h3>
         <Categories>
-          {allEspacios.map(item => (
+          {allEspacios.map((item) => (
             <Item key={item.node.id}>
               {item.node.recursos ? (
                 <Link
@@ -105,7 +105,7 @@ const HeroRecurso = styled.div`
 `
 
 const Categories = styled.div`
-  ${tw`flex flex-wrap justify-center max-w-6xl pt-12 m-auto`}
+  ${tw`grid max-w-6xl grid-cols-2 pt-12 m-auto`}
   body.dark & {
     ${tw`text-indigo-200`}
   }
@@ -129,7 +129,6 @@ const Item = styled.div`
     ${tw`shadow-xl`}
     transform: scale(1.01) translateY(-2px);
   }
-
 `
 
 export default EspaciosPage

@@ -1,21 +1,20 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import { Link } from "gatsby"
-import { kebabCase } from "lodash"
-import "./post.css"
-import SEO from "../components/seo"
-import BGSlider from "../components/ProjectSlider"
-import { Article, Title } from "../components/import"
-import tw from "twin.macro"
 import styled from "@emotion/styled"
+import { graphql, Link } from "gatsby"
+import { kebabCase } from "lodash"
+import React from "react"
+import tw from "twin.macro"
+import { Article, Title } from "../components/import"
+import Layout from "../components/layout"
+import BGSlider from "../components/ProjectSlider"
+import SEO from "../components/seo"
+import "./post.css"
 
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const post = data.contentfulProyectos
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title="Proyecto" />
+      <SEO title={`Proyecto ${post.title}`} />
       <Hero>
         <BGSlider />
       </Hero>

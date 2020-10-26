@@ -79,7 +79,11 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title={`${post.title}`} description={`${post.excerpt.excerpt}`} />
+      <SEO
+        title={`${post.title}`}
+        description={`${post.excerpt.excerpt}`}
+        image={`${post.featuredImg.file.url}`}
+      />
 
       <Article>
         <Heros>
@@ -290,6 +294,9 @@ export const pageQuery = graphql`
       featuredImg {
         fixed(width: 1900, height: 550) {
           ...GatsbyContentfulFixed_withWebp_noBase64
+        }
+        file {
+          url
         }
         fluid(maxWidth: 1200) {
           # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.

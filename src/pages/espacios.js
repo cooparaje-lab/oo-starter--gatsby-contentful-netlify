@@ -1,10 +1,10 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import SEO from "../components/seo"
-import { kebabCase } from "lodash"
-import tw from "twin.macro"
 import styled from "@emotion/styled"
+import { graphql, Link } from "gatsby"
+import { kebabCase } from "lodash"
+import React from "react"
+import tw from "twin.macro"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 const EspaciosPage = ({ data }) => {
   const allEspacios = data.allContentfulEspacios.edges
   //const buildTime = data.site
@@ -31,8 +31,8 @@ const EspaciosPage = ({ data }) => {
         </div>
       </HeroRecurso>
       <Container>
-        <h3 className="font-mono font-bold text-center text-gray-500 uppercase opacity-50">
-          Última actualización {data.site.buildTime}
+        <h3 className="p-3 font-mono font-bold text-center text-gray-500 uppercase opacity-50">
+          Última actualización <br /> {data.site.buildTime}
         </h3>
         <Categories>
           {allEspacios.map((item) => (
@@ -105,14 +105,14 @@ const HeroRecurso = styled.div`
 `
 
 const Categories = styled.div`
-  ${tw`grid max-w-6xl grid-cols-2 pt-12 m-auto`}
+  ${tw`grid max-w-6xl grid-cols-2 gap-3 py-12 m-auto md:grid-cols-4`}
   body.dark & {
     ${tw`text-indigo-200`}
   }
 `
 
 const Item = styled.div`
-  ${tw`w-1/2 m-2 my-3 font-mono text-lg font-thin leading-snug text-center sm:w-1/3 md:w-1/6`}
+  ${tw`w-full font-mono text-lg font-thin leading-snug text-center`}
   ${tw`bg-white border border-gray-100 shadow-md `}
   ${tw`flex items-center justify-center cursor-pointer`}
   

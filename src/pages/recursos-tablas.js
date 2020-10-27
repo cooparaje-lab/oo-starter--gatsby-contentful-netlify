@@ -1,17 +1,15 @@
-import React from "react"
+import styled from "@emotion/styled"
 import { graphql } from "gatsby"
-import SEO from "../components/seo"
+import React from "react"
+//import Fade from "react-reveal/Fade"
+//import Img from "gatsby-image"
+import { Helmet } from "react-helmet"
 //import { kebabCase } from "lodash"
 import tw from "twin.macro"
-import styled from "@emotion/styled"
 import Layout from "../components/layout"
-import Fade from "react-reveal/Fade"
-import Img from "gatsby-image"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 
 const RecursosTablasPage = ({ data }) => {
-  const buildTime = data.site
-
   return (
     <Layout>
       <SEO title="Espacios" />

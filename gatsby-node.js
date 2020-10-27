@@ -61,7 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         `
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors)
           reject(result.errors)
@@ -70,21 +70,21 @@ exports.createPages = ({ graphql, actions }) => {
         paginate({
           createPage,
           items: result.data.allContentfulBlog.edges,
-          itemsPerPage: 12,
+          itemsPerPage: 50,
           pathPrefix: "/blog",
           component: path.resolve("src/templates/blog-archive.js"),
         })
         paginate({
           createPage,
           items: result.data.allContentfulProyectos.edges,
-          itemsPerPage: 12,
+          itemsPerPage: 50,
           pathPrefix: "/proyectos",
           component: path.resolve("src/templates/project-archive.js"),
         })
         paginate({
           createPage,
           items: result.data.allContentfulRecursos.edges,
-          itemsPerPage: 33,
+          itemsPerPage: 50,
           pathPrefix: "/recursos",
           component: path.resolve("src/templates/RecursosArchive.js"),
         })
@@ -149,7 +149,7 @@ exports.createPages = ({ graphql, actions }) => {
         // pulled directly from https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
         let tags = []
         // Iterate through each post, putting all found tags into `tags`
-        _.each(posts, edge => {
+        _.each(posts, (edge) => {
           if (_.get(edge, "node.tags")) {
             tags = tags.concat(edge.node.tags)
           }
@@ -157,7 +157,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Eliminate duplicate tags
         tags = _.uniq(tags)
         // Make tag pages
-        tags.forEach(tag => {
+        tags.forEach((tag) => {
           createPage({
             path: `/etiquetas/${_.kebabCase(tag)}/`,
             component: tagTemplate,

@@ -1,13 +1,13 @@
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Link } from "gatsby"
-import tw from "twin.macro"
 import styled from "@emotion/styled"
-import reactLogo from "../animations/working-together.json"
+import { Link } from "gatsby"
 import lottie from "lottie-web"
 import React, { useEffect } from "react"
+import tw from "twin.macro"
+import reactLogo from "../animations/working-together.json"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-import Fade from "react-reveal/Fade"
+//import Fade from "react-reveal/Fade"
 const HomeComponent = () => {
   useEffect(() => {
     lottie.loadAnimation({
@@ -101,7 +101,7 @@ const Home = styled.div`
     }
   }
 `
-
+/*
 const MainTitle = styled.div`
   ${tw`mb-2`}
 
@@ -113,3 +113,4 @@ const MainTitle = styled.div`
     }
   }
 `
+*/

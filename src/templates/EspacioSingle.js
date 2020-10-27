@@ -18,14 +18,19 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title={`${espacio.title}`} />
+      <SEO
+        title={`${espacio.title}`}
+        description={`${espacio.excerpt.excerpt}`}
+      />
 
       <Article>
         <TextContainer>
           <Fade duration={800} delay={600}>
             <h1>{espacio.icono}</h1>
             <h1>{espacio.title}</h1>
+            <p>{espacio.excerpt.excerpt}</p>
           </Fade>
+
           <div className="custom-shape-divider-bottom-1594014676">
             <svg
               data-name="Layer 1"
@@ -88,6 +93,14 @@ const TextContainer = styled.header`
       ${tw`text-gray-100`}
     }
   }
+
+  p {
+    ${tw`m-0 mt-2 font-mono text-2xl font-bold text-center`}
+
+    body.dark & {
+      ${tw`text-gray-100`}
+    }
+  }
 `
 
 const RecursosList = styled.div`
@@ -115,6 +128,9 @@ export const pageQuery = graphql`
       id
       title
       slug
+      excerpt {
+        excerpt
+      }
       recursos {
         title
         slug

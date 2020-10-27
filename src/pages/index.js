@@ -1,20 +1,12 @@
 import styled from "@emotion/styled"
-import algoliasearch from "algoliasearch/lite"
 import { Link } from "gatsby"
 import lottie from "lottie-web"
 import React, { useEffect } from "react"
-import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
 import tw from "twin.macro"
 import reactLogo from "../animations/working-together.json"
 import Layout from "../components/layout"
-import PostPreview from "../components/postPreview"
 import SEO from "../components/seo"
 import "./algolia.css"
-
-const searchClient = algoliasearch(
-  "K8WTAMXCZT",
-  "91627040f2b233f6958fdbdbe2b6193d"
-)
 
 //import Fade from "react-reveal/Fade"
 const HomeComponent = () => {
@@ -44,15 +36,9 @@ const HomeComponent = () => {
                       <div className="pt-8 md:pt-12">
                         <Link
                           tw="relative z-10 px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
-                          to="/espacios/"
+                          to="/buscar/"
                         >
-                          Espacios
-                        </Link>
-                        <Link
-                          tw="relative z-10 px-5 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
-                          to="/blog/documento-legal-super-importante/"
-                        >
-                          Licencia de uso
+                          buscador
                         </Link>
                       </div>
                     </div>
@@ -89,15 +75,6 @@ const HomeComponent = () => {
             </svg>
           </div>
         </Home>
-        <div className="max-w-2xl mx-auto bg-gray-100">
-          <InstantSearch
-            searchClient={searchClient}
-            indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
-          >
-            <SearchBox className="mb-6" />
-            <Hits hitComponent={PostPreview} />
-          </InstantSearch>
-        </div>
       </Layout>
     </>
   )

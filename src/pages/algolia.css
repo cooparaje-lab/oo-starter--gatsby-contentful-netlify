@@ -422,8 +422,7 @@ a[class^="ais-"] {
   border-radius: 5px;
   -webkit-transition: background-color 0.2s ease-out;
   transition: background-color 0.2s ease-out;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 1px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 1px;
+
   outline: none;
 }
 
@@ -542,8 +541,6 @@ a[class^="ais-"] {
   padding: 1rem;
   width: 100%;
   border: 1px solid #c4c8d8;
-  -webkit-box-shadow: 0 2px 5px 0px #e3e5ec;
-  box-shadow: 0 2px 5px 0px #e3e5ec;
 }
 .ais-Panel-body .ais-InfiniteHits-item,
 .ais-Panel-body .ais-InfiniteResults-item,

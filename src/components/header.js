@@ -24,6 +24,9 @@ const Header = ({ siteTitle }) => (
         <Link activeClassName="active" to="/espacios/">
           Espacios
         </Link>
+        <Link activeClassName="active" to="/buscar/">
+          Buscador
+        </Link>
       </Nav>
       <ThemeToggler />
     </InnerWrapper>

@@ -17,6 +17,11 @@ const routes = [
     slug: "/espacios/",
     ariaLabel: "Ver todos los espacios",
   },
+  {
+    title: "Buscar",
+    slug: "/buscar/",
+    ariaLabel: "usar buscador",
+  },
 ]
 
 const Navigation = ({ closeMenu }) => (

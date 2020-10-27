@@ -31,14 +31,14 @@ const EspaciosIconComponent = () => {
     swipeToSlide: true,
     speed: 5000,
     autoplaySpeed: 5000,
-    slidesToShow: 8,
-    slidesToScroll: 1,
+    slidesToShow: 10,
+    slidesToScroll: 10,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 5,
-          slidesToScroll: 3,
+          slidesToScroll: 5,
           infinite: true,
           dots: false,
         },
@@ -47,7 +47,7 @@ const EspaciosIconComponent = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 2,
+          slidesToScroll: 4,
           initialSlide: 1,
           dots: false,
         },
@@ -56,7 +56,7 @@ const EspaciosIconComponent = () => {
         breakpoint: 480,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToScroll: 3,
           dots: false,
         },
       },
@@ -79,6 +79,7 @@ const EspaciosIconComponent = () => {
           return (
             <Link
               to={`/espacios/${kebabCase(node.slug)}/`}
+              key={node.slug}
               css={[
                 tw`flex flex-col items-center justify-center pt-1 mx-6 text-center text-indigo-100 hover:text-indigo-500`,
               ]}

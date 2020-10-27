@@ -66,7 +66,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title={`${post.title}`} description={`${post.excerpt.excerpt}`} />
+      <SEO
+        title={`${post.title}`}
+        description={`${post.excerpt.excerpt}`}
+        image={`${post.featuredImg.file.url}`}
+      />
 
       <Article>
         <HeroContainer>
@@ -172,7 +176,11 @@ export const pageQuery = graphql`
         title
         slug
       }
+
       featuredImg {
+        file {
+          url
+        }
         fixed(width: 1900, height: 550) {
           ...GatsbyContentfulFixed_withWebp_noBase64
         }

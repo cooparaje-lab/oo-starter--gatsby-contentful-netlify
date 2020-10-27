@@ -15,12 +15,21 @@ const PostPreview = ({ hit }) => {
   return (
     <Fade cascade delay={150}>
       <SearchItem>
-        <Link to={hit.url}>
-          <Highlight hit={hit} attribute="title" tagName="mark" />
-        </Link>
-        <p>
-          <Highlight hit={hit} attribute="description" tagName="mark" />
-        </p>
+        <Content>
+          <Link to={hit.url}>
+            <Highlight hit={hit} attribute="title" tagName="mark" />
+          </Link>
+          <p>
+            <Highlight hit={hit} attribute="description" tagName="mark" />
+          </p>
+        </Content>
+        <Image>
+          <img
+            className="object-cover w-32 h-32"
+            alt={hit.title}
+            src={hit.image}
+          />
+        </Image>
       </SearchItem>
     </Fade>
   )
@@ -29,7 +38,7 @@ const PostPreview = ({ hit }) => {
 export default PostPreview
 
 const SearchItem = styled.div`
-  ${tw`p-6 pt-2 pb-4 bg-gray-100`}
+  ${tw`flex bg-gray-100`}
 
   body.dark & {
     ${tw`text-indigo-100 bg-gray-800`}
@@ -42,4 +51,13 @@ const SearchItem = styled.div`
   p {
     ${tw`font-sans text-lg`}
   }
+`
+
+const Image = styled.div`
+  ${tw`w-32 `}
+`
+
+const Content = styled.div`
+  ${tw`w-full p-2 px-3`}
+  flex: 1
 `

@@ -31,7 +31,7 @@ const BuscarComponent = () => {
           <EspaciosContainer>
             <EspaciosIcons />
           </EspaciosContainer>
-          <div className="max-w-2xl px-6 pt-10 mx-auto">
+          <div className="max-w-2xl p-6 pt-10 mx-auto">
             <InstantSearch
               searchClient={searchClient}
               indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"

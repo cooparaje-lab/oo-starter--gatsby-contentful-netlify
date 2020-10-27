@@ -155,10 +155,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      proyectos {
-        title
-        slug
-      }
+
       icono
       childContentfulEspaciosSummaryRichTextNode {
         json

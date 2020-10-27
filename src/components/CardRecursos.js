@@ -49,9 +49,7 @@ export default ({ card }) => (
               activeClassName="active"
               key={i}
             >
-              <span className="mr-2 text-sm hover:text-white">
-                {espacio.icono}
-              </span>
+              <span className="text-sm hover:text-white">{espacio.icono}</span>
               <span className="hidden font-mono text-sm">{espacio.title}</span>
             </Link>,
           ])}

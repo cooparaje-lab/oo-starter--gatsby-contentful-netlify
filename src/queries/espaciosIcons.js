@@ -6,7 +6,7 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
 import Slider from "react-slick"
 import tw from "twin.macro"
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props
+  const { onClick } = props
   return (
     <div className="slick-arrow slick-arrow-right" onClick={onClick}>
       <AiOutlineArrowRight />
@@ -15,7 +15,7 @@ function SampleNextArrow(props) {
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props
+  const { onClick } = props
   return (
     <div className="slick-arrow slick-arrow-left" onClick={onClick}>
       <AiOutlineArrowLeft />
@@ -48,7 +48,7 @@ const EspaciosIconComponent = () => {
     center: true,
     className: "center",
     pauseOnHover: true,
-    variableWidth: false,
+    variableWidth: true,
     autoplay: true,
     swipeToSlide: true,
     speed: 5000,
@@ -147,7 +147,7 @@ const SliderContainer = styled.div`
   .slick-arrow {
     ${tw`absolute bottom-0 z-50 hidden p-3 text-3xl text-indigo-500 md:block `}
     body.dark & {
-      ${tw`text-indigo-800`}
+      ${tw`text-indigo-300`}
     }
   }
   .slick-arrow-right {

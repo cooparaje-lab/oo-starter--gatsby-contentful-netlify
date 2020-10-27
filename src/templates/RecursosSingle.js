@@ -164,7 +164,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
         </ImgContainer>
         <TextContainer>
           {post.blog ? (
-            <div className="hidden">
+            <div className="">
               <h1 className="text-lg text-center">
                 Entrada de blog relacionada
               </h1>
@@ -177,7 +177,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
               ))}
             </div>
           ) : (
-            <div className="hidden text-center text-gray-500">Proximamente</div>
+            <div className="text-center text-gray-500 ">Proximamente</div>
           )}
         </TextContainer>
         <PageNav>

@@ -1,11 +1,11 @@
 // https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
+import styled from "@emotion/styled"
+import { graphql, Link } from "gatsby"
+import { kebabCase } from "lodash"
 import React from "react"
-import { Link, graphql } from "gatsby"
+import tw from "twin.macro"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { kebabCase } from "lodash"
-import tw from "twin.macro"
-import styled from "@emotion/styled"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -15,7 +15,7 @@ const Tags = ({ pageContext, data }) => {
   } con la etiqueta "${tag}"`
   return (
     <Layout>
-      <SEO title="Etiquetas" />
+      <SEO title={`Etiqueta ${tag}`} />
 
       <TagsContainer>
         <h1>{tagHeader}</h1>

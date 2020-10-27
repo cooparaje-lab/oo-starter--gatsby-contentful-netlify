@@ -9,6 +9,8 @@ import reactLogo from "../animations/working-together.json"
 import Layout from "../components/layout"
 import PostPreview from "../components/postPreview"
 import SEO from "../components/seo"
+import "./algolia.css"
+
 const searchClient = algoliasearch(
   "K8WTAMXCZT",
   "91627040f2b233f6958fdbdbe2b6193d"
@@ -27,12 +29,6 @@ const HomeComponent = () => {
     <>
       <Layout>
         <SEO title="Inicio" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/algolia-min.css"
-          integrity="sha256-HB49n/BZjuqiCtQQf49OdZn63XuKFaxcIHWf0HNKte8="
-          crossorigin="anonymous"
-        />
 
         <Home>
           <div className="flex flex-col w-full py-6 md:pb-8 ">
@@ -93,12 +89,12 @@ const HomeComponent = () => {
             </svg>
           </div>
         </Home>
-        <div className="max-w-5xl mx-auto bg-gray-800">
+        <div className="max-w-2xl mx-auto bg-gray-100">
           <InstantSearch
             searchClient={searchClient}
             indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
           >
-            <SearchBox />
+            <SearchBox className="mb-6" />
             <Hits hitComponent={PostPreview} />
           </InstantSearch>
         </div>

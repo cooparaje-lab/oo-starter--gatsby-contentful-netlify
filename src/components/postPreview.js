@@ -16,10 +16,8 @@ const PostPreview = ({ hit }) => {
           <Highlight hit={hit} attribute="title" tagName="mark" />
         </Link>
       </h3>
-      <small>{new Date(hit.date).toLocaleDateString()}</small>
-
       <p>
-        <Highlight hit={hit} attribute="excerpt" tagName="mark" />
+        <Highlight hit={hit} attribute="description" tagName="mark" />
       </p>
     </div>
   )

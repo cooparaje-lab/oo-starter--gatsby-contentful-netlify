@@ -3,13 +3,15 @@ import algoliasearch from "algoliasearch/lite"
 import lottie from "lottie-web"
 import React, { useEffect } from "react"
 import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
+import Slider from "react-slick"
 import tw from "twin.macro"
-import reactLogo from "../animations/working-together.json"
-import Layout from "../components/layout"
-import PostPreview from "../components/postPreview"
-import SEO from "../components/seo"
-import EspaciosIcons from "../queries/espaciosIcons"
+import reactLogo from "../../animations/working-together.json"
+import Layout from "../../components/layout"
+import PostPreview from "../../components/postPreview"
+import SEO from "../../components/seo"
+import EspaciosIcons from "../../queries/espaciosIcons"
 import "./algolia.css"
+
 const searchClient = algoliasearch(
   "K8WTAMXCZT",
   "91627040f2b233f6958fdbdbe2b6193d"
@@ -23,15 +25,66 @@ const BuscarComponent = () => {
     })
   }, [])
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    variableWidth: true,
+    autoplay: true,
+    swipeToSlide: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+    ],
+  }
+
   return (
     <>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      ></link>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
       <Layout>
         <SearchContainer>
           <SEO title="Buscar" />
           <EspaciosContainer>
-            <EspaciosIcons />
+            <Slider {...settings}>
+              <EspaciosIcons />
+            </Slider>
           </EspaciosContainer>
-          <div className="max-w-2xl px-6 pt-10 mx-auto">
+          <div className="max-w-2xl pt-10 mx-auto">
             <InstantSearch
               searchClient={searchClient}
               indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
@@ -72,12 +125,5 @@ const SearchContainer = styled.div`
 `
 
 const EspaciosContainer = styled.div`
-  ${tw`w-full mt-6 overflow-hidden bg-gray-100`}
-  body.dark & {
-    ${tw`bg-indigo-900 `}
-
-    a {
-      ${tw`text-gray-300 `}
-    }
-  }
+  ${tw`grid grid-cols-8 gap-1 pt-12`}
 `

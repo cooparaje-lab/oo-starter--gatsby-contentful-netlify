@@ -31,20 +31,20 @@ const BuscarComponent = () => {
           <EspaciosContainer>
             <EspaciosIcons />
           </EspaciosContainer>
-          <div className="max-w-2xl p-6 pt-10 mx-auto">
+          <div className="max-w-3xl p-6 pt-6 mx-auto">
             <InstantSearch
               searchClient={searchClient}
               indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
             >
               <SearchBox
-                className="max-w-xl mx-auto mb-6"
+                className="w-full mx-auto mb-6"
                 translations={{
                   submitTitle: "Add your search query.",
                   resetTitle: "Reset your search query.",
                   placeholder: "Buscar",
                 }}
               />
-              <Hits className="max-w-xl mx-auto" hitComponent={PostPreview} />
+              <Hits className="w-full mx-auto" hitComponent={PostPreview} />
             </InstantSearch>
           </div>
         </SearchContainer>
@@ -72,7 +72,7 @@ const SearchContainer = styled.div`
 `
 
 const EspaciosContainer = styled.div`
-  ${tw`w-full mt-6 overflow-hidden bg-gray-100`}
+  ${tw`w-full mt-3 bg-gray-100`}
   body.dark & {
     ${tw`bg-indigo-900 `}
 

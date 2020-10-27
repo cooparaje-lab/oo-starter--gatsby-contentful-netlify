@@ -19,7 +19,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
       <SEO
-        title={`${espacio.title}`}
+        title={`Espacio ${espacio.title}`}
         description={`${espacio.excerpt.excerpt}`}
       />
 

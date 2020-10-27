@@ -1,11 +1,10 @@
-import React from "react"
-import { GoLinkExternal } from "react-icons/go"
-
-import { kebabCase } from "lodash"
-import Img from "gatsby-image"
-import tw from "twin.macro"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
+import { kebabCase } from "lodash"
+import React from "react"
+import { GoLinkExternal } from "react-icons/go"
+import tw from "twin.macro"
 
 export default ({ card }) => (
   <CardItem>
@@ -53,7 +52,7 @@ export default ({ card }) => (
               <span className="mr-2 text-sm hover:text-white">
                 {espacio.icono}
               </span>
-              <span className="font-mono text-sm">{espacio.title}</span>
+              <span className="hidden font-mono text-sm">{espacio.title}</span>
             </Link>,
           ])}
         </div>

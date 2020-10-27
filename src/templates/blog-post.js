@@ -66,7 +66,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title={`${post.title}`} />
+      <SEO title={`${post.title}`} description={`${post.excerpt.excerpt}`} />
 
       <Article>
         <HeroContainer>
@@ -164,6 +164,9 @@ export const pageQuery = graphql`
       tags
       childContentfulBlogArticleRichTextNode {
         json
+      }
+      excerpt {
+        excerpt
       }
       recursos {
         title

@@ -1,11 +1,18 @@
 import styled from "@emotion/styled"
+import algoliasearch from "algoliasearch/lite"
 import { Link } from "gatsby"
 import lottie from "lottie-web"
 import React, { useEffect } from "react"
+import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
 import tw from "twin.macro"
 import reactLogo from "../animations/working-together.json"
 import Layout from "../components/layout"
+import PostPreview from "../components/postPreview"
 import SEO from "../components/seo"
+const searchClient = algoliasearch(
+  "K8WTAMXCZT",
+  "91627040f2b233f6958fdbdbe2b6193d"
+)
 
 //import Fade from "react-reveal/Fade"
 const HomeComponent = () => {
@@ -20,6 +27,13 @@ const HomeComponent = () => {
     <>
       <Layout>
         <SEO title="Inicio" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/algolia-min.css"
+          integrity="sha256-HB49n/BZjuqiCtQQf49OdZn63XuKFaxcIHWf0HNKte8="
+          crossorigin="anonymous"
+        />
+
         <Home>
           <div className="flex flex-col w-full py-6 md:pb-8 ">
             <section className="container relative z-50 flex flex-col flex-1 h-full mx-auto">
@@ -79,6 +93,15 @@ const HomeComponent = () => {
             </svg>
           </div>
         </Home>
+        <div className="max-w-5xl mx-auto bg-gray-800">
+          <InstantSearch
+            searchClient={searchClient}
+            indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
+          >
+            <SearchBox />
+            <Hits hitComponent={PostPreview} />
+          </InstantSearch>
+        </div>
       </Layout>
     </>
   )

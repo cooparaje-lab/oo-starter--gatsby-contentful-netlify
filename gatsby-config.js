@@ -100,20 +100,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-source-airtable`,
-      options: {
-        apiKey: process.env.AIRTABLE_API_KEY,
-        concurrency: 5, // default, see using markdown and attachments for more information
-        tables: [
-          {
-            baseId: process.env.AIRTABLE_BASE,
-            tableName: process.env.AIRTABLE_TABLE_NAME,
-            mapping: { Notes: "text/markdown", Attachments: `fileNode` },
-          },
-        ],
-      },
-    },
 
     {
       resolve: `gatsby-source-filesystem`,

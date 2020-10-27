@@ -1,32 +1,31 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import { Link } from "gatsby"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
+import styled from "@emotion/styled"
+import { graphql, Link } from "gatsby"
 import { kebabCase } from "lodash"
-import "./post.css"
-import Hero from "../components/hero"
-import SEO from "../components/seo"
+import React from "react"
+import { BsTag } from "react-icons/bs"
 import Fade from "react-reveal/Fade"
 import tw from "twin.macro"
-import styled from "@emotion/styled"
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { Article, HeroContainer, ArticleText } from "../components/import"
-import { BsTag } from "react-icons/bs"
+import Hero from "../components/hero"
+import { Article, ArticleText, HeroContainer } from "../components/import"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import "./post.css"
 const Bold = ({ children }) => <span className="font-bold">{children}</span>
 const Text = ({ children }) => <ArticleText>{children}</ArticleText>
 const website_url = "https://www.cooparaje.com.ar"
 const options = {
   renderMark: {
-    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-    [MARKS.CODE]: embedded => (
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+    [MARKS.CODE]: (embedded) => (
       <Fade>
         <div dangerouslySetInnerHTML={{ __html: embedded }} />
       </Fade>
     ),
   },
   renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: node => {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
       if (!node.data || !node.data.target.fields) {
         return <span className="hidden">Embedded asset is broken</span>
       }
@@ -42,7 +41,7 @@ const options = {
         </Fade>
       )
     },
-    [INLINES.HYPERLINK]: node => {
+    [INLINES.HYPERLINK]: (node) => {
       return (
         <a
           href={node.data.uri}
@@ -67,7 +66,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO title="Blog" />
+      <SEO title={`${post.title}`} />
 
       <Article>
         <HeroContainer>

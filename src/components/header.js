@@ -1,12 +1,12 @@
+import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import Headroom from "react-headroom"
-import ThemeToggler from "../components/themeToggler"
-import Logos from "../assets/logo-coparaje.svg"
-import "./header.css"
 import tw from "twin.macro"
-import styled from "@emotion/styled"
+import Logos from "../assets/logo-coparaje.svg"
+import ThemeToggler from "../components/themeToggler"
+import "./header.css"
 
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles>
@@ -18,14 +18,14 @@ const Header = ({ siteTitle }) => (
         </Link>
       </Logo>
       <Nav>
+        <Link activeClassName="active" to="/buscar/">
+          Buscador
+        </Link>
         <Link activeClassName="active" to="/recursos/">
           Recursos
         </Link>
         <Link activeClassName="active" to="/espacios/">
           Espacios
-        </Link>
-        <Link activeClassName="active" to="/buscar/">
-          Buscador
         </Link>
       </Nav>
       <ThemeToggler />
@@ -54,7 +54,7 @@ const Logo = styled.div`
 `
 
 const Nav = styled.nav`
-  ${tw`flex justify-center pl-3 mx-3 `}
+  ${tw`flex justify-start pl-48 mx-3 `}
   flex: 1;
 
   body.resources-tables & {

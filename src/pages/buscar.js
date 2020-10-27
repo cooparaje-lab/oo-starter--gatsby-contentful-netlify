@@ -37,14 +37,14 @@ const BuscarComponent = () => {
               indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
             >
               <SearchBox
-                className="max-w-lg mx-auto mb-6"
+                className="max-w-xl mx-auto mb-6"
                 translations={{
                   submitTitle: "Add your search query.",
                   resetTitle: "Reset your search query.",
                   placeholder: "Buscar",
                 }}
               />
-              <Hits className="max-w-lg mx-auto" hitComponent={PostPreview} />
+              <Hits className="max-w-xl mx-auto" hitComponent={PostPreview} />
             </InstantSearch>
           </div>
         </SearchContainer>

@@ -12,11 +12,9 @@ import tw from "twin.macro"
 const PostPreview = ({ hit }) => {
   return (
     <SearchItem>
-      <h3>
         <Link to={hit.url}>
           <Highlight hit={hit} attribute="title" tagName="mark" />
         </Link>
-      </h3>
       <p>
         <Highlight hit={hit} attribute="description" tagName="mark" />
       </p>
@@ -27,9 +25,18 @@ const PostPreview = ({ hit }) => {
 export default PostPreview
 
 const SearchItem = styled.div`
+  ${tw`bg-gray-100 p-6 pt-2 pb-4`}
 
-    body.dark & {
-      ${tw`text-indigo-100`}
-    }
+  body.dark & {
+      ${tw`text-indigo-100 bg-gray-800`}
+  }
+  
+  a {
+      ${tw`font-mono text-3xl font-bold text-indigo-500`}
+     
+  }
+
+  p {
+      ${tw`font-sans text-xl`}
   }
 `

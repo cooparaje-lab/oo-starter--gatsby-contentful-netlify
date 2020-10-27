@@ -14,7 +14,6 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve(`./src/templates/blog-post.js`)
-    const projectPost = path.resolve(`./src/templates/project-post.js`)
     const tagTemplate = path.resolve(`src/templates/tags-template.js`)
     const recursosTemplate = path.resolve(`./src/templates/RecursosSingle.js`)
     const espacioTemplate = path.resolve(`./src/templates/EspacioSingle.js`)
@@ -41,15 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            allContentfulProyectos {
-              edges {
-                node {
-                  id
-                  title
-                  slug
-                }
-              }
-            }
+            
             allContentfulEspacios {
               edges {
                 node {
@@ -74,13 +65,7 @@ exports.createPages = ({ graphql, actions }) => {
           pathPrefix: "/blog",
           component: path.resolve("src/templates/blog-archive.js"),
         })
-        paginate({
-          createPage,
-          items: result.data.allContentfulProyectos.edges,
-          itemsPerPage: 50,
-          pathPrefix: "/proyectos",
-          component: path.resolve("src/templates/project-archive.js"),
-        })
+       
         paginate({
           createPage,
           items: result.data.allContentfulRecursos.edges,
@@ -90,7 +75,6 @@ exports.createPages = ({ graphql, actions }) => {
         })
 
         const posts = result.data.allContentfulBlog.edges
-        const projects = result.data.allContentfulProyectos.edges
         const recursos = result.data.allContentfulRecursos.edges
         const espacios = result.data.allContentfulEspacios.edges
 
@@ -106,18 +90,6 @@ exports.createPages = ({ graphql, actions }) => {
           })
         })
 
-        projects.forEach((project, index) => {
-          createPage({
-            path: `/proyectos/${project.node.slug}/`,
-            component: projectPost,
-            context: {
-              slug: project.node.slug,
-              prev: index === 0 ? null : projects[index - 1].node,
-              next:
-                index === projects.length - 1 ? null : projects[index + 1].node,
-            },
-          })
-        })
 
         recursos.forEach((recurso, index) => {
           createPage({

@@ -32,11 +32,9 @@ const BuscarComponent = () => {
           >
             <SearchBox
               className="mb-6"
-              autoFocus="true"
-              defaultRefinement="recursos"
               translations={{
-                submitTitle: "asdddddd your search query.",
-                resetTitle: "asd your search query.",
+                submitTitle: "Add your search query.",
+                resetTitle: "Reset your search query.",
                 placeholder: "Buscar",
               }}
             />

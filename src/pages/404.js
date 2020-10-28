@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import Fade from "react-reveal/Fade"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import lottie from "lottie-web"
@@ -28,9 +27,7 @@ const NotFoundPage = () => {
           <h1 className="mt-0 font-mono text-xl font-bold">
             Encontraste un 404
           </h1>
-          <Fade>
-            <SVGTaken className="relative z-50 h-auto max-w-md mx-auto transition-opacity duration-500 transform svg-taken" />
-          </Fade>
+          <SVGTaken className="relative z-50 h-screen max-w-md mx-auto transition-opacity duration-500 transform svg-taken" />
         </Container>
       </Layout>
     </>
@@ -38,7 +35,7 @@ const NotFoundPage = () => {
 }
 
 const Container = styled.div`
-  ${tw`flex flex-col flex-wrap justify-center w-full h-screen pt-12 m-auto text-center bg-gray-100`}
+  ${tw`flex flex-col flex-wrap justify-center w-full  pt-12 m-auto text-center bg-gray-100`}
   body.dark & {
     ${tw`text-white bg-gray-900`}
 

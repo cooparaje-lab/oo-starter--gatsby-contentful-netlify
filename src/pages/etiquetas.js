@@ -1,12 +1,12 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import SEO from "../components/seo"
-import { kebabCase } from "lodash"
-import tw from "twin.macro"
 import styled from "@emotion/styled"
+import { graphql, Link } from "gatsby"
+import { kebabCase } from "lodash"
+import React from "react"
+import tw from "twin.macro"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 const TagsPage = ({ data }) => {
-  const allTags = data.allContentfulBlog.group
+  const allTags = data.allContentfulRecursos.group
 
   return (
     <Layout>
@@ -15,7 +15,7 @@ const TagsPage = ({ data }) => {
       <Container>
         <h1>Etiquetas</h1>
         <ul>
-          {allTags.map(tag => (
+          {allTags.map((tag) => (
             <li
               key={tag.fieldValue}
               tw="pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate"
@@ -49,7 +49,7 @@ export default TagsPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulBlog(limit: 2000) {
+    allContentfulRecursos(limit: 2000) {
       group(field: tags) {
         fieldValue
         totalCount

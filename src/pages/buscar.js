@@ -1,35 +1,27 @@
 import styled from "@emotion/styled"
 import algoliasearch from "algoliasearch/lite"
-import lottie from "lottie-web"
-import React, { useEffect } from "react"
+import React from "react"
 import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
 import tw from "twin.macro"
-import reactLogo from "../animations/working-together.json"
 import Layout from "../components/layout"
 import PostPreview from "../components/postPreview"
 import SEO from "../components/seo"
-import EspaciosIcons from "../queries/espaciosIcons"
 import "./algolia.css"
+import EspaciosIconsSlider from "./espacios/EspaciosIconSlider"
+
 const searchClient = algoliasearch(
   "K8WTAMXCZT",
   "91627040f2b233f6958fdbdbe2b6193d"
 )
 
 const BuscarComponent = () => {
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: document.querySelector("#react-logo"),
-      animationData: reactLogo,
-    })
-  }, [])
-
   return (
     <>
       <Layout>
         <SearchContainer>
           <SEO title="Buscar" />
           <EspaciosContainer>
-            <EspaciosIcons />
+            <EspaciosIconsSlider />
           </EspaciosContainer>
           <div className="max-w-3xl p-6 pt-6 mx-auto">
             <InstantSearch

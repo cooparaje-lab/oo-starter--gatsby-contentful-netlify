@@ -49,12 +49,16 @@ const SearchItem = styled.div`
   }
 
   p {
-    ${tw`font-sans text-lg`}
+    ${tw`font-sans text-base`}
   }
 `
 
 const Image = styled.div`
   ${tw`w-32 `}
+
+  body.dark & {
+    ${tw`opacity-75`}
+  }
 `
 
 const Content = styled.div`

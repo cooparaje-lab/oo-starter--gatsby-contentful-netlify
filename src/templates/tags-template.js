@@ -9,8 +9,8 @@ import SEO from "../components/seo"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allContentfulBlog
-  const tagHeader = `${totalCount} entrada${
+  const { edges, totalCount } = data.allContentfulRecursos
+  const tagHeader = `${totalCount} recursos ${
     totalCount === 1 ? "" : "s"
   } con la etiqueta "${tag}"`
   return (
@@ -28,7 +28,7 @@ const Tags = ({ pageContext, data }) => {
                 key={slug}
                 tw="pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate"
               >
-                <Link to={`/blog/${kebabCase(slug)}/`}>{title}</Link>
+                <Link to={`/recursos/${kebabCase(slug)}/`}>{title}</Link>
               </div>
             )
           })}
@@ -55,7 +55,7 @@ export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
-    allContentfulBlog(
+    allContentfulRecursos(
       limit: 2000
       sort: { fields: [id], order: DESC }
       filter: { tags: { in: [$tag] } }

@@ -4,7 +4,9 @@ import { kebabCase } from "lodash"
 import React from "react"
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"
 import Slider from "react-slick"
+import ReactTooltip from "react-tooltip"
 import tw from "twin.macro"
+
 function SampleNextArrow(props) {
   const { onClick } = props
   return (
@@ -23,9 +25,9 @@ function SamplePrevArrow(props) {
   )
 }
 
-const EspaciosIconComponent = () => {
+const EspaciosIconSliderComponent = () => {
   const data = useStaticQuery(graphql`
-    query QueryRecursosQuery {
+    query QueryEspaciosIconSliderQuery {
       espacios: allContentfulEspacios {
         edges {
           node {
@@ -99,6 +101,12 @@ const EspaciosIconComponent = () => {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
+      <ReactTooltip
+        place="bottom"
+        type="dark"
+        effect="solid"
+        className="bg-red-500 shadow"
+      />
       <SliderContainer>
         <Slider {...settings}>
           {data.espacios.edges.map(({ node }) => {
@@ -106,8 +114,9 @@ const EspaciosIconComponent = () => {
               <Link
                 to={`/espacios/${kebabCase(node.slug)}/`}
                 key={node.slug}
+                data-tip={node.title}
                 css={[
-                  tw`flex flex-col items-center justify-center pt-1 mx-2 text-center text-indigo-100 hover:text-indigo-500`,
+                  tw`flex flex-col items-center justify-center pt-1 mx-2 text-center text-indigo-100 transition-all duration-200 transform opacity-50 hover:text-indigo-500 hover:opacity-100`,
                 ]}
               >
                 <span css={[tw`block my-2 mt-3 text-xl`]}>{node.icono}</span>
@@ -121,7 +130,7 @@ const EspaciosIconComponent = () => {
   )
 }
 
-export default EspaciosIconComponent
+export default EspaciosIconSliderComponent
 
 const SliderContainer = styled.div`
   .slick-slider {

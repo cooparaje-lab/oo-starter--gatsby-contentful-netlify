@@ -26,7 +26,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
       <Article>
         <TextContainer>
           <Fade duration={800} delay={600}>
-            <h1>{espacio.icono}</h1>
+            <span>{espacio.icono}</span>
             <h1>{espacio.title}</h1>
             <p>{espacio.excerpt.excerpt}</p>
           </Fade>
@@ -82,12 +82,16 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
 }
 
 const TextContainer = styled.header`
-  ${tw`relative w-full px-1 pt-24 pb-32 m-auto mb-2 bg-indigo-100`}
+  ${tw`relative w-full px-1 pt-24 pb-40 m-auto mb-2 text-center bg-indigo-100`}
   body.dark & {
     ${tw`bg-indigo-900`}
   }
+  span {
+    ${tw`text-5xl`}
+  }
+
   h1 {
-    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-center`}
+    ${tw`m-0 mt-2 font-mono text-3xl font-bold text-center`}
 
     body.dark & {
       ${tw`text-gray-100`}
@@ -95,7 +99,7 @@ const TextContainer = styled.header`
   }
 
   p {
-    ${tw`m-0 mt-2 font-mono text-2xl font-bold text-center`}
+    ${tw`m-0 mt-2 font-serif text-base italic text-center opacity-75`}
 
     body.dark & {
       ${tw`text-gray-100`}
@@ -144,6 +148,10 @@ export const pageQuery = graphql`
         }
         excerpt {
           excerpt
+          childMarkdownRemark {
+            timeToRead
+            excerpt(pruneLength: 80)
+          }
         }
         featuredImg {
           fixed(width: 180, height: 180) {

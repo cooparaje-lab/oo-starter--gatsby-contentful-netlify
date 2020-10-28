@@ -18,6 +18,11 @@ const routes = [
     ariaLabel: "Ver todos los espacios",
   },
   {
+    title: "Licencia",
+    slug: "/licencia/",
+    ariaLabel: "Ver licencia version en español",
+  },
+  {
     title: "Buscar",
     slug: "/buscar/",
     ariaLabel: "usar buscador",

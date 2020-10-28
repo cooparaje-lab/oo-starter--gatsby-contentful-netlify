@@ -27,6 +27,9 @@ const Header = ({ siteTitle }) => (
         <Link activeClassName="active" to="/espacios/">
           Espacios
         </Link>
+        <Link activeClassName="active" to="/licencia/">
+          Licencia
+        </Link>
       </Nav>
       <ThemeToggler />
     </InnerWrapper>
@@ -50,11 +53,11 @@ const InnerWrapper = styled.div`
 `
 
 const Logo = styled.div`
-  ${tw`absolute flex items-center font-mono text-xl font-bold tracking-wider uppercase`}
+  ${tw`absolute flex items-center font-sans text-xl font-bold `}
 `
 
 const Nav = styled.nav`
-  ${tw`flex justify-start pl-48 mx-3 `}
+  ${tw`flex justify-end pr-6 mx-3 `}
   flex: 1;
 
   body.resources-tables & {

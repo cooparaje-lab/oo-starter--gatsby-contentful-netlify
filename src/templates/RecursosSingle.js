@@ -162,24 +162,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             />
           </Fade>
         </ImgContainer>
-        <TextContainer>
-          {post.blog ? (
-            <div className="">
-              <h1 className="text-lg text-center">
-                Entrada de blog relacionada
-              </h1>
-              {post.blog.map((item, i) => (
-                <Item className="text-center">
-                  <Link to={`/blog/${kebabCase(item.slug)}/`} rel="prev">
-                    {item.title}
-                  </Link>
-                </Item>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center text-gray-500 ">Proximamente</div>
-          )}
-        </TextContainer>
+
         <PageNav>
           <div>
             {prev && (
@@ -287,10 +270,7 @@ export const pageQuery = graphql`
         slug
         icono
       }
-      blog {
-        title
-        slug
-      }
+
       featuredImg {
         fixed(width: 1900, height: 550) {
           ...GatsbyContentfulFixed_withWebp_noBase64

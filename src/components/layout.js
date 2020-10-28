@@ -4,13 +4,14 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
+import { HiCode } from "react-icons/hi"
 
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
 import tw from "twin.macro"
 import styled from "@emotion/styled"
-import { TiHeartFullOutline } from "react-icons/ti"
+import { AiOutlineHeart } from "react-icons/ai"
 import "./darkTheme.css"
 
 const Layout = ({ children }) => {
@@ -20,7 +21,11 @@ const Layout = ({ children }) => {
         <Main>{children}</Main>
         <Footer>
           © {new Date().getFullYear()}, Realizado con{" "}
-          <TiHeartFullOutline className="inline-block mb-1 mr-1 text-lg text-red-600" />
+          <div>
+            <HiCode className="inline-block mx-1 mb-1 text-lg " />
+            <span className="mx-1">&</span>
+            <AiOutlineHeart className="inline-block mx-1 mb-1 text-lg " />
+          </div>
           por
           <a
             href="https://www.santuan.com.ar/"

@@ -55,7 +55,29 @@ const LicenciaComponent = () => {
           </div>
         </Licencia>
         <Text className="relative z-10 px-3 bg-white md:p-6">
-          <article className="max-w-xl mx-auto">
+          <p className="text-center transition-opacity duration-300 transform opacity-50 hover:opacity-100">
+            <small>
+              imagen de{" "}
+              <a
+                target="_blank"
+                className="border-b border-transparent hover:border-blue-200"
+                rel="noopener noreferrer"
+                href="https://lottiefiles.com/jigneshgajjar"
+              >
+                Jignesh Gajjar
+              </a>{" "}
+              y se puede editar haciendo{" "}
+              <a
+                target="_blank"
+                className="border-b border-transparent hover:border-blue-200"
+                rel="noopener noreferrer"
+                href="https://edit.lottiefiles.com/?src=https%3A%2F%2Fassets2.lottiefiles.com%2Fpackages%2Flf20_bp1bwvhv.json"
+              >
+                click aquí
+              </a>
+            </small>
+          </p>
+          <article className="max-w-xl pt-6 mx-auto">
             <a
               href="https://css-tricks.com/license/"
               class="font-bold border-b border-indigo-500 hover:bg-indigo-700 hover:text-white text-2xl text-center w-full block mb-12"

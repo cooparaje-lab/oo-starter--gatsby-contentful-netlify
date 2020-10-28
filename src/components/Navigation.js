@@ -8,6 +8,11 @@ const routes = [
     ariaLabel: "Santuan - Volver al inicio",
   },
   {
+    title: "Buscar",
+    slug: "/buscar/",
+    ariaLabel: "usar buscador",
+  },
+  {
     title: "Recursos",
     slug: "/recursos/",
     ariaLabel: "Ver todos los recursos",
@@ -16,16 +21,6 @@ const routes = [
     title: "Espacios",
     slug: "/espacios/",
     ariaLabel: "Ver todos los espacios",
-  },
-  {
-    title: "Licencia",
-    slug: "/licencia/",
-    ariaLabel: "Ver licencia version en español",
-  },
-  {
-    title: "Buscar",
-    slug: "/buscar/",
-    ariaLabel: "usar buscador",
   },
 ]
 
@@ -47,6 +42,17 @@ const Navigation = ({ closeMenu }) => (
         </Link>
       )
     })}
+    <Link
+      activeClassName="font-bold"
+      onClick={closeMenu}
+      alt="Licenca}ia"
+      title="Licenca}ia"
+      aria-label="Licenca}ia"
+      to={`/licencia`}
+      className="absolute bottom-0 py-6 my-2 font-mono text-white opacity-50 cursor-pointer hover:text-indigo-300"
+    >
+      Licencia
+    </Link>
   </nav>
 )
 

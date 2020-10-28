@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import lottie from "lottie-web"
 import React, { useEffect } from "react"
 import tw from "twin.macro"
-import reactLogo from "../assets/animations/working-together.json"
+import reactLogo from "../assets/animations/contact-us.json"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "./algolia.css"
@@ -19,7 +19,7 @@ const LicenciaComponent = () => {
   return (
     <>
       <Layout>
-        <SEO title="Inicio" />
+        <SEO title="Documento Legal Super Importante" />
         <Licencia>
           <div className="absolute top-0 left-0 right-0 z-0 h-screen opacity-25 bg-react-logo">
             <div id="react-logo" className="w-full h-full" />
@@ -103,10 +103,12 @@ const LicenciaComponent = () => {
             <p>
               Entiendo que otras personas puedan sentirse diferentes acerca de
               esto y pueden tener o no razones semi-legítimas para proteger su
-              código, diseño, arte, escritura, trabajo o lo que sea. Yo me
-              encuentro colaborando en algunos proyectos de código cerrado. Este
-              no es uno de ellos. ¡Vuélvete loco! Y como siempre, gracias por
-              compartir.
+              código, diseño, arte, escritura, trabajo o lo que sea.
+            </p>
+            <p>
+              Yo me encuentro colaborando en algunos proyectos de código
+              cerrado. Este no es uno de ellos. ¡Vuélvete loco! Y como siempre,
+              gracias por compartir.
             </p>
           </article>
         </Text>
@@ -118,10 +120,14 @@ const LicenciaComponent = () => {
 export default LicenciaComponent
 
 const Licencia = styled.section`
-  ${tw`relative flex flex-col items-center justify-center py-6 text-center bg-gray-200`}
-
+  ${tw`relative flex flex-col items-center justify-start py-6 text-center bg-gray-200`}
   min-height: 80vh;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+
+  h1 {
+    ${tw`pt-12 text-gray-900 md:pt-2`}
+  }
+
   body.dark & {
     ${tw`bg-gray-900 border-gray-800 from-teal-900 to-blue-900 `}
 
@@ -139,11 +145,16 @@ const Licencia = styled.section`
 `
 
 const Text = styled.section`
+  ${tw`font-sans text-xl `}
+  p {
+    ${tw`my-4 leading-relaxed text-gray-800`}
+  }
+
   body.dark & {
-    ${tw`font-sans text-xl bg-gray-800`}
+    ${tw`bg-gray-800`}
 
     p {
-      ${tw`my-4 text-gray-300`}
+      ${tw`my-4 leading-relaxed text-gray-300`}
     }
   }
 `

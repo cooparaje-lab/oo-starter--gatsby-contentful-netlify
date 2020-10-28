@@ -10,7 +10,13 @@ import tw from "twin.macro"
 function SampleNextArrow(props) {
   const { onClick } = props
   return (
-    <div className="slick-arrow slick-arrow-right" onClick={onClick}>
+    <div
+      className="slick-arrow slick-arrow-right"
+      role="button"
+      tabIndex={0}
+      onKeyDown={onClick}
+      onClick={onClick}
+    >
       <AiOutlineArrowRight />
     </div>
   )
@@ -19,7 +25,13 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
   const { onClick } = props
   return (
-    <div className="slick-arrow slick-arrow-left" onClick={onClick}>
+    <div
+      className="slick-arrow slick-arrow-left"
+      role="button"
+      onKeyDown={onClick}
+      onClick={onClick}
+      tabIndex={0}
+    >
       <AiOutlineArrowLeft />
     </div>
   )

@@ -215,21 +215,6 @@ const ImgContainer = styled.div`
   }
 `
 
-const Item = styled.div`
-  ${tw`w-full h-24 px-5 m-2 my-3 font-mono text-lg font-thin leading-snug text-center border border-gray-100 shadow-md`}
-  ${tw`flex items-center justify-start cursor-pointer`}
-  transition: all 1.1s;
-  transform: translateY(0);
-  &:hover {
-    ${tw`shadow-lg `}
-    transform: translateY(-5px);
-  }
-
-  body.dark & {
-    ${tw`text-indigo-200 border-gray-700`}
-  }
-`
-
 const PageNav = styled.nav`
   ${tw`flex justify-between max-w-6xl p-6 py-12 m-auto`}
   a {

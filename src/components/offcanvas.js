@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { slide as Menu } from "react-burger-menu"
 import "./offcanvas.css"
+
 import Navigation from "../components/Navigation"
 
 class Offcanvas extends Component {
@@ -17,7 +18,7 @@ class Offcanvas extends Component {
     })
   }
 
-  handleStateChange = state => {
+  handleStateChange = (state) => {
     this.setState({
       openMenu: state.isOpen,
     })
@@ -31,7 +32,7 @@ class Offcanvas extends Component {
         width={240}
         right
         isOpen={openMenu}
-        onStateChange={state => this.handleStateChange(state)}
+        onStateChange={(state) => this.handleStateChange(state)}
       >
         <Navigation closeMenu={this.closeMenu} />
       </Menu>

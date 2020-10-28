@@ -5,7 +5,6 @@ import { kebabCase } from "lodash"
 import React from "react"
 import { GoLinkExternal } from "react-icons/go"
 import tw from "twin.macro"
-import ReactTooltip from "react-tooltip"
 
 export default ({ card }) => (
   <CardItem>

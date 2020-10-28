@@ -21,7 +21,7 @@ const LicenciaComponent = () => {
       <Layout>
         <SEO title="Documento Legal Super Importante" />
         <Licencia>
-          <div className="absolute top-0 left-0 right-0 z-0 h-screen opacity-25 bg-react-logo">
+          <div className="absolute top-0 left-0 right-0 z-0 h-screen bg-react-logo">
             <div id="react-logo" className="w-full h-full" />
           </div>
           <div className="flex flex-col w-full py-6 md:pb-8 ">
@@ -152,10 +152,6 @@ const Licencia = styled.section`
 
   body.dark & {
     ${tw`bg-gray-900 border-gray-800 from-teal-900 to-blue-900 `}
-
-    .bg-react-logo {
-      opacity: 100% !important;
-    }
 
     p {
       ${tw`text-gray-300 `}

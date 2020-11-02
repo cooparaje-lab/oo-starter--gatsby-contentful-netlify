@@ -5,6 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 import { HiCode } from "react-icons/hi"
+import { Link } from "gatsby"
 
 import React from "react"
 import PropTypes from "prop-types"
@@ -36,7 +37,14 @@ const Layout = ({ children }) => {
             stn9000
           </a>
           en un Paraje Libre
-          <b className="megamineria">La Vida vale más que la mega-minería</b>
+          <Link to="/licencia/">
+            <b
+              activeClassName="text-white"
+              className="text-green-500 megamineria hover:underline"
+            >
+              La Vida vale más que la mega-minería
+            </b>
+          </Link>
         </Footer>
       </App>
     </>
@@ -70,9 +78,9 @@ const Footer = styled.footer`
   }
 
   .megamineria {
-    ${tw`block mt-3 text-teal-900 opacity-75`}
+    ${tw`block mt-3 opacity-75`}
     body.dark & {
-      ${tw`text-teal-500 opacity-100 `}
+      ${tw`opacity-100 `}
     }
   }
 `

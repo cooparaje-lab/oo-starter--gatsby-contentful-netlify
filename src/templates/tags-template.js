@@ -22,22 +22,48 @@ const Tags = ({ pageContext, data }) => {
         <div>
           {edges.map(({ node }) => {
             const { title, slug } = node
+            const { excerpt } = node.excerpt
 
             return (
-              <div
+              <Item
                 key={slug}
-                tw="pb-2 my-3 mb-6 text-4xl font-semibold leading-snug truncate"
+                tw="p-4 my-3 mb-6 text-4xl font-semibold leading-snug truncate"
               >
                 <Link to={`/recursos/${kebabCase(slug)}/`}>{title}</Link>
-              </div>
+                <Description>{excerpt}</Description>
+              </Item>
             )
           })}
         </div>
-        <Link to="/etiquetas">Mostrar todo</Link>
+        <Link
+          to="/etiquetas"
+          tw="relative z-10 px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
+        >
+          Mostrar todo
+        </Link>
       </TagsContainer>
     </Layout>
   )
 }
+
+const Description = styled.p`
+  ${tw`pb-1 pt-2 text-base font-sans text-left text-gray-700 `}
+
+  body.dark & {
+    ${tw`text-indigo-200`}
+  }
+`
+
+const Item = styled.div`
+  ${tw`relative  rounded shadow-md`}
+  transition: all .2s;
+  top: 0;
+
+  &:hover {
+    ${tw``}
+    top: 2px;
+  }
+`
 
 const TagsContainer = styled.div`
   ${tw`max-w-6xl min-h-screen pt-12 m-auto`}
@@ -67,6 +93,9 @@ export const pageQuery = graphql`
           title
           slug
           tags
+          excerpt {
+            excerpt
+          }
         }
       }
     }

@@ -27,6 +27,9 @@ const Header = ({ siteTitle }) => (
         <Link activeClassName="active" to="/espacios/">
           Espacios
         </Link>
+        <Link activeClassName="active" to="/etiquetas/">
+          Etiquetas
+        </Link>
         <Link activeClassName="active" to="/licencia/">
           Licencia
         </Link>
@@ -65,15 +68,15 @@ const Nav = styled.nav`
   }
 
   a {
-    ${tw`hidden mx-4 font-mono text-lg font-bold md:inline-block`}
+    ${tw`hidden mx-2 font-mono text-base font-bold lg:mx-4 lg:text-lg md:inline-block`}
     &:hover {
-      ${tw`text-gray-500`} !important;
+      ${tw`text-gray-500`}
     }
     &.active {
       ${tw`text-indigo-500`}
     }
     body.dark &.active {
-      ${tw`text-indigo-600`} !important
+      ${tw`text-indigo-600`}
     }
 
     body.resources-tables & {

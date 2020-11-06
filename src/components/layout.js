@@ -35,8 +35,10 @@ const Layout = ({ children }) => {
           >
             stn9000
           </a>
-          en un Paraje Libre
-          <b className="megamineria">La Vida vale más que la mega-minería</b>
+          en un Paraje Libre <br />
+          <b className="inline-block mt-1 text-green-500 megamineria">
+            La+Vida+vale+más+que+la+mega-minería
+          </b>
         </Footer>
       </App>
     </>
@@ -69,7 +71,7 @@ const Footer = styled.footer`
     ${tw`text-indigo-100`}
   }
 
-  .megamineria {
+  .mega {
     ${tw`block mt-3 text-teal-900 opacity-75`}
     body.dark & {
       ${tw`text-teal-500 opacity-100 `}

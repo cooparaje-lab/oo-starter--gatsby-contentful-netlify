@@ -22,6 +22,11 @@ const routes = [
     slug: "/espacios/",
     ariaLabel: "Ver todos los espacios",
   },
+  {
+    title: "Etiquetas",
+    slug: "/etiquetas/",
+    ariaLabel: "Ver todas las etiquetas",
+  },
 ]
 
 const Navigation = ({ closeMenu }) => (

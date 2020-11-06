@@ -36,12 +36,6 @@ const Layout = ({ children }) => {
           >
             stn9000
           </a>
-<<<<<<< HEAD
-          en un Paraje Libre <br />
-          <b className="inline-block mt-1 text-green-500 megamineria">
-            La+Vida+vale+más+que+la+mega-minería
-          </b>
-=======
           en un Paraje Libre
           <Link to="/licencia/">
             <b
@@ -51,7 +45,6 @@ const Layout = ({ children }) => {
               La Vida vale más que la mega-minería
             </b>
           </Link>
->>>>>>> 6b4fcb6cc8043c4a1961801fca7c813a7e7e99ab
         </Footer>
       </App>
     </>
@@ -84,13 +77,8 @@ const Footer = styled.footer`
     ${tw`text-indigo-100`}
   }
 
-<<<<<<< HEAD
-  .mega {
-    ${tw`block mt-3 text-teal-900 opacity-75`}
-=======
   .megamineria {
     ${tw`block mt-3 opacity-75`}
->>>>>>> 6b4fcb6cc8043c4a1961801fca7c813a7e7e99ab
     body.dark & {
       ${tw`opacity-100 `}
     }

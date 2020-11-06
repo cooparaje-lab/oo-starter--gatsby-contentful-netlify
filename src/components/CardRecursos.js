@@ -10,12 +10,12 @@ export default ({ card }) => (
   <CardItem>
     <Link
       to={`/recursos/${card.slug}`}
-      className="bg-indigo-900 sm:block sm:relative"
+      className="w-full h-full bg-indigo-900 md:w-64 md:h-48 sm:block sm:relative "
     >
       <Img
-        className="object-cover w-20 h-20 pb-0 mb-0 cardImage sm:opacity-75"
+        className="object-cover w-full h-full pb-0 mb-0 cardImage sm:opacity-75"
         alt={card.title}
-        fixed={card.featuredImg.fixed}
+        fluid={card.featuredImg.fluid}
       />
     </Link>
     <Content className="">
@@ -24,24 +24,18 @@ export default ({ card }) => (
           href={card.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="block mb-0 font-serif text-lg font-bold text-left underline capitalize"
+          className="block mb-0 font-serif text-lg font-bold text-left underline capitalize hover:text-orange-600"
         >
           {card.title}
           <GoLinkExternal className="inline-block ml-2 text-sm " />
         </a>
-
-        <Link
-          to={`/recursos/${card.slug}`}
-          className="relative z-10 hidden px-3 py-2 pb-4 mt-3 font-serif text-xs font-bold bg-indigo-500 hover:bg-indigo-600"
-        >
-          <span className="text-white">ver más</span>
-        </Link>
       </Top>
       <Description className="">
         {card.excerpt.childMarkdownRemark.excerpt}
 
         <small>Publicado el {card.createdAt}</small>
       </Description>
+
       <div className="z-50 flex justify-start w-full mt-2">
         {card.espacio.map((espacio, i) => [
           <Link
@@ -73,6 +67,11 @@ export default ({ card }) => (
           </Tags>
         )}
       </Actions>
+      <SeeMore>
+        <Link to={`/recursos/${card.slug}`} className="see-more">
+          Conocer más
+        </Link>
+      </SeeMore>
     </Content>
   </CardItem>
 )
@@ -86,7 +85,7 @@ const Tags = styled.div`
 `
 
 const CardItem = styled.div`
-  ${tw`relative flex w-full h-auto mb-5 overflow-hidden bg-white rounded shadow-lg`}
+  ${tw`relative flex flex-col w-full h-auto mb-5 overflow-hidden bg-white rounded shadow-lg md:flex-row`}
   transition: all .2s;
   transform: translateY(0);
   transform: scale(1);
@@ -103,10 +102,6 @@ const CardItem = styled.div`
     &:hover {
       opacity: 1 !important;
     }
-  }
-
-  a {
-    ${tw`pb-0`}
   }
 
   &:hover {
@@ -126,6 +121,18 @@ const Content = styled.div`
   }
 `
 
+const SeeMore = styled.div`
+  ${tw`flex justify-end w-full `}
+
+  .see-more {
+    ${tw`relative z-10 block w-full px-3 py-2 mt-3 font-mono text-xs font-bold text-center text-white uppercase bg-indigo-500 md:text-left md:w-auto md:inline-block`}
+  }
+
+  body.dark & {
+    ${tw`text-indigo-500`}
+  }
+`
+
 const Description = styled.p`
   ${tw`font-mono text-sm text-left text-gray-700`}
 
@@ -134,7 +141,7 @@ const Description = styled.p`
   }
 
   small {
-    ${tw`hidden mt-2 font-bold text-gray-900 opacity-75 `}
+    ${tw`mt-2 font-bold text-gray-900 opacity-75 `}
 
     body.dark & {
       ${tw`text-gray-100`}
@@ -145,8 +152,16 @@ const Description = styled.p`
 const Top = styled.div`
   ${tw`flex items-baseline justify-between w-full mt-2 mb-1`}
 
+  a {
+    ${tw`text-green-700`}
+  }
+
   body.dark & {
     ${tw`text-indigo-200`}
+
+    a {
+      ${tw`text-orange-700`}
+    }
   }
 `
 

@@ -90,7 +90,7 @@ export const pageQuery = graphql`
             icono
           }
           featuredImg {
-            fixed(width: 140, height: 190) {
+            fixed(width: 200, height: 200) {
               ...GatsbyContentfulFixed_withWebp_noBase64
             }
             fluid(maxWidth: 1500) {

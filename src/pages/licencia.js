@@ -107,30 +107,41 @@ const LicenciaComponent = () => {
               sea mucho más popular y asombroso que este.
             </p>
             <p>
-              la clave es compartir Si por esas casualidades deseas copiarte
-              algo de manera exacta pero haciéndote pasar como que es tuyo, ahí
-              si ya podría resultar extraño.
+              <cite>la clave es compartir</cite>
             </p>
             <p>
-              No me puedo enojar por robar, solo creo que eres mejor que eso y
-              quisiera verte haciéndolo mejor. Pero tranqui, no voy a estar
-              persiguiéndote, prefiero jugar a atrapar la pelota con un perro.
+              Si elejis copiarte algo de manera exacta y por esas casualidades
+              queres sacar provecho como que si fuera creación tuya. Ahí ya
+              puede resultar un poco extraño.
             </p>
             <p>
-              La única vez que me enojaría contigo seria si te esfuerzas por
-              hacerme daño de alguna manera. Y probablemente no me enfade, solo
-              sentiré tristeza. Quisiera que internet mejore y no creo que ser
-              todo un protector nos lleve por ese camino.
+              No tengo intenciones de enojarme por eso, solo creo que eres mejor
+              que eso y quisiera verte haciéndolo mejor. No estaré
+              persiguientode, prefiero jugar a atrapar la pelota con un perro.
+            </p>
+            <p>
+              La única vez que me enojaría seria si te esfuerzas por hacerme
+              daño. Y probablemente no me enfade, solo sentiría tristeza (o en
+              un mal día me provocaria sarcasmo, mis disculpas adelantadas por
+              eso).
+            </p>
+            <p>
+              Quisiera que internet crezca y mejore. Y ser todo un{" "}
+              <i>"don juanes de la protección"</i> no nos ha llevado para nada
+              por ese camino.
             </p>
             <p>
               Entiendo que otras personas puedan sentirse diferentes acerca de
-              esto y pueden tener o no razones semi-legítimas para proteger su
+              esto y puedan tener (o no) razones semi-legítimas para proteger su
               código, diseño, arte, escritura, trabajo o lo que sea.
             </p>
             <p>
-              Yo me encuentro colaborando en algunos proyectos de código
-              cerrado. Este no es uno de ellos. ¡Vuélvete loco! Y como siempre,
-              gracias por compartir.
+              Yo me encuentro colaborando tambien en algunos proyectos de código
+              cerrado.
+            </p>
+            <p>
+              Este en particular no es uno de esos. ¡Asíque puedes volverte Y
+              desde ya, gracias por compartir.
             </p>
           </article>
         </Text>

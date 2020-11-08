@@ -45,11 +45,11 @@ const SearchItem = styled.div`
   }
 
   a {
-    ${tw`font-serif text-xl font-bold text-indigo-500`}
+    ${tw`font-mono text-xl font-bold text-indigo-500`}
   }
 
   p {
-    ${tw`font-mono text-sm`}
+    ${tw`font-sans text-base`}
   }
 `
 

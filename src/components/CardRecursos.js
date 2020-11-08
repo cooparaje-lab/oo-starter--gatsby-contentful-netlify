@@ -20,20 +20,15 @@ export default ({ card }) => (
     </Link>
     <Content className="">
       <Top>
-        <a
-          href={card.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mb-0 font-serif text-lg font-bold text-left underline capitalize hover:text-orange-600"
+        <Link
+          to={`/recursos/${card.slug}`}
+          className="block mb-0 font-mono text-lg font-bold text-left underline capitalize hover:text-orange-600"
         >
           {card.title}
-          <GoLinkExternal className="inline-block ml-2 text-sm " />
-        </a>
+        </Link>
       </Top>
       <Description className="">
         {card.excerpt.childMarkdownRemark.excerpt}
-
-        <small>Publicado el {card.createdAt}</small>
       </Description>
 
       <div className="z-50 flex justify-start w-full mt-2">
@@ -68,9 +63,15 @@ export default ({ card }) => (
         )}
       </Actions>
       <SeeMore>
-        <Link to={`/recursos/${card.slug}`} className="see-more">
-          Conocer más
-        </Link>
+        <a
+          href={card.url}
+          className="see-more"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visitar website
+          <GoLinkExternal className="inline-block ml-2 text-sm " />
+        </a>
       </SeeMore>
     </Content>
   </CardItem>
@@ -125,7 +126,7 @@ const SeeMore = styled.div`
   ${tw`flex justify-end w-full `}
 
   .see-more {
-    ${tw`relative z-10 block w-full px-3 py-2 mt-3 font-mono text-xs font-bold text-center text-white uppercase bg-indigo-500 md:text-left md:w-auto md:inline-block`}
+    ${tw`relative z-10 block w-full px-3 py-2 mt-3 font-mono text-xs font-bold text-center text-white uppercase bg-orange-500 md:text-left md:w-auto md:inline-block`}
   }
 
   body.dark & {
@@ -134,7 +135,7 @@ const SeeMore = styled.div`
 `
 
 const Description = styled.p`
-  ${tw`font-mono text-sm text-left text-gray-700`}
+  ${tw`font-sans text-base text-left text-gray-700`}
 
   body.dark & {
     ${tw`text-indigo-200`}
@@ -153,14 +154,14 @@ const Top = styled.div`
   ${tw`flex items-baseline justify-between w-full mt-2 mb-1`}
 
   a {
-    ${tw`text-green-700`}
+    ${tw`text-indigo-800`}
   }
 
   body.dark & {
     ${tw`text-indigo-200`}
 
     a {
-      ${tw`text-orange-700`}
+      ${tw`text-white`}
     }
   }
 `

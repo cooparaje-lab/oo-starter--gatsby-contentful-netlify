@@ -6,6 +6,7 @@ import React from "react"
 import tw from "twin.macro"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CardRecursos from "../components/CardRecursos"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -21,55 +22,27 @@ const Tags = ({ pageContext, data }) => {
         <h1>{tagHeader}</h1>
         <div>
           {edges.map(({ node }) => {
-            const { title, slug } = node
-            const { excerpt } = node.excerpt
-
-            return (
-              <Item
-                key={slug}
-                tw="p-4 my-3 mb-6 text-4xl font-semibold leading-snug truncate"
-              >
-                <Link to={`/recursos/${kebabCase(slug)}/`}>{title}</Link>
-                <Description>{excerpt}</Description>
-              </Item>
-            )
+            return <CardRecursos card={node} />
           })}
         </div>
-        <Link
-          to="/etiquetas"
-          tw="relative z-10 px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
-        >
-          Mostrar todo
-        </Link>
+        <div tw={"mt-12 text-center"}>
+          <Link
+            to="/etiquetas"
+            tw="relative z-10 px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
+          >
+            Mostrar todas las etiquetas
+          </Link>
+        </div>
       </TagsContainer>
     </Layout>
   )
 }
 
-const Description = styled.p`
-  ${tw`pb-1 pt-2 text-base font-sans text-left text-gray-700 `}
-
-  body.dark & {
-    ${tw`text-indigo-200`}
-  }
-`
-
-const Item = styled.div`
-  ${tw`relative  rounded shadow-md`}
-  transition: all .2s;
-  top: 0;
-
-  &:hover {
-    ${tw``}
-    top: 2px;
-  }
-`
-
 const TagsContainer = styled.div`
-  ${tw`max-w-6xl min-h-screen pt-12 m-auto`}
+  ${tw`max-w-2xl pt-12 m-auto`}
 
   h1 {
-    ${tw`font-mono text-4xl`}
+    ${tw`mb-12 font-mono text-xl text-center`}
 
     body.dark & {
       ${tw`text-indigo-200`}
@@ -93,8 +66,27 @@ export const pageQuery = graphql`
           title
           slug
           tags
+
           excerpt {
             excerpt
+            childMarkdownRemark {
+              timeToRead
+              excerpt(pruneLength: 80)
+            }
+          }
+          espacio {
+            title
+            slug
+            icono
+          }
+          featuredImg {
+            fixed(width: 200, height: 200) {
+              ...GatsbyContentfulFixed_withWebp_noBase64
+            }
+            fluid(maxWidth: 1500) {
+              # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
           }
         }
       }

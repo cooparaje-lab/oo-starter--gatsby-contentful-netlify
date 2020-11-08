@@ -14,10 +14,11 @@ const TagsPage = ({ data }) => {
 
       <Container>
         <h1>Etiquetas</h1>
-        <ul>
+        <ul className="flex flex-col-reverse">
           {allTags.map((tag) => (
             <li
               key={tag.fieldValue}
+              className={`order-${tag.totalCount}`}
               tw="pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate"
             >
               <Link
@@ -49,7 +50,7 @@ export default TagsPage
 
 export const pageQuery = graphql`
   query {
-    allContentfulRecursos(limit: 2000) {
+    allContentfulRecursos(sort: { fields: title, order: ASC }, limit: 2000) {
       group(field: tags) {
         fieldValue
         totalCount

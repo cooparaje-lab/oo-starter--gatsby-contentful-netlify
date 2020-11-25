@@ -125,7 +125,7 @@ const Content = styled.div`
 `
 
 const SeeMore = styled.div`
-  ${tw`absolute top-0 right-0 flex justify-end `}
+  ${tw`relative right-0 flex justify-end md:absolute md:top-0 `}
 
   .see-more {
     ${tw`relative z-10 block w-full px-3 py-2 mt-3 font-mono text-xs font-bold text-center text-white uppercase bg-orange-500 md:text-left md:w-auto md:inline-block`}

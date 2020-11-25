@@ -52,7 +52,7 @@ exports.createPages = ({ graphql, actions }) => {
         paginate({
           createPage,
           items: result.data.allContentfulRecursos.edges,
-          itemsPerPage: 50,
+          itemsPerPage: 20,
           pathPrefix: "/recursos",
           component: path.resolve("src/templates/RecursosArchive.js"),
         })

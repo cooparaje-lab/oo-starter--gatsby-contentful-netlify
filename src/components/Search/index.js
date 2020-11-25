@@ -91,6 +91,7 @@ const BuscarComponent = () => {
             >
               <SearchBox
                 className="max-w-lg mx-auto mb-6"
+                
                 translations={{
                   submitTitle: "Add your search query.",
                   resetTitle: "Reset your search query.",

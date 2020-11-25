@@ -13,7 +13,7 @@ function SampleNextArrow(props) {
     <div
       className="slick-arrow slick-arrow-right"
       role="button"
-      tabIndex={0}
+      tabIndex={-1}
       onKeyDown={onClick}
       onClick={onClick}
     >
@@ -30,7 +30,7 @@ function SamplePrevArrow(props) {
       role="button"
       onKeyDown={onClick}
       onClick={onClick}
-      tabIndex={0}
+      tabIndex={-1}
     >
       <AiOutlineArrowLeft />
     </div>

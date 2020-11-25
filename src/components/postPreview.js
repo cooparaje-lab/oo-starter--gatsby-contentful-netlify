@@ -8,12 +8,11 @@ import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import React from "react"
 import { Highlight } from "react-instantsearch-dom"
-import Fade from "react-reveal/Fade"
+//import Fade from "react-reveal/Fade"
 import tw from "twin.macro"
 
 const PostPreview = ({ hit }) => {
   return (
-    <Fade cascade delay={150}>
       <SearchItem>
         <Content>
           <Link to={hit.url}>
@@ -31,7 +30,6 @@ const PostPreview = ({ hit }) => {
           />
         </Image>
       </SearchItem>
-    </Fade>
   )
 }
 
@@ -39,6 +37,8 @@ export default PostPreview
 
 const SearchItem = styled.div`
   ${tw`flex bg-gray-100`}
+
+
 
   body.dark & {
     ${tw`text-indigo-100 bg-gray-800`}

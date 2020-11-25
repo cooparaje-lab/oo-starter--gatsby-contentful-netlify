@@ -10,15 +10,15 @@ export default ({ card }) => (
   <CardItem>
     <Link
       to={`/recursos/${card.slug}`}
-      className="w-full h-full bg-indigo-900 md:w-64 md:h-48 sm:block sm:relative "
+      className="inset-0 z-0 w-full h-full bg-indigo-900 md:w-full md:h-56 sm:block sm:absolute"
     >
       <Img
-        className="object-cover w-full h-full pb-0 mb-0 cardImage sm:opacity-75"
+        className="object-cover w-full h-full pb-0 mb-0 cardImage"
         alt={card.title}
         fluid={card.featuredImg.fluid}
       />
     </Link>
-    <Content className="">
+    <Content className="relative z-10">
       <Top>
         <Link
           to={`/recursos/${card.slug}`}
@@ -35,11 +35,11 @@ export default ({ card }) => (
         {card.espacio.map((espacio, i) => [
           <Link
             to={`/espacios/${kebabCase(espacio.slug)}/`}
-            className="flex flex-col items-center justify-center py-1 pr-2 mr-1 rounded-full md:flex-row btnCategory hover:underline hover:text-indigo-500 "
+            className="flex flex-col items-center justify-center px-2 py-1 mr-1 bg-indigo-100 md:flex-row btnCategory hover:underline hover:text-indigo-500 "
             activeClassName="active"
             key={i}
           >
-            <span className="mr-1 text-xl ">{espacio.icono}</span>
+            <span className="mr-2 text-xs ">{espacio.icono}</span>
             <span className="font-mono text-sm font-bold hover:text-indigo-500">
               {espacio.title}
             </span>
@@ -65,7 +65,7 @@ export default ({ card }) => (
       <SeeMore>
         <a
           href={card.url}
-          className="see-more"
+          className=" see-more"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -86,7 +86,7 @@ const Tags = styled.div`
 `
 
 const CardItem = styled.div`
-  ${tw`relative flex flex-col w-full h-auto mb-5 overflow-hidden bg-white rounded shadow-lg md:flex-row`}
+  ${tw`relative flex flex-col w-full h-auto mb-2 overflow-hidden bg-white rounded shadow-lg md:flex-row`}
   transition: all .2s;
   transform: translateY(0);
   transform: scale(1);
@@ -96,10 +96,12 @@ const CardItem = styled.div`
   }
 
   .cardImage {
+    opacity: 0.03;
+    transition: all 0.2s;
+
     body.dark & {
-      opacity: 0.7;
-      transition: all 0.2s;
     }
+
     &:hover {
       opacity: 1 !important;
     }
@@ -112,7 +114,7 @@ const CardItem = styled.div`
 `
 
 const Content = styled.div`
-  ${tw`flex flex-col justify-start w-full px-6 py-2`}
+  ${tw`flex flex-col justify-start w-full px-6 py-2 pb-6`}
 
   .title {
     ${tw`text-indigo-800`}
@@ -123,7 +125,7 @@ const Content = styled.div`
 `
 
 const SeeMore = styled.div`
-  ${tw`flex justify-end w-full `}
+  ${tw`absolute top-0 right-0 flex justify-end `}
 
   .see-more {
     ${tw`relative z-10 block w-full px-3 py-2 mt-3 font-mono text-xs font-bold text-center text-white uppercase bg-orange-500 md:text-left md:w-auto md:inline-block`}
@@ -135,7 +137,7 @@ const SeeMore = styled.div`
 `
 
 const Description = styled.p`
-  ${tw`font-sans text-base text-left text-gray-700`}
+  ${tw`font-sans text-sm text-left text-gray-100`}
 
   body.dark & {
     ${tw`text-indigo-200`}
@@ -154,7 +156,7 @@ const Top = styled.div`
   ${tw`flex items-baseline justify-between w-full mt-2 mb-1`}
 
   a {
-    ${tw`text-indigo-800`}
+    ${tw`text-gray-100`}
   }
 
   body.dark & {

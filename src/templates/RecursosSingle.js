@@ -7,7 +7,7 @@ import { kebabCase } from "lodash"
 import React from "react"
 import { GoLinkExternal } from "react-icons/go"
 import Fade from "react-reveal/Fade"
-import ReactTooltip from "react-tooltip"
+//import ReactTooltip from "react-tooltip"
 import tw from "twin.macro"
 import { BigPlayButton, Player } from "video-react"
 import { Article, ArticleText } from "../components/import"
@@ -87,40 +87,12 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 
       <Article>
         <Heros>
-          <div className="max-w-2xl m-auto mt-12">
-            {post.espacio ? (
-              <Fade bottom duration={1200} delay={200}>
-                <div className="flex justify-center text-lg text-center">
-                  <ReactTooltip
-                    place="bottom"
-                    type="dark"
-                    effect="solid"
-                    className="bg-red-500 shadow"
-                  />
-                  {post.espacio.map((item, i) => (
-                    <Link
-                      to={`/espacios/${kebabCase(item.slug)}/`}
-                      className="flex flex-col px-4 py-1 mx-2 my-2 rounded-full hover:bg-indigo-500"
-                      key={i}
-                      data-tip={item.title}
-                    >
-                      <span className="text-2xl">{item.icono}</span>
-                      <b className="hidden font-mono text-sm text-gray-100">
-                        {item.title}
-                      </b>
-                    </Link>
-                  ))}
-                </div>
-              </Fade>
-            ) : (
-              <div className="hidden"></div>
-            )}
-          </div>
+          <div className="flex flex-col max-w-2xl px-0 mx-auto">
+
+          
           <TextContainer>
-            <Fade bottom duration={800} delay={600}>
+            
               <h1>{post.title}</h1>
-            </Fade>
-            <Fade bottom duration={600} delay={800}>
               <a
                 className="inline-block px-3 py-2 pb-4 mt-3 font-mono text-base font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
                 href={post.url}
@@ -130,38 +102,47 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 <span className="text-white">Visitar website</span>
                 <GoLinkExternal className="inline-block ml-2 text-white" />
               </a>
-            </Fade>
+            <div className="mt-4">
+              {post.espacio ? (
+                  <div className="flex justify-start text-lg text-left">
+                    
+                    {post.espacio.map((item, i) => (
+                      <Link
+                        to={`/espacios/${kebabCase(item.slug)}/`}
+                        className="flex items-center px-4 py-1 my-2 mr-2 bg-indigo-100 hover:underline"
+                        key={i}
+                      >
+                        <span className="mr-1 text-xl">{item.icono}</span>
+                        <b className="font-mono text-sm text-indigo-800 ">
+                          {item.title}
+                        </b>
+                      </Link>
+                    ))}
+                  </div>
+              ) : (
+                <div className="hidden"></div>
+              )}
+            </div>
           </TextContainer>
-          <div className="custom-shape-divider-bottom-1594014676">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                className="shape-fill"
-              ></path>
-            </svg>
+          
           </div>
         </Heros>
-
+       
         <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
+        <ImgContainer>
+          <Img
+            title={post.title}
+            alt={post.title}
+            className="w-full"
+            fluid={post.featuredImg.fluid}
+          />
+        </ImgContainer>
           {documentToReactComponents(
             post.childContentfulRecursosArticleRichTextNode.json,
             options
           )}
         </div>
-        <ImgContainer>
-          <Fade duration={1200}>
-            <Img
-              title={post.title}
-              alt={post.title}
-              fluid={post.featuredImg.fluid}
-            />
-          </Fade>
-        </ImgContainer>
+       
 
         <PageNav>
           <div>
@@ -180,22 +161,23 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             )}
           </div>
         </PageNav>
+        
       </Article>
     </Layout>
   )
 }
 
 const TextContainer = styled.header`
-  ${tw`relative max-w-2xl px-0 m-auto text-center`}
+  ${tw`relative flex flex-col items-start justify-start w-full px-0 pl-5 m-auto text-left`}
   h1 {
-    ${tw`pt-0 m-0 mt-8 font-mono text-4xl font-bold text-center text-white`}
+    ${tw`pt-0 m-0 mt-2 font-mono text-4xl font-bold text-left text-gray-800`}
 
     body.dark & {
       ${tw`text-gray-100`}
     }
   }
   h2 {
-    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-center`}
+    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-left`}
 
     body.dark & {
       ${tw`text-gray-100`}
@@ -203,7 +185,7 @@ const TextContainer = styled.header`
   }
 `
 const ImgContainer = styled.div`
-  ${tw`w-full max-w-2xl m-auto mt-2 mb-2 overflow-hidden`}
+  ${tw`w-full max-w-3xl m-auto mt-4 mb-12 text-left`}
 
   img {
     ${tw`mb-0`}
@@ -216,7 +198,7 @@ const ImgContainer = styled.div`
 `
 
 const PageNav = styled.nav`
-  ${tw`flex justify-between max-w-6xl p-6 py-12 m-auto`}
+  ${tw`flex justify-between max-w-2xl p-6 py-12 m-auto`}
   a {
     ${tw`font-mono font-bold`}
   }
@@ -226,8 +208,7 @@ const PageNav = styled.nav`
 `
 
 const Heros = styled.div`
-  ${tw`relative pt-0 overflow-hidden bg-indigo-900`}
-  min-height: 60vh;
+  ${tw`relative py-6 overflow-hidden bg-gray-100`}
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   body.dark & {
     ${tw`bg-indigo-900`}

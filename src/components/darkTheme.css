@@ -1,6 +1,5 @@
-body {
-  @apply transition-all duration-500;
-}
+
+
 
 body.dark {
   @apply bg-gray-800;
@@ -10,6 +9,19 @@ body.dark .headroom {
 }
 body.dark .headroom a {
   @apply text-gray-100;
+}
+
+body.dark .headroom .isologo a {
+  @apply text-yellow-500;
+}
+
+.ais-Hits-item {
+  background: #f9f9f9 !important
+
+}
+
+body.dark .ais-Hits-item {
+  background: #2d3748 !important
 }
 
 .switch {

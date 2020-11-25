@@ -11,7 +11,7 @@ import CardRecursos from "../components/CardRecursos"
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allContentfulRecursos
-  const tagHeader = `${totalCount} recursos ${
+  const tagHeader = `${totalCount} recurso${
     totalCount === 1 ? "" : "s"
   } con la etiqueta "${tag}"`
   return (

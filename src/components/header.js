@@ -9,28 +9,28 @@ import ThemeToggler from "../components/themeToggler"
 import "./header.css"
 
 const Header = ({ siteTitle }) => (
-  <Headroom disableInlineStyles>
+  <Headroom disableInlineStyles className="bg-green-500">
     <InnerWrapper>
-      <Logo>
-        <Logos className="w-10" />
-        <Link className="inline-block mt-1 ml-3" to="/">
+      <Logo className="isologo">
+        <Logos className="w-8" />
+        <Link className="inline-block ml-3 text-base " to="/">
           {siteTitle}
         </Link>
       </Logo>
       <Nav>
-        <Link activeClassName="active" to="/buscar/">
+        <Link partiallyActive={true} activeClassName="active" to="/buscar/">
           Buscador
         </Link>
-        <Link activeClassName="active" to="/recursos/">
+        <Link partiallyActive={true} activeClassName="active" to="/recursos/">
           Recursos
         </Link>
-        <Link activeClassName="active" to="/espacios/">
+        <Link partiallyActive={true} activeClassName="active" to="/espacios/">
           Espacios
         </Link>
-        <Link activeClassName="active" to="/etiquetas/">
+        <Link partiallyActive={true} activeClassName="active" to="/etiquetas/">
           Etiquetas
         </Link>
-        <Link activeClassName="active" to="/licencia/">
+        <Link partiallyActive={true} activeClassName="active " className="license" to="/licencia/">
           Licencia
         </Link>
       </Nav>
@@ -48,27 +48,20 @@ Header.defaultProps = {
 }
 
 const InnerWrapper = styled.div`
-  ${tw`flex items-center justify-between w-full px-3 py-5 m-auto `}
+  ${tw`flex items-center justify-between w-full px-3 py-2 m-auto `}
 
-  body.resources-tables & {
-    ${tw`py-1`}
-  }
+
 `
 
-const Logo = styled.div`
-  ${tw`absolute flex items-center font-sans text-xl font-bold `}
-`
 
 const Nav = styled.nav`
-  ${tw`flex justify-end pr-6 mx-3 `}
+  ${tw`flex justify-start pl-6 mx-3 border-l border-gray-500 md:ml-40 `}
   flex: 1;
 
-  body.resources-tables & {
-    ${tw`ml-4`}
-  }
+
 
   a {
-    ${tw`hidden mx-2 font-mono text-base font-bold lg:mx-4 lg:text-lg md:inline-block`}
+    ${tw`hidden mx-2 font-mono text-base font-bold lg:mx-2 lg:text-base md:inline-block`}
     &:hover {
       ${tw`text-gray-500`}
     }
@@ -83,6 +76,17 @@ const Nav = styled.nav`
       ${tw`ml-3 text-base`}
     }
   }
+
+  .license {
+    ${tw`md:hidden`}
+
+  }
+`
+
+
+const Logo = styled.div`
+  ${tw`absolute flex items-center font-sans text-xl font-bold `}
+ 
 `
 
 export default Header

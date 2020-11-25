@@ -56,7 +56,7 @@ Layout.propTypes = {
 }
 
 const App = styled.div`
-  ${tw`block min-h-screen pt-16`}
+  ${tw`block min-h-screen pt-12`}
 
   body.resources-tables & {
     ${tw`pt-12`}

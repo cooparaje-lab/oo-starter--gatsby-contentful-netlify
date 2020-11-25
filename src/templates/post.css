@@ -1,9 +1,12 @@
 .article p {
   margin: 2rem 0;
+  @apply font-serif;
 }
 
 .article .post-image {
   text-align: center;
+  @apply bg-green-800;
+
 }
 .article .post-image img {
   width: 100%;

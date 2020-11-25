@@ -10,7 +10,7 @@ export default ({ card }) => (
   <CardItem>
     <Link
       to={`/recursos/${card.slug}`}
-      className="inset-0 z-0 w-full h-full bg-indigo-900 md:w-full md:h-56 sm:block sm:absolute"
+      className="absolute inset-0 z-0 block w-full h-full bg-indigo-900 md:w-full md:h-56"
     >
       <Img
         className="object-cover w-full h-full pb-0 mb-0 cardImage"
@@ -35,7 +35,7 @@ export default ({ card }) => (
         {card.espacio.map((espacio, i) => [
           <Link
             to={`/espacios/${kebabCase(espacio.slug)}/`}
-            className="flex flex-col items-center justify-center px-2 py-1 mr-1 bg-indigo-100 md:flex-row btnCategory hover:underline hover:text-indigo-500 "
+            className="flex items-center justify-center px-2 py-1 mr-1 bg-indigo-100 md:flex-row btnCategory hover:underline hover:text-indigo-500 "
             activeClassName="active"
             key={i}
           >

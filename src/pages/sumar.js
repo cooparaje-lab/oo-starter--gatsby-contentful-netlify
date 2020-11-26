@@ -22,7 +22,7 @@ const SumarPage = () => {
           <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
 
           <div className="bg-gray-900 md:py-6 md:pb-12 md:mt-2 pattern ">
-            <div className="max-w-xl mx-auto bg-gray-900">
+            <div className="max-w-xl mx-auto bg-gray-100">
               <iframe
                 class="airtable-embed airtable-dynamic-height"
                 src="https://airtable.com/embed/shr26Q67QZhbE7NCJ?backgroundColor=yellow"

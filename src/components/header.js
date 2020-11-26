@@ -18,14 +18,14 @@ const Header = ({ siteTitle }) => (
         </Link>
       </Logo>
       <Nav>
-        <Link partiallyActive={true} activeClassName="active" to="/buscar">
-          Buscador
+        <Link partiallyActive={true} activeClassName="active" to="/espacios">
+          Espacios
         </Link>
         <Link partiallyActive={true} activeClassName="active" to="/recursos">
           Recursos
         </Link>
-        <Link partiallyActive={true} activeClassName="active" to="/espacios">
-          Espacios
+        <Link partiallyActive={true} activeClassName="active" to="/buscar">
+          Buscador
         </Link>
         <Link partiallyActive={true} activeClassName="active" to="/etiquetas">
           Etiquetas

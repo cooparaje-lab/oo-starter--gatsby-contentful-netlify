@@ -36,9 +36,9 @@ const HomeComponent = () => {
                       <div className="pt-8 md:pt-12">
                         <Link
                           tw="relative z-10 px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
-                          to="/buscar/"
+                          to="/espacios/"
                         >
-                          Iniciar una búsqueda
+                          Ver los espacios
                         </Link>
                       </div>
                     </div>

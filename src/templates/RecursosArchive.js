@@ -31,8 +31,8 @@ const RecursosArchive = ({ data, pageContext, location }) => {
             </Item>
           )
         })}
-        <Pager pageContext={pageContext} />
       </BlogContainer>
+      <Pager pageContext={pageContext} />
     </Layout>
   )
 }
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
             excerpt
             childMarkdownRemark {
               timeToRead
-              excerpt(pruneLength: 60)
+              excerpt(pruneLength: 80)
             }
           }
           espacio {

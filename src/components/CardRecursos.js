@@ -10,7 +10,7 @@ export default ({ card }) => (
   <CardItem>
     <Link
       to={`/recursos/${card.slug}`}
-      className="absolute inset-0 z-0 block w-full h-full bg-indigo-900 md:w-full md:h-56"
+      className="absolute inset-0 z-0 block w-full h-full bg-indigo-900 md:relative md:w-full md:h-56"
     >
       <Img
         className="object-cover w-full h-full pb-0 mb-0 cardImage"
@@ -96,8 +96,10 @@ const CardItem = styled.div`
   }
 
   .cardImage {
-    opacity: 0.03;
     transition: all 0.2s;
+    opacity: .1;
+    ${tw` md:opacity-75`}
+
 
     body.dark & {
     }
@@ -125,7 +127,7 @@ const Content = styled.div`
 `
 
 const SeeMore = styled.div`
-  ${tw`relative right-0 flex justify-end md:absolute md:top-0 `}
+  ${tw`relative flex justify-start `}
 
   .see-more {
     ${tw`relative z-10 block w-full px-3 py-2 mt-3 font-mono text-xs font-bold text-center text-white uppercase bg-orange-500 md:text-left md:w-auto md:inline-block`}

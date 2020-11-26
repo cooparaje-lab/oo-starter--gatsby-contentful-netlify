@@ -39,14 +39,24 @@ const Header = ({ siteTitle }) => (
           Licencia
         </Link>
       </Nav>
+
       <Link
         partiallyActive={true}
         activeClassName="active "
-        className="flex items-center justify-center px-3 py-1 font-mono text-base font-bold transform bg-yellow-500 border border-transparent rounded-md shadow-sm md:translate-x-0 -translate-x-11 hover:bg-yellow-60"
         to="/sumar"
+        className="relative inline-flex transform -translate-x-12 rounded-md shadow-sm md:-translate-x-0"
       >
-        <RiSendPlaneFill className="mr-2 text-xl text-yellow-800" />
-        Sumar recurso
+        <span
+          type="button"
+          className="inline-flex items-center px-3 py-1 font-mono text-base font-bold leading-6 text-yellow-100 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300"
+        >
+          <RiSendPlaneFill className="mr-2 text-xl text-yellow-800" />
+          Sumar recurso
+        </span>
+        <span className="absolute top-0 right-0 flex w-3 h-3 -mt-1 -mr-1">
+          <span className="absolute inline-flex w-full h-full bg-green-300 rounded-full opacity-75 animate-ping"></span>
+          <span className="relative inline-flex w-3 h-3 bg-green-500 rounded-full"></span>
+        </span>
       </Link>
     </InnerWrapper>
   </Headroom>

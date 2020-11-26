@@ -64,7 +64,7 @@ const SearchContainer = styled.div`
 `
 
 const EspaciosContainer = styled.div`
-  ${tw`w-full mt-3 bg-gray-100`}
+  ${tw`w-full mt-0 bg-gray-100`}
   body.dark & {
     ${tw`bg-indigo-900 `}
 

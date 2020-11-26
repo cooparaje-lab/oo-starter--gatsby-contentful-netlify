@@ -51,29 +51,29 @@ const EspaciosIndexPage = ({ data }) => {
 }
 
 const Container = styled.div`
-  ${tw`w-full min-h-screen m-auto bg-gray-100`}
+  ${tw`w-full min-h-screen m-auto`}
+  ${tw`bg-gray-900 `}
   h1 {
     ${tw`mb-6 font-mono text-2xl text-center`}
+    ${tw`text-indigo-200 `}
 
     body.dark & {
-      ${tw`text-indigo-200 `}
     }
   }
   body.dark & {
-    ${tw`bg-gray-900 `}
   }
 `
 
 const Categories = styled.div`
   ${tw`grid max-w-6xl grid-cols-2 gap-3 py-12 m-auto md:grid-cols-4`}
+  ${tw`text-indigo-200`}
   body.dark & {
-    ${tw`text-indigo-200`}
   }
 `
 
 const Item = styled.div`
   ${tw`w-full font-mono text-lg font-thin leading-snug text-center`}
-  ${tw`bg-white border border-gray-100 shadow-md `}
+  ${tw`border border-gray-100 shadow-md `}
   ${tw`flex items-center justify-center cursor-pointer`}
   
 
@@ -81,8 +81,8 @@ const Item = styled.div`
   transform: translateY(0);
   transform: scale(1);
 
+  ${tw`bg-gray-800 border-gray-900`}
   body.dark & {
-    ${tw`bg-gray-800 border-gray-900`}
   }
 
   &:hover {

@@ -82,9 +82,9 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
 }
 
 const TextContainer = styled.header`
-  ${tw`relative w-full px-1 pt-24 pb-40 m-auto mb-2 text-center bg-indigo-100`}
+  ${tw`relative w-full px-1 pt-24 pb-40 m-auto mb-2 text-center `}
+  ${tw`bg-indigo-900`}
   body.dark & {
-    ${tw`bg-indigo-900`}
   }
   span {
     ${tw`text-5xl`}
@@ -93,24 +93,24 @@ const TextContainer = styled.header`
   h1 {
     ${tw`m-0 mt-2 font-mono text-3xl font-bold text-center`}
 
+    ${tw`text-gray-100`}
     body.dark & {
-      ${tw`text-gray-100`}
     }
   }
 
   p {
     ${tw`m-0 mt-2 font-serif text-base italic text-center opacity-75`}
 
+    ${tw`text-gray-100`}
     body.dark & {
-      ${tw`text-gray-100`}
     }
   }
 `
 
 const RecursosList = styled.div`
-  ${tw`flex flex-col justify-center max-w-3xl pt-12 m-auto`}
+  ${tw`flex flex-col justify-center max-w-xl pt-12 m-auto`}
+  ${tw`text-indigo-200`}
   body.dark & {
-    ${tw`text-indigo-200`}
   }
 `
 

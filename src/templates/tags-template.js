@@ -42,7 +42,7 @@ const TagsContainer = styled.div`
   ${tw`max-w-2xl pt-12 m-auto`}
 
   h1 {
-    ${tw`mb-12 font-mono text-xl text-center`}
+    ${tw`mb-12 font-mono text-xl text-center text-indigo-200`}
 
     body.dark & {
       ${tw`text-indigo-200`}

@@ -87,62 +87,54 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 
       <Article>
         <Heros>
-          <div className="flex flex-col max-w-2xl px-0 mx-auto">
-
-          
           <TextContainer>
-            
-              <h1>{post.title}</h1>
-              <a
-                className="inline-block px-3 py-2 pb-4 mt-3 font-mono text-base font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="text-white">Visitar website</span>
-                <GoLinkExternal className="inline-block ml-2 text-white" />
-              </a>
+            <h1>{post.title}</h1>
+            <a
+              className="inline-block px-3 py-2 pb-4 mt-3 font-mono text-base font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-white">Visitar website</span>
+              <GoLinkExternal className="inline-block ml-2 text-white" />
+            </a>
             <div className="mt-4">
               {post.espacio ? (
-                  <div className="flex justify-start text-lg text-left">
-                    
-                    {post.espacio.map((item, i) => (
-                      <Link
-                        to={`/espacios/${kebabCase(item.slug)}/`}
-                        className="flex items-center px-4 py-1 my-2 mr-2 bg-indigo-100 hover:underline"
-                        key={i}
-                      >
-                        <span className="mr-1 text-xl">{item.icono}</span>
-                        <b className="font-mono text-sm text-indigo-800 ">
-                          {item.title}
-                        </b>
-                      </Link>
-                    ))}
-                  </div>
+                <div className="flex justify-center text-lg text-left">
+                  {post.espacio.map((item, i) => (
+                    <Link
+                      to={`/espacios/${kebabCase(item.slug)}/`}
+                      className="flex items-center px-4 py-1 my-2 mr-2 bg-indigo-100 hover:underline"
+                      key={i}
+                    >
+                      <span className="mr-1 text-xl">{item.icono}</span>
+                      <b className="font-mono text-sm text-indigo-800 ">
+                        {item.title}
+                      </b>
+                    </Link>
+                  ))}
+                </div>
               ) : (
                 <div className="hidden"></div>
               )}
             </div>
           </TextContainer>
-          
-          </div>
+          <ImgContainer>
+            <Img
+              title={post.title}
+              alt={post.title}
+              className="w-full"
+              fluid={post.featuredImg.fluid}
+            />
+          </ImgContainer>
         </Heros>
-       
+
         <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
-        <ImgContainer>
-          <Img
-            title={post.title}
-            alt={post.title}
-            className="w-full"
-            fluid={post.featuredImg.fluid}
-          />
-        </ImgContainer>
           {documentToReactComponents(
             post.childContentfulRecursosArticleRichTextNode.json,
             options
           )}
         </div>
-       
 
         <PageNav>
           <div>
@@ -161,23 +153,22 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             )}
           </div>
         </PageNav>
-        
       </Article>
     </Layout>
   )
 }
 
 const TextContainer = styled.header`
-  ${tw`relative flex flex-col items-start justify-start w-full px-0 pl-5 m-auto text-left`}
+  ${tw`relative z-20 flex flex-col items-center justify-center w-full max-w-xl px-0 pl-5 m-auto text-left`}
   h1 {
-    ${tw`pt-0 m-0 mt-2 font-mono text-4xl font-bold text-left text-gray-800`}
+    ${tw`pt-0 m-0 mt-2 font-mono text-4xl font-bold text-left text-gray-100`}
 
     body.dark & {
       ${tw`text-gray-100`}
     }
   }
   h2 {
-    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-left`}
+    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-left text-gray-100`}
 
     body.dark & {
       ${tw`text-gray-100`}
@@ -185,10 +176,12 @@ const TextContainer = styled.header`
   }
 `
 const ImgContainer = styled.div`
-  ${tw`w-full max-w-3xl m-auto mt-4 mb-12 text-left`}
+  ${tw`absolute top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left`}
+
 
   img {
     ${tw`mb-0`}
+    opacity: 0.2 !important;
   }
   body.dark & {
     img {
@@ -200,7 +193,7 @@ const ImgContainer = styled.div`
 const PageNav = styled.nav`
   ${tw`flex justify-between max-w-2xl p-6 py-12 m-auto`}
   a {
-    ${tw`font-mono font-bold`}
+    ${tw`font-mono font-bold text-indigo-300`}
   }
   body.dark & a {
     ${tw`text-indigo-300`}
@@ -208,7 +201,8 @@ const PageNav = styled.nav`
 `
 
 const Heros = styled.div`
-  ${tw`relative py-6 overflow-hidden bg-gray-100`}
+  ${tw`relative flex items-center justify-center py-6 overflow-hidden bg-gray-900`}
+  min-height: 40vh;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   body.dark & {
     ${tw`bg-indigo-900`}
@@ -244,7 +238,7 @@ export const pageQuery = graphql`
         file {
           url
         }
-        fluid(maxWidth: 1200) {
+        fluid(maxWidth: 2000) {
           # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
           ...GatsbyContentfulFluid_withWebp_noBase64
         }

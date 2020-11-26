@@ -38,7 +38,7 @@ const TagsPage = ({ data }) => {
 const Container = styled.div`
   ${tw`max-w-6xl min-h-screen pt-12 m-auto`}
   h1 {
-    ${tw`mb-6 font-mono text-6xl`}
+    ${tw`mb-6 font-mono text-6xl text-indigo-200`}
 
     body.dark & {
       ${tw`text-indigo-200`}

@@ -48,14 +48,14 @@ const CardItem = styled.div`
 `
 
 const Content = styled.div`
-  ${tw`px-8 py-4 bg-gray-100`}
+  ${tw`px-8 py-4 bg-gray-900`}
 
   body.dark & {
     ${tw`bg-gray-900`}
   }
 
   .title {
-    ${tw`font-mono text-indigo-800`}
+    ${tw`font-mono text-indigo-500`}
     body.dark & {
       ${tw`text-indigo-500`}
     }
@@ -66,7 +66,7 @@ const Description = styled.p`
   ${tw`hidden pb-3 text-base text-center text-gray-700`}
 
   body.dark & {
-    ${tw`text-indigo-200`}
+    ${tw`text-indigo-700`}
   }
 `
 
@@ -74,7 +74,7 @@ const Tags = styled.div`
   ${tw`flex flex-wrap hidden px-0 py-4`}
 
   a {
-    ${tw`inline-block px-3 py-1 mt-2 mr-2 text-xs font-semibold text-gray-700 bg-gray-200 rounded-full`}
+    ${tw`inline-block px-3 py-1 mt-2 mr-2 text-xs font-semibold text-gray-100 bg-gray-100 rounded-full`}
 
     body.dark & {
       ${tw`text-gray-100 bg-indigo-900 `}

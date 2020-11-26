@@ -58,9 +58,6 @@ Layout.propTypes = {
 const App = styled.div`
   ${tw`block min-h-screen pt-12`}
 
-  body.resources-tables & {
-    ${tw`pt-12`}
-  }
 `
 
 const Main = styled.main`
@@ -73,14 +70,13 @@ const Main = styled.main`
 
 const Footer = styled.footer`
   ${tw`py-6 font-mono text-center`}
-  body.dark & {
-    ${tw`text-indigo-100`}
-  }
+  ${tw`text-indigo-100`}
+  
 
   .megamineria {
-    ${tw`block mt-3 opacity-75`}
+    ${tw`block mt-3`}
+    ${tw`opacity-100 `}
     body.dark & {
-      ${tw`opacity-100 `}
     }
   }
 `

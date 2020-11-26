@@ -2,27 +2,27 @@ import tw from "twin.macro"
 import styled from "@emotion/styled"
 
 export const Article = styled.article`
-  ${tw`max-w-full m-auto bg-white shadow-lg `}
+  ${tw`max-w-full m-auto shadow-lg `}
 
+  ${tw`bg-gray-900 `}
   body.dark & {
-    ${tw`bg-gray-900 `}
   }
 
   .article {
     ${tw`px-6`}
+    ${tw`text-gray-100 `}
 
     body.dark & {
-      ${tw`text-gray-100 `}
     }
   }
 `
 
 export const Title = styled.h3`
-  ${tw`text-4xl hover:text-indigo-400`}
+  ${tw`text-4xl hover:text-indigo-100`}
   transition: all .5s;
+  ${tw`text-indigo-100`}
 
   body.dark & {
-    ${tw`text-indigo-100`}
   }
 `
 

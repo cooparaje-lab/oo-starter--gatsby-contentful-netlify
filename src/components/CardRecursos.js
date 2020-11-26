@@ -86,7 +86,7 @@ const Tags = styled.div`
 `
 
 const CardItem = styled.div`
-  ${tw`relative flex flex-col w-full h-auto mb-2 overflow-hidden bg-white rounded shadow-lg md:flex-row`}
+  ${tw`relative flex flex-col w-full h-auto mb-2 overflow-hidden bg-gray-900 rounded shadow-lg md:flex-row`}
   transition: all .2s;
   transform: translateY(0);
   transform: scale(1);

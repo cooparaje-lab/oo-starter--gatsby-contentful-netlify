@@ -34,7 +34,6 @@ const Header = ({ siteTitle }) => (
           Licencia
         </Link>
       </Nav>
-      <ThemeToggler />
     </InnerWrapper>
   </Headroom>
 )
@@ -85,7 +84,7 @@ const Nav = styled.nav`
 
 
 const Logo = styled.div`
-  ${tw`absolute flex items-center font-sans text-xl font-bold `}
+  ${tw`flex items-center font-sans text-xl font-bold md:absolute `}
  
 `
 

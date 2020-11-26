@@ -1,17 +1,17 @@
 
 
 
-body.dark {
+body {
   @apply bg-gray-800;
 }
-body.dark .headroom {
+body .headroom {
   @apply bg-gray-800;
 }
-body.dark .headroom a {
+body .headroom a {
   @apply text-gray-100;
 }
 
-body.dark .headroom .isologo a {
+body .headroom .isologo a {
   @apply text-yellow-500;
 }
 

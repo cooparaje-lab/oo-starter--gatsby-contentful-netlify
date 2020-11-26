@@ -34,7 +34,7 @@ footer {
 }
 
 .custom-shape-divider-bottom .shape-fill {
-  @apply text-white fill-current;
+  @apply text-gray-800 fill-current;
 }
 
 .custom-shape-divider-bottom-1594014676 {
@@ -67,10 +67,7 @@ footer {
   height: 134px;
 }
 
-.custom-shape-divider-bottom-1594014676 .shape-fill {
-  @apply text-white fill-current;
-}
 
-.dark .custom-shape-divider-bottom-1594014676 .shape-fill {
+.custom-shape-divider-bottom-1594014676 .shape-fill {
   @apply text-gray-900 fill-current;
 }

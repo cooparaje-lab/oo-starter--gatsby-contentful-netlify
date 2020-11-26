@@ -17,31 +17,22 @@ const SumarPage = () => {
   return (
     <>
       <Layout>
-        <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js" />
         <SEO title="Sumar" />
         <Container>
-          <form
-            className="relative z-50 w-full max-w-md p-6 mx-auto my-12 "
-            name="sumar"
-            method="POST" data-netlify="true"
-          >
-            <p>
-              <label className="flex flex-col justify-start text-left">
-                <span className="mb-2 font-mono text-3xl font-bold text-white ">Compartir link</span>{" "}
-                <input className="p-3 border-gray-800" type="url" name="url" />
-              </label>
-            </p>
-            <p>
-              <button
-                className="flex items-center justify-center w-full px-4 py-2 text-base font-bold text-yellow-900 bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-yello-60"
-                type="submit"
-              >
-                Enviar
-              </button>
-            </p>
-          </form>
-          <div className="absolute top-0 left-0 right-0 z-0 h-screen bg-react-logo">
-            <div id="react-logo" className="w-full h-full opacity-40" />
+          <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
+
+          <div className="py-6 pb-12 mt-2 bg-gray-900 pattern ">
+            <div className="max-w-xl mx-auto bg-gray-900">
+              <iframe
+                class="airtable-embed airtable-dynamic-height"
+                src="https://airtable.com/embed/shr26Q67QZhbE7NCJ?backgroundColor=yellow"
+                title="Sumar recurso"
+                frameborder="0"
+                onmousewheel=""
+                width="100%"
+                height="724"
+              ></iframe>
+            </div>
           </div>
         </Container>
       </Layout>
@@ -80,13 +71,9 @@ const Container = styled.div`
     opacity: 0;
   }
 
-  form {
-    input {
-      ${tw`bg-gray-100`}
-    }
-    p {
-      ${tw`my-3`}
-    }
+
+  .pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   }
 `
 

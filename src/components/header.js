@@ -34,7 +34,7 @@ const Header = ({ siteTitle }) => (
           Licencia
         </Link>
       </Nav>
-      <Link partiallyActive={true} activeClassName="active " className="items-center justify-center hidden px-3 py-1 text-base font-bold transform bg-yellow-500 border border-transparent rounded-md shadow-sm md:translate-x-0 -translate-x-11 hover:bg-yellow-60" to="/sumar">
+      <Link partiallyActive={true} activeClassName="active " className="flex items-center justify-center px-3 py-1 text-base font-bold transform bg-yellow-500 border border-transparent rounded-md shadow-sm md:translate-x-0 -translate-x-11 hover:bg-yellow-60" to="/sumar">
       <RiSendPlaneFill className="mr-2 text-xl text-yellow-800"/>
           Sumar recurso
         </Link>

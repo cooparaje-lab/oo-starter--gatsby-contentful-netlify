@@ -5,35 +5,39 @@ import React from "react"
 import Headroom from "react-headroom"
 import tw from "twin.macro"
 import Logos from "../assets/logo-coparaje.svg"
-import ThemeToggler from "../components/themeToggler"
+//import ThemeToggler from "../components/themeToggler"
 import "./header.css"
-
+import { RiSendPlaneFill } from "react-icons/ri";
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles className="bg-green-500">
     <InnerWrapper>
-      <Logo className="isologo">
-        <Logos className="w-8" />
+      <Logo className="isologo ">
+        <Logos className="w-8 duration-700 " />
         <Link className="inline-block ml-3 text-base " to="/">
           {siteTitle}
         </Link>
       </Logo>
       <Nav>
-        <Link partiallyActive={true} activeClassName="active" to="/buscar/">
+        <Link partiallyActive={true} activeClassName="active" to="/buscar">
           Buscador
         </Link>
-        <Link partiallyActive={true} activeClassName="active" to="/recursos/">
+        <Link partiallyActive={true} activeClassName="active" to="/recursos">
           Recursos
         </Link>
-        <Link partiallyActive={true} activeClassName="active" to="/espacios/">
+        <Link partiallyActive={true} activeClassName="active" to="/espacios">
           Espacios
         </Link>
-        <Link partiallyActive={true} activeClassName="active" to="/etiquetas/">
+        <Link partiallyActive={true} activeClassName="active" to="/etiquetas">
           Etiquetas
         </Link>
-        <Link partiallyActive={true} activeClassName="active " className="license" to="/licencia/">
+        <Link partiallyActive={true} activeClassName="active " className="license" to="/licencia">
           Licencia
         </Link>
       </Nav>
+      <Link partiallyActive={true} activeClassName="active " className="flex items-center justify-center px-3 py-1 text-base font-bold transform bg-yellow-500 border border-transparent rounded-md shadow-sm md:translate-x-0 -translate-x-11 hover:bg-yellow-60" to="/sumar">
+      <RiSendPlaneFill className="mr-2 text-xl text-yellow-800"/>
+          Sumar recurso
+        </Link>
     </InnerWrapper>
   </Headroom>
 )

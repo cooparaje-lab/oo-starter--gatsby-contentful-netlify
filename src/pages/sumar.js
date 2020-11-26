@@ -21,7 +21,7 @@ const SumarPage = () => {
         <Container>
           <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
 
-          <div className="py-6 pb-12 mt-2 bg-gray-900 pattern ">
+          <div className="bg-gray-900 md:py-6 md:pb-12 md:mt-2 pattern ">
             <div className="max-w-xl mx-auto bg-gray-900">
               <iframe
                 class="airtable-embed airtable-dynamic-height"

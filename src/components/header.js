@@ -7,7 +7,7 @@ import tw from "twin.macro"
 import Logos from "../assets/logo-coparaje.svg"
 //import ThemeToggler from "../components/themeToggler"
 import "./header.css"
-import { RiSendPlaneFill } from "react-icons/ri";
+import { RiSendPlaneFill } from "react-icons/ri"
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles className="bg-green-500">
     <InnerWrapper>
@@ -30,14 +30,24 @@ const Header = ({ siteTitle }) => (
         <Link partiallyActive={true} activeClassName="active" to="/etiquetas">
           Etiquetas
         </Link>
-        <Link partiallyActive={true} activeClassName="active " className="license" to="/licencia">
+        <Link
+          partiallyActive={true}
+          activeClassName="active "
+          className="license"
+          to="/licencia"
+        >
           Licencia
         </Link>
       </Nav>
-      <Link partiallyActive={true} activeClassName="active " className="flex items-center justify-center px-3 py-1 text-base font-bold transform bg-yellow-500 border border-transparent rounded-md shadow-sm md:translate-x-0 -translate-x-11 hover:bg-yellow-60" to="/sumar">
-      <RiSendPlaneFill className="mr-2 text-xl text-yellow-800"/>
-          Sumar recurso
-        </Link>
+      <Link
+        partiallyActive={true}
+        activeClassName="active "
+        className="flex items-center justify-center px-3 py-1 font-mono text-base font-bold transform bg-yellow-500 border border-transparent rounded-md shadow-sm md:translate-x-0 -translate-x-11 hover:bg-yellow-60"
+        to="/sumar"
+      >
+        <RiSendPlaneFill className="mr-2 text-xl text-yellow-800" />
+        Sumar recurso
+      </Link>
     </InnerWrapper>
   </Headroom>
 )
@@ -52,16 +62,11 @@ Header.defaultProps = {
 
 const InnerWrapper = styled.div`
   ${tw`flex items-center justify-between w-full px-3 py-2 m-auto `}
-
-
 `
-
 
 const Nav = styled.nav`
   ${tw`flex justify-start pl-6 mx-3 border-l border-gray-500 md:ml-40 `}
   flex: 1;
-
-
 
   a {
     ${tw`hidden mx-2 font-mono text-base font-bold lg:mx-2 lg:text-base md:inline-block`}
@@ -82,14 +87,11 @@ const Nav = styled.nav`
 
   .license {
     ${tw`md:hidden`}
-
   }
 `
 
-
 const Logo = styled.div`
   ${tw`flex items-center font-sans text-xl font-bold md:absolute `}
- 
 `
 
 export default Header

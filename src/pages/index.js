@@ -35,7 +35,7 @@ const HomeComponent = () => {
 
                       <div className="pt-8 md:pt-12">
                         <Link
-                          tw="relative z-10 px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
+                          tw="relative z-10 text-xl px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500 hover:bg-indigo-500 transition-all duration-200 hover:text-indigo-900 rounded-md transform"
                           to="/espacios/"
                         >
                           Ver los espacios

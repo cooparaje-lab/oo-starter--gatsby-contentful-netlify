@@ -22,8 +22,8 @@ const SumarPage = () => {
         <Container>
           <form
             className="relative z-50 w-full max-w-md p-6 mx-auto my-12 "
-            name="contact"
-            netlify
+            name="sumar"
+            method="POST" data-netlify="true"
           >
             <p>
               <label className="flex flex-col justify-start text-left">

@@ -36,7 +36,7 @@ const PostPreview = ({ hit }) => {
 export default PostPreview
 
 const SearchItem = styled.div`
-  ${tw`flex bg-gray-100`}
+  ${tw`flex text-indigo-100 bg-gray-800`}
 
 
 
@@ -56,8 +56,8 @@ const SearchItem = styled.div`
 const Image = styled.div`
   ${tw`w-32 `}
 
+  ${tw`opacity-75`}
   body.dark & {
-    ${tw`opacity-75`}
   }
 `
 

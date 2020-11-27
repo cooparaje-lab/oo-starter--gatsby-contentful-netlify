@@ -46,10 +46,7 @@ const Header = ({ siteTitle }) => (
         to="/sumar"
         className="relative inline-flex transform -translate-x-12 rounded-md shadow-sm md:-translate-x-0"
       >
-        <span
-          type="button"
-          className="inline-flex items-center px-3 py-1 font-mono text-base font-bold leading-6 text-yellow-100 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300"
-        >
+        <span className="inline-flex items-center px-3 py-1 font-mono text-base font-bold leading-6 text-yellow-100 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
           <RiSendPlaneFill className="mr-2 text-xl text-yellow-800" />
           Sumar recurso
         </span>

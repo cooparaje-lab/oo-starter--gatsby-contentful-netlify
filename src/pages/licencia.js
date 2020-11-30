@@ -84,51 +84,67 @@ const LicenciaComponent = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Adaptación de la licencia de css-tricks.com
+              inspirado de la licencia de css-tricks.com
             </a>
             <p>
-              Podría decir que no me importa lo que podrías llegar a hacer con
-              lo que sea que aquí encuentres. Pero la verdad es que si me
-              importa.
+              Podría decir que no me importa con{" "}
+              <i>lo que podrías llegar a hacer con lo que sea</i> que aquí
+              encuentres. <b>Podría decir que no</b> aunque la verdad sea que me
+              importa y muchisimo.
+            </p>
+            <ul>
+              <li>
+                {" "}
+                <p>
+                  Ojalá que lo uses (sin créditos) en tu sitio comercial y te
+                  vuelvas rico.
+                </p>
+              </li>
+              <li>
+                {" "}
+                <p>
+                  Ojalá que lo uses en el trabajo para impresionar a tu jefe y
+                  obtengas un gran y jugozo aumento.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Ojalá que te ayude a crear algo importante para vos y que eso
+                  que manifiestes impresione a alguien que te parezca genial. Te
+                  cases y tengas bebés super inteligentes, bonitos y tranquilos.
+                </p>
+              </li>
+              <li>
+                {" "}
+                <p>
+                  Ojalá que algo de esto pueda inspirarte y que te sirva en una
+                  publicación o algo que quieras escribir, y que eso que
+                  publiques sea mucho más popular y asombroso que esta web.
+                </p>
+              </li>
+            </ul>
+
+            <p>
+              <cite className="block mt-12 font-mono text-2xl bont-bold">
+                La clave es compartir
+              </cite>
+            </p>
+
+            <p>
+              Quisiera que internet crezca y mejore. Y durante el curso de los
+              últimos años, lo comunitario ha sido cercado, y todo, desde la
+              agricultura hasta el agua fue privatizándose sin pensar en el
+              verdadero costo de los recursos que no pueden ser renovados.
             </p>
             <p>
-              Ojalá que puedas usarlo (sin dar créditos) en un sitio comercial y
-              te vuelvas rico. Ojalá que lo uses en el trabajo para impresionar
-              a tu jefe y obtengas un gran aumento.
+              Vivimos en una constelación de sistemas complejos. Y es imposible
+              para cualquier persona, organización o país entender en
+              aislamiento este complejo sistema.
             </p>
             <p>
-              Ojalá que te ayude a crear algo importante para vos y que eso que
-              manifiestes impresione a alguien que te parezca genial. Te cases y
-              tengas bebés super inteligentes, bonitos y tranquilos.
-            </p>
-            <p>
-              Ojalá que algo de esto pueda inspirarte y que te sirva en una
-              publicación o algo que quieras escribir, y que eso que publiques
-              sea mucho más popular y asombroso que este.
-            </p>
-            <p>
-              <cite>la clave es compartir</cite>
-            </p>
-            <p>
-              Si elejis copiarte algo de manera exacta y por esas casualidades
-              queres sacar provecho como que si fuera creación tuya. Ahí ya
-              puede resultar un poco extraño.
-            </p>
-            <p>
-              No tengo intenciones de enojarme por eso, solo creo que eres mejor
-              que eso y quisiera verte haciéndolo mejor. No estaré
-              persiguientode, prefiero jugar a atrapar la pelota con un perro.
-            </p>
-            <p>
-              La única vez que me enojaría seria si te esfuerzas por hacerme
-              daño. Y probablemente no me enfade, solo sentiría tristeza (o en
-              un mal día me provocaria sarcasmo, mis disculpas adelantadas por
-              eso).
-            </p>
-            <p>
-              Quisiera que internet crezca y mejore. Y ser todo un{" "}
-              <i>"don juanes de la protección"</i> no nos ha llevado para nada
-              por ese camino.
+              Ser{" "}  
+               <i>"protectores de lo privado"</i> no nos ha llevado para
+              nada por ese camino.
             </p>
             <p>
               Entiendo que otras personas puedan sentirse diferentes acerca de
@@ -136,13 +152,13 @@ const LicenciaComponent = () => {
               código, diseño, arte, escritura, trabajo o lo que sea.
             </p>
             <p>
-              Yo me encuentro colaborando tambien en algunos proyectos de código
+              Me encuentro colaborando también en algunos proyectos de código
               cerrado.
             </p>
-            <p>
-              Este en particular no es uno de esos. ¡Asíque puedes volverte Y
-              desde ya, gracias por compartir.
-            </p>
+            <p>Este en particular no es uno de esos.</p>
+            <h4 tw="text-2xl text-center mt-12 text-white font-mono">
+              ¡Dicho eso, <br/>por favor,<br/> sentite libre,<br/>y desde ya,<br/> Muchas gracias!
+            </h4>
           </article>
         </Text>
       </Layout>
@@ -174,7 +190,7 @@ const Licencia = styled.section`
 `
 
 const Text = styled.section`
-  ${tw`font-sans text-xl `}
+  ${tw`font-sans text-lg `}
   p {
     ${tw`my-4 leading-relaxed text-gray-800`}
   }
@@ -184,6 +200,15 @@ const Text = styled.section`
 
     p {
       ${tw`my-4 leading-relaxed text-gray-300`}
+    }
+  }
+
+  ul {
+    ${tw`mb-6`}
+    
+    li {
+    ${tw`pl-6 ml-12 text-white list-disc`}
+    max-width: 27rem;
     }
   }
 `

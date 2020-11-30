@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
               activeClassName="text-white"
               className="text-green-500 megamineria hover:underline"
             >
-              La Vida vale más que la mega-minería
+              La Vida+vale+más que la mega-minería
             </b>
           </Link>
         </Footer>

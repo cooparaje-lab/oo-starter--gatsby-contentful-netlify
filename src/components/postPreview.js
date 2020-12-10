@@ -36,16 +36,16 @@ const PostPreview = ({ hit }) => {
 export default PostPreview
 
 const SearchItem = styled.div`
-  ${tw`flex text-indigo-100 bg-gray-800`}
+  ${tw`flex text-blue-100 bg-blue-800`}
 
 
 
   body.dark & {
-    ${tw`text-indigo-100 bg-gray-800`}
+    ${tw`text-blue-100 bg-blue-800`}
   }
 
   a {
-    ${tw`font-mono text-xl font-bold text-indigo-500`}
+    ${tw`font-mono text-xl font-bold text-blue-200`}
   }
 
   p {

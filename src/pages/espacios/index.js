@@ -13,7 +13,7 @@ const EspaciosIndexPage = ({ data }) => {
     <Layout>
       <SEO title="Todos los Espacios" />
       <Container>
-        <h3 className="p-3 pt-12 font-mono font-bold text-center text-gray-500 uppercase opacity-50">
+        <h3 className="p-3 pt-12 font-mono font-bold text-center text-blue-500 uppercase opacity-50">
           Última actualización <br /> {data.site.buildTime}
         </h3>
         <Categories>
@@ -22,7 +22,7 @@ const EspaciosIndexPage = ({ data }) => {
               {item.node.recursos ? (
                 <Link
                   to={`/espacios/${kebabCase(item.node.slug)}/`}
-                  tw="block pt-1 text-indigo-100 hover:text-indigo-500"
+                  tw="block pt-1 text-blue-100 hover:text-blue-500"
                 >
                   <span className="block my-2 mt-3 text-4xl">
                     {item.node.icono}
@@ -32,12 +32,12 @@ const EspaciosIndexPage = ({ data }) => {
               ) : (
                 <Link
                   to={`/espacios/${kebabCase(item.node.slug)}/`}
-                  tw="block pt-1 text-indigo-300 hover:text-indigo-500 "
+                  tw="block pt-1 text-blue-300 hover:text-blue-500 "
                 >
                   <span className="block my-2 mt-3 text-4xl opacity-25">
                     {item.node.icono}
                   </span>
-                  <b className="block py-2 mb-3 font-bold text-gray-500">
+                  <b className="block py-2 mb-3 font-bold text-blue-500">
                     {item.node.title}
                   </b>
                 </Link>
@@ -52,10 +52,10 @@ const EspaciosIndexPage = ({ data }) => {
 
 const Container = styled.div`
   ${tw`w-full min-h-screen m-auto`}
-  ${tw`bg-gray-900 `}
+  ${tw`bg-blue-900 `}
   h1 {
     ${tw`mb-6 font-mono text-2xl text-center`}
-    ${tw`text-indigo-200 `}
+    ${tw`text-blue-200 `}
 
     body.dark & {
     }
@@ -66,7 +66,7 @@ const Container = styled.div`
 
 const Categories = styled.div`
   ${tw`grid max-w-6xl grid-cols-2 gap-3 py-12 m-auto md:grid-cols-4`}
-  ${tw`text-indigo-200`}
+  ${tw`text-blue-200`}
   body.dark & {
   }
 `
@@ -81,7 +81,7 @@ const Item = styled.div`
   transform: translateY(0);
   transform: scale(1);
 
-  ${tw`bg-gray-800 border-gray-900`}
+  ${tw`bg-blue-800 border-gray-900`}
   body.dark & {
   }
 

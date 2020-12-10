@@ -20,7 +20,7 @@ export default ({ card }) => (
       >
         {card.title}
       </Link>
-      <small className="block font-mono font-bold my-2 text-sm text-gray-600 opacity-75">
+      <small className="block font-mono font-bold my-2 text-sm text-blue-600 opacity-75">
         Publicado el {card.createdAt}
       </small>
       <Description>{card.excerpt.excerpt}</Description>
@@ -48,25 +48,25 @@ const CardItem = styled.div`
 `
 
 const Content = styled.div`
-  ${tw`px-8 py-4 bg-gray-900`}
+  ${tw`px-8 py-4 bg-blue-900`}
 
   body.dark & {
-    ${tw`bg-gray-900`}
+    ${tw`bg-blue-900`}
   }
 
   .title {
-    ${tw`font-mono text-indigo-500`}
+    ${tw`font-mono text-blue-500`}
     body.dark & {
-      ${tw`text-indigo-500`}
+      ${tw`text-blue-500`}
     }
   }
 `
 
 const Description = styled.p`
-  ${tw`hidden pb-3 text-base text-center text-gray-700`}
+  ${tw`hidden pb-3 text-base text-center text-blue-700`}
 
   body.dark & {
-    ${tw`text-indigo-700`}
+    ${tw`text-blue-700`}
   }
 `
 
@@ -74,10 +74,10 @@ const Tags = styled.div`
   ${tw`flex flex-wrap hidden px-0 py-4`}
 
   a {
-    ${tw`inline-block px-3 py-1 mt-2 mr-2 text-xs font-semibold text-gray-100 bg-gray-100 rounded-full`}
+    ${tw`inline-block px-3 py-1 mt-2 mr-2 text-xs font-semibold text-blue-100 bg-blue-100 rounded-full`}
 
     body.dark & {
-      ${tw`text-gray-100 bg-indigo-900 `}
+      ${tw`text-blue-100 bg-blue-900 `}
     }
   }
 `

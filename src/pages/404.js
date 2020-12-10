@@ -35,9 +35,9 @@ const NotFoundPage = () => {
 }
 
 const Container = styled.div`
-  ${tw`flex flex-col flex-wrap justify-center w-full  pt-12 m-auto text-center bg-gray-100`}
+  ${tw`flex flex-col flex-wrap justify-center w-full  pt-12 m-auto text-center bg-blue-100`}
   body.dark & {
-    ${tw`text-white bg-gray-900`}
+    ${tw`text-white bg-blue-900`}
 
     .bg-react-logo {
       opacity: 0;

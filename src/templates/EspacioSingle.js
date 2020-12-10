@@ -54,7 +54,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
             ))}
           </RecursosList>
         ) : (
-          <div className="text-center text-gray-500 ">Proximamente</div>
+          <div className="text-center text-blue-500 ">Proximamente</div>
         )}
 
         <div className="w-full max-w-2xl m-auto article" id={espacio.slug}>
@@ -83,7 +83,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
 
 const TextContainer = styled.header`
   ${tw`relative w-full px-1 pt-24 pb-40 m-auto mb-2 text-center `}
-  ${tw`bg-indigo-900`}
+  ${tw`bg-blue-800`}
   body.dark & {
   }
   span {
@@ -93,7 +93,7 @@ const TextContainer = styled.header`
   h1 {
     ${tw`m-0 mt-2 font-mono text-3xl font-bold text-center`}
 
-    ${tw`text-gray-100`}
+    ${tw`text-blue-100`}
     body.dark & {
     }
   }
@@ -101,7 +101,7 @@ const TextContainer = styled.header`
   p {
     ${tw`m-0 mt-2 font-serif text-base italic text-center opacity-75`}
 
-    ${tw`text-gray-100`}
+    ${tw`text-blue-100`}
     body.dark & {
     }
   }
@@ -109,7 +109,7 @@ const TextContainer = styled.header`
 
 const RecursosList = styled.div`
   ${tw`flex flex-col justify-center max-w-xl pt-12 m-auto`}
-  ${tw`text-indigo-200`}
+  ${tw`text-blue-200`}
   body.dark & {
   }
 `
@@ -120,7 +120,7 @@ const PageNav = styled.nav`
     ${tw`font-mono font-bold`}
   }
   body.dark & a {
-    ${tw`text-indigo-300`}
+    ${tw`text-blue-300`}
   }
 `
 

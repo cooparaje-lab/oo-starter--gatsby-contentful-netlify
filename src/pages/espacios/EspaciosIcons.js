@@ -31,7 +31,7 @@ const EspaciosIconComponent = () => {
             to={`/espacios/${kebabCase(node.slug)}/`}
             key={node.slug}
             css={[
-              tw`flex flex-col items-center justify-center pt-1 mx-2 text-center text-indigo-100 hover:text-indigo-500`,
+              tw`flex flex-col items-center justify-center pt-1 mx-2 text-center text-blue-100 hover:text-blue-500`,
             ]}
           >
             <span css={[tw`block my-2 mt-3 text-xl`]}>{node.icono}</span>

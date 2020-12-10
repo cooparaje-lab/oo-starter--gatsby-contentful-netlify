@@ -63,14 +63,12 @@ const App = styled.div`
 const Main = styled.main`
   ${tw`px-0`}
 
-  a {
-    ${tw`pb-1 text-indigo-500`}
-  }
+
 `
 
 const Footer = styled.footer`
   ${tw`py-6 font-mono text-center`}
-  ${tw`text-indigo-100`}
+  ${tw`text-blue-100`}
   
 
   .megamineria {

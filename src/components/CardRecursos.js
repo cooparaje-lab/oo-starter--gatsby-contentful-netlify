@@ -10,7 +10,7 @@ export default ({ card }) => (
   <CardItem>
     <Link
       to={`/recursos/${card.slug}`}
-      className="absolute inset-0 z-0 block w-full h-full bg-indigo-900 md:relative md:w-full md:h-56"
+      className="absolute inset-0 z-0 block w-full h-full bg-blue-900 md:relative md:w-full md:h-56"
     >
       <Img
         className="object-cover w-full h-full pb-0 mb-0 cardImage"
@@ -35,12 +35,12 @@ export default ({ card }) => (
         {card.espacio.map((espacio, i) => [
           <Link
             to={`/espacios/${kebabCase(espacio.slug)}/`}
-            className="flex items-center justify-center px-2 py-1 mr-1 bg-indigo-100 md:flex-row btnCategory hover:underline hover:text-indigo-500 "
+            className="flex items-center justify-center px-2 py-1 mr-1 bg-blue-100 md:flex-row btnCategory hover:underline hover:text-blue-500 "
             activeClassName="active"
             key={i}
           >
             <span className="mr-2 text-xs ">{espacio.icono}</span>
-            <span className="font-mono text-sm font-bold hover:text-indigo-500">
+            <span className="font-mono text-sm font-bold hover:text-blue-500">
               {espacio.title}
             </span>
           </Link>,
@@ -86,13 +86,13 @@ const Tags = styled.div`
 `
 
 const CardItem = styled.div`
-  ${tw`relative flex flex-col w-full h-auto mb-2 overflow-hidden bg-gray-900 rounded shadow-lg md:flex-row`}
+  ${tw`relative flex flex-col w-full h-auto mb-2 overflow-hidden bg-blue-900 rounded shadow-lg md:flex-row`}
   transition: all .2s;
   transform: translateY(0);
   transform: scale(1);
 
   body.dark & {
-    ${tw`bg-gray-900`}
+    ${tw`bg-blue-900`}
   }
 
   .cardImage {
@@ -119,9 +119,9 @@ const Content = styled.div`
   ${tw`flex flex-col justify-start w-full px-6 py-2 pb-6`}
 
   .title {
-    ${tw`text-indigo-800`}
+    ${tw`text-blue-800`}
     body.dark & {
-      ${tw`text-indigo-500`}
+      ${tw`text-blue-500`}
     }
   }
 `
@@ -134,22 +134,22 @@ const SeeMore = styled.div`
   }
 
   body.dark & {
-    ${tw`text-indigo-500`}
+    ${tw`text-blue-500`}
   }
 `
 
 const Description = styled.p`
-  ${tw`font-sans text-sm text-left text-gray-100`}
+  ${tw`font-sans text-sm text-left text-blue-100`}
 
   body.dark & {
-    ${tw`text-indigo-200`}
+    ${tw`text-blue-200`}
   }
 
   small {
-    ${tw`mt-2 font-bold text-gray-900 opacity-75 `}
+    ${tw`mt-2 font-bold text-blue-900 opacity-75 `}
 
     body.dark & {
-      ${tw`text-gray-100`}
+      ${tw`text-blue-100`}
     }
   }
 `
@@ -158,11 +158,11 @@ const Top = styled.div`
   ${tw`flex items-baseline justify-between w-full mt-2 mb-1`}
 
   a {
-    ${tw`text-gray-100`}
+    ${tw`text-blue-100`}
   }
 
   body.dark & {
-    ${tw`text-indigo-200`}
+    ${tw`text-blue-200`}
 
     a {
       ${tw`text-white`}
@@ -175,22 +175,22 @@ const Actions = styled.div`
   ${tw`hidden`}
 
   body.dark & {
-    ${tw`text-indigo-200`}
+    ${tw`text-blue-200`}
   }
 
   b {
-    ${tw`text-indigo-500 opacity-75`}
+    ${tw`text-blue-500 opacity-75`}
 
     body.dark & {
-      ${tw`text-indigo-500`}
+      ${tw`text-blue-500`}
     }
   }
 
   .btnCategory {
-    ${tw`inline-block px-4 py-1 my-2 mr-2 text-indigo-900 bg-indigo-300 rounded-full `}
+    ${tw`inline-block px-4 py-1 my-2 mr-2 text-blue-900 bg-blue-300 rounded-full `}
 
     body.dark & {
-      ${tw`text-indigo-300 bg-indigo-900`}
+      ${tw`text-blue-300 bg-blue-900`}
     }
   }
 `

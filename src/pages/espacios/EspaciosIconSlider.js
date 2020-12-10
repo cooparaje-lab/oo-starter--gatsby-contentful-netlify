@@ -128,7 +128,7 @@ const EspaciosIconSliderComponent = () => {
                 key={node.slug}
                 data-tip={node.title}
                 css={[
-                  tw`flex flex-col items-center justify-center pt-1 mx-2 text-center text-indigo-100 transition-all duration-200 transform opacity-50 hover:text-indigo-500 hover:opacity-100`,
+                  tw`flex flex-col items-center justify-center pt-1 mx-2 text-center text-blue-100 transition-all duration-200 transform opacity-50 hover:text-blue-500 hover:opacity-100`,
                 ]}
               >
                 <span css={[tw`block my-2 mt-3 text-xl`]}>{node.icono}</span>
@@ -150,25 +150,25 @@ const SliderContainer = styled.div`
   }
 
   .slick-dots {
-    ${tw`pt-1 pb-2 bg-indigo-100`}
+    ${tw`pt-1 pb-2 bg-blue-100`}
 
     li button:before {
-      ${tw`text-indigo-500 `}
+      ${tw`text-blue-500 `}
     }
 
     body.dark & {
-      ${tw`bg-indigo-800 `}
+      ${tw`bg-blue-800 `}
 
       li button:before {
-        ${tw`text-indigo-500`}
+        ${tw`text-blue-500`}
       }
     }
   }
 
   .slick-arrow {
-    ${tw`absolute bottom-0 z-50 hidden p-3 text-3xl text-indigo-500 md:block `}
+    ${tw`absolute bottom-0 z-50 hidden p-3 text-3xl text-blue-500 md:block `}
     body.dark & {
-      ${tw`text-indigo-300`}
+      ${tw`text-blue-300`}
     }
   }
   .slick-arrow-right {

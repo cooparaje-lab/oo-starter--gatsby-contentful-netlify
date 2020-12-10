@@ -38,9 +38,7 @@ const SumarPage = () => {
             </div>
           </div>
         </Container>
-        <div className="absolute top-0 left-0 right-0 z-0 h-screen bg-react-logo">
-          <div id="react-logo" className="w-full h-full" />
-        </div>
+
       </Layout>
     </>
   )
@@ -50,7 +48,7 @@ const Container = styled.div`
   ${tw`flex flex-col flex-wrap justify-center w-full pt-0 m-auto text-center `}
   min-height: 100vh;
   body.dark & {
-    ${tw`text-white bg-gray-900`}
+    ${tw`text-white bg-blue-900`}
 
     .bg-react-logo {
       opacity: 0;

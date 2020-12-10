@@ -46,7 +46,7 @@ const Header = ({ siteTitle }) => (
         to="/sumar"
         className="relative inline-flex transition-opacity duration-700 transform -translate-x-12 rounded-md shadow-sm md:-translate-x-0"
       >
-        <span className="inline-flex items-center px-3 py-1 font-mono text-base font-bold leading-6 text-yellow-100 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
+        <span className="inline-flex items-center px-3 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
           <RiSendPlaneFill className="mr-2 text-xl text-yellow-800" />
           Sumar recurso
         </span>
@@ -78,13 +78,13 @@ const Nav = styled.nav`
   a {
     ${tw`hidden mx-2 font-mono text-base font-bold lg:mx-2 lg:text-base md:inline-block`}
     &:hover {
-      ${tw`text-gray-500`}
+      ${tw`text-blue-500`}
     }
     &.active {
-      ${tw`text-indigo-500`}
+      ${tw`text-blue-500`}
     }
     body.dark &.active {
-      ${tw`text-indigo-600`}
+      ${tw`text-blue-600`}
     }
 
     body.resources-tables & {

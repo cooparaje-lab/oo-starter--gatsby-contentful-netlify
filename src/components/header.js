@@ -7,7 +7,7 @@ import tw from "twin.macro"
 import Logos from "../assets/logo-coparaje.svg"
 //import ThemeToggler from "../components/themeToggler"
 import "./header.css"
-import { RiSendPlaneFill } from "react-icons/ri"
+import { BiSend } from "react-icons/bi"
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles className="bg-green-500">
     <InnerWrapper>
@@ -30,6 +30,9 @@ const Header = ({ siteTitle }) => (
         <Link partiallyActive={true} activeClassName="active" to="/etiquetas">
           Etiquetas
         </Link>
+        <Link partiallyActive={true} activeClassName="active" to="/articulos">
+          Articulos
+        </Link>
         <Link
           partiallyActive={true}
           activeClassName="active "
@@ -47,7 +50,7 @@ const Header = ({ siteTitle }) => (
         className="relative inline-flex transition-opacity duration-700 transform -translate-x-12 rounded-md shadow-sm md:-translate-x-0"
       >
         <span className="inline-flex items-center px-3 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
-          <RiSendPlaneFill className="mr-2 text-xl text-yellow-800" />
+          <BiSend className="mr-2 text-xl text-yellow-800" />
           Sumar recurso
         </span>
         <span className="absolute top-0 right-0 flex w-3 h-3 -mt-1 -mr-1">

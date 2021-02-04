@@ -16,6 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
     const tagTemplate = path.resolve(`src/templates/tags-template.js`)
     const recursosTemplate = path.resolve(`./src/templates/RecursosSingle.js`)
     const espacioTemplate = path.resolve(`./src/templates/EspacioSingle.js`)
+    const blogPost = path.resolve(`./src/templates/BlogSingle.js`)
 
     resolve(
       graphql(
@@ -31,7 +32,14 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-
+            allContentfulBlog {
+              edges {
+                node {
+                  title
+                  slug
+                }
+              }
+            }
             allContentfulEspacios {
               edges {
                 node {
@@ -57,8 +65,17 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve("src/templates/RecursosArchive.js"),
         })
 
+        paginate({	
+          createPage,	
+          items: result.data.allContentfulBlog.edges,	
+          itemsPerPage: 50,	
+          pathPrefix: "/articulos",	
+          component: path.resolve("src/templates/BlogArchive.js"),	
+        })
+
         const recursos = result.data.allContentfulRecursos.edges
         const espacios = result.data.allContentfulEspacios.edges
+        const posts = result.data.allContentfulBlog.edges
 
         recursos.forEach((recurso, index) => {
           createPage({
@@ -82,6 +99,18 @@ exports.createPages = ({ graphql, actions }) => {
               prev: index === 0 ? null : espacios[index - 1].node,
               next:
                 index === espacios.length - 1 ? null : espacios[index + 1].node,
+            },
+          })
+        })
+
+        posts.forEach((post, index) => {
+          createPage({
+            path: `/articulos/${post.node.slug}/`,
+            component: blogPost,
+            context: {
+              slug: post.node.slug,
+              prev: index === 0 ? null : posts[index - 1].node,
+              next: index === posts.length - 1 ? null : posts[index + 1].node,
             },
           })
         })

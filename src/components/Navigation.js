@@ -23,6 +23,11 @@ const routes = [
     ariaLabel: "Ver todos los espacios",
   },
   {
+    title: "Articulos",
+    slug: "/articulos/",
+    ariaLabel: "Ver todos los espacios",
+  },
+  {
     title: "Etiquetas",
     slug: "/etiquetas/",
     ariaLabel: "Ver todas las etiquetas",

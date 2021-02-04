@@ -8,14 +8,14 @@ import { Link } from "gatsby"
 export default ({ card }) => (
   <CardItem>
     <Link
-      to={`/blog/${card.slug}`}
+      to={`/articulos/${card.slug}`}
       className="block h-56 overflow-hidden text-xl font-bold text-center"
     >
       <Img className="w-full" alt={card.title} fixed={card.featuredImg.fixed} />
     </Link>
     <Content>
       <Link
-        to={`/blog/${card.slug}`}
+        to={`/articulos/${card.slug}`}
         className="block mb-2 text-xl font-bold text-center title"
       >
         {card.title}

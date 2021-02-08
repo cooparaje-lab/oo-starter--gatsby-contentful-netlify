@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import { kebabCase } from "lodash"
 import React from "react"
 import { GoLinkExternal } from "react-icons/go"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 import Fade from "react-reveal/Fade"
 //import ReactTooltip from "react-tooltip"
 import tw from "twin.macro"
@@ -88,16 +89,6 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
       <Article>
         <Heros>
           <TextContainer>
-            <h1>{post.title}</h1>
-            <a
-              className="inline-block px-3 py-2 pb-4 mt-3 font-mono text-base font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="text-white">Visitar website</span>
-              <GoLinkExternal className="inline-block ml-2 text-white" />
-            </a>
             <div className="mt-4">
               {post.espacio ? (
                 <div className="flex justify-center text-lg text-left">
@@ -118,12 +109,34 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 <div className="hidden"></div>
               )}
             </div>
+            <h1>{post.title}</h1>
+            <p tw="text-white text-3xl font-mono text-center mb-6 ">
+              {post.excerpt.excerpt}
+            </p>
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+              <a
+                className="flex items-center justify-center w-40 px-3 py-2 font-mono text-lg font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="text-white">visitar web</span>
+                <GoLinkExternal className="inline-block ml-2 text-white" />
+              </a>
+              <AnchorLink
+                href={`#${kebabCase(post.slug)}`}
+                className="flex items-center justify-center w-40 px-3 py-2 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 hover:bg-green-600"
+                aria-label="Ver mas informacion en detalle"
+              >
+                <span>Más detalles</span>
+              </AnchorLink>
+            </div>
           </TextContainer>
           <ImgContainer>
             <Img
               title={post.title}
               alt={post.title}
-              className="w-full"
+              className="w-full h-screen"
               fluid={post.featuredImg.fluid}
             />
           </ImgContainer>
@@ -159,9 +172,9 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 }
 
 const TextContainer = styled.header`
-  ${tw`relative z-20 flex flex-col items-center justify-center w-full max-w-xl px-0 pl-5 m-auto text-left`}
+  ${tw`relative z-20 flex flex-col items-center justify-center w-full max-w-3xl px-0 pl-5 m-auto text-left`}
   h1 {
-    ${tw`pt-0 m-0 mt-2 font-mono text-4xl font-bold text-left text-blue-100`}
+    ${tw`pt-0 m-0 mt-2 mb-3 font-sans text-5xl font-bold text-center text-white`}
 
     body.dark & {
       ${tw`text-blue-100`}
@@ -178,14 +191,13 @@ const TextContainer = styled.header`
 const ImgContainer = styled.div`
   ${tw`absolute top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left`}
 
-
   img {
     ${tw`mb-0`}
     opacity: 0.2 !important;
   }
   body.dark & {
     img {
-      opacity: 0.5 !important;
+      opacity: 0.333 !important;
     }
   }
 `
@@ -202,7 +214,7 @@ const PageNav = styled.nav`
 
 const Heros = styled.div`
   ${tw`relative flex items-center justify-center py-6 overflow-hidden bg-blue-900`}
-  min-height: 50vh;
+  min-height: 100vh;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   body.dark & {
     ${tw`bg-blue-900`}
@@ -232,7 +244,7 @@ export const pageQuery = graphql`
       }
 
       featuredImg {
-        fixed(width: 1900, height: 550) {
+        fixed(width: 1900, height: 1200) {
           ...GatsbyContentfulFixed_withWebp_noBase64
         }
         file {

@@ -32,7 +32,7 @@ const HomeComponent = () => {
 
         <Home>
           <div className="flex flex-col w-full py-6 md:pb-8 ">
-            <section className="container relative z-50 flex flex-col flex-1 w-full max-w-3xl min-h-screen mx-auto">
+            <section className="container relative z-50 flex flex-col flex-1 w-full max-w-2xl min-h-screen mx-auto">
               <div className="flex flex-col flex-1 h-full px-6">
                 <div className="flex items-center flex-1">
                   <div className="">
@@ -45,7 +45,7 @@ const HomeComponent = () => {
                         Encontrar Recursos Libres & Gratuitos
                       </h1>
 
-                      <div className="pt-8 md:pt-12">
+                      <div className="min-h-screen pt-8 md:pt-12">
                         <InstantSearch
                           searchClient={searchClient}
                           indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
@@ -55,7 +55,7 @@ const HomeComponent = () => {
                             translations={{
                               submitTitle: "Add your search query.",
                               resetTitle: "Reset your search query.",
-                              placeholder: 'Probá con "Juegos", "Mapas", "Arte", "Plantas", "Radios" y/o "etc"',
+                              placeholder: 'Probá con "Juegos", "Arte", "Plantas", "Radios" y/o "etc"',
                             }}
                           />
                           <Hits

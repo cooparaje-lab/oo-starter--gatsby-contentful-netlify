@@ -33,7 +33,7 @@ const BuscarComponent = () => {
                 translations={{
                   submitTitle: "Add your search query.",
                   resetTitle: "Reset your search query.",
-                  placeholder: "Buscar",
+                  placeholder: 'Probá con "Juegos", "Arte", "Plantas", "Radios" y/o "etc"',
                 }}
               />
               <Hits className="w-full mx-auto" hitComponent={PostPreview} />

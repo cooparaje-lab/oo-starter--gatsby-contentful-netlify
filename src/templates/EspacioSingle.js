@@ -87,7 +87,7 @@ const TextContainer = styled.header`
   body.dark & {
   }
   span {
-    ${tw`text-5xl`}
+    ${tw`text-6xl transform scale-125`}
   }
 
   h1 {
@@ -99,7 +99,7 @@ const TextContainer = styled.header`
   }
 
   p {
-    ${tw`m-0 mt-2 font-serif text-base italic text-center opacity-75`}
+    ${tw`m-0 mt-2 font-serif text-2xl italic text-center opacity-75`}
 
     ${tw`text-blue-100`}
     body.dark & {

@@ -35,7 +35,7 @@ export const Meta = styled.div`
   top: -40px;
 `
 export const ArticleText = styled.p`
-  ${tw`my-3 text-lg`}
+  ${tw`my-3 text-2xl leading-loose`}
 `
 
 export const Tags = styled.div`

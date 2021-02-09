@@ -32,16 +32,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-dark-mode`,
-    {
-      resolve: "gatsby-plugin-crisp-chat",
-      options: {
-        websiteId: "9b13088c-bcb9-4583-a0ff-72ee1210f99f",
-        enableDuringDevelop: true, // Optional. Disables Crisp Chat during gatsby develop. Defaults to true.
-        defer: true, // Optional. Sets the Crisp loading script to defer instead of async. Defaults to false.
-        enableImprovedAccessibility: true, // Optional. Sets aria-label attribute on pop-up icon for screen readers. Defaults to true.
-      },
-    },
-    
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {

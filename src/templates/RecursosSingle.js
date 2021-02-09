@@ -89,26 +89,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
       <Article>
         <Heros>
           <TextContainer>
-            <div className="mt-4">
-              {post.espacio ? (
-                <div className="flex justify-center text-lg text-left">
-                  {post.espacio.map((item, i) => (
-                    <Link
-                      to={`/espacios/${kebabCase(item.slug)}/`}
-                      className="flex items-center px-4 py-1 my-2 mr-2 bg-blue-100 hover:underline"
-                      key={i}
-                    >
-                      <span className="mr-1 text-xl">{item.icono}</span>
-                      <b className="font-mono text-sm text-blue-800 ">
-                        {item.title}
-                      </b>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <div className="hidden"></div>
-              )}
-            </div>
+            
             <h1>{post.title}</h1>
             <p tw="text-white text-3xl font-mono text-center mb-6 ">
               {post.excerpt.excerpt}
@@ -148,6 +129,26 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 </a>
               </div>
             )}
+            <div className="mt-4">
+              {post.espacio ? (
+                <div className="flex justify-center text-lg text-left">
+                  {post.espacio.map((item, i) => (
+                    <Link
+                      to={`/espacios/${kebabCase(item.slug)}/`}
+                      className="flex items-center px-4 py-1 my-2 mr-2 hover:underline"
+                      key={i}
+                    >
+                      <span className="mr-1 text-2xl">{item.icono}</span>
+                      <b className="font-mono text-base text-blue-100 ">
+                        {item.title}
+                      </b>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="hidden"></div>
+              )}
+            </div>
           </TextContainer>
           <ImgContainer>
             <Img
@@ -160,7 +161,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
         </Heros>
 
         {post.childContentfulRecursosArticleRichTextNode ? (
-          <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
+          <div className="w-full max-w-2xl pt-24 m-auto mt-2 article" id={post.slug}>
             {documentToReactComponents(
               post.childContentfulRecursosArticleRichTextNode.json,
               options
@@ -193,16 +194,17 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 }
 
 const TextContainer = styled.header`
-  ${tw`relative z-20 flex flex-col items-center justify-center w-full max-w-3xl px-0 pl-5 m-auto text-left`}
+  ${tw`relative z-20 flex flex-col items-center justify-center w-1/2 p-5 m-auto text-left rounded-md shadow-2xl `}
+  background: rgba(0,0,0,.45);
   h1 {
-    ${tw`pt-0 m-0 mt-2 mb-3 font-sans text-5xl font-bold text-center text-white`}
+    ${tw`pt-0 m-0 mt-2 mb-3 font-sans text-4xl font-bold text-center text-white`}
 
     body.dark & {
       ${tw`text-blue-100`}
     }
   }
   h2 {
-    ${tw`m-0 mt-2 font-mono text-4xl font-bold text-left text-blue-100`}
+    ${tw`m-0 mt-2 font-mono text-2xl font-bold text-left text-blue-100`}
 
     body.dark & {
       ${tw`text-blue-100`}
@@ -218,25 +220,24 @@ const ImgContainer = styled.div`
   }
   body.dark & {
     img {
-      opacity: 0.333 !important;
+      opacity: 0.2 !important;
     }
   }
 `
 
 const PageNav = styled.nav`
-  ${tw`flex justify-between max-w-2xl p-6 py-12 m-auto`}
+  ${tw`fixed bottom-0 flex justify-between w-full p-6 py-12 m-auto `}
   a {
-    ${tw`font-mono font-bold text-blue-300`}
+    ${tw`px-4 py-2 font-mono font-bold text-blue-900 bg-white `}
   }
   body.dark & a {
-    ${tw`text-blue-300`}
+    ${tw`text-blue-900`}
   }
 `
 
 const Heros = styled.div`
   ${tw`relative flex items-center justify-center py-6 overflow-hidden bg-blue-900`}
   min-height: 100vh;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   body.dark & {
     ${tw`bg-blue-900`}
   }

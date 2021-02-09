@@ -38,7 +38,7 @@ const RecursosArchive = ({ data, pageContext, location }) => {
 }
 
 const BlogContainer = styled.div`
-  ${tw`grid justify-center w-full max-w-6xl grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-2`}
+  ${tw`grid justify-center w-full grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-3`}
 `
 
 const Item = styled.div`

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { kebabCase } from "lodash"
 import React from "react"
-import { GoLinkExternal } from "react-icons/go"
+//import { GoLinkExternal } from "react-icons/go"
 import tw from "twin.macro"
 
 export default ({ card }) => (
@@ -32,24 +32,22 @@ export default ({ card }) => (
       </Description>
 
       {card.espacio && (
-         <div className="z-50 flex flex-col items-start justify-start w-full mt-2">
-         {card.espacio.map((espacio, i) => [
-           <Link
-             to={`/espacios/${kebabCase(espacio.slug)}/`}
-             className="flex items-center justify-center px-2 py-1 mr-1 text-blue-100 md:flex-row btnCategory hover:text-blue-500 "
-             activeClassName="active"
-             key={i}
-           >
-             <span className="mr-2 text-xl ">{espacio.icono}</span>
-             <span className="font-mono text-base font-bold uppercase hover:text-blue-500">
-               {espacio.title}
-             </span>
-           </Link>,
-         ])}
-       </div>
-        )}
-
-      
+        <div className="z-50 flex flex-col items-start justify-start w-full mt-2">
+          {card.espacio.map((espacio, i) => [
+            <Link
+              to={`/espacios/${kebabCase(espacio.slug)}/`}
+              className="flex items-center justify-center px-2 py-1 mr-1 text-blue-100 md:flex-row btnCategory hover:text-blue-500 "
+              activeClassName="active"
+              key={i}
+            >
+              <span className="mr-2 text-xl ">{espacio.icono}</span>
+              <span className="font-mono text-base font-bold uppercase hover:text-blue-500">
+                {espacio.title}
+              </span>
+            </Link>,
+          ])}
+        </div>
+      )}
 
       <Actions>
         <b className="block py-2 font-mono text-sm font-bold">
@@ -66,7 +64,6 @@ export default ({ card }) => (
           </Tags>
         )}
       </Actions>
-     
     </Content>
   </CardItem>
 )
@@ -119,17 +116,6 @@ const Content = styled.div`
   }
 `
 
-const SeeMore = styled.div`
-  ${tw`relative flex justify-start `}
-
-  .see-more {
-    ${tw`relative z-10 block w-full px-3 py-2 mt-3 font-mono text-xs font-bold text-center text-white uppercase bg-green-500 md:text-left md:w-auto md:inline-block`}
-  }
-
-  body.dark & {
-    ${tw`text-blue-500`}
-  }
-`
 
 const Description = styled.p`
   ${tw`font-sans text-sm text-left text-blue-100`}

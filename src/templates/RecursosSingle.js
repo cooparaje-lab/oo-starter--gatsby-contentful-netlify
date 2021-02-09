@@ -89,7 +89,6 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
       <Article>
         <Heros>
           <TextContainer>
-            
             <h1>{post.title}</h1>
             <p tw="text-white text-3xl font-mono text-center mb-6 ">
               {post.excerpt.excerpt}
@@ -161,7 +160,10 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
         </Heros>
 
         {post.childContentfulRecursosArticleRichTextNode ? (
-          <div className="w-full max-w-2xl pt-24 m-auto mt-2 article" id={post.slug}>
+          <div
+            className="w-full max-w-2xl pt-24 m-auto mt-2 article"
+            id={post.slug}
+          >
             {documentToReactComponents(
               post.childContentfulRecursosArticleRichTextNode.json,
               options
@@ -172,18 +174,18 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
         )}
 
         <PageNav>
-          <div>
+          <div className="flex items-end justify-start flex-1 w-full">
             {prev && (
-              <Link to={`/recursos/${kebabCase(prev.slug)}/`} rel="prev">
-                ← {prev.title}
+              <Link to={`/recursos/${kebabCase(prev.slug)}/`} className="flex-col" rel="prev">
+                {prev.title} <br/>  <span className="text-2xl">←</span>
               </Link>
             )}
           </div>
 
-          <div style={{ justifySelf: "flex-end" }}>
+          <div className="flex items-end justify-end flex-1 w-full" style={{ justifySelf: "flex-end" }}>
             {next && (
-              <Link to={`/recursos/${kebabCase(next.slug)}/`} rel="next">
-                {next.title} →
+              <Link to={`/recursos/${kebabCase(next.slug)}/`} className="flex flex-col text-right" rel="next">
+                {next.title} <br/> <span className="text-2xl">→</span>
               </Link>
             )}
           </div>
@@ -194,8 +196,8 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 }
 
 const TextContainer = styled.header`
-  ${tw`relative z-20 flex flex-col items-center justify-center w-1/2 p-5 m-auto text-left rounded-md shadow-2xl `}
-  background: rgba(0,0,0,.45);
+  ${tw`relative z-20 flex flex-col items-center justify-center w-full max-w-4xl p-5 m-auto text-center`}
+
   h1 {
     ${tw`pt-0 m-0 mt-2 mb-3 font-sans text-4xl font-bold text-center text-white`}
 
@@ -226,12 +228,12 @@ const ImgContainer = styled.div`
 `
 
 const PageNav = styled.nav`
-  ${tw`fixed bottom-0 flex justify-between w-full p-6 py-12 m-auto `}
+  ${tw`bottom-0 flex justify-between w-full p-6 py-12 m-auto md:fixed `}
   a {
-    ${tw`px-4 py-2 font-mono font-bold text-blue-900 bg-white `}
+    ${tw`px-4 py-2 font-mono font-bold text-white md:text-blue-900 md:bg-white `}
   }
-  body.dark & a {
-    ${tw`text-blue-900`}
+  div {
+    ${tw`w-full `}
   }
 `
 

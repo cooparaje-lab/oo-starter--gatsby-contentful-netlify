@@ -113,24 +113,41 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             <p tw="text-white text-3xl font-mono text-center mb-6 ">
               {post.excerpt.excerpt}
             </p>
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              <a
-                className="flex items-center justify-center w-40 px-3 py-2 font-mono text-lg font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="text-white">visitar web</span>
-                <GoLinkExternal className="inline-block ml-2 text-white" />
-              </a>
-              <AnchorLink
-                href={`#${kebabCase(post.slug)}`}
-                className="flex items-center justify-center w-40 px-3 py-2 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 hover:bg-green-600"
-                aria-label="Ver mas informacion en detalle"
-              >
-                <span>Más detalles</span>
-              </AnchorLink>
-            </div>
+
+            {post.childContentfulRecursosArticleRichTextNode ? (
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                <a
+                  className="flex items-center justify-center w-40 px-3 py-2 font-mono text-lg font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-white">visitar web</span>
+                  <GoLinkExternal className="inline-block ml-2 text-white" />
+                </a>
+                {post.childContentfulRecursosArticleRichTextNode && (
+                  <AnchorLink
+                    href={`#${kebabCase(post.slug)}`}
+                    className="flex items-center justify-center w-40 px-3 py-2 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 hover:bg-green-600"
+                    aria-label="Ver mas informacion en detalle"
+                  >
+                    <span>Más detalles</span>
+                  </AnchorLink>
+                )}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 gap-3">
+                <a
+                  className="flex items-center justify-center w-40 px-3 py-2 font-mono text-lg font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-white">visitar web</span>
+                  <GoLinkExternal className="inline-block ml-2 text-white" />
+                </a>
+              </div>
+            )}
           </TextContainer>
           <ImgContainer>
             <Img
@@ -142,12 +159,16 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
           </ImgContainer>
         </Heros>
 
-        <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
-          {documentToReactComponents(
-            post.childContentfulRecursosArticleRichTextNode.json,
-            options
-          )}
-        </div>
+        {post.childContentfulRecursosArticleRichTextNode ? (
+          <div className="w-full max-w-2xl m-auto mt-2 article" id={post.slug}>
+            {documentToReactComponents(
+              post.childContentfulRecursosArticleRichTextNode.json,
+              options
+            )}
+          </div>
+        ) : (
+          <div className="hidden"></div>
+        )}
 
         <PageNav>
           <div>

@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import PostPreview from "../components/postPreview"
 import SEO from "../components/seo"
 import "./algolia.css"
-import EspaciosIconsSlider from "./espacios/EspaciosIconSlider"
+import EspaciosIcons from "./espacios/EspaciosIcons"
 
 const searchClient = algoliasearch(
   "K8WTAMXCZT",
@@ -21,7 +21,7 @@ const BuscarComponent = () => {
         <SearchContainer>
           <SEO title="Buscar" />
           <EspaciosContainer>
-            <EspaciosIconsSlider />
+            <EspaciosIcons />
           </EspaciosContainer>
           <div className="max-w-xl p-6 pt-6 mx-auto">
             <InstantSearch
@@ -59,17 +59,10 @@ const SearchContainer = styled.div`
   h1 {
     ${tw`text-blue-100`}
   }
-  body.dark & {
-  }
+
 `
 
 const EspaciosContainer = styled.div`
-  ${tw`w-full mt-0`}
-  ${tw`bg-blue-900 `}
-
-  a {
-    ${tw`text-blue-300 `}
-  }
-  body.dark & {
-  }
+  ${tw`relative flex items-center justify-center w-full mt-3 overflow-x-auto overflow-y-hidden`}
+  ${tw`bg-blue-500 `}
 `

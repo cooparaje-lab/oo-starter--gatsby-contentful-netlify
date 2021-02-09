@@ -794,7 +794,8 @@ a[class^="ais-"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 0.5rem 2rem;
+  /*padding: 0.5rem 2rem;*/
+  @apply px-8 py-2 text-xl;
   width: 100%;
   position: relative;
   background-color: #fff;

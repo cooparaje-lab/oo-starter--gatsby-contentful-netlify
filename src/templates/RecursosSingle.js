@@ -230,7 +230,7 @@ const ImgContainer = styled.div`
 const PageNav = styled.nav`
   ${tw`bottom-0 flex justify-between w-full p-6 py-12 m-auto md:fixed `}
   a {
-    ${tw`px-4 py-2 font-mono font-bold text-white md:text-blue-900 md:bg-white `}
+    ${tw`px-4 py-2 font-mono font-bold text-white shadow-lg md:text-blue-900 md:bg-white `}
   }
   div {
     ${tw`w-full `}

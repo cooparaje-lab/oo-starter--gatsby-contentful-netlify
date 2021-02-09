@@ -7,6 +7,14 @@ import reactLogo from "../assets/animations/working-together.json"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "./algolia.css"
+import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
+import PostPreview from "../components/postPreview"
+import algoliasearch from "algoliasearch/lite"
+
+const searchClient = algoliasearch(
+  "K8WTAMXCZT",
+  "91627040f2b233f6958fdbdbe2b6193d"
+)
 
 //import Fade from "react-reveal/Fade"
 const HomeComponent = () => {
@@ -24,26 +32,38 @@ const HomeComponent = () => {
 
         <Home>
           <div className="flex flex-col w-full py-6 md:pb-8 ">
-            <section className="container relative z-50 flex flex-col flex-1 h-full mx-auto">
+            <section className="container relative z-50 flex flex-col flex-1 w-full max-w-3xl min-h-screen mx-auto">
               <div className="flex flex-col flex-1 h-full px-6">
                 <div className="flex items-center flex-1">
-                  <div className="grid items-center flex-1 grid-flow-row gap-8 pb-8 md:grid-cols-4">
-                    <div className="col-span-2">
+                  <div className="">
+                    <div className="w-full max-w-2xl mx-auto">
+                      <div className="max-w-sm p-6 pt-6 mx-auto">
+                        <div id="react-logo" className="w-64 h-full" />
+                      </div>
+
                       <h1 className="font-serif text-4xl font-extrabold leading-tight md:text-6xl">
-                        Recursos Gratuitos
+                        Encontrar Recursos Libres & Gratuitos
                       </h1>
 
                       <div className="pt-8 md:pt-12">
-                        <Link
-                          tw="relative z-10 text-xl px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500 hover:bg-blue-500 transition-all duration-200 hover:text-blue-900 rounded-md transform"
-                          to="/espacios/"
+                        <InstantSearch
+                          searchClient={searchClient}
+                          indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
                         >
-                          Ver los espacios
-                        </Link>
+                          <SearchBox
+                            className="w-full mx-auto mb-6 text-left"
+                            translations={{
+                              submitTitle: "Add your search query.",
+                              resetTitle: "Reset your search query.",
+                              placeholder: 'Probá con "Juegos", "Mapas", "Arte", "Plantas", "Radios" y/o "etc"',
+                            }}
+                          />
+                          <Hits
+                            className="w-full mx-auto"
+                            hitComponent={PostPreview}
+                          />
+                        </InstantSearch>
                       </div>
-                    </div>
-                    <div className="flex justify-end flex-1 col-span-2">
-                      <div id="react-logo" className="w-full h-full" />
                     </div>
                   </div>
                 </div>

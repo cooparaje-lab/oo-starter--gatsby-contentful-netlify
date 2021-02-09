@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { Link } from "gatsby"
+//import { Link } from "gatsby"
 import lottie from "lottie-web"
 import React, { useEffect } from "react"
 import tw from "twin.macro"

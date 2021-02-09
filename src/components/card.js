@@ -63,11 +63,7 @@ const Content = styled.div`
 `
 
 const Description = styled.p`
-  ${tw`hidden pb-3 text-base text-center text-blue-700`}
-
-  body.dark & {
-    ${tw`text-blue-700`}
-  }
+  ${tw`hidden pb-3 text-xl text-center text-blue-700`}
 `
 
 const Tags = styled.div`

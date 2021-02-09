@@ -22,12 +22,12 @@ export default ({ card }) => (
       <Top>
         <Link
           to={`/recursos/${card.slug}`}
-          className="block mb-0 font-mono text-xl font-bold text-left underline capitalize hover:text-orange-600"
+          className="block mb-2 font-mono text-xl font-bold text-left underline capitalize hover:text-orange-600"
         >
           {card.title}
         </Link>
       </Top>
-      <Description className="">
+      <Description>
         {card.excerpt.childMarkdownRemark.excerpt}
       </Description>
 
@@ -36,11 +36,11 @@ export default ({ card }) => (
           {card.espacio.map((espacio, i) => [
             <Link
               to={`/espacios/${kebabCase(espacio.slug)}/`}
-              className="flex items-center justify-center px-2 py-1 mr-1 text-blue-100 md:flex-row btnCategory hover:text-blue-500 "
+              className="flex items-center justify-center py-1 pr-2 mr-1 text-blue-100 md:flex-row btnCategory hover:text-blue-500 "
               activeClassName="active"
               key={i}
             >
-              <span className="mr-2 text-xl ">{espacio.icono}</span>
+              <span className="inline-block w-6 mr-2 text-xl text-center ">{espacio.icono}</span>
               <span className="font-mono text-base font-bold uppercase hover:text-blue-500">
                 {espacio.title}
               </span>
@@ -77,7 +77,7 @@ const Tags = styled.div`
 `
 
 const CardItem = styled.div`
-  ${tw`relative flex flex-col w-full h-auto mb-2 overflow-hidden rounded shadow-lg md:flex-row`}
+  ${tw`relative flex flex-col w-full mb-2 overflow-hidden rounded shadow-lg md:h-64 md:flex-row`}
   transition: all .2s;
   transform: translateY(0);
   transform: scale(1);
@@ -109,28 +109,13 @@ const Content = styled.div`
   ${tw`flex flex-col justify-start w-full px-6 py-2 pb-6`}
 
   .title {
-    ${tw`text-blue-800`}
-    body.dark & {
-      ${tw`text-blue-500`}
-    }
+    ${tw`text-blue-500`}
   }
 `
 
 
 const Description = styled.p`
-  ${tw`font-sans text-sm text-left text-blue-100`}
-
-  body.dark & {
-    ${tw`text-blue-200`}
-  }
-
-  small {
-    ${tw`mt-2 font-bold text-blue-900 opacity-75 `}
-
-    body.dark & {
-      ${tw`text-blue-100`}
-    }
-  }
+  ${tw`mb-3 font-sans text-base text-left text-blue-100 md:h-20`}
 `
 
 const Top = styled.div`

@@ -38,7 +38,7 @@ const RecursosArchive = ({ data, pageContext, location }) => {
 }
 
 const BlogContainer = styled.div`
-  ${tw`grid justify-center w-full grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-3`}
+  ${tw`grid justify-center w-full max-w-6xl grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-2`}
 `
 
 const Item = styled.div`
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
             excerpt
             childMarkdownRemark {
               timeToRead
-              excerpt(pruneLength: 80)
+              excerpt(pruneLength: 100)
             }
           }
           espacio {
@@ -92,8 +92,7 @@ export const pageQuery = graphql`
             fixed(width: 200, height: 200) {
               ...GatsbyContentfulFixed_withWebp_noBase64
             }
-            fluid(maxWidth: 1500) {
-              # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+            fluid(maxWidth: 500) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }

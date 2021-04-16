@@ -5,22 +5,18 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 import { HiCode } from "react-icons/hi"
-import { Link } from "gatsby"
-
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
-import tw from "twin.macro"
-import styled from "@emotion/styled"
 import { AiOutlineHeart } from "react-icons/ai"
 import "./darkTheme.css"
 
 const Layout = ({ children }) => {
   return (
     <>
-      <App>
-        <Main>{children}</Main>
-        <Footer>
+      <div className="block min-h-screen pt-12 bg-gray-900">
+        <div>{children}</div>
+        <div className="py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
           © {new Date().getFullYear()}, Realizado con{" "}
           <div>
             <HiCode className="inline-block mx-1 mb-1 text-lg " />
@@ -34,19 +30,11 @@ const Layout = ({ children }) => {
             rel="noopener noreferrer"
             className="mx-1 border-b border-gray-600 hover:text-red-600 hover:border-red-600"
           >
-            stn9000
+            santuan
           </a>
           en un Paraje Libre
-          <Link to="/licencia/">
-            <b
-              activeClassName="text-white"
-              className="text-green-500 megamineria hover:underline"
-            >
-              La Vida+vale+más que la mega-minería
-            </b>
-          </Link>
-        </Footer>
-      </App>
+        </div>
+      </div>
     </>
   )
 }
@@ -54,29 +42,5 @@ const Layout = ({ children }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-const App = styled.div`
-  ${tw`block min-h-screen pt-12`}
-
-`
-
-const Main = styled.main`
-  ${tw`px-0`}
-
-
-`
-
-const Footer = styled.footer`
-  ${tw`py-6 font-mono text-center`}
-  ${tw`text-blue-100`}
-  
-
-  .megamineria {
-    ${tw`block mt-3`}
-    ${tw`opacity-100 `}
-    body.dark & {
-    }
-  }
-`
 
 export default Layout

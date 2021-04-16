@@ -1,7 +1,12 @@
 .article p {
   margin: 2rem 0;
-  @apply font-serif;
+  @apply font-sans;
 }
+
+.prose a {
+  @apply text-white;
+}
+
 
 .article .post-image {
   text-align: center;
@@ -34,7 +39,7 @@ footer {
 }
 
 .custom-shape-divider-bottom .shape-fill {
-  @apply text-blue-800 fill-current;
+  @apply text-gray-800 fill-current;
 }
 
 .custom-shape-divider-bottom-1594014676 {
@@ -48,7 +53,7 @@ footer {
 }
 
 .dark .custom-shape-divider-bottom .shape-fill {
-  @apply text-blue-800 fill-current;
+  @apply text-gray-800 fill-current;
 }
 
 .custom-shape-divider-bottom-1594014676 {
@@ -69,5 +74,5 @@ footer {
 
 
 .custom-shape-divider-bottom-1594014676 .shape-fill {
-  @apply text-blue-900 fill-current;
+  @apply text-gray-900 fill-current;
 }

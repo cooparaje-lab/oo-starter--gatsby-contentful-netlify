@@ -37,3 +37,14 @@ body.resources-tables .bm-burger-button {
   position: fixed;
   transform: translateY(0%);
 }
+
+.headroom nav a {
+  @apply hidden mx-2 font-mono text-base font-bold lg:mx-2 lg:text-base md:inline-block;
+}
+
+.headroom nav a:hover {
+  @apply text-yellow-600;
+}
+.headroom nav a.active {
+  @apply text-yellow-500;
+}

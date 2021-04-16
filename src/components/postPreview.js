@@ -1,67 +1,30 @@
-// import styled from "@emotion/styled"
-// import algoliasearch from "algoliasearch/lite"
-// import { Link } from "gatsby"
-// import lottie from "lottie-web"
-// import React from "react"
-
-import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import React from "react"
 import { Highlight } from "react-instantsearch-dom"
-//import Fade from "react-reveal/Fade"
-import tw from "twin.macro"
 
 const PostPreview = ({ hit }) => {
   return (
-    <SearchItem>
-      <Content>
-        <Link to={hit.url}>
+    <div className="relative flex text-left text-gray-100 bg-gray-900 bg-gradient-to-br from-gray-800 via-gray-800 ">
+      <div className="relative z-40 w-full p-6 text-left">
+        <Link
+          to={hit.url}
+          className="font-serif text-2xl font-bold text-yellow-500 duration-700 hover:text-white"
+        >
           <Highlight hit={hit} attribute="title" tagName="mark" />
         </Link>
-        <p>
+        <p className="mt-1 font-sans text-lg line-clamp-2">
           <Highlight hit={hit} attribute="description" tagName="mark" />
         </p>
-      </Content>
-      <Image>
-        <Link to={hit.url}>
-          <img
-            className="object-cover w-32 h-32"
-            alt={hit.title}
-            src={hit.image}
-          />
-        </Link>
-      </Image>
-    </SearchItem>
+      </div>
+      <Link  to={hit.url} className="w-64 h-40 duration-700 opacity-80 hover:opacity-50">
+        <img
+          className="block object-cover w-full h-full"
+          alt={hit.title}
+          src={hit.image}
+        />
+      </Link>
+    </div>
   )
 }
 
 export default PostPreview
-
-const SearchItem = styled.div`
-  ${tw`flex text-left text-blue-100 bg-blue-800`}
-
-  body.dark & {
-    ${tw`text-blue-100 bg-blue-800`}
-  }
-
-  a {
-    ${tw`font-mono text-xl font-bold text-blue-200`}
-  }
-
-  p {
-    ${tw`font-sans text-base`}
-  }
-`
-
-const Image = styled.div`
-  ${tw`w-32 `}
-
-  ${tw`opacity-75`}
-  body.dark & {
-  }
-`
-
-const Content = styled.div`
-  ${tw`w-full p-2 px-3 text-left`}
-  flex: 1
-`

@@ -1,11 +1,7 @@
-// https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
-import styled from "@emotion/styled"
 import { graphql, Link } from "gatsby"
-//import { kebabCase } from "lodash"
 import React from "react"
-import tw from "twin.macro"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/Seo"
 import CardRecursos from "../components/CardRecursos"
 
 const Tags = ({ pageContext, data }) => {
@@ -16,39 +12,28 @@ const Tags = ({ pageContext, data }) => {
   } con la etiqueta "${tag}"`
   return (
     <Layout>
-      <SEO title={`Etiqueta ${tag}`} />
+      <Seo title={`Etiqueta ${tag}`} />
 
-      <TagsContainer>
-        <h1>{tagHeader}</h1>
+      <div className="max-w-2xl min-h-screen pt-12 m-auto">
+        <h1 className="mb-12 font-mono text-xl text-center text-gray-200">{tagHeader}</h1>
         <div>
           {edges.map(({ node }) => {
             return <CardRecursos card={node} />
           })}
         </div>
-        <div tw={"mt-12 text-center"}>
+        <div className="mt-12 text-center">
           <Link
             to="/etiquetas"
-            tw="relative z-10 px-5 mr-2 py-2 my-3 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
+            className="relative z-10 px-5 py-2 my-3 mr-2 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
           >
             Mostrar todas las etiquetas
           </Link>
         </div>
-      </TagsContainer>
+      </div>
     </Layout>
   )
 }
 
-const TagsContainer = styled.div`
-  ${tw`max-w-2xl pt-12 m-auto`}
-
-  h1 {
-    ${tw`mb-12 font-mono text-xl text-center text-blue-200`}
-
-    body.dark & {
-      ${tw`text-blue-200`}
-    }
-  }
-`
 
 export default Tags
 

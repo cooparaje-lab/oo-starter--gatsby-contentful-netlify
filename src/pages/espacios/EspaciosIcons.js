@@ -1,8 +1,6 @@
-//import styled from "@emotion/styled"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { kebabCase } from "lodash"
 import React from "react"
-import tw from "twin.macro"
 import ReactTooltip from "react-tooltip"
 
 const EspaciosIconComponent = () => {
@@ -32,9 +30,7 @@ const EspaciosIconComponent = () => {
             to={`/espacios/${kebabCase(node.slug)}/`}
             key={node.slug}
             data-tip={node.title}
-            css={[
-              tw`flex flex-col items-center justify-center pt-1 mx-2 text-center text-blue-100 opacity-50 hover:opacity-100 hover:text-blue-500`,
-            ]}
+            className="flex flex-col items-center justify-center pt-1 mx-2 text-center text-gray-100 opacity-50 hover:opacity-100 hover:text-gray-500"
           >
             <ReactTooltip
               place="bottom"
@@ -42,8 +38,8 @@ const EspaciosIconComponent = () => {
               effect="solid"
               className="bg-red-500 shadow"
             />
-            <span css={[tw`block my-2 mt-3 text-4xl `]}>{node.icono}</span>
-            <b css={[tw`hidden py-2 mb-3 font-bold`]}>{node.title}</b>
+            <span className="block my-2 mt-3 text-4xl ">{node.icono}</span>
+            <b className="hidden py-2 mb-3 font-bold">{node.title}</b>
           </Link>
         )
       })}

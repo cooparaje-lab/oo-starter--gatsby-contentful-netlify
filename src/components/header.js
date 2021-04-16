@@ -1,23 +1,21 @@
-import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import Headroom from "react-headroom"
-import tw from "twin.macro"
 import Logos from "../assets/logo-coparaje.svg"
 //import ThemeToggler from "../components/themeToggler"
 import "./header.css"
 import { BiSend } from "react-icons/bi"
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles className="bg-green-500">
-    <InnerWrapper>
-      <Logo className="isologo ">
-        <Logos className="w-8 duration-700 " />
-        <Link className="inline-block ml-3 text-base " to="/">
+    <div className="flex items-center justify-between w-full px-3 py-2 m-auto ">
+      <div className="flex items-center font-sans text-xl font-bold isologo md:absolute ">
+        <Logos className="duration-700 w-9 " />
+        <Link className="inline-block ml-3 font-serif text-lg font-bold duration-700 opacity-80 hover:opacity-100" to="/">
           {siteTitle}
         </Link>
-      </Logo>
-      <Nav>
+      </div>
+      <nav className="flex justify-center pl-6 mx-3 border-l border-gray-800 md:ml-40">
         <Link partiallyActive={true} activeClassName="active" to="/espacios">
           Espacios
         </Link>
@@ -30,35 +28,24 @@ const Header = ({ siteTitle }) => (
         <Link partiallyActive={true} activeClassName="active" to="/etiquetas">
           Etiquetas
         </Link>
-        <Link partiallyActive={true} activeClassName="active" to="/articulos">
-          Articulos
-        </Link>
-        <Link
-          partiallyActive={true}
-          activeClassName="active "
-          className="license"
-          to="/licencia"
-        >
-          Licencia
-        </Link>
-      </Nav>
+      </nav>
 
       <Link
         partiallyActive={true}
         activeClassName="opacity-0"
         to="/sumar"
-        className="relative inline-flex transition-opacity duration-700 transform -translate-x-12 rounded-md shadow-sm md:-translate-x-0"
+        className="fixed inline-flex transition-opacity duration-700 transform -translate-x-16 rounded-md shadow-sm top-2 md:top-1 right-1 md:-translate-x-0"
       >
-        <span className="inline-flex items-center px-3 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
+        <span className="inline-flex items-center px-2 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
           <BiSend className="mr-2 text-xl text-yellow-800" />
-          Sumar recurso
+          <span className="hidden sm:inline-block">Sumar recurso</span>
         </span>
         <span className="absolute top-0 right-0 flex w-3 h-3 -mt-1 -mr-1">
           <span className="absolute inline-flex w-full h-full bg-green-300 rounded-full opacity-75 animate-ping"></span>
           <span className="relative inline-flex w-3 h-3 bg-green-500 rounded-full"></span>
         </span>
       </Link>
-    </InnerWrapper>
+    </div>
   </Headroom>
 )
 
@@ -69,39 +56,5 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
-
-const InnerWrapper = styled.div`
-  ${tw`flex items-center justify-between w-full px-3 py-2 m-auto `}
-`
-
-const Nav = styled.nav`
-  ${tw`flex justify-start pl-6 mx-3 border-l border-gray-500 md:ml-40 `}
-  flex: 1;
-
-  a {
-    ${tw`hidden mx-2 font-mono text-base font-bold lg:mx-2 lg:text-base md:inline-block`}
-    &:hover {
-      ${tw`text-blue-500`}
-    }
-    &.active {
-      ${tw`text-blue-500`}
-    }
-    body.dark &.active {
-      ${tw`text-blue-600`}
-    }
-
-    body.resources-tables & {
-      ${tw`ml-3 text-base`}
-    }
-  }
-
-  .license {
-    ${tw`md:hidden`}
-  }
-`
-
-const Logo = styled.div`
-  ${tw`flex items-center font-sans text-xl font-bold md:absolute `}
-`
 
 export default Header

@@ -1,16 +1,10 @@
-import styled from "@emotion/styled"
 import { graphql, Link } from "gatsby"
 import { kebabCase } from "lodash"
 import React from "react"
-//import Img from "gatsby-image"
-//import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
-//import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Fade from "react-reveal/Fade"
-import tw from "twin.macro"
 import CardRecursos from "../components/CardRecursos"
-import { Article } from "../components/import"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/Seo"
 import "./post.css"
 
 const EspacioPostTemplate = ({ data, pageContext, location }) => {
@@ -18,17 +12,22 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
   const { prev, next } = pageContext
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         title={`Espacio ${espacio.title}`}
         description={`${espacio.excerpt.excerpt}`}
       />
-
-      <Article>
-        <TextContainer>
+      <div className="bg-gray-900">
+        <div className="relative w-full px-1 pt-24 pb-40 m-auto text-center text-white bg-gray-800">
           <Fade duration={800} delay={600}>
-            <span>{espacio.icono}</span>
-            <h1>{espacio.title}</h1>
-            <p>{espacio.excerpt.excerpt}</p>
+            <span className="text-6xl transform scale-125">
+              {espacio.icono}
+            </span>
+            <h1 className="m-0 mt-2 font-mono text-3xl font-bold text-center">
+              {espacio.title}
+            </h1>
+            <p className="hidden m-0 mt-2 font-serif text-2xl italic text-center opacity-75">
+              {espacio.excerpt.excerpt}
+            </p>
           </Fade>
 
           <div className="custom-shape-divider-bottom-1594014676">
@@ -44,24 +43,30 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
               ></path>
             </svg>
           </div>
-        </TextContainer>
-        {espacio.recursos ? (
-          <RecursosList>
-            {espacio.recursos.map((item, i) => (
-              <Fade duration={800} delay={600} key={item.slug}>
-                <CardRecursos card={item} />
-              </Fade>
-            ))}
-          </RecursosList>
-        ) : (
-          <div className="text-center text-blue-500 ">Proximamente</div>
-        )}
+        </div>
+        <div >
+          {espacio.recursos ? (
+            <div className="flex flex-col justify-center max-w-3xl pt-12 m-auto text-gray-200">
+              {espacio.recursos.map((item, i) => (
+                <Fade duration={800} delay={600} key={item.slug}>
+                  <CardRecursos card={item} />
+                </Fade>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-gray-500 ">Proximamente</div>
+          )}
+        </div>
 
         <div className="w-full max-w-2xl m-auto article" id={espacio.slug}>
-          <PageNav>
+          <div className="flex justify-between py-12">
             <div>
               {prev && (
-                <Link to={`/espacios/${kebabCase(prev.slug)}/`} rel="prev">
+                <Link
+                  to={`/espacios/${kebabCase(prev.slug)}/`}
+                  rel="prev"
+                  className="font-mono font-bold text-yellow-500 hover:text-white"
+                >
                   ← {prev.title}
                 </Link>
               )}
@@ -69,60 +74,21 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
 
             <div style={{ justifySelf: "flex-end" }}>
               {next && (
-                <Link to={`/espacios/${kebabCase(next.slug)}/`} rel="next">
+                <Link
+                  to={`/espacios/${kebabCase(next.slug)}/`}
+                  rel="next"
+                  className="font-mono font-bold text-yellow-500 hover:text-white"
+                >
                   {next.title} →
                 </Link>
               )}
             </div>
-          </PageNav>
+          </div>
         </div>
-      </Article>
+      </div>
     </Layout>
   )
 }
-
-const TextContainer = styled.header`
-  ${tw`relative w-full px-1 pt-24 pb-40 m-auto mb-2 text-center `}
-  ${tw`bg-blue-800`}
-  body.dark & {
-  }
-  span {
-    ${tw`text-6xl transform scale-125`}
-  }
-
-  h1 {
-    ${tw`m-0 mt-2 font-mono text-3xl font-bold text-center`}
-
-    ${tw`text-blue-100`}
-    body.dark & {
-    }
-  }
-
-  p {
-    ${tw`m-0 mt-2 font-serif text-2xl italic text-center opacity-75`}
-
-    ${tw`text-blue-100`}
-    body.dark & {
-    }
-  }
-`
-
-const RecursosList = styled.div`
-  ${tw`flex flex-col justify-center max-w-xl pt-12 m-auto`}
-  ${tw`text-blue-200`}
-  body.dark & {
-  }
-`
-
-const PageNav = styled.nav`
-  ${tw`flex justify-between py-12`}
-  a {
-    ${tw`font-mono font-bold`}
-  }
-  body.dark & a {
-    ${tw`text-blue-300`}
-  }
-`
 
 export default EspacioPostTemplate
 
@@ -135,6 +101,7 @@ export const pageQuery = graphql`
       excerpt {
         excerpt
       }
+      icono
       recursos {
         title
         slug
@@ -146,15 +113,8 @@ export const pageQuery = graphql`
           slug
           icono
         }
-        excerpt {
-          excerpt
-          childMarkdownRemark {
-            timeToRead
-            excerpt(pruneLength: 80)
-          }
-        }
         featuredImg {
-          fixed(width: 180, height: 180) {
+          fixed(width: 360, height: 250) {
             ...GatsbyContentfulFixed_withWebp_noBase64
           }
           fluid(maxWidth: 1500) {
@@ -162,11 +122,13 @@ export const pageQuery = graphql`
             ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
-      }
-
-      icono
-      childContentfulEspaciosSummaryRichTextNode {
-        json
+        excerpt {
+          excerpt
+          childMarkdownRemark {
+            timeToRead
+            excerpt(pruneLength: 80)
+          }
+        }
       }
     }
   }

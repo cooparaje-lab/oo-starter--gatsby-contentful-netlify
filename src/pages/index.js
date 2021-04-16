@@ -1,11 +1,6 @@
-import styled from "@emotion/styled"
-//import { Link } from "gatsby"
-import lottie from "lottie-web"
-import React, { useEffect } from "react"
-import tw from "twin.macro"
-import reactLogo from "../assets/animations/working-together.json"
+import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/Seo"
 import "./algolia.css"
 import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
 import PostPreview from "../components/postPreview"
@@ -18,31 +13,20 @@ const searchClient = algoliasearch(
 
 //import Fade from "react-reveal/Fade"
 const HomeComponent = () => {
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: document.querySelector("#react-logo"),
-      animationData: reactLogo,
-    })
-  }, [])
 
   return (
     <>
       <Layout>
-        <SEO title="Inicio" />
-
-        <Home>
+        <Seo title="Inicio" />
+        <div className="relative flex flex-col items-center justify-center py-6 text-center bg-gradient-to-r from-teal-400 to-gray-500">
           <div className="flex flex-col w-full py-6 md:pb-8 ">
-            <section className="container relative z-50 flex flex-col flex-1 w-full max-w-2xl min-h-screen mx-auto">
-              <div className="flex flex-col flex-1 h-full px-6">
+            <section className="container relative z-50 flex flex-col w-full max-w-2xl min-h-screen mx-auto overflow-x-hidden">
+              <div className="flex flex-col h-full px-0">
                 <div className="flex items-center flex-1">
                   <div className="">
                     <div className="w-full max-w-2xl mx-auto">
-                      <div className="max-w-sm p-6 pt-6 mx-auto">
-                        <div id="react-logo" className="w-64 h-full" />
-                      </div>
-
-                      <h1 className="font-serif text-4xl font-extrabold leading-tight md:text-6xl">
-                        Encontrar Recursos Libres & Gratuitos
+                      <h1 className="px-3 font-serif text-xl font-extrabold leading-tight text-left text-white md:text-center md:text-4xl">
+                        Colección de recursos gratuitos
                       </h1>
 
                       <div className="min-h-screen pt-8 md:pt-12">
@@ -51,11 +35,12 @@ const HomeComponent = () => {
                           indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
                         >
                           <SearchBox
-                            className="w-full mx-auto mb-6 text-left"
+                            className="w-full px-3 mx-auto mb-6 text-left"
                             translations={{
                               submitTitle: "Add your search query.",
                               resetTitle: "Reset your search query.",
-                              placeholder: 'Probá con "Juegos", "Arte", "Plantas", "Radios" y/o "etc"',
+                              placeholder:
+                                'Probá con "Juegos", "Arte", "Plantas", "Radios" y/o "etc"',
                             }}
                           />
                           <Hits
@@ -94,39 +79,10 @@ const HomeComponent = () => {
               ></path>
             </svg>
           </div>
-        </Home>
+        </div>
       </Layout>
     </>
   )
 }
 
 export default HomeComponent
-
-const Home = styled.div`
-  ${tw`relative flex flex-col items-center justify-center py-6 text-center bg-gradient-to-r from-teal-400 to-blue-500`}
-  min-height: 90vh;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-  body & {
-    ${tw`bg-blue-900 border-gray-800 from-teal-900 to-blue-900 `}
-
-    p {
-      ${tw`text-blue-300 `}
-    }
-    h1 {
-      ${tw`text-blue-100`}
-    }
-  }
-`
-/*
-const MainTitle = styled.div`
-  ${tw`mb-2`}
-
-  h1 {
-    ${tw`font-mono text-4xl`}
-
-    body.dark & {
-      ${tw`text-blue-100`}
-    }
-  }
-`
-*/

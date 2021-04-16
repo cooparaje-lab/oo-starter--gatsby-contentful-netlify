@@ -31,8 +31,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-layout`,
-    `gatsby-plugin-dark-mode`,
-
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -60,12 +59,6 @@ module.exports = {
         rule: {
           include: /assets/, // See below to configure properly
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts all options defined by `babel-plugin-emotion` plugin.
       },
     },
     `gatsby-transformer-sharp`,
@@ -96,7 +89,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-netlify-cache`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

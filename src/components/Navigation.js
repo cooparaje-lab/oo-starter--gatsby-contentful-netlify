@@ -23,11 +23,6 @@ const routes = [
     ariaLabel: "Ver todos los espacios",
   },
   {
-    title: "Articulos",
-    slug: "/articulos/",
-    ariaLabel: "Ver todos los espacios",
-  },
-  {
     title: "Etiquetas",
     slug: "/etiquetas/",
     ariaLabel: "Ver todas las etiquetas",
@@ -46,23 +41,12 @@ const Navigation = ({ closeMenu }) => (
           title={route.ariaLabel}
           aria-label={route.ariaLabel}
           to={route.slug}
-          className="my-2 font-mono text-white cursor-pointer hover:text-blue-300"
+          className="my-2 font-mono text-white cursor-pointer hover:text-gray-300"
         >
           {route.title}
         </Link>
       )
     })}
-    <Link
-      activeClassName="font-bold"
-      onClick={closeMenu}
-      alt="Licenca}ia"
-      title="Licenca}ia"
-      aria-label="Licenca}ia"
-      to={`/licencia`}
-      className="absolute bottom-0 py-6 my-2 font-mono text-white opacity-50 cursor-pointer hover:text-blue-300"
-    >
-      Licencia
-    </Link>
   </nav>
 )
 

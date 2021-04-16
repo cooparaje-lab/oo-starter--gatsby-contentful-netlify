@@ -517,8 +517,8 @@ a[class^="ais-"] {
 .ais-InfiniteResults-list,
 .ais-Hits-list,
 .ais-Results-list {
-  margin-top: -1rem;
-  margin-left: -1rem;
+  /* margin-top: -1rem;
+  margin-left: -1rem; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -536,8 +536,8 @@ a[class^="ais-"] {
 .ais-InfiniteResults-item,
 .ais-Hits-item,
 .ais-Results-item {
-  margin-top: 1rem;
-  margin-left: 1rem;
+  /* margin-top: 1rem;
+  margin-left: 1rem; */
   width: 100%;
   @apply shadow-lg;
 }

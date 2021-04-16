@@ -4,7 +4,7 @@ import React from "react"
 import Fade from "react-reveal/Fade"
 import CardRecursos from "../components/CardRecursos"
 import Layout from "../components/layout"
-import Seo from "../components/SEO"
+import Seo from "../components/seo"
 import "./post.css"
 
 const EspacioPostTemplate = ({ data, pageContext, location }) => {

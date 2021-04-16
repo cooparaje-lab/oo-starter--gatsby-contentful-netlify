@@ -6,7 +6,7 @@ import Slider from "react-slick"
 import reactLogo from "../../animations/working-together.json"
 import Layout from "../../components/layout"
 import PostPreview from "../../components/postPreview"
-import Seo from "../../components/SEO"
+import Seo from "../../components/seo"
 import EspaciosIcons from "../../queries/espaciosIcons"
 import "./algolia.css"
 

@@ -2,7 +2,7 @@ import { graphql, Link } from "gatsby"
 import { kebabCase } from "lodash"
 import React from "react"
 import Layout from "../components/layout"
-import Seo from "../components/SEO"
+import Seo from "../components/seo"
 
 const TagsPage = ({ data }) => {
   const allTags = data.allContentfulRecursos.group

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import Layout from "../components/layout"
-import Seo from "../components/SEO"
+import Seo from "../components/seo"
 import lottie from "lottie-web"
 import reactLogo from "../assets/animations/send-link.json"
 import Fade from "react-reveal/Fade"

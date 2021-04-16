@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Pager from "../components/pager"
 import CardRecursos from "../components/CardRecursos"
-import Seo from "../components/Seo"
+import Seo from "../components/SEO"
 import Fade from "react-reveal/Fade"
 
 const RecursosArchive = ({ data, pageContext, location }) => {

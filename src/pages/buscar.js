@@ -3,7 +3,7 @@ import React from "react"
 import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
 import Layout from "../components/layout"
 import PostPreview from "../components/postPreview"
-import Seo from "../components/Seo"
+import Seo from "../components/SEO"
 import "./algolia.css"
 import EspaciosIcons from "./espacios/EspaciosIcons"
 

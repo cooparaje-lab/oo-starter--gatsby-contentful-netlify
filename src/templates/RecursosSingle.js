@@ -8,7 +8,7 @@ import { GoLinkExternal } from "react-icons/go"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Fade from "react-reveal/Fade"
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import Seo from "../components/SEO"
 import "./post.css"
 import { Player, BigPlayButton } from "video-react"
 const RecursoPostTemplate = ({ data, pageContext, location }) => {

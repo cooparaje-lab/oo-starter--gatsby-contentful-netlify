@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import Seo from "../components/SEO"
 import "./algolia.css"
 import { Hits, InstantSearch, SearchBox } from "react-instantsearch-dom"
 import PostPreview from "../components/postPreview"

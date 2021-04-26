@@ -8,14 +8,14 @@ import "./header.css"
 import { BiSend } from "react-icons/bi"
 const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles className="bg-green-500">
-    <div className="flex items-center justify-between w-full px-3 py-2 m-auto ">
-      <div className="flex items-center font-sans text-xl font-bold isologo md:absolute ">
+    <div className="flex items-center justify-start w-full px-3 py-2 mx-auto md:justify-center ">
+      <div className="flex items-center font-sans text-xl font-bold isologo md:absolute left-2 ">
         <Logos className="duration-700 w-9 " />
         <Link className="inline-block ml-3 font-serif text-lg font-bold duration-700 opacity-80 hover:opacity-100" to="/">
           {siteTitle}
         </Link>
       </div>
-      <nav className="flex justify-center pl-6 mx-3 border-l border-gray-800 md:ml-40">
+      <nav className="flex justify-center pl-6 mx-3 border-l border-gray-800">
         <Link partiallyActive={true} activeClassName="active" to="/espacios">
           Espacios
         </Link>
@@ -38,7 +38,7 @@ const Header = ({ siteTitle }) => (
       >
         <span className="inline-flex items-center px-2 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
           <BiSend className="mr-2 text-xl text-yellow-800" />
-          <span className="hidden sm:inline-block">Sumar recurso</span>
+          <span className="inline-block">Sumar</span>
         </span>
         <span className="absolute top-0 right-0 flex w-3 h-3 -mt-1 -mr-1">
           <span className="absolute inline-flex w-full h-full bg-green-300 rounded-full opacity-75 animate-ping"></span>

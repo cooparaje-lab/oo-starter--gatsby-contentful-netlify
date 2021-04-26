@@ -20,12 +20,12 @@ const HomeComponent = () => {
         <Seo title="Inicio" />
         <div className="relative flex flex-col items-center justify-center py-6 text-center bg-gradient-to-r from-teal-400 to-gray-500">
           <div className="flex flex-col w-full py-6 md:pb-8 ">
-            <section className="container relative z-50 flex flex-col w-full max-w-2xl min-h-screen mx-auto overflow-x-hidden">
+            <section className="container relative z-50 flex flex-col w-full max-w-6xl min-h-screen mx-auto overflow-x-hidden">
               <div className="flex flex-col h-full px-0">
                 <div className="flex items-center flex-1">
                   <div className="">
-                    <div className="w-full max-w-2xl mx-auto">
-                      <h1 className="px-3 font-serif text-xl font-extrabold leading-tight text-left text-white md:text-center md:text-4xl">
+                    <div className="w-full max-w-6xl mx-auto">
+                      <h1 className="px-3 font-serif text-xl font-extrabold leading-tight text-left text-white md:text-center md:text-2xl">
                         Colección de recursos gratuitos
                       </h1>
 
@@ -35,7 +35,7 @@ const HomeComponent = () => {
                           indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
                         >
                           <SearchBox
-                            className="w-full px-3 mx-auto mb-6 text-left"
+                            className="w-full max-w-lg px-3 mx-auto mb-6 text-left"
                             translations={{
                               submitTitle: "Add your search query.",
                               resetTitle: "Reset your search query.",

@@ -17,7 +17,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
         description={`${espacio.excerpt.excerpt}`}
       />
       <div className="bg-gray-900">
-        <div className="relative w-full px-1 pt-24 pb-40 m-auto text-center text-white bg-gray-800">
+        <div className="relative w-full px-1 py-12 pb-12 m-auto text-center text-white bg-gray-800 md:pt-24 md:pb-40">
           <Fade duration={800} delay={600}>
             <span className="text-6xl transform scale-125">
               {espacio.icono}

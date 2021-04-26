@@ -17,6 +17,38 @@ if (!spaceId || !accessToken) {
   )
 }
 
+// gatsby-config.js
+const myQuery = `{
+  pages: allContentfulRecursos {
+    nodes {
+      objectID: id
+      featuredImg {
+        file {
+          url
+        }
+      }
+      title
+      slug
+      espacio {
+        title
+        icono
+      }
+      excerpt {
+        excerpt
+      }
+      tags
+    }
+  }
+}`
+
+const queries = [
+  {
+    query: myQuery,
+    transformer: ({ data }) => data.pages.nodes, // optional
+    indexName: "recursos", // overrides main index name, optional
+  },
+]
+
 module.exports = {
   siteMetadata: {
     title: `Cooparaje`,
@@ -87,6 +119,28 @@ module.exports = {
           "/*.css": ["cache-control: public, max-age=31536000, immutable"],
           "/sw.js": ["cache-control: public, max-age=0, must-revalidate"],
         },
+      },
+    },
+    {
+      // This plugin must be placed last in your list of plugins to ensure that it can query all the GraphQL data
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        // Use Admin API key without GATSBY_ prefix, so that the key isn't exposed in the application
+        // Tip: use Search API key with GATSBY_ prefix to access the service from within components
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries,
+        chunkSize: 10000, // default: 1000
+        settings: {
+          // optional, any index settings
+          // Note: by supplying settings, you will overwrite all existing settings on the index
+        },
+        enablePartialUpdates: true, // default: false
+        matchFields: ["slug", "modified", "espacio"], // Array<String> default: ['modified']
+        concurrentQueries: false, // default: true
+        skipIndexing: false, // default: false, useful for e.g. preview deploys or local development
+        continueOnFailure: false, // default: false, don't fail the build if algolia indexing fails
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

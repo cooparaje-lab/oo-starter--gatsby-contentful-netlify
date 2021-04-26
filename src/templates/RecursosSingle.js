@@ -23,7 +23,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
       />
 
       <div className="max-w-full m-auto ">
-        <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gray-900">
+        <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gray-900 bg-gradient-to-b from-gray-900 via-gray-800">
           <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl p-5 m-auto text-center">
             <div className="">
               {post.espacio ? (
@@ -87,7 +87,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
               </div>
             )}
           </div>
-          <div className="absolute top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left opacity-5">
+          <div className="absolute top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left opacity-10">
             <Img
               title={post.title}
               alt={post.title}
@@ -108,15 +108,15 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
           <div className="hidden"></div>
         )}
 
-        <div className="bottom-0 flex justify-between w-full p-6 py-2 m-auto md:fixed ">
+        <div className="z-50 flex justify-between w-full p-6 py-2 mx-auto ">
           <div className="flex items-end justify-start flex-1 w-full">
             {prev && (
               <Link
                 to={`/recursos/${kebabCase(prev.slug)}/`}
-                className="flex items-center px-4 py-2 font-mono font-bold text-white "
+                className="flex items-center px-4 py-2 font-mono text-sm font-bold text-white duration-700 hover:text-yellow-500 "
                 rel="prev"
               >
-                <span className="text-2xl">←</span> {prev.title} 
+                <span className="text-lg">←</span> {prev.title} 
               </Link>
             )}
           </div>
@@ -128,10 +128,10 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             {next && (
               <Link
                 to={`/recursos/${kebabCase(next.slug)}/`}
-                className="flex items-center px-4 py-2 font-mono font-bold text-right text-white"
+                className="flex items-center px-4 py-2 font-mono text-sm font-bold text-right text-white duration-700 hover:text-yellow-500"
                 rel="next"
               >
-                {next.title}  <span className="text-2xl">→</span>
+                {next.title}  <span className="text-lg">→</span>
               </Link>
             )}
           </div>

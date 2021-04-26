@@ -17,11 +17,16 @@ const SumarPage = () => {
     <>
       <Layout>
         <Seo title="Sumar" />
-        <div className='flex flex-col flex-wrap justify-center w-full pt-0 m-auto text-center '>
+        <div className="flex flex-col flex-wrap justify-center w-full pt-0 m-auto text-center bg-yellow-500 ">
           <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
 
-          <div className="relative z-10 pattern ">
-            <div className="max-w-xl mx-auto">
+          <div className="relative z-10 p-6 pattern ">
+            <div className="relative max-w-3xl mx-auto">
+              <div className="absolute grayscale">
+                <Fade duration={200} delay={200}>
+                  <div id="react-logo" style={{ width: 500, height: 500 }} />
+                </Fade>
+              </div>
               <Fade duration={800} delay={1500}>
                 <iframe
                   class="airtable-embed airtable-dynamic-height "
@@ -36,12 +41,9 @@ const SumarPage = () => {
             </div>
           </div>
         </div>
-
       </Layout>
     </>
   )
 }
-
-
 
 export default SumarPage

@@ -14,26 +14,16 @@ import "./darkTheme.css"
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="block min-h-screen pt-12 bg-gray-900">
+      <div className="block min-h-screen pt-10 bg-gray-900">
         <div>{children}</div>
-        <div className="py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
-          © {new Date().getFullYear()}, Realizado con{" "}
+        <footer className="flex flex-col justify-center px-2 py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
+          © {new Date().getFullYear()}, Realizado en un Paraje Libre
           <div>
             <HiCode className="inline-block mx-1 mb-1 text-lg " />
             <span className="mx-1">&</span>
             <AiOutlineHeart className="inline-block mx-1 mb-1 text-lg " />
           </div>
-          por
-          <a
-            href="https://www.santuan.com.ar/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mx-1 border-b border-gray-600 hover:text-red-600 hover:border-red-600"
-          >
-            santuan
-          </a>
-          en un Paraje Libre
-        </div>
+        </footer>
       </div>
     </>
   )

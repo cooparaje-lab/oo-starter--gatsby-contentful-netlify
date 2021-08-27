@@ -163,13 +163,6 @@ export const pageQuery = graphql`
               contentType
             }
           }
-          ... on ContentfulEspacios {
-            contentful_id
-            __typename
-            title
-            slug
-            icono
-          }
           ... on ContentfulRecursos {
             contentful_id
             __typename
@@ -184,7 +177,6 @@ export const pageQuery = graphql`
           }
         }
       }
-
       excerpt {
         excerpt
       }
@@ -193,7 +185,6 @@ export const pageQuery = graphql`
         slug
         icono
       }
-
       featuredImg {
         fixed(width: 1900, height: 1200) {
           ...GatsbyContentfulFixed_withWebp_noBase64
@@ -261,45 +252,26 @@ const options = {
       if (!node.data || !node.data.target) {
         return <span className="hidden">Embedded asset is broken</span>
       } else {
-        if (node.data.target.icono) {
-          return (
-            <div className="flex flex-col items-center justify-center w-full max-w-3xl p-4 mx-auto mb-6 duration-700 ease-in-out transform border border-gray-900 rounded-md from-gray-900 via-gray-900 bg-gradient-to-br hover:-translate-y-2 hover:bg-gray-900">
-              <div className="text-7xl">
-                {node.data.target.icono}
-              </div>
-              <div className="relative z-10 flex flex-col text-white">
-                <Link
-                  to={`/recursos/${node.data.target.slug}`}
-                  className="relative z-10 font-serif text-center text-white"
-                >
-                  <h3 style={{ margin: "0" }}>Espacio de {node.data.target.title}</h3>
-                </Link>
-              </div>
+        return (
+          <div className="relative flex flex-col-reverse items-center justify-center w-full max-w-3xl p-4 py-24 mx-auto mb-6 overflow-hidden duration-700 ease-in-out transform border border-gray-900 rounded-md md:flex-row from-gray-900 via-gray-900 bg-gradient-to-br hover:-translate-y-2 hover:bg-gray-900">
+            <div className="relative z-10 flex flex-col text-white">
+              <Link
+                to={`/recursos/${node.data.target.slug}`}
+                className="relative z-10 w-full font-serif text-center text-white no-underline"
+              >
+                <h3 style={{ margin: "0" }}>{node.data.target.title}</h3>
+              </Link>
             </div>
-          )
-        } else {
-          return (
-            <div className="relative flex flex-col-reverse items-center justify-center w-full max-w-3xl p-4 py-24 mx-auto mb-6 overflow-hidden duration-700 ease-in-out transform border border-gray-900 rounded-md md:flex-row from-gray-900 via-gray-900 bg-gradient-to-br hover:-translate-y-2 hover:bg-gray-900">
-              <div className="relative z-10 flex flex-col text-white">
-                <Link
-                  to={`/recursos/${node.data.target.slug}`}
-                  className="relative z-10 w-full font-serif text-center text-white no-underline"
-                >
-                  <h3 style={{ margin: "0" }}>{node.data.target.title}</h3>
-                </Link>
-              </div>
-              <div className="absolute inset-0 opacity-40">
-                <img
-                  className="object-cover w-full py-2 mx-auto"
-                  style={{ marginTop: "0", marginBottom: "0" }}
-                  alt={node.data.target.title}
-                  src={node.data.target.featuredImg.file.url}
-                />
-              </div>
+            <div className="absolute inset-0 opacity-40">
+              <img
+                className="object-cover w-full py-2 mx-auto"
+                style={{ marginTop: "0", marginBottom: "0" }}
+                alt={node.data.target.title}
+                src={node.data.target.featuredImg.file.url}
+              />
             </div>
-          )
-        }
-        
+          </div>
+        )
       }
     },
 

@@ -5,21 +5,15 @@ import { Helmet } from "react-helmet"
 import {
   InstantSearch,
   Hits,
-  SortBy,
-  HitsPerPage,
-  NumericMenu,
-  RangeSlider,
   ClearRefinements,
   SearchBox,
   RefinementList,
-  Pagination,
 } from "react-instantsearch-dom"
 import Layout from "../components/layout"
 import PostPreview from "../components/AlgoliaRecursos"
 import Seo from "../components/seo"
 import "./algolia.css"
 import EspaciosIcons from "./espacios/EspaciosIcons"
-import { Popover, Transition } from "@headlessui/react"
 
 const searchClient = algoliasearch(
   "K8WTAMXCZT",
@@ -41,7 +35,7 @@ const BuscarComponent = () => {
           <InstantSearch searchClient={searchClient} indexName="recursos">
             <div className="relative grid w-full min-h-screen grid-cols-5 gap-2 mx-auto overflow-hidden">
               <div className="relative hidden col-span-1 pt-2 text-white shadow-xl bg-gradient-to-b from-gray-800 to-gray-900 md:block">
-                <div className="mt-0 mb-2 ">
+                <div className="absolute bottom-0 w-full mt-0 mb-12 ">
                   <ClearRefinements
                     translations={{
                       reset: "Borrar filtros",
@@ -50,7 +44,6 @@ const BuscarComponent = () => {
                 </div>
                 <RefinementList
                   attribute="espacio.title"
-                  operator="and"
                   showMore={true}
                   showMoreLimit={100}
                   translations={{

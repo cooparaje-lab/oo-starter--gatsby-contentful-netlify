@@ -53,9 +53,18 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             </p>
 
             {post.article ? (
-              <div className="grid grid-cols-1 gap-3 ">
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 ">
+                {post.article && (
+                  <AnchorLink
+                    href={`#${kebabCase(post.slug)}`}
+                    className="flex items-center justify-center px-3 py-1 font-mono text-lg font-bold text-white transition-all duration-200 bg-yellow-500 hover:bg-yellow-600"
+                    aria-label="Ver mas informacion en detalle"
+                  >
+                    <span>Más detalles</span>
+                  </AnchorLink>
+                )}
                 <a
-                  className="flex items-center justify-center px-3 py-2 font-mono text-lg font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
+                  className="flex items-center justify-center px-3 py-1 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 rounded hover:bg-green-600"
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -63,20 +72,11 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                   <span className="text-white">visitar web</span>
                   <GoLinkExternal className="inline-block ml-2 text-white" />
                 </a>
-                {post.article && (
-                  <AnchorLink
-                    href={`#${kebabCase(post.slug)}`}
-                    className="flex items-center justify-center px-3 py-2 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 hover:bg-green-600"
-                    aria-label="Ver mas informacion en detalle"
-                  >
-                    <span>Más detalles</span>
-                  </AnchorLink>
-                )}
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-3">
                 <a
-                  className="flex items-center justify-center px-3 py-2 font-mono text-lg font-bold transition-all duration-200 bg-orange-500 hover:bg-orange-600"
+                  className="flex items-center justify-center px-3 py-1 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 rounded hover:bg-green-600"
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -108,7 +108,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
           <div className="hidden"></div>
         )}
 
-        <div className="z-50 flex justify-between w-full p-6 py-2 mx-auto ">
+        <div className="fixed bottom-0 z-50 flex justify-between w-full p-2 py-2 mx-auto bg-gray-900 bg-opacity-90 ">
           <div className="flex items-end justify-start flex-1 w-full">
             {prev && (
               <Link
@@ -116,7 +116,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 className="flex items-center px-4 py-2 font-mono text-sm font-bold text-white duration-700 hover:text-yellow-500 "
                 rel="prev"
               >
-                <span className="text-lg">←</span> {prev.title} 
+                <span className="text-lg">←</span> {prev.title}
               </Link>
             )}
           </div>
@@ -131,7 +131,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 className="flex items-center px-4 py-2 font-mono text-sm font-bold text-right text-white duration-700 hover:text-yellow-500"
                 rel="next"
               >
-                {next.title}  <span className="text-lg">→</span>
+                {next.title} <span className="text-lg">→</span>
               </Link>
             )}
           </div>
@@ -154,15 +154,37 @@ export const pageQuery = graphql`
       article {
         raw
         references {
-          contentful_id
-          __typename
-          title
-          file {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            title
+            file {
+              url
+              contentType
+            }
+          }
+          ... on ContentfulEspacios {
+            contentful_id
+            __typename
+            title
+            slug
+            icono
+          }
+          ... on ContentfulRecursos {
+            contentful_id
+            __typename
+            title
             url
-            contentType
+            slug
+            featuredImg {
+              file {
+                url
+              }
+            }
           }
         }
       }
+
       excerpt {
         excerpt
       }
@@ -192,7 +214,7 @@ const Bold = ({ children }) => <span className="font-bold">{children}</span>
 
 const Text = ({ children }) => <p className="px-2 text-white">{children}</p>
 
-const website_url = "https://www.santuan.com.ar"
+const website_url = "https://www.cooparaje.com.ar"
 
 const options = {
   renderMark: {
@@ -214,7 +236,7 @@ const options = {
         if (node.data.target.file.contentType === "video/mp4") {
           return (
             <div className="max-w-6xl p-0 mx-auto my-6 mb-12 aspect-h-9 aspect-w-16">
-              <Player src={node.data.target.file.url} loop={true} >
+              <Player src={node.data.target.file.url} loop={true}>
                 <BigPlayButton position="center" />
               </Player>
             </div>
@@ -239,26 +261,45 @@ const options = {
       if (!node.data || !node.data.target) {
         return <span className="hidden">Embedded asset is broken</span>
       } else {
-        return (
-          <div className="flex flex-col-reverse items-center justify-between w-full max-w-3xl p-4 mx-auto mb-6 duration-700 ease-in-out transform border border-gray-900 rounded-md md:flex-row from-gray-900 via-gray-900 bg-gradient-to-br hover:-translate-y-2 hover:bg-gray-900">
-            <div className="relative z-10 flex flex-col text-white">
-              <Link
-                to={`/colaboraciones/${node.data.target.slug}`}
-                className="relative z-10 font-serif text-center text-white"
-              >
-                <h3 style={{ margin: "0" }}>{node.data.target.title}</h3>
-              </Link>
+        if (node.data.target.icono) {
+          return (
+            <div className="flex flex-col items-center justify-center w-full max-w-3xl p-4 mx-auto mb-6 duration-700 ease-in-out transform border border-gray-900 rounded-md from-gray-900 via-gray-900 bg-gradient-to-br hover:-translate-y-2 hover:bg-gray-900">
+              <div className="text-7xl">
+                {node.data.target.icono}
+              </div>
+              <div className="relative z-10 flex flex-col text-white">
+                <Link
+                  to={`/recursos/${node.data.target.slug}`}
+                  className="relative z-10 font-serif text-center text-white"
+                >
+                  <h3 style={{ margin: "0" }}>Espacio de {node.data.target.title}</h3>
+                </Link>
+              </div>
             </div>
-            <div className="">
-              <img
-                className="object-cover w-auto h-32 py-2 mx-auto"
-                style={{ marginTop: "0", marginBottom: "0" }}
-                alt={node.data.target.title}
-                src={node.data.target.logo.file.url}
-              />
+          )
+        } else {
+          return (
+            <div className="relative flex flex-col-reverse items-center justify-center w-full max-w-3xl p-4 py-24 mx-auto mb-6 overflow-hidden duration-700 ease-in-out transform border border-gray-900 rounded-md md:flex-row from-gray-900 via-gray-900 bg-gradient-to-br hover:-translate-y-2 hover:bg-gray-900">
+              <div className="relative z-10 flex flex-col text-white">
+                <Link
+                  to={`/recursos/${node.data.target.slug}`}
+                  className="relative z-10 w-full font-serif text-center text-white no-underline"
+                >
+                  <h3 style={{ margin: "0" }}>{node.data.target.title}</h3>
+                </Link>
+              </div>
+              <div className="absolute inset-0 opacity-40">
+                <img
+                  className="object-cover w-full py-2 mx-auto"
+                  style={{ marginTop: "0", marginBottom: "0" }}
+                  alt={node.data.target.title}
+                  src={node.data.target.featuredImg.file.url}
+                />
+              </div>
             </div>
-          </div>
-        )
+          )
+        }
+        
       }
     },
 

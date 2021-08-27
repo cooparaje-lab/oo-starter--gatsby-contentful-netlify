@@ -7,11 +7,18 @@
   @apply text-white;
 }
 
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply px-2 text-white;
+}
 
 .article .post-image {
   text-align: center;
   @apply bg-green-800;
-
 }
 .article .post-image img {
   width: 100%;
@@ -71,7 +78,6 @@ footer {
   width: calc(167% + 1.3px);
   height: 134px;
 }
-
 
 .custom-shape-divider-bottom-1594014676 .shape-fill {
   @apply text-gray-900 fill-current;

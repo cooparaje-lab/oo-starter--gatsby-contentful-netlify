@@ -413,11 +413,13 @@ a[class^="ais-"] {
 }
 
 .ais-RefinementList-showMore {
-  @apply absolute left-0 right-0 top-8;
+  @apply absolute top-0 left-0 right-0;
 }
 
+.ais-RefinementList {
+@apply relative
+}
 .ais-RefinementList-list {
-
   overflow-y: auto;
   position: relative;
   max-height: 90vh;
@@ -578,7 +580,7 @@ a[class^="ais-"] {
 .ais-HierarchicalMenu-showMore,
 .ais-Menu-showMore,
 .ais-RefinementList-showMore {
-  @apply mt-4
+  @apply mt-0;
 }
 
 .ais-Highlight-highlighted,

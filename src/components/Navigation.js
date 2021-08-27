@@ -5,7 +5,7 @@ const routes = [
   {
     title: "Inicio",
     slug: "/",
-    ariaLabel: "Santuan - Volver al inicio",
+    ariaLabel: "Cooparaje - Volver al inicio",
   },
   {
     title: "Buscar",

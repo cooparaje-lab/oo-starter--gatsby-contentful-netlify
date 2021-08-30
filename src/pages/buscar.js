@@ -45,6 +45,7 @@ const BuscarComponent = () => {
                 <RefinementList
                   attribute="espacio.title"
                   showMore={true}
+                  operator="and"
                   showMoreLimit={100}
                   translations={{
                     showMore(expanded) {

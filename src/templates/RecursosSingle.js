@@ -8,6 +8,8 @@ import { GoLinkExternal } from "react-icons/go"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Fade from "react-reveal/Fade"
 import Layout from "../components/layout"
+import BannerSumar from "../components/Sumar/BannerSumar"
+
 import Seo from "../components/seo"
 import "./post.css"
 import { Player, BigPlayButton } from "video-react"
@@ -24,7 +26,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 
       <div className="max-w-full m-auto ">
         <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gray-900 bg-gradient-to-b from-gray-900 via-gray-800">
-          <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl p-5 m-auto text-center">
+          <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl p-5 pt-0 m-auto text-center">
             <div className="">
               {post.espacio ? (
                 <div className="flex justify-center text-lg text-left">
@@ -100,7 +102,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
         {post.article ? (
           <div
             id={post.slug}
-            className="max-w-3xl px-3 py-12 mx-auto mt-12 font-sans prose prose-lg md:prose-xl "
+            className="relative z-10 max-w-3xl px-10 py-12 mx-auto -mt-20 font-sans prose prose-lg bg-gray-900 md:prose-xl "
           >
             {post.article && renderRichText(post.article, options)}
           </div>
@@ -136,6 +138,8 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             )}
           </div>
         </div>
+        <BannerSumar/>
+
       </div>
     </Layout>
   )

@@ -7,6 +7,10 @@
   @apply text-white;
 }
 
+.prose video {
+  @apply mb-0 !important;
+}
+
 .prose h1,
 .prose h2,
 .prose h3,

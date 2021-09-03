@@ -11,13 +11,13 @@ const TagsPage = ({ data }) => {
     <Layout>
       <Seo title="Etiquetas" />
 
-      <div className="max-w-6xl min-h-screen pt-12 m-auto">
+      <div className="max-w-6xl min-h-screen px-6 py-12 mx-auto">
         <h1 className="mb-6 font-mono text-6xl text-gray-200">Etiquetas</h1>
-        <ul className="flex flex-col-reverse">
+        <ul className="grid grid-cols-3 gap-3 md:grid-cols-2 lg:grid-cols-3">
           {allTags.map((tag) => (
             <li
               key={tag.fieldValue}
-              className={`order-${tag.totalCount} pb-2 my-3 font-mono text-4xl font-thin leading-snug truncate`}
+              className={`order-${tag.totalCount} pb-2 my-3 font-mono text-xl font-thin leading-snug truncate`}
             >
               <Link
                 to={`/etiquetas/${kebabCase(tag.fieldValue)}/`}

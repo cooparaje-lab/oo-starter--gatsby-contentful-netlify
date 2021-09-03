@@ -3,6 +3,7 @@ import { kebabCase } from "lodash"
 import React from "react"
 import Fade from "react-reveal/Fade"
 import CardRecursos from "../components/CardRecursos"
+import BannerSumar from "../components/Sumar/BannerSumar"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import "./post.css"
@@ -44,7 +45,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
             </svg>
           </div>
         </div>
-        <div >
+        <div>
           {espacio.recursos ? (
             <div className="flex flex-col justify-center max-w-3xl pt-12 m-auto text-gray-200">
               {espacio.recursos.map((item, i) => (
@@ -85,6 +86,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
             </div>
           </div>
         </div>
+        <BannerSumar/>
       </div>
     </Layout>
   )

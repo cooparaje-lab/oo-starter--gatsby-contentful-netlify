@@ -10,7 +10,6 @@ const searchClient = algoliasearch(
   "K8WTAMXCZT",
   "91627040f2b233f6958fdbdbe2b6193d"
 )
-
 //import Fade from "react-reveal/Fade"
 const HomeComponent = () => {
 
@@ -32,7 +31,7 @@ const HomeComponent = () => {
                       <div className="min-h-screen pt-8 md:pt-6">
                         <InstantSearch
                           searchClient={searchClient}
-                          indexName="netlify_54fb5aee-2bc5-4d65-8da9-b519a0027d2c_master_all"
+                          indexName="recursos"
                         >
                           <SearchBox
                             className="w-full max-w-lg px-3 mx-auto mb-6 text-left"

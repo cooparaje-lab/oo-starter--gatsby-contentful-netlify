@@ -13,14 +13,14 @@ const PostPreview = ({ hit }) => {
           <Highlight hit={hit} attribute="title" tagName="mark" />
         </Link>
         <p className="mt-1 font-sans text-lg line-clamp-2">
-          <Highlight hit={hit} attribute="description" tagName="mark" />
+          <Highlight hit={hit} attribute="excerpt.excerpt" tagName="mark" />
         </p>
       </div>
       <Link  to={hit.url} className="w-64 h-40 duration-700 opacity-80 hover:opacity-50">
         <img
           className="block object-cover w-full h-full"
           alt={hit.title}
-          src={hit.image}
+          src={`https:${hit.featuredImg.file.url}?h=250&fm=png&q=80`}
         />
       </Link>
     </div>

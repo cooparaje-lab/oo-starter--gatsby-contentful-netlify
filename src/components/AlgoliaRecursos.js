@@ -23,7 +23,7 @@ const AlgoliaRecursos = ({ hit }) => {
         <img
           className="block object-cover w-full h-full"
           alt={hit.title}
-          src={hit.featuredImg.file.url}
+          src={`https:${hit.featuredImg.file.url}?h=250&fm=png&q=80`}
         />
       </Link>
     </div>

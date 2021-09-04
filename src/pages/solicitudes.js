@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import lottie from "lottie-web"
 import reactLogo from "../assets/animations/send-link.json"
-import Fade from "react-reveal/Fade"
+// import Fade from "react-reveal/Fade"
 
 const SumarPage = () => {
   useEffect(() => {
@@ -24,6 +24,7 @@ const SumarPage = () => {
               src="https://airtable.com/embed/shracdfhPNgfhblRW?backgroundColor=yellow&layout=card&viewControls=on"
               frameBorder="0"
               onmousewheel=""
+              title="Solicitudes"
               width="100%"
               height="533"
             ></iframe>

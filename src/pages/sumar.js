@@ -1,12 +1,11 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import lottie from "lottie-web"
-import reactLogo from "../assets/animations/send-link.json"
+// import lottie from "lottie-web"
+// import reactLogo from "../assets/animations/send-link.json"
 import Fade from "react-reveal/Fade"
 
 const SumarPage = () => {
-
 
   return (
     <>

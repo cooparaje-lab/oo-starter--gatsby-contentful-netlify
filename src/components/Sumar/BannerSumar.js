@@ -3,14 +3,16 @@ import React from "react"
 import { BiSend } from "react-icons/bi"
 
 const BannerSumar = () => (
-  <div className="relative z-10 py-32 overflow-hidden text-center text-white border-t border-b border-gray-700">
-    <h3 className="relative z-50 max-w-xl mx-auto mb-6 font-mono text-lg"> Si querés colaborar podes hacerlo desde aquí</h3>
+  <div className="relative z-10 flex flex-col items-center justify-center min-h-screen overflow-hidden text-center text-white border-t border-b border-gray-700">
+    <h3 className="relative z-50 max-w-xl mx-auto mb-6 font-mono text-3xl font-light">
+      Podes colaborar compartiendo un recurso o iniciar una búsqueda desde aquí.
+    </h3>
     <Link
       to="/sumar"
       className="relative z-50 transition-opacity duration-700 rounded-md shadow-sm"
     >
       <span className="inline-flex items-center px-2 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
-        <BiSend className="mr-2 text-xl text-yellow-800" />
+        <BiSend className="mr-2 text-xl text-yellow-800 transform -rotate-90" />
         <span className="inline-block">Sumar</span>
       </span>
     </Link>

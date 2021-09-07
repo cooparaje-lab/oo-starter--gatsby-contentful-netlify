@@ -6,6 +6,8 @@
  */
 import { HiCode } from "react-icons/hi"
 import React from "react"
+import { Link } from "gatsby"
+
 import PropTypes from "prop-types"
 import "./layout.css"
 import { AiOutlineHeart } from "react-icons/ai"
@@ -16,14 +18,15 @@ const Layout = ({ children }) => {
     <>
       <div className="block min-h-screen pt-10 bg-gray-900">
         <div>{children}</div>
-        <footer className="flex flex-col items-center justify-center px-2 py-6 pb-20 space-x-3 font-mono text-center text-gray-100 bg-gray-800">
-           Hecho en cooparaje
-          <div className="mx-1">
+        <footer className="relative z-50 flex flex-col items-center justify-center px-2 py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
+          <Link to="/hechoen" className="mb-3 border-b border-yellow-400">
+            {new Date().getFullYear()}© Hecho en cooparaje
+          </Link>
+          <div>
             <HiCode className="inline-block mx-1 mb-1 text-lg " />
             <span className="mx-1">&</span>
             <AiOutlineHeart className="inline-block mx-1 mb-1 text-lg " />
           </div>
-          {new Date().getFullYear()}©
         </footer>
       </div>
     </>

@@ -34,7 +34,7 @@ const Header = ({ siteTitle }) => (
         className="relative top-0 inline-flex transition-opacity duration-700 transform -translate-x-16 rounded-md shadow-sm right-1 md:-translate-x-0"
       >
         <span className="inline-flex items-center px-2 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
-          <BiSend className="mr-2 text-xl text-yellow-800" />
+          <BiSend className="mr-2 text-xl text-yellow-800 transform -rotate-90" />
           <span className="inline-block">Sumar</span>
         </span>
         <span className="absolute top-0 right-0 flex w-3 h-3 -mt-1 -mr-1">

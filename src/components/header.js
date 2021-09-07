@@ -22,9 +22,6 @@ const Header = ({ siteTitle }) => (
         <Link partiallyActive={true} activeClassName="active" to="/recursos">
           Recursos
         </Link>
-        <Link partiallyActive={true} activeClassName="active" to="/buscar">
-          Buscador
-        </Link>
         <Link partiallyActive={true} activeClassName="active" to="/etiquetas">
           Etiquetas
         </Link>

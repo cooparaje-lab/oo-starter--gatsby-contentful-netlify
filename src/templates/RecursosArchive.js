@@ -12,8 +12,11 @@ const RecursosArchive = ({ data, pageContext, location }) => {
   return (
     <Layout location={location}>
       <Seo title="Recursos" />
-      <div className="flex items-center justify-start w-full py-6 mb-2 text-center bg-gray-900">
+      <div className="flex flex-col items-center justify-start w-full py-6 mb-2 text-center bg-gray-900">
         <h1 className="w-full max-w-6xl px-8 pt-2 m-auto font-sans text-2xl font-bold text-center text-white">Últimos recursos encontrados</h1>
+        <h3 className="p-3 pt-2 pb-6 font-mono font-bold text-center text-gray-300 uppercase">
+          actualizado el {data.site.buildTime}
+        </h3>
       </div>
       <div className="grid justify-center w-full max-w-6xl grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-2">
         {Recurso.map(({ node }) => {
@@ -71,6 +74,9 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    site {
+      buildTime(locale: "es", formatString: "dddd Do - MMMM YYYY")
     }
   }
 `

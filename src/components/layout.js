@@ -16,13 +16,14 @@ const Layout = ({ children }) => {
     <>
       <div className="block min-h-screen pt-10 bg-gray-900">
         <div>{children}</div>
-        <footer className="flex flex-col justify-center px-2 py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
-          © {new Date().getFullYear()}, Realizado en un Paraje Libre
-          <div>
+        <footer className="flex flex-col items-center justify-center px-2 py-6 pb-20 space-x-3 font-mono text-center text-gray-100 bg-gray-800">
+           Hecho en cooparaje
+          <div className="mx-1">
             <HiCode className="inline-block mx-1 mb-1 text-lg " />
             <span className="mx-1">&</span>
             <AiOutlineHeart className="inline-block mx-1 mb-1 text-lg " />
           </div>
+          {new Date().getFullYear()}©
         </footer>
       </div>
     </>

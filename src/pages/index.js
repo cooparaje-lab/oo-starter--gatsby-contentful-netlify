@@ -25,11 +25,11 @@ const HomeComponent = () => {
         <div className="relative flex flex-col items-center justify-center py-6 text-center bg-gradient-to-r from-teal-400 to-gray-500">
           <div className="relative z-50 flex flex-col w-full py-6 md:pb-8 ">
             <div className="flex flex-col w-full min-h-screen px-0 pt-64">
-              <h1 className="w-full px-3 font-serif text-xl font-extrabold leading-tight text-left text-white md:text-center md:text-2xl">
+              <h1 className="w-full px-3 font-serif text-xl font-extrabold leading-tight text-center text-white md:text-2xl">
                 Una colección de recursos libres.
               </h1>
 
-              <div className="w-full max-w-6xl pt-8 mx-auto md:pt-6">
+              <div className="w-full max-w-6xl px-6 pt-8 mx-auto md:pt-6">
                 <InstantSearch searchClient={searchClient} indexName="recursos">
                   <SearchBox
                     className="w-full max-w-lg px-3 mx-auto mb-6 text-left"
@@ -82,7 +82,7 @@ const HomeComponent = () => {
             loop
             muted
             playsInline
-            className="z-0 opacity-40 md:opacity-10 backgroundVideoFixed"
+            className="z-0 opacity-5 backgroundVideoFixed"
             poster="https://res.cloudinary.com/srcouto/video/upload/c_scale,q_100,w_1600/v1628557649/encoder/sunset0001-0120_osaihl.jpg"
           >
             <source

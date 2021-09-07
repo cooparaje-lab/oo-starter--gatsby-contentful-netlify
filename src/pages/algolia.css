@@ -349,12 +349,12 @@ a[class^="ais-"] {
   @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white transition-all duration-700 bg-yellow-600 rounded outline-none;
 }
 .ais-ClearRefinements-button {
-  @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white transition-all duration-700 bg-red-700 rounded outline-none;
+  @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white transition-all duration-700 bg-gray-800 rounded outline-none;
 }
 
 .ais-ClearRefinements-button:hover,
 .ais-ClearRefinements-button:focus {
-  @apply bg-red-800 !important;
+  @apply bg-blue-600 !important;
 }
 
 .ais-ClearRefinements-button:hover,
@@ -388,7 +388,7 @@ a[class^="ais-"] {
 .ais-InfiniteResults-loadMore--disabled,
 .ais-Menu-showMore--disabled,
 .ais-RefinementList-showMore--disabled {
-  @apply cursor-not-allowed opacity-60;
+  @apply cursor-not-allowed bg-opacity-60;
 }
 .ais-ClearRefinements-button--disabled:hover,
 .ais-ClearRefinements-button--disabled:focus,

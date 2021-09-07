@@ -22,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allContentfulRecursos(sort: {order: DESC, fields: createdAt}) {
+            allContentfulRecursos(sort: {order: DESC, fields: updatedAt}) {
               edges {
                 node {
                   id
@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            allContentfulEspacios(sort: {order: DESC, fields: createdAt}) {
+            allContentfulEspacios(sort: {order: DESC, fields: updatedAt}) {
               edges {
                 node {
                   id

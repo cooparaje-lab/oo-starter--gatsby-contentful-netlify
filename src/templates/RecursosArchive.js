@@ -13,15 +13,20 @@ const RecursosArchive = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <Seo title="Recursos" />
       <div className="flex flex-col items-center justify-start w-full py-6 mb-2 text-center bg-gray-900">
-        <h1 className="w-full max-w-6xl px-8 pt-2 m-auto font-sans text-2xl font-bold text-center text-white">Últimos recursos encontrados</h1>
+        <h1 className="w-full max-w-6xl px-8 pt-8 m-auto font-sans text-2xl font-bold text-center text-white">
+          Actualizados recientemente{" "}
+        </h1>
         <h3 className="p-3 pt-2 pb-6 font-mono font-bold text-center text-gray-300 uppercase">
-          actualizado el {data.site.buildTime}
+          {data.site.buildTime}
         </h3>
       </div>
       <div className="grid justify-center w-full max-w-6xl grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-2">
         {Recurso.map(({ node }) => {
           return (
-            <div className="relative w-full px-3 overflow-hidden text-center md:mb-3 " key={node.slug}>
+            <div
+              className="relative w-full px-3 overflow-hidden text-center md:mb-3 "
+              key={node.slug}
+            >
               <Fade cascade>
                 <CardRecursos card={node} />
               </Fade>
@@ -37,9 +42,9 @@ const RecursosArchive = ({ data, pageContext, location }) => {
 export default RecursosArchive
 
 export const pageQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query ($skip: Int!, $limit: Int!) {
     allContentfulRecursos(
-      sort: { fields: createdAt, order: DESC }
+      sort: { fields: updatedAt, order: DESC }
       limit: $limit
       skip: $skip
     ) {
@@ -76,7 +81,7 @@ export const pageQuery = graphql`
       }
     }
     site {
-      buildTime(locale: "es", formatString: "dddd Do - MMMM YYYY")
+      buildTime(locale: "es", formatString: "Do MMMM YYYY")
     }
   }
 `

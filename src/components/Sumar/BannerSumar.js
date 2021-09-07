@@ -4,8 +4,7 @@ import { BiSend } from "react-icons/bi"
 
 const BannerSumar = () => (
   <div className="relative z-10 py-32 overflow-hidden text-center text-white border-t border-b border-gray-700">
-    <h3 className="relative z-50 mb-6 font-mono text-3xl font-bold">Como sumar</h3>
-    <h3 className="relative z-50 max-w-xl mx-auto mb-6 font-mono text-lg">Si conoces o estas buscando algún recurso que no encontraste. Esta abierta la posibilidad de sumar e iniciar una búsqueda conjunta.</h3>
+    <h3 className="relative z-50 max-w-xl mx-auto mb-6 font-mono text-lg"> Si querés colaborar podes hacerlo desde aquí</h3>
     <Link
       to="/sumar"
       className="relative z-50 transition-opacity duration-700 rounded-md shadow-sm"

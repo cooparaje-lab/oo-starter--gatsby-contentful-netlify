@@ -39,7 +39,7 @@ body.resources-tables .bm-burger-button {
 }
 
 .headroom nav a {
-  @apply hidden mx-2 font-mono text-base font-bold lg:mx-2 lg:text-base md:inline-block;
+  @apply hidden mx-2 font-mono text-base font-bold lg:mx-4 lg:text-base md:inline-block;
 }
 
 .headroom nav a:hover {

@@ -11,7 +11,7 @@ const EspaciosIndexPage = ({ data }) => {
     <Layout>
       <Seo title="Todos los Espacios" />
       <div>
-        <h3 className="p-3 pt-6 pb-20 font-mono font-bold text-center text-gray-300 uppercase">
+        <h3 className="p-3 py-16 font-mono font-bold text-center text-gray-300 uppercase">
           Última actualización {data.site.buildTime}
         </h3>
         <div className="grid max-w-6xl grid-cols-2 gap-3 px-3 pb-12 m-auto md:grid-cols-4">

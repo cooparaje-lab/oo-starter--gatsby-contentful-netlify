@@ -29,7 +29,7 @@ const HomeComponent = () => {
                 Una colección de recursos libres.
               </h1>
 
-              <div className="max-w-6xl pt-8 mx-auto md:pt-6">
+              <div className="w-full max-w-6xl pt-8 mx-auto md:pt-6">
                 <InstantSearch searchClient={searchClient} indexName="recursos">
                   <SearchBox
                     className="w-full max-w-lg px-3 mx-auto mb-6 text-left"

@@ -23,7 +23,7 @@ const TagsPage = ({ data }) => {
                 to={`/etiquetas/${kebabCase(tag.fieldValue)}/`}
                 className="text-gray-100 hover:text-gray-200"
               >
-                {tag.fieldValue} ({tag.totalCount})
+                #{tag.fieldValue} ({tag.totalCount})
               </Link>
             </li>
           ))}

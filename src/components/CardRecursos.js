@@ -44,7 +44,7 @@ const CardRecursos = ({ card }) => (
         </Link>
 
         <a
-          className="absolute bottom-0 right-0 flex items-center justify-center px-3 py-2 font-mono text-xs font-bold text-white transition-all duration-200 bg-green-600 rounded hover:bg-green-700"
+          className="absolute bottom-0 right-0 z-20 flex items-center justify-center px-3 py-2 font-mono text-xs font-bold text-white transition-all duration-200 bg-green-600 rounded hover:bg-green-700"
           href={card.url}
           target="_blank"
           rel="noopener noreferrer"
@@ -77,7 +77,7 @@ const CardRecursos = ({ card }) => (
         </div>
       )}
       {card.languageEnglish && (
-        <div className="absolute bottom-0 left-0 right-0 z-50 block px-6 py-1 font-mono text-sm font-bold text-left text-green-200 bg-green-900 opacity-75 bg-opacity-20">
+        <div className="absolute bottom-0 left-0 right-0 z-10 block px-6 py-2 pt-1 font-mono text-sm font-bold text-left text-green-200 bg-green-900 opacity-75 bg-opacity-20">
           Contenido en Inglés
         </div>
       )}

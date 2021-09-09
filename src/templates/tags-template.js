@@ -50,6 +50,7 @@ export const pageQuery = graphql`
           id
           title
           slug
+          url
           tags
           languageEnglish
           excerpt {

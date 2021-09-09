@@ -3,7 +3,7 @@ import React from "react"
 import { BiSend } from "react-icons/bi"
 
 const BannerSumar = () => (
-  <div className="relative z-10 flex flex-col items-center justify-center min-h-screen overflow-hidden text-center text-white border-t border-b border-gray-700">
+  <div className="relative z-10 flex flex-col items-center justify-center py-32 pt-48 overflow-hidden text-center text-gray-900 bg-yellow-600 border-t border-b border-gray-700">
     <h3 className="relative z-50 max-w-xl mx-auto mb-6 font-mono text-3xl font-light">
       Podes colaborar compartiendo un recurso o iniciar una búsqueda desde aquí.
     </h3>
@@ -21,7 +21,7 @@ const BannerSumar = () => (
       loop
       muted
       playsInline
-      className="opacity-10 md:opacity-5 backgroundVideo"
+      className="opacity-10 md:opacity-10 backgroundVideo"
       poster="https://res.cloudinary.com/srcouto/video/upload/c_scale,q_100,w_1600/v1628557649/encoder/sunset0001-0120_osaihl.jpg"
     >
       <source

@@ -14,31 +14,44 @@ const EspaciosIndexPage = ({ data }) => {
         <h3 className="p-3 py-16 font-mono font-bold text-center text-gray-300 uppercase">
           Última actualización {data.site.buildTime}
         </h3>
-        <div className="grid max-w-6xl grid-cols-2 gap-3 px-3 pb-12 m-auto md:grid-cols-4">
+        <div className="grid max-w-6xl grid-cols-2 gap-8 px-3 pb-12 m-auto md:grid-cols-4">
           {allEspacios.map((item) => (
-            <Link
-              to={`/espacios/${kebabCase(item.node.slug)}/`}
-              className="flex items-center justify-center w-full m-auto font-mono text-lg font-thin leading-snug text-center duration-700 bg-gray-800 border border-gray-900 shadow-md cursor-pointer hover:from-gray-900 hover:via-gray-900 hover:bg-gray-700 from-gray-700 via-gray-800 bg-gradient-to-br"
+            <div
+              className=""
               key={item.node.id}
             >
               {item.node.recursos ? (
-                <div className="block pt-1 text-gray-100">
-                  <span className="block my-2 mt-3 text-4xl">
-                    {item.node.icono}
-                  </span>
-                  <b className="block py-2 mb-3 font-bold">{item.node.title}</b>
-                </div>
+                <Link
+                  to={`/espacios/${kebabCase(item.node.slug)}/`}
+                  className="flex items-center justify-center w-full m-auto font-mono text-lg font-thin leading-snug text-center transition-all duration-700 transform bg-gray-800 border border-gray-900 shadow-md cursor-pointer hover:from-gray-900 hover:via-gray-900 hover:bg-gray-700 from-gray-700 via-gray-800 bg-gradient-to-br"
+                  key={item.node.id}
+                >
+                  <div className="block pt-1 text-gray-100">
+                    <span className="block my-2 mt-3 text-4xl">
+                      {item.node.icono}
+                    </span>
+                    <b className="block py-2 mb-3 font-bold">
+                      {item.node.title}
+                    </b>
+                  </div>
+                </Link>
               ) : (
+                <div
+                  className="flex items-center justify-center w-full m-auto font-mono text-lg font-thin leading-snug text-center transition-all duration-700 transform bg-gray-800 border border-gray-900 shadow-md from-gray-800 via-gray-900 bg-gradient-to-br"
+                  key={item.node.id}
+                >
                 <div className="block pt-1 text-gray-100 ">
-                  <span className="block my-2 mt-3 text-4xl opacity-25">
+                  <span className="block my-2 mt-3 text-4xl opacity-25" style={{filter: "grayscale(1)"}}>
                     {item.node.icono}
                   </span>
-                  <b className="block py-2 mb-3 font-bold text-gray-100">
+                  <b className="block py-2 mb-3 font-bold text-gray-100 opacity-25">
                     {item.node.title}
                   </b>
                 </div>
+                </div>
+
               )}
-            </Link>
+            </div>
           ))}
         </div>
       </div>

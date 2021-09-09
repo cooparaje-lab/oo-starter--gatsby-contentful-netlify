@@ -13,14 +13,14 @@ const RecursosArchive = ({ data, pageContext, location }) => {
     <Layout location={location}>
       <Seo title="Recursos" />
       <div className="flex flex-col items-center justify-start w-full py-6 mb-2 text-center bg-gray-900">
-        <h1 className="w-full max-w-6xl px-8 pt-8 m-auto font-sans text-2xl font-bold text-center text-white">
+        <h1 className="w-full px-8 pt-8 m-auto font-sans text-2xl font-bold text-center text-white max-w-7xl">
           Actualizados recientemente{" "}
         </h1>
         <h3 className="p-3 pt-2 pb-6 font-mono font-bold text-center text-gray-300 uppercase">
           {data.site.buildTime}
         </h3>
       </div>
-      <div className="grid justify-center w-full max-w-6xl grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-2">
+      <div className="grid justify-center w-full max-w-6xl grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-1">
         {Recurso.map(({ node }) => {
           return (
             <div
@@ -64,6 +64,7 @@ export const pageQuery = graphql`
               excerpt(pruneLength: 150)
             }
           }
+          languageEnglish
           espacio {
             title
             slug

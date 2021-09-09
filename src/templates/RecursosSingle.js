@@ -50,9 +50,23 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             <h1 className="pt-0 m-0 mt-2 mb-3 font-serif text-4xl font-bold text-center text-white">
               {post.title}
             </h1>
-            <p className="max-w-xl mx-auto mt-3 mb-6 font-sans text-3xl text-center text-white ">
+            <p className="max-w-xl mx-auto mt-3 mb-2 font-sans text-3xl text-center text-white ">
               {post.excerpt.excerpt}
             </p>
+
+            {post.languageEnglish && (
+              <div className="flex flex-col w-full max-w-md pt-2 mx-auto mt-2 mb-6 font-mono font-bold text-green-100 uppercase duration-200 bg-gray-900 rounded group hover:bg-green-900 hover:text-green-600">
+                Contenido en Inglés
+                <a
+                  href={`https://translate.google.com/translate?sl=auto&tl=es&u=${post.url}`}
+                  target="_blank"
+                  className="py-1 text-green-500 duration-200 border-b-2 border-green-500 group-hover:border-green-100 group-hover:text-green-100"
+                  rel="noopener noreferrer"
+                >
+                  auto-traducir al español
+                </a>
+              </div>
+            )}
 
             {post.article ? (
               <div className="grid grid-cols-1 gap-3 md:grid-cols-2 ">
@@ -89,6 +103,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
               </div>
             )}
           </div>
+
           <div className="absolute top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left opacity-10">
             <Img
               title={post.title}
@@ -110,7 +125,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
           <div className="hidden"></div>
         )}
 
-        <div className="fixed bottom-0 z-50 flex justify-between w-full p-2 py-2 mx-auto bg-gray-900 bg-opacity-90 ">
+        <div className="relative bottom-0 z-50 flex justify-between w-full p-2 py-2 mx-auto bg-gray-900 bg-opacity-90 ">
           <div className="flex items-end justify-start flex-1 w-full">
             {prev && (
               <Link
@@ -118,11 +133,24 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 className="flex items-center px-4 py-2 font-mono text-sm font-bold text-white duration-700 hover:text-yellow-500 "
                 rel="prev"
               >
-                <span className="text-lg">←</span> {prev.title}
+                <span className="mr-2 text-lg">←</span> {prev.title}
               </Link>
             )}
           </div>
-
+          {post.tags && (
+            <div className="relative flex items-center justify-center w-full px-3 space-x-2 duration-200 bg-gray-900 bg-opacity-60 hover:bg-opacity-90">
+              {post.tags.map((tag, i) => [
+                <Link
+                  to={`/etiquetas/${kebabCase(tag)}/`}
+                  key={i}
+                  className="inline-block px-3 py-1 my-2 font-mono text-xs font-bold text-white uppercase bg-gray-700 rounded hover:text-yellow-500"
+                >
+                  #{tag}
+                  {i < post.tags.length - 1 ? "" : ""}
+                </Link>,
+              ])}
+            </div>
+          )}
           <div
             className="flex items-end justify-end flex-1 w-full"
             style={{ justifySelf: "flex-end" }}
@@ -133,13 +161,12 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 className="flex items-center px-4 py-2 font-mono text-sm font-bold text-right text-white duration-700 hover:text-yellow-500"
                 rel="next"
               >
-                {next.title} <span className="text-lg">→</span>
+                {next.title} <span className="ml-2 text-lg">→</span>
               </Link>
             )}
           </div>
         </div>
-        <BannerSumar/>
-
+        <BannerSumar />
       </div>
     </Layout>
   )
@@ -155,6 +182,7 @@ export const pageQuery = graphql`
       slug
       url
       tags
+      languageEnglish
       article {
         raw
         references {

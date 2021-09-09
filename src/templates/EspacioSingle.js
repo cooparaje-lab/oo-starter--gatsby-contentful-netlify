@@ -47,7 +47,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
         </div>
         <div>
           {espacio.recursos ? (
-            <div className="flex flex-col justify-center max-w-3xl pt-12 m-auto text-gray-200">
+            <div className="flex flex-col justify-center max-w-6xl pt-12 m-auto text-gray-200">
               {espacio.recursos.map((item, i) => (
                 <Fade duration={800} delay={600} key={item.slug}>
                   <CardRecursos card={item} />
@@ -86,7 +86,7 @@ const EspacioPostTemplate = ({ data, pageContext, location }) => {
             </div>
           </div>
         </div>
-        <BannerSumar/>
+        <BannerSumar />
       </div>
     </Layout>
   )
@@ -107,6 +107,8 @@ export const pageQuery = graphql`
       recursos {
         title
         slug
+        tags
+        languageEnglish
         url
         createdAt(locale: "es", formatString: "Do MMMM, YYYY")
         category

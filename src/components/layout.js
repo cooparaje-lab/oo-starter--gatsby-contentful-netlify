@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
     <>
       <div className="block min-h-screen pt-10 bg-gray-900">
         <div>{children}</div>
-        <footer className="relative z-50 flex flex-col items-center justify-center px-2 py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
+        <footer className="relative z-10 flex flex-col items-center justify-center px-2 py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
           <Link to="/hechoen" className="mb-3 border-b border-yellow-400">
             {new Date().getFullYear()}© Hecho en cooparaje
           </Link>

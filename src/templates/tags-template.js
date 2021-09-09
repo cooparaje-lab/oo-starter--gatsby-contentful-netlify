@@ -14,7 +14,7 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <Seo title={`Etiqueta ${tag}`} />
 
-      <div className="max-w-2xl min-h-screen pt-12 m-auto">
+      <div className="w-full max-w-6xl min-h-screen py-12 mx-auto">
         <h1 className="mb-12 font-mono text-xl text-center text-gray-200">{tagHeader}</h1>
         <div>
           {edges.map(({ node }) => {
@@ -51,12 +51,12 @@ export const pageQuery = graphql`
           title
           slug
           tags
-
+          languageEnglish
           excerpt {
             excerpt
             childMarkdownRemark {
               timeToRead
-              excerpt(pruneLength: 80)
+              excerpt(pruneLength: 160)
             }
           }
           espacio {

@@ -21,12 +21,13 @@ if (!spaceId || !accessToken) {
 const myQuery = `{
   pages: allContentfulRecursos {
     nodes {
-      objectID: id
+      objectID: id  
       featuredImg {
         file {
           url
         }
       }
+      url
       title
       slug
       espacio {

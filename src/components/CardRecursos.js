@@ -15,8 +15,6 @@ const CardRecursos = ({ card }) => (
         />
       </Link>
 
-      
-
       {card.tags && (
         <div className="absolute bottom-0 left-0 right-0 w-full mt-0 duration-200 opacity-0 group-hover:opacity-100 md:mt-0">
           <div className="relative flex items-center justify-center w-full px-3 duration-200 bg-gray-900 bg-opacity-60 hover:bg-opacity-90">
@@ -79,6 +77,20 @@ const CardRecursos = ({ card }) => (
       {card.languageEnglish && (
         <div className="absolute bottom-0 left-0 right-0 z-10 block px-6 py-2 pt-1 font-mono text-sm font-bold text-left text-green-200 bg-green-900 opacity-75 bg-opacity-20">
           Contenido en Inglés
+        </div>
+      )}
+
+      {card.languageEnglish && (
+        <div className="absolute bottom-0 left-0 right-0 z-10 block px-6 py-2 pt-1 font-mono text-sm font-bold text-left text-green-200 bg-green-900 opacity-75 bg-opacity-20 group">
+          Contenido en Inglés
+          <a
+            href={`https://translate.google.com/translate?sl=auto&tl=es&u=${card.url}`}
+            target="_blank"
+            className="py-1 ml-2 text-green-500 duration-200 border-b-2 border-green-500 group-hover:border-green-100 group-hover:text-green-100"
+            rel="noopener noreferrer"
+          >
+            auto-traducir al español
+          </a>
         </div>
       )}
 

@@ -27,7 +27,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
       <div className="max-w-full m-auto ">
         <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gray-900 bg-gradient-to-b from-gray-900 via-gray-800">
           <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl p-5 pt-0 m-auto text-center">
-            <div className="">
+            <div>
               {post.espacio ? (
                 <div className="flex justify-center text-lg text-left">
                   {post.espacio.map((item, i) => (
@@ -50,23 +50,9 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             <h1 className="pt-0 m-0 mt-2 mb-3 font-serif text-4xl font-bold text-center text-white">
               {post.title}
             </h1>
-            <p className="max-w-xl mx-auto mt-3 mb-2 font-sans text-3xl text-center text-white ">
+            <p className="max-w-xl mx-auto mt-3 mb-6 font-sans text-3xl text-center text-white ">
               {post.excerpt.excerpt}
             </p>
-
-            {post.languageEnglish && (
-              <div className="flex flex-col w-full max-w-md pt-2 mx-auto mt-2 mb-6 font-mono font-bold text-green-100 uppercase duration-200 bg-gray-900 rounded group hover:bg-green-900 hover:text-green-600">
-                Contenido en Inglés
-                <a
-                  href={`https://translate.google.com/translate?sl=auto&tl=es&u=${post.url}`}
-                  target="_blank"
-                  className="py-1 text-green-500 duration-200 border-b-2 border-green-500 group-hover:border-green-100 group-hover:text-green-100"
-                  rel="noopener noreferrer"
-                >
-                  auto-traducir al español
-                </a>
-              </div>
-            )}
 
             {post.article ? (
               <div className="grid grid-cols-1 gap-3 md:grid-cols-2 ">
@@ -99,6 +85,19 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 >
                   <span className="text-white">visitar web</span>
                   <GoLinkExternal className="inline-block ml-2 text-white" />
+                </a>
+              </div>
+            )}
+            {post.languageEnglish && (
+              <div className="flex flex-col w-full max-w-md pt-2 mx-auto my-6 mt-6 font-mono font-bold text-green-100 uppercase duration-200 bg-gray-900 rounded group hover:bg-green-900 hover:text-green-600">
+                En Inglés
+                <a
+                  href={`https://translate.google.com/translate?sl=auto&tl=es&u=${post.url}`}
+                  target="_blank"
+                  className="py-1 text-green-500 duration-200 border-b-2 border-green-500 group-hover:border-green-100 group-hover:text-green-100"
+                  rel="noopener noreferrer"
+                >
+                  auto-traducir al español
                 </a>
               </div>
             )}

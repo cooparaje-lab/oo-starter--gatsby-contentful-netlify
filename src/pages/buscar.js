@@ -38,7 +38,7 @@ const BuscarComponent = () => {
                 <div className="absolute bottom-0 w-full mt-0 mb-12 ">
                   <ClearRefinements
                     translations={{
-                      reset: "Borrar filtros",
+                      reset: "Eliminar filtros",
                     }}
                   />
                 </div>

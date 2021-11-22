@@ -38,8 +38,8 @@ const Header = ({ siteTitle }) => (
           <span className="inline-block">Sumar</span>
         </span>
         <span className="absolute top-0 right-0 flex w-3 h-3 -mt-1 -mr-1">
-          <span className="absolute inline-flex w-full h-full bg-green-300 rounded-full opacity-75 animate-ping"></span>
-          <span className="relative inline-flex w-3 h-3 bg-green-500 rounded-full"></span>
+          <span className="absolute inline-flex w-full h-full bg-indigo-300 rounded-full opacity-75 animate-ping"></span>
+          <span className="relative inline-flex w-3 h-3 bg-indigo-500 rounded-full"></span>
         </span>
       </Link>
     </div>

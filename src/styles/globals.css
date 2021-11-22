@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .backgroundVideo {
   object-fit: cover;
   width: 100vw;

@@ -87,6 +87,7 @@ body.searcher {
 .ais-SearchBox-reset[disabled],
 .ais-VoiceSearch-button[disabled] {
   cursor: default;
+  @apply opacity-0;
 }
 
 .ais-Breadcrumb-list,
@@ -250,11 +251,11 @@ a[class^="ais-"] {
 }
 
 .ais-RefinementList-label {
-  @apply inline-flex items-center w-full px-2 py-2 font-sans border-b border-gray-700 cursor-pointer;
+  @apply inline-flex items-center w-full px-2 py-2 font-mono border-b border-gray-700 cursor-pointer;
 }
 
 .ais-RefinementList-labelText {
-  @apply w-full px-3;
+  @apply w-full px-3 font-normal text-left;
 }
 
 .ais-RefinementList-count {
@@ -346,15 +347,15 @@ a[class^="ais-"] {
 .ais-InfiniteResults-loadMore,
 .ais-Menu-showMore,
 .ais-RefinementList-showMore {
-  @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white transition-all duration-700 bg-yellow-600 rounded outline-none;
+  @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white uppercase transition-all duration-700 bg-yellow-600 rounded outline-none;
 }
 .ais-ClearRefinements-button {
-  @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white transition-all duration-700 bg-gray-800 rounded outline-none;
+  @apply block w-24 px-1 py-2 font-mono text-xs font-bold text-white transition-all duration-700 bg-gray-800 rounded outline-none;
 }
 
 .ais-ClearRefinements-button:hover,
 .ais-ClearRefinements-button:focus {
-  @apply bg-blue-600 !important;
+  @apply bg-gray-600 !important;
 }
 
 .ais-ClearRefinements-button:hover,
@@ -599,7 +600,7 @@ a[class^="ais-"] {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; */
-  @apply grid grid-cols-1 gap-3 lg:grid-cols-2;
+  @apply grid grid-cols-1 gap-3 lg:grid-cols-2 2xl:grid-cols-3;
 }
 .ais-Panel-body .ais-InfiniteHits-list,
 .ais-Panel-body .ais-InfiniteResults-list,
@@ -875,7 +876,7 @@ a[class^="ais-"] {
   -moz-appearance: none;
   appearance: none;
   /*padding: 0.5rem 2rem;*/
-  @apply px-8 py-2 font-serif text-base text-gray-900;
+  @apply px-8 py-2 font-mono text-base text-gray-900;
   width: 100%;
   position: relative;
   background-color: #fff;

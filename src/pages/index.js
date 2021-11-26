@@ -73,9 +73,9 @@ const HomeComponent = ({ data, pageContext, location }) => {
         <Seo title="Inicio" />
         <div className="relative flex flex-col items-center justify-center py-3 text-center bg-gradient-to-r from-teal-400 to-gray-500">
           <div className="relative z-50 flex flex-col w-full pb-6 md:pb-8 ">
-            <div className="flex flex-col items-center justify-center pt-32 bg-gradient-to-b from-indigo-800 to-transparent ">
-              <p className="pb-6 font-mono font-bold text-green-50">
-                Última actualización el {data.site.buildTime}
+            <div className="flex flex-col items-center justify-center px-3 pt-32 bg-gradient-to-b from-indigo-800 to-transparent ">
+              <p className="pb-6 font-mono font-bold opacity-60 text-green-50">
+                Última actualización <br/> el {data.site.buildTime}
               </p>
               <div className="max-w-2xl mx-auto">
                 {Recurso.map(({ node }) => {

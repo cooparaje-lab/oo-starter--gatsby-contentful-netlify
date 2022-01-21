@@ -77,7 +77,7 @@ const HomeComponent = ({ data, pageContext, location }) => {
               <p className="pb-6 font-mono font-bold opacity-60 text-green-50">
                 Última actualización <br/> el {data.site.buildTime}
               </p>
-              <div className="max-w-2xl mx-auto">
+              <div className="w-full max-w-2xl mx-auto">
                 {Recurso.map(({ node }) => {
                   return (
                     <Fade cascade>

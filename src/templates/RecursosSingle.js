@@ -9,7 +9,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll"
 import Fade from "react-reveal/Fade"
 import Layout from "../components/layout"
 import BannerSumar from "../components/Sumar/BannerSumar"
-
+import { SRLWrapper } from "simple-react-lightbox"
 import Seo from "../components/seo"
 import "./post.css"
 import { Player, BigPlayButton } from "video-react"
@@ -112,17 +112,18 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             />
           </div>
         </div>
-
-        {post.article ? (
-          <div
-            id={post.slug}
-            className="relative z-10 max-w-3xl px-10 py-12 mx-auto -mt-20 font-sans prose prose-lg bg-gray-900 md:prose-xl "
-          >
-            {post.article && renderRichText(post.article, options)}
-          </div>
-        ) : (
-          <div className="hidden"></div>
-        )}
+        <SRLWrapper options={options}>
+          {post.article ? (
+            <div
+              id={post.slug}
+              className="relative z-10 max-w-3xl px-10 py-12 mx-auto -mt-20 font-sans prose prose-lg bg-gray-900 md:prose-xl "
+            >
+              {post.article && renderRichText(post.article, options)}
+            </div>
+          ) : (
+            <div className="hidden"></div>
+          )}
+        </SRLWrapper>
 
         <div className="relative bottom-0 z-50 flex justify-between w-full p-2 py-2 mx-auto bg-gray-900 bg-opacity-90 ">
           <div className="flex items-end justify-start flex-1 w-full">
@@ -266,7 +267,7 @@ const options = {
         } else {
           return (
             <div>
-              <div className="relative overflow-hidden rounded-md cursor-pointer post-image">
+              <div className="relative overflow-hidden rounded-md cursor-pointer hover:opacity-80 post-image">
                 <img
                   className="w-full mx-auto"
                   alt={node.data.target.title}
@@ -323,5 +324,50 @@ const options = {
       )
     },
     [BLOCKS.PARAGRAPH]: (_, children) => <Text>{children}</Text>,
+  },
+  buttons: {
+    iconPadding: "5px",
+    showDownloadButton: false,
+    backgroundColor: "rgba(0, 0, 0, .5)",
+    iconColor: "rgba(255, 255, 255, 0.8)",
+    showNextButton: true,
+    showPrevButton: true,
+  },
+  caption: {
+    captionFontSize: "15px",
+    captionAlignment: "center",
+    captionColor: "#a7825f",
+    captionFontWeight: 300,
+    showCaption: false,
+  },
+  settings: {
+    overlayColor: "rgba(0, 0, 0, .9)",
+    transitionTimingFunction: "ease-in-out",
+    slideTransitionSpeed: 0.6,
+    slideTransitionTimingFunction: [0.25, 0.75, 0.5, 1],
+    slideAnimationType: "fade",
+    slideSpringValues: [300, 200],
+    autoplaySpeed: 4000,
+    disablePanzoom: true,
+    hideControlsAfter: true,
+  },
+  translations: {
+    autoplayText: "Play",
+    closeText: "Cerrar",
+    downloadText: "Descargar",
+    fullscreenText: "Pantalla completa",
+    nextText: "Siguiente",
+    pauseText: "Pausa",
+    previousText: "Anterior",
+    thumbnailsText: "Miniaturas",
+    zoomOutText: "Zoom Out",
+  },
+  progressBar: {
+    height: "4px",
+    fillColor: "rgb(0, 0, 0)",
+    backgroundColor: "rgba(255, 255, 255, 1)",
+  },
+  thumbnails: {
+    showThumbnails: true,
   },
 }

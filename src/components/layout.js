@@ -7,7 +7,7 @@
 import { HiCode } from "react-icons/hi"
 import React from "react"
 import { Link } from "gatsby"
-
+import SimpleReactLightbox from "simple-react-lightbox"
 import PropTypes from "prop-types"
 import "./layout.css"
 import { AiOutlineHeart } from "react-icons/ai"
@@ -17,7 +17,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="block min-h-screen pt-10 bg-gray-900">
-        <div>{children}</div>
+        <SimpleReactLightbox>
+          <div>{children}</div>
+        </SimpleReactLightbox>
         <footer className="relative z-10 flex flex-col items-center justify-center px-2 py-6 pb-20 font-mono text-center text-gray-100 bg-gray-800">
           <Link to="/hechoen" className="mb-3 border-b border-yellow-400">
             {new Date().getFullYear()}© Hecho en cooparaje

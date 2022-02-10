@@ -20,6 +20,10 @@
   @apply px-2 text-white;
 }
 
+.prose .post-image img {
+  @apply my-2;
+}
+
 .article .post-image {
   text-align: center;
   @apply bg-green-800;
@@ -27,7 +31,6 @@
 .article .post-image img {
   width: 100%;
 }
-
 
 .custom-shape-divider-bottom {
   position: absolute;

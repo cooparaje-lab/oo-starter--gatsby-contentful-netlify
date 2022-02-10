@@ -22,7 +22,7 @@ const CardRecursos = ({ card }) => (
               <Link
                 to={`/etiquetas/${kebabCase(tag)}/`}
                 key={i}
-                className="inline-block px-3 py-1 my-2 font-mono text-sm font-bold text-white uppercase hover:text-yellow-500"
+                className="inline-block px-3 py-1 my-2 font-mono text-xs font-bold text-white uppercase hover:text-yellow-500"
               >
                 #{tag}
                 {i < card.tags.length - 1 ? "" : ""}
@@ -32,7 +32,7 @@ const CardRecursos = ({ card }) => (
         </div>
       )}
     </div>
-    <div className="relative z-10 flex flex-col justify-start w-full px-6 py-2 pb-12 md:pb-3">
+    <div className="relative z-10 flex flex-col justify-start w-full px-6 py-2 pb-12 md:pb-6">
       <div className="flex items-baseline justify-between w-full mt-2 mb-1">
         <Link
           to={`/recursos/${card.slug}`}

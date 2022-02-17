@@ -5,7 +5,11 @@ import { BiSend } from "react-icons/bi"
 const BannerSumar = () => (
   <div className="relative z-10 flex flex-col items-center justify-center py-32 pt-48 overflow-hidden text-center text-gray-900 bg-yellow-600 border-t border-b border-gray-700">
     <h3 className="relative z-50 max-w-xl mx-auto mb-6 font-mono text-3xl font-light">
-      Podes colaborar compartiendo un recurso o iniciar una búsqueda desde aquí.
+      Podes colaborar compartiendo un recurso o iniciar una búsqueda{" "}
+      <Link to="/sumar" className="border-b-2 border-current hover:opacity-80">
+        desde aquí
+      </Link>
+      .
     </h3>
     <Link
       to="/sumar"

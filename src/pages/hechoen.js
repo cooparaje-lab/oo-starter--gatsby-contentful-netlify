@@ -18,7 +18,14 @@ const NotFoundPage = () => {
             <small className="uppercase">(arg)</small>
           </p>
           <p className="my-6 font-mono prose-xl">
-          Podes colaborar compartiendo un recurso o iniciar una búsqueda desde aquí.
+            Podes colaborar compartiendo un recurso o iniciar una búsqueda{" "}
+            <Link
+              to="/sumar"
+              className="border-b-2 border-current hover:opacity-80"
+            >
+              desde aquí
+            </Link>
+            .
           </p>
           <Link
             to="/sumar"

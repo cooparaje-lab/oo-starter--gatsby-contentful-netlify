@@ -15,7 +15,7 @@ const NotFoundPage = () => {
           </h1>
           <p className="font-mono prose-xl">
             El costo de mantenimiento mensual de este sitio es de $12
-            <small className="uppercase">(arg)</small>
+            <small className="uppercase">(arg)</small>/mes
           </p>
           <p className="my-6 font-mono prose-xl">
             Podes colaborar compartiendo un recurso o iniciar una búsqueda{" "}

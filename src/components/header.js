@@ -25,6 +25,9 @@ const Header = ({ siteTitle }) => (
         <Link partiallyActive={true} activeClassName="active" to="/etiquetas">
           Etiquetas
         </Link>
+        <Link partiallyActive={true} activeClassName="active" to="/solicitudes">
+          Solicitudes
+        </Link>
       </nav>
 
       <Link

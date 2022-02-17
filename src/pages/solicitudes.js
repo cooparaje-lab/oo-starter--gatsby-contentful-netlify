@@ -18,10 +18,10 @@ const SumarPage = () => {
       <Layout>
         <Seo title="Solicitudes" />
         <div className="flex flex-col flex-wrap justify-start w-full min-h-screen pt-0 m-auto text-center">
-          <div className="relative z-10 w-full max-w-2xl p-2 pt-12 mx-auto pattern ">
+          <div className="relative z-10 w-full max-w-6xl p-2 pt-6 mx-auto overflow-hidden rounded md:pt-12 pattern ">
             <iframe
-              class="airtable-embed"
-              src="https://airtable.com/embed/shracdfhPNgfhblRW?backgroundColor=yellow&layout=card&viewControls=on"
+              className="relative overflow-hidden rounded-lg airtable-embed"
+              src="https://airtable.com/embed/shracdfhPNgfhblRW?backgroundColor=yellow"
               frameBorder="0"
               onmousewheel=""
               title="Solicitudes"

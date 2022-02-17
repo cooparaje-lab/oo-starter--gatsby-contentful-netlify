@@ -1,12 +1,11 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { kebabCase } from "lodash"
 import React from "react"
-import ReactTooltip from "react-tooltip"
 
 const EspaciosIconComponent = () => {
   const data = useStaticQuery(graphql`
     query QueryEspaciosIconQuery {
-      espacios: allContentfulEspacios {
+      espacios: allContentfulEspacios(sort: {fields: title, order: ASC}) {
         edges {
           node {
             title
@@ -29,17 +28,16 @@ const EspaciosIconComponent = () => {
           <Link
             to={`/espacios/${kebabCase(node.slug)}/`}
             key={node.slug}
-            data-tip={node.title}
-            className="flex flex-col items-center justify-center pt-1 mx-2 text-center text-gray-100 opacity-50 hover:opacity-100 hover:text-gray-500"
+            className="flex flex-col items-center justify-center w-32 px-4 pt-1 mx-2 text-center text-gray-100 duration-300 opacity-100 hover:opacity-80 hover:text-gray-500"
           >
-            <ReactTooltip
-              place="bottom"
-              type="dark"
-              effect="solid"
-              className="bg-red-500 shadow"
-            />
-            <span className="block my-2 mt-3 text-4xl ">{node.icono}</span>
-            <b className="hidden py-2 mb-3 font-bold">{node.title}</b>
+            <span
+              role="img"
+              aria-label={node.title}
+              className="block my-2 mt-3 text-4xl "
+            >
+              {node.icono}
+            </span>
+            <b className="py-2 mb-3 font-mono font-bold ">{node.title}</b>
           </Link>
         )
       })}

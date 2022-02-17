@@ -1,6 +1,6 @@
 body.resources-tables .bm-burger-button {
-    top: 15px;
-  }
+  top: 15px;
+}
 
 .headroom-wrapper {
   position: absolute;
@@ -15,7 +15,7 @@ body.resources-tables .bm-burger-button {
   /*transition: all 800ms ease-in-out;*/
   @apply transition-transform duration-700 bg-white shadow-sm;
 }
-.headroom--unfixed {
+/* .headroom--unfixed {
   position: relative;
   transform: translateY(0);
 }
@@ -25,8 +25,20 @@ body.resources-tables .bm-burger-button {
   position: fixed;
 
   transform: translateY(0);
+} */
+
+.headroom--unpinned {
+  /* transform: translateY(-100%);*/
+  backdrop-filter: blur(0) !important;
+  pointer-events: none;
 }
 
+.headroom--unpinned .inner-wrapper {
+  opacity: 0;
+  transition-delay: 0s;
+}
+
+/* 
 @screen md {
   .headroom--unpinned {
     transform: translateY(-100%);
@@ -35,6 +47,25 @@ body.resources-tables .bm-burger-button {
 }
 .headroom--pinned {
   position: fixed;
+  transform: translateY(0%);
+} */
+
+@screen md {
+  .headroom--unpinned {
+    /* transform: translateY(-100%);*/
+    background: transparent !important;
+    backdrop-filter: blur(0) !important;
+    pointer-events: none;
+  }
+
+  .headroom--unpinned .inner-wrapper {
+    opacity: 0;
+    transition-delay: 0s;
+  }
+}
+.headroom--pinned {
+  position: fixed;
+  @apply bg-opacity-60;
   transform: translateY(0%);
 }
 

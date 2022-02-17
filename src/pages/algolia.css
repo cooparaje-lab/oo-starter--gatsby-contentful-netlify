@@ -3,9 +3,6 @@ body.searcher footer{
 }
 
 
-body.searcher {
-  @apply overflow-hidden;
-}
 
 .ais-Breadcrumb-list,
 .ais-CurrentRefinements-list,
@@ -279,7 +276,7 @@ a[class^="ais-"] {
   flex-shrink: 0;
   height: 1rem;
   width: 1rem;
-  @apply text-yellow-500 bg-white border-white;
+  @apply text-green-500 bg-white border-white;
   border-width: 1px;
   border-radius: 0.25rem;
 }
@@ -302,7 +299,7 @@ a[class^="ais-"] {
 }
 
 .ais-RefinementList-item--selected .ais-RefinementList-labelText {
-  @apply text-yellow-500 font-bold !important;
+  @apply text-green-500 font-bold !important;
 }
 
 .ais-Breadcrumb-item--selected,
@@ -347,15 +344,15 @@ a[class^="ais-"] {
 .ais-InfiniteResults-loadMore,
 .ais-Menu-showMore,
 .ais-RefinementList-showMore {
-  @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white uppercase transition-all duration-700 bg-yellow-600 rounded outline-none;
+  @apply block w-full px-5 py-2 font-mono text-sm font-bold text-white uppercase transition-all duration-700 bg-green-600 rounded outline-none;
 }
 .ais-ClearRefinements-button {
-  @apply block w-24 px-1 py-2 font-mono text-xs font-bold text-white transition-all duration-700 bg-gray-800 rounded outline-none;
+  @apply block w-24 px-1 py-2 font-mono text-xs font-bold text-white transition-all duration-700 bg-red-800 rounded outline-none;
 }
 
 .ais-ClearRefinements-button:hover,
 .ais-ClearRefinements-button:focus {
-  @apply bg-gray-600 !important;
+  @apply bg-red-600 !important;
 }
 
 .ais-ClearRefinements-button:hover,
@@ -378,7 +375,7 @@ a[class^="ais-"] {
 .ais-Menu-showMore:focus,
 .ais-RefinementList-showMore:hover,
 .ais-RefinementList-showMore:focus {
-  @apply bg-yellow-600;
+  @apply bg-green-600;
 }
 
 .ais-ClearRefinements-button--disabled,
@@ -407,7 +404,7 @@ a[class^="ais-"] {
 .ais-Menu-showMore--disabled:focus,
 .ais-RefinementList-showMore--disabled:hover,
 .ais-RefinementList-showMore--disabled:focus {
-  @apply bg-yellow-600;
+  @apply bg-green-600;
 }
 .ais-InfiniteHits-loadPrevious--disabled {
   display: none;
@@ -426,7 +423,7 @@ a[class^="ais-"] {
   max-height: 90vh;
   height: 100%;
   padding-top: 36px;
-  padding-bottom: 44px;
+  @apply md:pb-11;
 }
 
 .ais-CurrentRefinements {
@@ -600,7 +597,7 @@ a[class^="ais-"] {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; */
-  @apply grid grid-cols-1 gap-3 lg:grid-cols-2 2xl:grid-cols-3;
+  @apply grid grid-cols-1 gap-3 lg:grid-cols-2 2xl:grid-cols-2;
 }
 .ais-Panel-body .ais-InfiniteHits-list,
 .ais-Panel-body .ais-InfiniteResults-list,

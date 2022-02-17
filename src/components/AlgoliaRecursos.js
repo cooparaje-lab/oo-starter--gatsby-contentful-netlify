@@ -4,7 +4,7 @@ import { Highlight } from "react-instantsearch-dom"
 
 const AlgoliaRecursos = ({ hit }) => {
   return (
-    <div className="relative flex text-left text-gray-100 bg-gray-900 bg-gradient-to-br from-gray-800 via-gray-800 ">
+    <div className="relative flex w-full text-left text-gray-100 bg-gray-900 bg-gradient-to-br from-gray-800 via-gray-800 ">
       <div className="relative z-40 w-full p-6 text-left">
         <Link
           to={`/recursos/${(hit.slug)}/`}
@@ -12,7 +12,7 @@ const AlgoliaRecursos = ({ hit }) => {
         >
           <Highlight hit={hit} attribute="title" tagName="mark" />
         </Link>
-        <p className="mt-1 font-sans text-lg line-clamp-4 xl:line-clamp-none 2xl:text-xl 2xl:mt-3">
+        <p className="mt-1 font-sans text-base line-clamp-4 2xl:text-xl 2xl:mt-3">
           <Highlight hit={hit} attribute="excerpt.excerpt" tagName="mark" />
         </p>
         <p className="mt-1 font-sans text-lg">

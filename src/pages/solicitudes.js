@@ -18,7 +18,7 @@ const SumarPage = () => {
       <Layout>
         <Seo title="Solicitudes" />
         <div className="flex flex-col flex-wrap justify-start w-full min-h-screen pt-0 m-auto text-center">
-          <div className="relative z-10 w-full max-w-6xl p-2 pt-6 mx-auto overflow-hidden rounded md:pt-12 pattern ">
+          <div className="relative z-10 w-full max-w-full p-2 mx-auto overflow-hidden rounded md:pt-6 pattern ">
             <iframe
               className="relative overflow-hidden rounded-lg airtable-embed"
               src="https://airtable.com/embed/shracdfhPNgfhblRW?backgroundColor=yellow"

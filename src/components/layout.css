@@ -8,8 +8,12 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
+.__react_component_tooltip {
+  @apply font-mono font-bold;
+}
 
 *::-webkit-scrollbar {
   width: 5px;
@@ -23,6 +27,18 @@ body {
   @apply bg-yellow-300;
 }
 
+
+.espaciosIcons::-webkit-scrollbar {
+  height: 4px !important;
+}
+
+.espaciosIcons::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+.espaciosIcons::-webkit-scrollbar-thumb {
+  @apply bg-yellow-300;
+}
 
 @charset "UTF-8";
 .video-react .video-react-big-play-button:before,
@@ -52,7 +68,7 @@ body {
 }
 
 .slick-arrow {
-  @apply absolute bottom-0 z-50 hidden p-3 text-3xl text-gray-500 md:block;
+  @apply absolute z-50 hidden p-3 text-3xl text-gray-500 bg-gray-900 -top-2.5 md:block;
 }
 
 .slick-arrow-right {

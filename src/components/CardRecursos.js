@@ -42,16 +42,16 @@ const CardRecursos = ({ card }) => (
         </Link>
 
         <a
-          className="absolute bottom-0 right-0 z-20 flex items-center justify-center px-3 py-2 font-mono text-xs font-bold text-white transition-all duration-200 bg-green-600 rounded hover:bg-green-700"
+          className="absolute left-0 z-20 flex items-center justify-center px-3 py-2 mx-6 font-mono text-xs font-bold text-white transition-all duration-200 bg-green-600 rounded bottom-2 hover:bg-green-700"
           href={card.url}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className="text-white">ir al sitio</span>
+          <span className="text-white">Link al sitio</span>
           <GoLinkExternal className="inline-block ml-2 text-white" />
         </a>
       </div>
-      <p className="mb-3 font-sans text-xl text-left text-gray-100 line-clamp-3">
+      <p className="mb-1 font-sans text-xl text-left text-gray-100 line-clamp-3">
         {card.excerpt.childMarkdownRemark.excerpt}
       </p>
 
@@ -74,7 +74,7 @@ const CardRecursos = ({ card }) => (
           ])}
         </div>
       )}
-      {card.languageEnglish && (
+      {/* {card.languageEnglish && (
         <div className="absolute bottom-0 left-0 right-0 z-10 block px-6 py-2 pt-1 font-mono text-sm font-bold text-left text-green-200 bg-green-900 opacity-75 bg-opacity-20 group">
           Contenido en Inglés
           <a
@@ -86,7 +86,7 @@ const CardRecursos = ({ card }) => (
             auto-traducir al español
           </a>
         </div>
-      )}
+      )} */}
 
       <b className="hidden py-2 font-mono text-sm font-bold">{card.category}</b>
     </div>

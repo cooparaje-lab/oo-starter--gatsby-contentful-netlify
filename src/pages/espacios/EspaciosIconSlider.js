@@ -61,7 +61,7 @@ const EspaciosIconSliderComponent = () => {
     className: "center",
     pauseOnHover: true,
     variableWidth: true,
-    autoplay: true,
+    autoplay: false,
     swipeToSlide: true,
     speed: 5000,
     cssEase: "linear",
@@ -70,6 +70,7 @@ const EspaciosIconSliderComponent = () => {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -87,7 +88,9 @@ const EspaciosIconSliderComponent = () => {
           slidesToScroll: 1,
           initialSlide: 1,
           dots: false,
+          arrows: true,
         },
+        
       },
       {
         breakpoint: 480,
@@ -95,6 +98,7 @@ const EspaciosIconSliderComponent = () => {
           slidesToShow: 6,
           slidesToScroll: 1,
           dots: false,
+          arrows: true,
         },
       },
     ],
@@ -124,10 +128,10 @@ const EspaciosIconSliderComponent = () => {
               <Link
                 to={`/espacios/${kebabCase(node.slug)}/`}
                 key={node.slug}
-                data-tip={node.title}
-                className="flex flex-col items-center justify-center pt-1 mx-2 text-center text-gray-100 transition-all duration-200 transform opacity-50 hover:text-gray-500 hover:opacity-100"
+                data-tip={`Ir al espacio ${kebabCase(node.slug)}`}
+                className="flex flex-col items-center justify-center pt-1 mx-2 font-bold text-center text-gray-100 transition-all duration-200 transform opacity-50 hover:text-gray-500 hover:opacity-100"
               >
-                <span className="block my-2 mt-3 text-xl">{node.icono}</span>
+                <span role="img" aria-label={node.title} className="block pb-1 my-0 text-3xl">{node.icono}</span>
                 <b className="hidden py-2 mb-3 font-bold">{node.title}</b>
               </Link>
             )

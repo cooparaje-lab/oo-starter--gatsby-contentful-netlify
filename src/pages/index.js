@@ -11,11 +11,12 @@ import {
 } from "react-instantsearch-dom"
 import PostPreview from "../components/postPreview"
 import algoliasearch from "algoliasearch/lite"
-import { graphql} from "gatsby"
+import { graphql } from "gatsby"
 import Fade from "react-reveal/Fade"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import { VscFoldDown } from "react-icons/vsc"
 import CardRecursos from "../components/CardRecursos"
+import EspaciosIcons from "./espacios/EspaciosIcons"
 
 export const pageQuery = graphql`
   query LastResoourseWidget {
@@ -73,9 +74,9 @@ const HomeComponent = ({ data, pageContext, location }) => {
         <Seo title="Inicio" />
         <div className="relative flex flex-col items-center justify-center py-3 text-center bg-gradient-to-r from-teal-400 to-gray-500">
           <div className="relative z-50 flex flex-col w-full pb-6 md:pb-8 ">
-            <div className="flex flex-col items-center justify-center px-3 pt-32 bg-gradient-to-b from-indigo-800 to-transparent ">
-              <p className="pb-6 font-mono font-bold opacity-60 text-green-50">
-                Última actualización <br/> el {data.site.buildTime}
+            <div className="flex flex-col items-center justify-center px-3 pt-20 pb-12 bg-gradient-to-b from-indigo-800 to-transparent ">
+              <p className="pb-3 font-mono font-bold text-white opacity-80">
+                Actualizado el {data.site.buildTime}
               </p>
               <div className="w-full max-w-3xl mx-auto">
                 {Recurso.map(({ node }) => {
@@ -91,12 +92,18 @@ const HomeComponent = ({ data, pageContext, location }) => {
                 aria-label="Buscador"
                 className="mt-6 font-serif text-3xl text-center text-white md:text-4xl"
               >
-                <VscFoldDown className="animate-pulse "/>
+                <VscFoldDown className="animate-pulse " />
               </AnchorLink>
             </div>
-            <div className="flex flex-col w-full min-h-screen px-0 pt-32">
+            <div className="group">
+              <span className="hidden font-mono text-xs text-white duration-1000 opacity-0 group-hover:opacity-100 md:block">Desplazar: Shift + scroll mouse</span>
+              <div className="relative flex items-center justify-start w-full py-1 mt-1 overflow-x-auto overflow-y-hidden bg-gray-800 border-t-2 border-b-2 border-gray-900 espaciosIcons">
+                <EspaciosIcons />
+              </div>
+            </div>
+            <div className="flex flex-col w-full min-h-screen px-0 pt-0">
               <div
-                className="w-full max-w-full px-6 pt-24 mx-auto md:pt-6"
+                className="w-full max-w-full px-6 pt-6 mx-auto md:pt-6"
                 id="buscador"
               >
                 <InstantSearch searchClient={searchClient} indexName="recursos">

@@ -252,7 +252,7 @@ a[class^="ais-"] {
 }
 
 .ais-RefinementList-labelText {
-  @apply w-full px-3 font-normal text-left;
+  @apply w-full px-3 font-serif text-base font-normal text-left;
 }
 
 .ais-RefinementList-count {
@@ -411,7 +411,7 @@ a[class^="ais-"] {
 }
 
 .ais-RefinementList-showMore {
-  @apply absolute top-0 left-0 right-0;
+  @apply absolute left-0 right-0 bottom-2;
 }
 
 .ais-RefinementList {
@@ -420,10 +420,8 @@ a[class^="ais-"] {
 .ais-RefinementList-list {
   overflow-y: auto;
   position: relative;
-  max-height: 90vh;
   height: 100%;
-  padding-top: 36px;
-  @apply md:pb-11;
+  @apply pt-2 md:pb-11;
 }
 
 .ais-CurrentRefinements {
@@ -873,11 +871,10 @@ a[class^="ais-"] {
   -moz-appearance: none;
   appearance: none;
   /*padding: 0.5rem 2rem;*/
-  @apply px-8 py-2 font-mono text-base text-gray-900;
+  @apply px-8 py-2 font-mono text-base text-gray-900 bg-gray-100 ring-transparent ring-2 focus:ring-yellow-600;
   width: 100%;
   position: relative;
-  background-color: #fff;
-  border: 1px solid #c4c8d8;
+  /* background-color: #fff; */
   border-radius: 5px;
 }
 .ais-SearchBox-input::-webkit-input-placeholder {

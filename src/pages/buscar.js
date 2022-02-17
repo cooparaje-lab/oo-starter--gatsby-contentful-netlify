@@ -63,7 +63,7 @@ const BuscarComponent = () => {
                   showMoreLimit={100}
                   translations={{
                     showMore(expanded) {
-                      return expanded ? "Menos espacios" : "Más espacios"
+                      return expanded ? "Mostrar menos espacios" : "Mostrar más espacios"
                     },
                     noResults: "Sin resultados",
                     submitTitle: "Iniciar búsqueda",

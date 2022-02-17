@@ -107,9 +107,9 @@ const HomeComponent = ({ data, pageContext, location }) => {
                 id="buscador"
               >
                 <InstantSearch searchClient={searchClient} indexName="recursos">
-                  <div className="flex flex-col items-start justify-start p-1 mb-6 md:flex-row">
-                    <div className="items-center justify-between hidden pt-1 font-mono text-2xl font-medium text-white opacity-50 md:flex md:w-72">
-                      <span>Espacios</span>
+                  <div className="flex flex-col items-start justify-start p-1 pt-3 mt-6 mb-3 border-t border-gray-500 md:flex-row">
+                    <div className="items-center justify-between hidden pt-1 font-mono text-2xl font-medium text-white opacity-100 md:flex md:w-72">
+                      <span className="text-sm">Filtrar</span>
                       <div className="">
                         <ClearRefinements
                           translations={{
@@ -124,7 +124,7 @@ const HomeComponent = ({ data, pageContext, location }) => {
                         submitTitle: "Add your search query.",
                         resetTitle: "Reset your search query.",
                         placeholder:
-                          'Probá con "Juegos", "Arte", "Plantas", "Radios" y/o "etc"',
+                          'Buscador...',
                       }}
                     />
                   </div>

@@ -36,7 +36,7 @@ const CardRecursos = ({ card }) => (
       <div className="flex items-baseline justify-between w-full mt-2 mb-1">
         <Link
           to={`/recursos/${card.slug}`}
-          className="block mb-2 font-serif text-3xl font-bold text-left text-yellow-500 capitalize hover:underline hover:text-yellow-300 "
+          className="block mb-2 font-serif text-2xl font-bold text-left text-yellow-500 capitalize hover:underline hover:text-yellow-300 "
         >
           {card.title}
         </Link>

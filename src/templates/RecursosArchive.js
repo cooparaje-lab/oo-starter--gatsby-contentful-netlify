@@ -20,11 +20,11 @@ const RecursosArchive = ({ data, pageContext, location }) => {
           {data.site.buildTime}
         </h3>
       </div>
-      <div className="grid justify-center w-full max-w-6xl grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-1">
+      <div className="grid justify-center w-full max-w-full grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-2">
         {Recurso.map(({ node }) => {
           return (
             <div
-              className="relative w-full px-3 overflow-hidden text-center md:mb-3 "
+              className="relative w-full px-3 overflow-hidden text-center duration-150 transform hover:-translate-y-1 md:mb-3 "
               key={node.slug}
             >
               <Fade cascade>

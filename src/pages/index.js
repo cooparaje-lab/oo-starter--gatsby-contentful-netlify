@@ -146,7 +146,7 @@ const HomeComponent = ({ data, pageContext, location }) => {
                         }}
                       />
                     </div>
-                    <div className="w-full pl-3">
+                    <div className="w-full mt-6 md:mt-0 md:pl-3">
                       <Hits
                         className="w-full mx-auto"
                         hitComponent={PostPreview}

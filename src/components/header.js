@@ -10,11 +10,12 @@ const Header = ({ siteTitle }) => (
   <Headroom disableInlineStyles className="bg-green-500">
     <div className="flex items-center justify-start w-full max-w-full px-3 pt-2 pb-3 mx-auto duration-1000 md:justify-center inner-wrapper">
       <div className="flex items-center font-sans text-xl font-bold isologo ">
-        <Logos className="duration-700 w-9 " />
+        
         <Link
-          className="inline-block ml-3 font-serif text-lg font-bold duration-700 opacity-80 hover:opacity-100"
+          className="inline-flex items-center justify-center ml-3 font-serif text-lg font-bold duration-700 md:text-2xl opacity-80 hover:opacity-100"
           to="/"
         >
+          <Logos className="mr-2 duration-700 transform -rotate-90 w-9 " />
           {siteTitle}
         </Link>
       </div>

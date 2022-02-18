@@ -5,6 +5,8 @@ import Img from "gatsby-image"
 import { kebabCase } from "lodash"
 import React from "react"
 import { GoLinkExternal } from "react-icons/go"
+import { HiTranslate } from "react-icons/hi"
+
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Fade from "react-reveal/Fade"
 import Layout from "../components/layout"
@@ -13,6 +15,7 @@ import { SRLWrapper } from "simple-react-lightbox"
 import Seo from "../components/seo"
 import "./post.css"
 import { Player, BigPlayButton } from "video-react"
+
 const RecursoPostTemplate = ({ data, pageContext, location }) => {
   const post = data.contentfulRecursos
   const { prev, next } = pageContext
@@ -89,16 +92,9 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
               </div>
             )}
             {post.languageEnglish && (
-              <div className="flex flex-col w-full max-w-md pt-2 mx-auto my-6 mt-6 font-mono font-bold text-green-100 uppercase duration-200 bg-gray-900 rounded group hover:bg-green-900 hover:text-green-600">
-                En Inglés
-                <a
-                  href={`https://translate.google.com/translate?sl=auto&tl=es&u=${post.url}`}
-                  target="_blank"
-                  className="py-1 text-green-500 duration-200 border-b-2 border-green-500 group-hover:border-green-100 group-hover:text-green-100"
-                  rel="noopener noreferrer"
-                >
-                  auto-traducir al español
-                </a>
+              <div className="flex items-center justify-center w-full max-w-md py-2 mx-auto my-6 space-x-2 font-mono font-bold text-green-100 uppercase rounded">
+                <HiTranslate className="text-base"/>
+                <span className="text-sm">Inglés</span>
               </div>
             )}
           </div>

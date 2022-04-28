@@ -118,13 +118,16 @@ export const pageQuery = graphql`
           icono
         }
         featuredImg {
-          fixed(width: 360, height: 250) {
-            ...GatsbyContentfulFixed_withWebp_noBase64
-          }
-          fluid(maxWidth: 1500) {
-            # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
+          gatsbyImageData(
+            layout: CONSTRAINED
+            width: 500
+            height: 500
+            quality: 90
+            formats: JPG
+            backgroundColor: "#ffffff"
+            jpegProgressive: false
+            placeholder: BLURRED
+          )
         }
         excerpt {
           excerpt

@@ -36,12 +36,16 @@ export const pageQuery = graphql`
             icono
           }
           featuredImg {
-            fixed(width: 200, height: 200) {
-              ...GatsbyContentfulFixed_withWebp_noBase64
-            }
-            fluid(maxWidth: 500) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
+            gatsbyImageData(
+              layout: CONSTRAINED
+              width: 500
+              height: 500
+              quality: 90
+              formats: JPG
+              backgroundColor: "#ffffff"
+              jpegProgressive: false
+              placeholder: BLURRED
+            )
           }
         }
       }
@@ -73,12 +77,16 @@ export const pageQuery = graphql`
             icono
           }
           featuredImg {
-            fixed(width: 200, height: 200) {
-              ...GatsbyContentfulFixed_withWebp_noBase64
-            }
-            fluid(maxWidth: 500) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
+            gatsbyImageData(
+              layout: CONSTRAINED
+              width: 500
+              height: 500
+              quality: 90
+              formats: JPG
+              backgroundColor: "#ffffff"
+              jpegProgressive: false
+              placeholder: BLURRED
+            )
           }
         }
       }
@@ -140,14 +148,20 @@ const HomeComponent = ({ data, pageContext, location }) => {
                   )
                 })}
               </div>
-              <Link
-                to="/sumar"
-                className="relative z-50 transition-opacity duration-700 rounded-md shadow-sm"
-              >
-                <span className="inline-flex items-center px-4 py-2 mt-6 font-mono text-xl font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
-                  <span className="inline-block">Ver más recursos</span>
-                </span>
-              </Link>
+              <div className="grid max-w-xl grid-cols-2 gap-2 mx-auto mt-6">
+                <Link
+                  to="/espacios"
+                  className=" btn blue"
+                >
+                  <span className="">Ver como espacios</span>
+                </Link>
+                <Link
+                  to="/recursos"
+                  className=" btn yellow"
+                >
+                  <span className="">Ver más recursos</span>
+                </Link>
+              </div>
             </div>
           </div>
           <video

@@ -24,7 +24,7 @@ const Tags = ({ pageContext, data }) => {
         <div className="mt-12 text-center">
           <Link
             to="/etiquetas"
-            className="relative z-10 px-5 py-2 my-3 mr-2 font-mono font-bold bg-white border-b-2 hover:border-indigo-500"
+            className="btn"
           >
             Mostrar todas las etiquetas
           </Link>
@@ -66,13 +66,16 @@ export const pageQuery = graphql`
             icono
           }
           featuredImg {
-            fixed(width: 200, height: 200) {
-              ...GatsbyContentfulFixed_withWebp_noBase64
-            }
-            fluid(maxWidth: 1500) {
-              # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
+            gatsbyImageData(
+              layout: CONSTRAINED
+              width: 600
+              height: 600
+              quality: 90
+              formats: JPG
+              backgroundColor: "#ffffff"
+              jpegProgressive: false
+              placeholder: BLURRED
+            )
           }
         }
       }

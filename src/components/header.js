@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => (
           to="/"
         >
           <Logos className="mr-2 duration-700 transform -rotate-90 w-9 " />
-          {siteTitle}
+          <span className="sr-only">{siteTitle}</span>
         </Link>
       </div>
       <nav className="flex items-center justify-end w-full pl-6 mx-3 border-l border-gray-800">
@@ -32,9 +32,6 @@ const Header = ({ siteTitle }) => (
         <Link partiallyActive={true} activeClassName="active" to="/buscar">
           Buscar
         </Link>
-        <Link partiallyActive={true} activeClassName="active" to="/solicitudes">
-          Solicitudes
-        </Link>
       </nav>
 
       <Link
@@ -43,7 +40,7 @@ const Header = ({ siteTitle }) => (
         to="/sumar"
         className="relative top-0 inline-flex transition-opacity duration-700 transform -translate-x-16 rounded-md shadow-sm right-1 md:-translate-x-0"
       >
-        <span className="inline-flex items-center px-2 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
+        <span className="btn yellow !px-2 !py-2 !text-sm">
           <BiSend className="mr-2 text-xl text-yellow-800 transform -rotate-90" />
           <span className="inline-block">Sumar</span>
         </span>
@@ -58,7 +55,7 @@ const Header = ({ siteTitle }) => (
         to="/sumar"
         className="absolute inline-flex transition-opacity duration-700 transform -translate-x-16 rounded-md shadow-sm opacity-0 top-2 right-4 md:-translate-x-0"
       >
-        <span className="inline-flex items-center px-2 py-1 font-mono text-base font-bold leading-6 text-green-800 transition duration-150 ease-in-out bg-green-500 border border-green-400 rounded-md hover:text-green-700 focus:border-green-300">
+        <span className="btn green !px-2 !py-2 !text-sm">
           <BiSend className="mr-2 text-xl text-green-800 transform rotate-90" />
           <span className="inline-block">Sumar</span>
         </span>

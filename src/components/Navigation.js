@@ -27,11 +27,11 @@ const routes = [
     slug: "/etiquetas/",
     ariaLabel: "Ver todas las etiquetas",
   },
-  {
-    title: "Solicitudes",
-    slug: "/solicitudes/",
-    ariaLabel: "Ver todas las solicitudes",
-  },
+  // {
+  //   title: "Solicitudes",
+  //   slug: "/solicitudes/",
+  //   ariaLabel: "Ver todas las solicitudes",
+  // },
 ]
 
 const Navigation = ({ closeMenu }) => (

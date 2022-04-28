@@ -15,8 +15,8 @@ const BannerSumar = () => (
       to="/sumar"
       className="relative z-50 transition-opacity duration-700 rounded-md shadow-sm"
     >
-      <span className="inline-flex items-center px-2 py-1 font-mono text-base font-bold leading-6 text-yellow-800 transition duration-150 ease-in-out bg-yellow-500 border border-yellow-400 rounded-md hover:text-yellow-700 focus:border-yellow-300">
-        <BiSend className="mr-2 text-xl text-yellow-800 transform -rotate-90" />
+      <span className="!text-white btn green">
+        <BiSend className="mr-2 text-xl transform -rotate-90" />
         <span className="inline-block">Sumar</span>
       </span>
     </Link>

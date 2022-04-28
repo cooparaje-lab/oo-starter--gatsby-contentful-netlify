@@ -71,12 +71,16 @@ export const pageQuery = graphql`
             icono
           }
           featuredImg {
-            fixed(width: 200, height: 200) {
-              ...GatsbyContentfulFixed_withWebp_noBase64
-            }
-            fluid(maxWidth: 500) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
+            gatsbyImageData(
+              layout: CONSTRAINED
+              width: 500
+              height: 500
+              quality: 90
+              formats: JPG
+              backgroundColor: "#ffffff"
+              jpegProgressive: false
+              placeholder: BLURRED
+            )
           }
         }
       }

@@ -30,3 +30,23 @@
     object-position: center;
   }
 }
+
+.btn {
+  @apply print:hidden inline-flex  items-center justify-center px-4 py-2 font-mono text-sm md:text-lg font-bold tracking-wide duration-300 bg-gray-200 border-0 rounded-md  cursor-pointer ring-0 bg-opacity-90 hover:ring-2 hover:bg-opacity-80 focus-visible:ring-2 shadow-lg hover:shadow focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus:ring-2 ring-gray-800;
+}
+
+.btn.red {
+  @apply bg-red-400 text-red-900 shadow-red-500/50 outline-none ring-red-600 print:text-gray-900 print:bg-gray-200 dark:bg-red-300 dark:ring-red-200;
+}
+
+.btn.blue {
+ @apply bg-indigo-400 text-indigo-900 shadow-indigo-500/50 outline-none ring-indigo-600 print:text-gray-900 print:bg-gray-200 dark:bg-indigo-300 dark:ring-indigo-200;
+}
+
+.btn.yellow {
+ @apply bg-amber-400 text-amber-900 shadow-amber-500/50 outline-none ring-amber-600 print:text-gray-900 print:bg-gray-200 dark:bg-amber-300 dark:ring-amber-200; 
+}
+
+.btn.green {
+ @apply bg-emerald-400 text-emerald-700 shadow-emerald-500/50 outline-none ring-emerald-600 print:text-gray-900 print:bg-gray-200 dark:bg-emerald-400 dark:ring-emerald-200;
+} 

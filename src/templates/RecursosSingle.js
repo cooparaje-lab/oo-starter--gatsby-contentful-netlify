@@ -1,7 +1,8 @@
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { kebabCase } from "lodash"
 import React from "react"
 import { GoLinkExternal } from "react-icons/go"
@@ -36,11 +37,11 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                   {post.espacio.map((item, i) => (
                     <Link
                       to={`/espacios/${kebabCase(item.slug)}/`}
-                      className="flex items-center px-4 py-1 my-2 mr-2 hover:underline"
+                      className="flex items-center px-4 py-1 my-2 mr-2 no-underline group"
                       key={i}
                     >
                       <span className="mr-1 text-2xl">{item.icono}</span>
-                      <b className="font-mono text-base text-gray-100 ">
+                      <b className="font-mono text-base text-gray-100 duration-300 group-hover:text-amber-400">
                         {item.title}
                       </b>
                     </Link>
@@ -62,14 +63,14 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
                 {post.article && (
                   <AnchorLink
                     href={`#${kebabCase(post.slug)}`}
-                    className="flex items-center justify-center px-3 py-1 font-mono text-lg font-bold text-white transition-all duration-200 bg-yellow-500 hover:bg-yellow-600"
+                    className="btn yellow"
                     aria-label="Ver mas informacion en detalle"
                   >
                     <span>Más detalles</span>
                   </AnchorLink>
                 )}
                 <a
-                  className="flex items-center justify-center px-3 py-1 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 rounded hover:bg-green-600"
+                  className="btn green"
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -81,7 +82,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             ) : (
               <div className="grid grid-cols-1 gap-3">
                 <a
-                  className="flex items-center justify-center px-3 py-1 font-mono text-lg font-bold text-white transition-all duration-200 bg-green-500 rounded hover:bg-green-600"
+                  className="btn green"
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -93,18 +94,18 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             )}
             {post.languageEnglish && (
               <div className="flex items-center justify-center w-full max-w-md py-2 mx-auto my-6 space-x-2 font-mono font-bold text-green-100 uppercase rounded">
-                <HiTranslate className="text-base"/>
+                <HiTranslate className="text-base" />
                 <span className="text-sm">Inglés</span>
               </div>
             )}
           </div>
 
           <div className="absolute top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left opacity-10">
-            <Img
+            <GatsbyImage
               title={post.title}
+              className="object-cover w-full h-full pb-0 mb-0 cardImage"
               alt={post.title}
-              className="w-full h-screen"
-              fluid={post.featuredImg.fluid}
+              image={post.featuredImg.gatsbyImageData}
             />
           </div>
         </div>
@@ -214,15 +215,18 @@ export const pageQuery = graphql`
         icono
       }
       featuredImg {
-        fixed(width: 1900, height: 1200) {
-          ...GatsbyContentfulFixed_withWebp_noBase64
-        }
+        gatsbyImageData(
+          layout: CONSTRAINED
+          width: 1500
+          height: 900
+          quality: 90
+          formats: JPG
+          backgroundColor: "#ffffff"
+          jpegProgressive: false
+          placeholder: BLURRED
+        )
         file {
           url
-        }
-        fluid(maxWidth: 2000) {
-          # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }

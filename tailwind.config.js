@@ -4,7 +4,6 @@ module.exports = {
     './src/**/*.jsx',
     './src/**/*.css',
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
       sans: ["Josefin Sans", "serif"],

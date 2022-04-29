@@ -100,10 +100,10 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             )}
           </div>
 
-          <div className="absolute top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left opacity-10">
+          <div className="fixed top-0 left-0 right-0 z-0 w-full m-auto mt-0 mb-12 overflow-hidden text-left opacity-5">
             <GatsbyImage
               title={post.title}
-              className="object-cover w-full h-full pb-0 mb-0 cardImage"
+              className="object-cover w-full min-h-screen pb-0 mb-0 md:h-full cardImage"
               alt={post.title}
               image={post.featuredImg.gatsbyImageData}
             />
@@ -216,7 +216,7 @@ export const pageQuery = graphql`
       }
       featuredImg {
         gatsbyImageData(
-          layout: CONSTRAINED
+          layout: FULL_WIDTH
           width: 1500
           height: 900
           quality: 90

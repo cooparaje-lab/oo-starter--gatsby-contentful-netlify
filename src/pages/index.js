@@ -51,8 +51,9 @@ export const pageQuery = graphql`
       }
     }
     lastUpdated: allContentfulRecursos(
-      sort: { fields: updatedAt, order: DESC }
-      limit: 6
+      sort: { fields: createdAt, order: DESC }
+      skip: 1, 
+      limit: 12
     ) {
       edges {
         node {
@@ -104,7 +105,7 @@ const HomeComponent = ({ data, pageContext, location }) => {
     <>
       <Layout>
         <Seo title="Inicio" />
-        <div className="relative flex flex-col items-center justify-center pt-3 text-center bg-gradient-to-r from-gray-900 to-gray-800">
+        <div className="relative flex flex-col items-center justify-center text-center bg-gradient-to-r from-gray-900 to-gray-800">
           <div className="relative z-50 flex flex-col w-full">
             <div className="flex flex-col items-center justify-center px-3 pt-20 pb-12 bg-gradient-to-b from-indigo-800 to-transparent ">
               <p className="pb-3 font-mono font-bold text-white opacity-80">
@@ -139,7 +140,7 @@ const HomeComponent = ({ data, pageContext, location }) => {
               <p className="pb-3 mt-12 font-mono font-bold text-white opacity-80">
                 Última actualización: {data.site.buildTime}
               </p>
-              <div className="grid w-full max-w-full gap-2 mx-auto md:grid-cols-2">
+              <div className="grid w-full max-w-full gap-2 px-3 mx-auto md:px-0 md:grid-cols-2">
                 {LastUpdated.map(({ node }) => {
                   return (
                     <Fade cascade>

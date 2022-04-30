@@ -20,7 +20,7 @@ const RecursosArchive = ({ data, pageContext, location }) => {
           {data.site.buildTime}
         </h3>
       </div>
-      <div className="grid justify-center w-full max-w-full grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 md:grid-cols-2">
+      <div className="grid justify-center w-full max-w-full grid-cols-1 gap-2 p-2 m-auto overflow-hidden md:p-6 sm:grid-cols-2">
         {Recurso.map(({ node }) => {
           return (
             <div

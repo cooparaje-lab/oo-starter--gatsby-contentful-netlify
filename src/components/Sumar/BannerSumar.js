@@ -15,7 +15,7 @@ const BannerSumar = () => (
       to="/sumar"
       className="relative z-50 transition-opacity duration-700 rounded-md shadow-sm"
     >
-      <span className="!text-white btn green">
+      <span className="!text-white btn yellow">
         <BiSend className="mr-2 text-xl transform -rotate-90" />
         <span className="inline-block">Sumar</span>
       </span>

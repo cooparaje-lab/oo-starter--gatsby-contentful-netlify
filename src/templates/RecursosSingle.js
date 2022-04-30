@@ -109,7 +109,22 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             />
           </div>
         </div>
+
         <SRLWrapper options={options}>
+          {post.tags && (
+            <div className="relative z-50 flex items-center justify-center w-full -top-24">
+              {post.tags.map((tag, i) => [
+                <Link
+                  to={`/etiquetas/${kebabCase(tag)}/`}
+                  key={i}
+                  className="inline-block px-3 py-1 mx-1 my-2 font-mono text-xs font-bold text-white uppercase bg-gray-700 rounded hover:text-yellow-500"
+                >
+                  #{tag}
+                  {i < post.tags.length - 1 ? "" : ""}
+                </Link>,
+              ])}
+            </div>
+          )}
           {post.article ? (
             <div
               id={post.slug}
@@ -134,20 +149,7 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
               </Link>
             )}
           </div>
-          {post.tags && (
-            <div className="relative flex items-center justify-center w-full px-3 space-x-2 duration-200 bg-gray-900 bg-opacity-60 hover:bg-opacity-90">
-              {post.tags.map((tag, i) => [
-                <Link
-                  to={`/etiquetas/${kebabCase(tag)}/`}
-                  key={i}
-                  className="inline-block px-3 py-1 my-2 font-mono text-xs font-bold text-white uppercase bg-gray-700 rounded hover:text-yellow-500"
-                >
-                  #{tag}
-                  {i < post.tags.length - 1 ? "" : ""}
-                </Link>,
-              ])}
-            </div>
-          )}
+
           <div
             className="flex items-end justify-end flex-1 w-full"
             style={{ justifySelf: "flex-end" }}

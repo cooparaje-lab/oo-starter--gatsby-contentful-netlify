@@ -7,8 +7,8 @@ import { BiLink } from "react-icons/bi"
 import ReactTooltip from "react-tooltip"
 
 const CardRecursos = ({ card }) => (
-  <div className="relative flex flex-col w-full mb-2 overflow-hidden duration-1000 bg-gray-800 border-2 border-transparent rounded-lg shadow-2xl hover:shadow-md from-gray-800 via-gray-800 bg-gradient-to-br group lg:h-64 lg:flex-row hover:shadow-amber-400/50 hover:border-amber-400">
-    <div className="relative inset-0 z-0 block w-full h-32 lg:opacity-90 lg:relative lg:h-64">
+  <div className="relative flex flex-col w-full mb-2 overflow-hidden duration-500 bg-gray-800 border-2 border-transparent rounded-lg shadow-sm hover:shadow-lg from-gray-800 via-gray-800 bg-gradient-to-br group lg:h-64 lg:flex-row hover:shadow-amber-400/50 hover:border-amber-400">
+    <div className="relative inset-0 z-0 block w-full overflow-hidden rounded-t-md lg:rounded-l-md lg:rounded-r-none h-44 lg:opacity-90 lg:h-64">
       <Link to={`/recursos/${card.slug}`}>
         <GatsbyImage
           title={card.title}
@@ -18,7 +18,7 @@ const CardRecursos = ({ card }) => (
         />
       </Link>
       <a
-        className="absolute bottom-0 right-0 top-auto z-20 flex items-center justify-center p-2 m-2 font-mono text-2xl font-bold text-white transition-all duration-200 bg-gray-700 rounded lg:right-auto lg:left-0 lg:bottom-auto lg:top-0 hover:bg-emerald-500"
+        className="absolute bottom-0 right-0 top-auto z-20 flex items-center justify-center p-2 m-2 font-mono text-2xl font-bold text-white transition-all duration-200 rounded bg-emerald-500/80 lg:right-auto lg:left-0 lg:bottom-auto lg:top-0 hover:bg-gray-900"
         href={card.url}
         target="_blank"
         data-tip="Link directo"
@@ -28,12 +28,12 @@ const CardRecursos = ({ card }) => (
       </a>
       {card.tags && (
         <div className="absolute bottom-0 left-0 right-0 w-full mt-0 duration-200 opacity-0 group-hover:opacity-100 lg:mt-0">
-          <div className="relative flex items-center justify-center w-full px-3 duration-200 bg-gray-900 bg-opacity-75 hover:bg-opacity-100">
+          <div className="relative flex items-center justify-start w-full px-3 duration-200 bg-gray-900 bg-opacity-75 lg:justify-center hover:bg-opacity-100">
             {card.tags.map((tag, i) => [
               <Link
                 to={`/etiquetas/${kebabCase(tag)}/`}
                 key={i}
-                className="inline-block px-3 py-1 my-2 font-mono text-xs font-bold text-white uppercase hover:text-yellow-500"
+                className="inline-block px-1 py-1 my-1 font-mono text-xs font-bold text-white uppercase lg:mb-2 hover:text-yellow-500"
               >
                 #{tag}
                 {i < card.tags.length - 1 ? "" : ""}

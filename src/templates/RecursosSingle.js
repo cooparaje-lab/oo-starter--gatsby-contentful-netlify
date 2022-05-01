@@ -30,18 +30,18 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
 
       <div className="max-w-full m-auto ">
         <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-gray-900 bg-gradient-to-b from-gray-900 via-gray-800">
-          <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl p-5 pt-0 m-auto text-center">
+          <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl p-5 pt-0 mx-auto text-center">
             <div>
               {post.espacio ? (
-                <div className="flex justify-center text-lg text-left">
+                <div className="flex flex-row justify-center text-lg text-left">
                   {post.espacio.map((item, i) => (
                     <Link
                       to={`/espacios/${kebabCase(item.slug)}/`}
-                      className="flex items-center px-4 py-1 my-2 mr-2 no-underline group"
+                      className="flex items-center px-4 py-1 my-2 no-underline lg:mr-2 group"
                       key={i}
                     >
-                      <span className="mr-1 text-2xl">{item.icono}</span>
-                      <b className="font-mono text-base text-gray-100 duration-300 group-hover:text-amber-400">
+                      <span className="mr-0 text-2xl lg:mr-1">{item.icono}</span>
+                      <b className="hidden font-mono text-base text-gray-100 duration-300 md:flex group-hover:text-amber-400">
                         {item.title}
                       </b>
                     </Link>
@@ -54,23 +54,23 @@ const RecursoPostTemplate = ({ data, pageContext, location }) => {
             <h1 className="pt-0 m-0 mt-2 mb-3 font-serif text-4xl font-bold text-center text-white">
               {post.title}
             </h1>
-            <p className="max-w-xl mx-auto mt-3 mb-6 font-sans text-3xl text-center text-white ">
+            <p className="max-w-xl mx-auto mt-3 mb-6 font-sans text-xl text-center text-white md:text-3xl ">
               {post.excerpt.excerpt}
             </p>
 
             {post.article ? (
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 ">
+              <div className="grid grid-cols-2 gap-3 ">
                 {post.article && (
                   <AnchorLink
                     href={`#${kebabCase(post.slug)}`}
-                    className="btn yellow"
+                    className="!text-xs !md:text-lg btn yellow"
                     aria-label="Ver mas informacion en detalle"
                   >
                     <span>Más detalles</span>
                   </AnchorLink>
                 )}
                 <a
-                  className="btn green"
+                  className="!text-xs !md:text-lg btn green"
                   href={post.url}
                   target="_blank"
                   rel="noopener noreferrer"

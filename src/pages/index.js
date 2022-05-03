@@ -111,7 +111,7 @@ const HomeComponent = ({ data, pageContext, location }) => {
               <p className="pb-3 font-mono font-bold text-white opacity-80">
                 último recurso agregado
               </p>
-              <div className="w-full max-w-3xl mx-auto">
+              <div className="w-full max-w-md mx-auto lg:max-w-3xl">
                 {Recurso.map(({ node }) => {
                   return (
                     <Fade cascade>

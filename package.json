@@ -30,7 +30,7 @@
     "gatsby-plugin-transitions": "^2.1.7",
     "gatsby-source-contentful": "^7.11.0",
     "gatsby-source-filesystem": "^4.13.0",
-    "gatsby-transformer-remark": "^5.13.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.13.0",
     "lottie-web": "^5.7.8",
     "postcss": "^8.4.6",
